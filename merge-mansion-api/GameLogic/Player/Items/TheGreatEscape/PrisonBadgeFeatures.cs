@@ -7,7 +7,7 @@ using Merge;
 namespace GameLogic.Player.Items.TheGreatEscape
 {
     [MetaSerializable]
-    public class PrisonBadgeFeatures
+    public class PrisonBadgeFeatures : IPrisonBadgeFeatures
     {
         public static PrisonBadgeFeatures NoBadgeFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

@@ -13,19 +13,19 @@ namespace Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [Description("Currency Bank Id from config")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("bank_id")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("Currency Bank Id from config")]
         public CurrencyBankId CurrencyBankId { get; set; }
 
-        [Description("Threshold value for this stash")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("state")]
+        [Description("Threshold value for this stash")]
         public CurrencyBankState CurrencyBankState { get; set; }
 
         [Description("Unique id for this players activation")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("activation_id")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public string ActivationId { get; set; }
         public override string EventDescription { get; }
 

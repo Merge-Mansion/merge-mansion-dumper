@@ -167,5 +167,8 @@ namespace GameLogic.Config
 
         [MetaMember(69, (MetaMemberFlags)0)]
         public bool ShowRewardsInTaskList { get; set; }
+
+        [MetaMember(70, (MetaMemberFlags)0)]
+        public int PocketItemsCap { get; set; }
     }
 }

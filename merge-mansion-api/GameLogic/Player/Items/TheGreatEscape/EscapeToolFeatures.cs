@@ -5,7 +5,7 @@ using Code.GameLogic.GameEvents;
 namespace GameLogic.Player.Items.TheGreatEscape
 {
     [MetaSerializable]
-    public class EscapeToolFeatures
+    public class EscapeToolFeatures : IEscapeToolFeatures
     {
         public static EscapeToolFeatures NoEscapeToolFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

@@ -12,9 +12,9 @@ namespace Metaplay.Core.Config
         [MetaFormDisplayProps("Google Spreadsheet Name", DisplayHint = "Name of the Google Spreadsheet to use as a data source.", DisplayPlaceholder = "Enter Google Spreadsheet Name")]
         public string Name { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
-        [MetaFormDisplayProps("Google Spreadsheet ID", DisplayHint = "ID of the Google Spreadsheet to use as a data source.", DisplayPlaceholder = "Enter Google Spreadsheet ID")]
         [MetaFormFieldCustomValidator(typeof(GoogleSheetsIdValidator))]
+        [MetaFormDisplayProps("Google Spreadsheet ID", DisplayHint = "ID of the Google Spreadsheet to use as a data source.", DisplayPlaceholder = "Enter Google Spreadsheet ID")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public string SpreadsheetId { get; set; }
         public override string DisplayName { get; }
 

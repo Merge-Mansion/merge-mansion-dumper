@@ -119,19 +119,19 @@ namespace GameLogic.Player.Items
         public ICollectableFeatures CollectableFeatures => _CollectableFeatures;
 
         [IgnoreDataMember]
-        public BoosterFeatures BoosterFeatures => _BoosterFeatures;
+        public IBoosterFeatures BoosterFeatures => _BoosterFeatures;
 
         [IgnoreDataMember]
         public IBubbleFeatures BubbleFeatures => _BubbleFeatures;
 
         [IgnoreDataMember]
-        public SinkFeatures SinkFeatures => _SinkFeatures;
+        public ISinkFeatures SinkFeatures => _SinkFeatures;
 
         [IgnoreDataMember]
         public IConsumableFeatures ConsumableFeatures => _ConsumableFeatures;
 
         [IgnoreDataMember]
-        public PortalFeatures PortalFeatures => _PortalFeatures;
+        public IPortalFeatures PortalFeatures => _PortalFeatures;
 
         [IgnoreDataMember]
         public IChargesFeatures ChargesFeatures => _ChargesFeatures;
@@ -170,7 +170,7 @@ namespace GameLogic.Player.Items
         public List<PlayerReward> Rewards { get; set; }
 
         [IgnoreDataMember]
-        public LeaderboardFeatures LeaderboardFeatures => _LeaderboardFeatures;
+        public ILeaderboardFeatures LeaderboardFeatures => _LeaderboardFeatures;
 
         [IgnoreDataMember]
         public MergeChainDefinition MergeChain => MergeChainRef.Ref;
@@ -228,7 +228,7 @@ namespace GameLogic.Player.Items
         [MetaMember(41, (MetaMemberFlags)0)]
         private FramesFeatures _FramesFeatures;
         [IgnoreDataMember]
-        public FishingRodFeatures FishingRodFeatures { get; }
+        public IFishingRodFeatures FishingRodFeatures { get; }
 
         [IgnoreDataMember]
         public WeightFeatures WeightFeatures { get; }
@@ -237,10 +237,10 @@ namespace GameLogic.Player.Items
         public CameraFeatures CameraFeatures { get; }
 
         [IgnoreDataMember]
-        public SinkableFeatures SinkableFeatures { get; }
+        public ISinkableFeatures SinkableFeatures { get; }
 
         [IgnoreDataMember]
-        public FramesFeatures FramesFeatures { get; }
+        public IFramesFeatures FramesFeatures { get; }
 
         public ItemDefinition(int configKey, string itemType, string poolTag, string skinName, int levelNumber, bool movable, F64 costInDiamonds, F64 anchorPriceGems, F64 anchorPriceCoins, F64 timeSkipPriceGems, F64 unlockOnBoardPriceGems, int experienceValue, MergeFeatures mergeFeatures, ActivationFeatures activationFeatures, SpawnFeatures spawnFeatures, DecayFeatures decayFeatures, ChestFeatures chestFeatures, CollectableFeatures collectableFeatures, BoosterFeatures boosterFeatures, BubbleFeatures bubbleFeatures, SinkFeatures sinkFeatures, ConsumableFeatures consumableFeatures, PortalFeatures portalFeatures, ChargesFeatures chargesFeatures, TimeContainerFeatures timeContainer, LeaderboardFeatures leaderboardFeatures, FishingRodFeatures fishingRodFeatures, WeightFeatures weightFeatures, CameraFeatures cameraFeatures, SinkableFeatures sinkableFeatures, FramesFeatures framesFeatures, List<string> tags, List<string> confirmableMergeResults, List<IDirectorAction> onDiscoveredActions, bool showTutorialFingerOnDiscovery, List<string> analyticsMetadata, List<int> combineInfoWithItem, ItemRarity rarity, bool unsellable, IEnumerable<PlayerReward> rewards)
         {
@@ -276,10 +276,10 @@ namespace GameLogic.Player.Items
         public bool ShowCustomItemInfoPopupOnDiscovery { get; set; }
 
         [IgnoreDataMember]
-        public OverrideSpawnChanceFeatures OverrideSpawnChanceFeatures { get; }
+        public IOverrideSpawnChanceFeatures OverrideSpawnChanceFeatures { get; }
 
         [IgnoreDataMember]
-        public AudioFeatures AudioFeatures { get; }
+        public IAudioFeatures AudioFeatures { get; }
 
         public ItemDefinition(int configKey, string itemType, string poolTag, string skinName, int levelNumber, bool movable, F64 costInDiamonds, F64 anchorPriceGems, F64 anchorPriceCoins, F64 timeSkipPriceGems, F64 unlockOnBoardPriceGems, int experienceValue, MergeFeatures mergeFeatures, ActivationFeatures activationFeatures, SpawnFeatures spawnFeatures, DecayFeatures decayFeatures, ChestFeatures chestFeatures, CollectableFeatures collectableFeatures, BoosterFeatures boosterFeatures, BubbleFeatures bubbleFeatures, SinkFeatures sinkFeatures, ConsumableFeatures consumableFeatures, PortalFeatures portalFeatures, ChargesFeatures chargesFeatures, TimeContainerFeatures timeContainer, LeaderboardFeatures leaderboardFeatures, FishingRodFeatures fishingRodFeatures, WeightFeatures weightFeatures, CameraFeatures cameraFeatures, SinkableFeatures sinkableFeatures, FramesFeatures framesFeatures, PersistentFeatures persistentFeatures, OverrideSpawnChanceFeatures overrideSpawnChanceFeatures, AudioFeatures audioFeatures, List<string> tags, List<string> confirmableMergeResults, List<IDirectorAction> onDiscoveredActions, bool showTutorialFingerOnDiscovery, List<string> analyticsMetadata, List<int> combineInfoWithItem, ItemRarity rarity, bool unsellable, IEnumerable<PlayerReward> rewards, IEnumerable<PlayerRequirement> unlockRequirements, List<string> spawnEffects, ConfigPrefabId customItemInfoPopupId, bool showCustomItemInfoPopupOnDiscovery)
         {
@@ -329,7 +329,7 @@ namespace GameLogic.Player.Items
         public IGemWeightFeatures GemWeightFeatures { get; }
 
         [IgnoreDataMember]
-        public RockChunkFeatures RockChunkFeatures { get; }
+        public IRockChunkFeatures RockChunkFeatures { get; }
 
         public ItemDefinition(int configKey, string itemType, string poolTag, string skinName, int levelNumber, bool movable, F64 costInDiamonds, F64 anchorPriceGems, F64 anchorPriceCoins, F64 timeSkipPriceGems, F64 unlockOnBoardPriceGems, int experienceValue, MergeFeatures mergeFeatures, ActivationFeatures activationFeatures, SpawnFeatures spawnFeatures, DecayFeatures decayFeatures, ChestFeatures chestFeatures, CollectableFeatures collectableFeatures, BoosterFeatures boosterFeatures, BubbleFeatures bubbleFeatures, SinkFeatures sinkFeatures, ConsumableFeatures consumableFeatures, PortalFeatures portalFeatures, ChargesFeatures chargesFeatures, TimeContainerFeatures timeContainer, LeaderboardFeatures leaderboardFeatures, FishingRodFeatures fishingRodFeatures, WeightFeatures weightFeatures, CameraFeatures cameraFeatures, SinkableFeatures sinkableFeatures, FramesFeatures framesFeatures, PersistentFeatures persistentFeatures, OverrideSpawnChanceFeatures overrideSpawnChanceFeatures, GemWeightFeatures gemWeightFeatures, RockChunkFeatures rockChunkFeatures, AudioFeatures audioFeatures, OrderFeatures orderFeatures, List<string> tags, List<string> confirmableMergeResults, List<IDirectorAction> onDiscoveredActions, bool showTutorialFingerOnDiscovery, List<string> analyticsMetadata, List<int> combineInfoWithItem, ItemRarity rarity, bool unsellable, IEnumerable<PlayerReward> rewards, IEnumerable<PlayerRequirement> unlockRequirements, List<string> spawnEffects, ConfigPrefabId customItemInfoPopupId, bool showCustomItemInfoPopupOnDiscovery, string overrideLocalizationItemKey, MiniEventFeatures miniEventFeatures, string fullOverrideLocalizationItemKey, string sinkTag, int sinkPoints, List<string> overrideProductionSource)
         {
@@ -353,19 +353,19 @@ namespace GameLogic.Player.Items
         [MetaMember(63, (MetaMemberFlags)0)]
         private PrisonLetterFeatures _PrisonLetterFeatures;
         [IgnoreDataMember]
-        public PrisonBadgeFeatures PrisonBadgeFeatures { get; }
+        public IPrisonBadgeFeatures PrisonBadgeFeatures { get; }
 
         [IgnoreDataMember]
-        public EscapeToolFeatures EscapeToolFeatures { get; }
+        public IEscapeToolFeatures EscapeToolFeatures { get; }
 
         [IgnoreDataMember]
-        public MinigameActivationFeatures MinigameActivationFeatures { get; }
+        public IMinigameActivationFeatures MinigameActivationFeatures { get; }
 
         [IgnoreDataMember]
-        public PostBoxFeatures PostBoxFeatures { get; }
+        public IPostBoxFeatures PostBoxFeatures { get; }
 
         [IgnoreDataMember]
-        public PrisonLetterFeatures PrisonLetterFeatures { get; }
+        public IPrisonLetterFeatures PrisonLetterFeatures { get; }
 
         public ItemDefinition(int configKey, string itemType, string poolTag, string skinName, int levelNumber, bool movable, F64 costInDiamonds, F64 anchorPriceGems, F64 anchorPriceCoins, F64 timeSkipPriceGems, F64 unlockOnBoardPriceGems, int experienceValue, MergeFeatures mergeFeatures, ActivationFeatures activationFeatures, SpawnFeatures spawnFeatures, DecayFeatures decayFeatures, ChestFeatures chestFeatures, CollectableFeatures collectableFeatures, BoosterFeatures boosterFeatures, BubbleFeatures bubbleFeatures, SinkFeatures sinkFeatures, ConsumableFeatures consumableFeatures, PortalFeatures portalFeatures, ChargesFeatures chargesFeatures, TimeContainerFeatures timeContainer, LeaderboardFeatures leaderboardFeatures, FishingRodFeatures fishingRodFeatures, WeightFeatures weightFeatures, CameraFeatures cameraFeatures, SinkableFeatures sinkableFeatures, FramesFeatures framesFeatures, PersistentFeatures persistentFeatures, OverrideSpawnChanceFeatures overrideSpawnChanceFeatures, GemWeightFeatures gemWeightFeatures, RockChunkFeatures rockChunkFeatures, AudioFeatures audioFeatures, OrderFeatures orderFeatures, List<string> tags, List<string> confirmableMergeResults, List<IDirectorAction> onDiscoveredActions, bool showTutorialFingerOnDiscovery, List<string> analyticsMetadata, List<int> combineInfoWithItem, ItemRarity rarity, bool unsellable, IEnumerable<PlayerReward> rewards, IEnumerable<PlayerRequirement> unlockRequirements, List<string> spawnEffects, ConfigPrefabId customItemInfoPopupId, bool showCustomItemInfoPopupOnDiscovery, string overrideLocalizationItemKey, MiniEventFeatures miniEventFeatures, string fullOverrideLocalizationItemKey, string overrideLocalizationItemCategory, string sinkTag, int sinkPoints, List<string> overrideProductionSource, PrisonBadgeFeatures prisonBadgeFeatures, EscapeToolFeatures escapeToolFeatures, MinigameActivationFeatures minigameActivationFeatures, PostBoxFeatures postBoxFeatures, PrisonLetterFeatures prisonLetterFeatures)
         {
@@ -375,7 +375,7 @@ namespace GameLogic.Player.Items
         public ItemEffectFeatures _ItemEffectFeatures { get; set; }
 
         [IgnoreDataMember]
-        public ItemEffectFeatures ItemEffectFeatures { get; }
+        public IItemEffectFeatures ItemEffectFeatures { get; }
 
         public ItemDefinition(int configKey, string itemType, string poolTag, string skinName, int levelNumber, bool movable, F64 costInDiamonds, F64 anchorPriceGems, F64 anchorPriceCoins, F64 timeSkipPriceGems, F64 unlockOnBoardPriceGems, int experienceValue, MergeFeatures mergeFeatures, ActivationFeatures activationFeatures, SpawnFeatures spawnFeatures, DecayFeatures decayFeatures, ChestFeatures chestFeatures, CollectableFeatures collectableFeatures, BoosterFeatures boosterFeatures, BubbleFeatures bubbleFeatures, SinkFeatures sinkFeatures, ConsumableFeatures consumableFeatures, PortalFeatures portalFeatures, ChargesFeatures chargesFeatures, TimeContainerFeatures timeContainer, LeaderboardFeatures leaderboardFeatures, FishingRodFeatures fishingRodFeatures, WeightFeatures weightFeatures, CameraFeatures cameraFeatures, SinkableFeatures sinkableFeatures, FramesFeatures framesFeatures, PersistentFeatures persistentFeatures, OverrideSpawnChanceFeatures overrideSpawnChanceFeatures, GemWeightFeatures gemWeightFeatures, RockChunkFeatures rockChunkFeatures, AudioFeatures audioFeatures, OrderFeatures orderFeatures, List<string> tags, List<string> confirmableMergeResults, List<IDirectorAction> onDiscoveredActions, bool showTutorialFingerOnDiscovery, List<string> analyticsMetadata, List<int> combineInfoWithItem, ItemRarity rarity, bool unsellable, IEnumerable<PlayerReward> rewards, IEnumerable<PlayerRequirement> unlockRequirements, List<string> spawnEffects, ConfigPrefabId customItemInfoPopupId, bool showCustomItemInfoPopupOnDiscovery, string overrideLocalizationItemKey, MiniEventFeatures miniEventFeatures, string fullOverrideLocalizationItemKey, string overrideLocalizationItemCategory, string sinkTag, int sinkPoints, List<string> overrideProductionSource, PrisonBadgeFeatures prisonBadgeFeatures, EscapeToolFeatures escapeToolFeatures, MinigameActivationFeatures minigameActivationFeatures, PostBoxFeatures postBoxFeatures, PrisonLetterFeatures prisonLetterFeatures, ItemEffectFeatures itemEffectFeatures)
         {

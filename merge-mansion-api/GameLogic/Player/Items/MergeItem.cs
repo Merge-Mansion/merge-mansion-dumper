@@ -27,16 +27,16 @@ using GameLogic.Player.Items.GemMining;
 
 namespace GameLogic.Player.Items
 {
-    [MetaSerializableDerived(2)]
     [MetaBlockedMembers(new int[] { 2 })]
+    [MetaSerializableDerived(2)]
     public class MergeItem : IBoardItem
     {
         private static readonly MetaTime guaranteedFuture; // 0x0
         [IgnoreDataMember]
         private MergeItem.MergeItemExtra Extra => extra ??= new MergeItemExtra();
 
-        [MetaOnMemberDeserializationFailure("GarageCleanupSpawnerFix")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("GarageCleanupSpawnerFix")]
         public MetaRef<ItemDefinition> DefinitionRef { get; set; }
 
         [IgnoreDataMember]
@@ -404,7 +404,7 @@ namespace GameLogic.Player.Items
         public bool IsEscapeTool { get; }
 
         [IgnoreDataMember]
-        public ItemEffectFeatures ItemActivationEffects { get; }
+        public IItemEffectFeatures ItemActivationEffects { get; }
 
         [IgnoreDataMember]
         public bool HasActivationVfx { get; }

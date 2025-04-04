@@ -16,19 +16,19 @@ namespace Analytics
         [Description("ID of the incident")]
         public string IncidentId { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Type of the incident (crash, recoverable, etc.)")]
         [JsonProperty("type")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public string Type { get; set; }
 
         [Description("If present, more detailed type of the incident")]
-        [JsonProperty("subType")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [JsonProperty("subType")]
         public string SubType { get; set; }
 
-        [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("reason")]
         [Description("String describing the incident in more details (stacktrace, etc.)")]
+        [MetaMember(4, (MetaMemberFlags)0)]
         public string Reason { get; set; }
         public override string EventDescription { get; }
 

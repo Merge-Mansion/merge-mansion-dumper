@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using GameLogic.CardCollection;
 using GameLogic.Random.ControlledRandom;
 using System.Runtime.Serialization;
+using Metaplay.Core;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaSerializableDerived(18)]
     [MetaBlockedMembers(new int[] { 11 })]
+    [MetaSerializableDerived(18)]
     public class TemporaryCardCollectionEventModel : MetaActivableState<TemporaryCardCollectionEventId, TemporaryCardCollectionEventInfo>
     {
         private static byte InitialBoolFields;

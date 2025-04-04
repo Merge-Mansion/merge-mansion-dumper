@@ -3,8 +3,8 @@ using System;
 
 namespace Metaplay.Core.Player
 {
-    [ModelActionExecuteFlags((ModelActionExecuteFlags)1)]
     [MetaImplicitMembersRange(100, 110)]
+    [ModelActionExecuteFlags((ModelActionExecuteFlags)1)]
     [MetaSerializable]
     public abstract class PlayerActionBase : ModelAction<IPlayerModelBase>
     {

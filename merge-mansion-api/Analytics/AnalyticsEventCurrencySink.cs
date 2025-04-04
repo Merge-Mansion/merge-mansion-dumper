@@ -15,49 +15,49 @@ namespace Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [Description("Type of currency sink")]
         [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("sink_type")]
+        [Description("Type of currency sink")]
         public CurrencySink CurrencySinkTag { get; set; }
 
+        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("cost")]
         [Description("Cost of the purchase/sink in game resources")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         public GameResourceCost GameResourceCost { get; set; }
 
-        [Description("New balance of currency received via game mechanics")]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("New balance of currency received via game mechanics")]
         [JsonProperty("new_saldo")]
         public long NewFreeCurrencySaldo { get; set; }
 
-        [MetaMember(5, (MetaMemberFlags)0)]
         [JsonProperty("new_saldo_hard")]
+        [MetaMember(5, (MetaMemberFlags)0)]
         [Description("New balance of currency received via real money purchases")]
         public long NewHardCurrencySaldo { get; set; }
 
         [MetaMember(6, (MetaMemberFlags)0)]
-        [Description("Cost of purchase in soft currency (coins)")]
         [JsonProperty("cost_soft")]
+        [Description("Cost of purchase in soft currency (coins)")]
         public long CostSoft { get; set; }
 
+        [Description("Cost of purchase in hard currency (gems)")]
         [JsonProperty("cost_hard")]
         [MetaMember(7, (MetaMemberFlags)0)]
-        [Description("Cost of purchase in hard currency (gems)")]
         public long CostHard { get; set; }
 
-        [JsonProperty("context")]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [JsonProperty("context")]
         [Description("String describing the context of the purchase")]
         public string Context { get; set; }
 
+        [MetaMember(9, (MetaMemberFlags)0)]
         [Description("Target (item type, hotspot id, etc.)")]
         [JsonProperty("item_name")]
-        [MetaMember(9, (MetaMemberFlags)0)]
         public string ItemName { get; set; }
 
-        [JsonProperty("slot_id", NullValueHandling = (NullValueHandling)1)]
-        [MetaMember(17, (MetaMemberFlags)0)]
         [Description("Slot id if used")]
+        [MetaMember(17, (MetaMemberFlags)0)]
+        [JsonProperty("slot_id", NullValueHandling = (NullValueHandling)1)]
         public int? SlotId { get; set; }
 
         [JsonProperty("offer_set_id")]
@@ -84,14 +84,14 @@ namespace Analytics
         {
         }
 
-        [Description("Is Producer affected by ProducerBoosterActivated_01")]
         [MetaMember(14, (MetaMemberFlags)0)]
         [JsonProperty("is_producer_booster_active", NullValueHandling = (NullValueHandling)1)]
+        [Description("Is Producer affected by ProducerBoosterActivated_01")]
         public bool IsProducerBoosterActive { get; set; }
 
-        [MetaMember(15, (MetaMemberFlags)0)]
         [Description("Shop Item Id if a shop item")]
         [JsonProperty("shop_item_id", NullValueHandling = (NullValueHandling)1)]
+        [MetaMember(15, (MetaMemberFlags)0)]
         public string ShopItemId { get; set; }
 
         [JsonProperty("flash_sale_context", NullValueHandling = (NullValueHandling)1)]
@@ -103,8 +103,8 @@ namespace Analytics
         {
         }
 
-        [Description("Current balance of Card collection stars")]
         [MetaMember(18, (MetaMemberFlags)0)]
+        [Description("Current balance of Card collection stars")]
         [JsonProperty("saldo_card_collection_stars")]
         public long CardCollectionStars { get; set; }
 

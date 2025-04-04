@@ -4,7 +4,7 @@ using System;
 namespace GameLogic.Player.Items
 {
     [MetaSerializable]
-    public class ItemEffectFeatures
+    public class ItemEffectFeatures : IItemEffectFeatures
     {
         public static ItemEffectFeatures NoItemEffectFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

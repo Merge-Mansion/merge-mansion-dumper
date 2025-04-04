@@ -4,8 +4,8 @@ using Metaplay.Core.Forms;
 
 namespace Metaplay.Core.Rewards
 {
-    [MetaFormUseAsContext]
     [MetaSerializable]
+    [MetaFormUseAsContext]
     public abstract class MetaReward
     {
         public virtual string Description { get; }

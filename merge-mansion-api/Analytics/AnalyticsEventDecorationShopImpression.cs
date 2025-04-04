@@ -14,17 +14,17 @@ namespace Analytics
         public override AnalyticsEventType EventType { get; }
 
         [MetaMember(1, (MetaMemberFlags)0)]
-        [Description("Decoration Id")]
         [JsonProperty("item_name")]
+        [Description("Decoration Id")]
         public DecorationId DecorationId { get; set; }
 
-        [Description("Decoration Shop Set Id")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("decoration_set_id")]
+        [Description("Decoration Shop Set Id")]
         public DecorationShopSetId DecorationShopSetId { get; set; }
 
-        [Description("Cost in Diamonds (if available)")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("Cost in Diamonds (if available)")]
         [JsonProperty("cost_in_diamonds")]
         public long? CostInDiamonds { get; set; }
 

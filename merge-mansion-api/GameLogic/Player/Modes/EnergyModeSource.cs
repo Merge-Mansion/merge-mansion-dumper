@@ -3,6 +3,7 @@ using Metaplay.Core.Config;
 using System;
 using Metaplay.Core.Math;
 using Metaplay.Core;
+using System.Collections.Generic;
 
 namespace GameLogic.Player.Modes
 {
@@ -16,5 +17,12 @@ namespace GameLogic.Player.Modes
         public EnergyModeSource()
         {
         }
+
+        private int LevelUpCount { get; set; }
+        private string NameLocId { get; set; }
+        private List<string> EnableRequirementType { get; set; }
+        private List<string> EnableRequirementId { get; set; }
+        private List<string> EnableRequirementAmount { get; set; }
+        private List<string> EnableRequirementAux0 { get; set; }
     }
 }

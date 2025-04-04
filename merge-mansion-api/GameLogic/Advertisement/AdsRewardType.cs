@@ -2,8 +2,8 @@ using Metaplay.Core.Model;
 
 namespace GameLogic.Advertisement
 {
-    [ForceExplicitEnumValues]
     [MetaSerializable]
+    [ForceExplicitEnumValues]
     public enum AdsRewardType
     {
         None = 0,

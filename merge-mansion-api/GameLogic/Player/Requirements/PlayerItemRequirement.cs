@@ -15,8 +15,8 @@ namespace GameLogic.Player.Requirements
         [MetaMember(3, (MetaMemberFlags)0)]
         private List<int> ItemTypes { get; set; }
 
-        [MetaMember(1, (MetaMemberFlags)0)]
         [MetaOnMemberDeserializationFailure("FixRefs")]
+        [MetaMember(1, (MetaMemberFlags)0)]
         private List<ItemDef> ItemRefs { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]

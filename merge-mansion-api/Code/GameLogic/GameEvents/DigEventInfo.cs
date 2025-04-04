@@ -56,5 +56,12 @@ namespace Code.GameLogic.GameEvents
         public DigEventInfo(DigEventId configKey, bool mainHud, List<DigEventBoardId> mainBoards, List<DigEventBoardId> infiniteBoards, int specialItemsAmount, List<DigEventMuseumShelfId> museum, bool anyItemOnMuseumShelfs, bool museumStartsEmpty, int shinyItemsAmount, List<DigEventBoardId> shinyBoards, int tapMultiplier, PlayerReward eventReward, string sinkItem)
         {
         }
+
+        [MetaMember(14, (MetaMemberFlags)0)]
+        public string CollectionId { get; set; }
+
+        public DigEventInfo(DigEventId configKey, bool mainHud, List<DigEventBoardId> mainBoards, List<DigEventBoardId> infiniteBoards, int specialItemsAmount, List<DigEventMuseumShelfId> museum, bool anyItemOnMuseumShelfs, bool museumStartsEmpty, int shinyItemsAmount, List<DigEventBoardId> shinyBoards, int tapMultiplier, PlayerReward eventReward, string sinkItem, string collectionId)
+        {
+        }
     }
 }

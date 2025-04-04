@@ -8,13 +8,13 @@ namespace Game.Cloud.Localization
     [MetaSerializableDerived(200)]
     public class GridlyBuildSource : GameConfigBuildSource
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
         [MetaFormNotEditable]
+        [MetaMember(1, (MetaMemberFlags)0)]
         public string Name { get; set; }
 
-        [GridlyBranchFieldTypeHint]
-        [MetaMember(2, (MetaMemberFlags)0)]
         [MetaValidateRequired]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [GridlyBranchFieldTypeHint]
         public string Branch { get; set; }
         public override string DisplayName { get; }
 

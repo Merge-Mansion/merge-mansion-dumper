@@ -38,16 +38,16 @@ namespace Metaplay.Core.Player
         [FirebaseAnalyticsIgnore]
         public PurchaseAnalyticsContext PurchaseContext { get; set; }
 
-        [MetaMember(1, (MetaMemberFlags)0)]
         [FirebaseAnalyticsIgnore]
+        [MetaMember(1, (MetaMemberFlags)0)]
         public ResolvedPurchaseContentBase ResolvedContent { get; set; }
 
         [FirebaseAnalyticsIgnore]
         [MetaMember(9, (MetaMemberFlags)0)]
         public ResolvedPurchaseContentBase ResolvedDynamicContent { get; set; }
 
-        [MetaMember(10, (MetaMemberFlags)0)]
         [FirebaseAnalyticsIgnore]
+        [MetaMember(10, (MetaMemberFlags)0)]
         public SubscriptionInstanceState? Subscription { get; set; }
         public override string EventDescription { get; }
 

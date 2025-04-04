@@ -12,9 +12,9 @@ namespace Analytics
         private static string TypeId;
         public override AnalyticsEventType EventType { get; }
 
+        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("type")]
         [Description("")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         public string Type { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
@@ -31,9 +31,9 @@ namespace Analytics
         {
         }
 
-        [Description("Event Offer Trigger Type")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("trigger_type")]
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("Event Offer Trigger Type")]
         public string TriggerType { get; set; }
 
         public AnalyticsEventDailyTasksV2TimeExtensionOfferImpression(string tasksSetId, string placementId, Guid impressionId, string triggerType)

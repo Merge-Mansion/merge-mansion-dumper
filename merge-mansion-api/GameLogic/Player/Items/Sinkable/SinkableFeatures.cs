@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace GameLogic.Player.Items.Sinkable
 {
     [MetaSerializable]
-    public class SinkableFeatures
+    public class SinkableFeatures : ISinkableFeatures
     {
         public static SinkableFeatures NoSinkableFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

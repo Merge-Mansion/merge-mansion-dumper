@@ -1,6 +1,7 @@
 using Metaplay.Core.Model;
 using Metaplay.Core.Config;
 using System.Collections.Generic;
+using Metaplay.Core;
 
 namespace GameLogic.CardCollection
 {

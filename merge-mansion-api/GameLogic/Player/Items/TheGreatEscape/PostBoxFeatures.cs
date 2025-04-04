@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace GameLogic.Player.Items.TheGreatEscape
 {
     [MetaSerializable]
-    public class PostBoxFeatures
+    public class PostBoxFeatures : IPostBoxFeatures
     {
         public static PostBoxFeatures NoPostBoxFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

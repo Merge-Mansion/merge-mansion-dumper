@@ -8,6 +8,7 @@ namespace GameLogic
         NoActivation = 0,
         Near3x3 = 1,
         TotalRandomSpot = 2,
-        NearRandomSpot = 3
+        NearRandomSpot = 3,
+        Floating = 4
     }
 }

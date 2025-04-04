@@ -17,12 +17,12 @@ namespace Metaplay.Core.MultiplayerEntity
         [IgnoreDataMember]
         public LogChannel Log { get; set; }
 
-        [Transient]
         [MetaMember(200, (MetaMemberFlags)0)]
+        [Transient]
         public MetaTime TimeAtFirstTick { get; set; }
 
-        [MetaMember(201, (MetaMemberFlags)0)]
         [Transient]
+        [MetaMember(201, (MetaMemberFlags)0)]
         public long CurrentTick { get; set; }
 
         [MetaMember(202, (MetaMemberFlags)0)]

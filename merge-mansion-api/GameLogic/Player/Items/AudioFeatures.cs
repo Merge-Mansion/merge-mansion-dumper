@@ -4,7 +4,7 @@ using System;
 namespace GameLogic.Player.Items
 {
     [MetaSerializable]
-    public class AudioFeatures
+    public class AudioFeatures : IAudioFeatures
     {
         public static AudioFeatures NoAudio;
         [MetaMember(1, (MetaMemberFlags)0)]

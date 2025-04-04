@@ -13,23 +13,23 @@ namespace Analytics
         public sealed override AnalyticsEventType EventType { get; }
 
         [MetaMember(1, (MetaMemberFlags)0)]
-        [Description("Merge board of the event where progress was made")]
         [JsonProperty("event_id")]
+        [Description("Merge board of the event where progress was made")]
         public MergeBoardId BoardId { get; set; }
 
-        [Description("How many points player made")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("event_progress_gained")]
+        [Description("How many points player made")]
         public int EventProgressGained { get; set; }
 
         [JsonProperty("event_progress_saldo")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         [Description("Current amount of points that player has")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public int EventProgressSaldo { get; set; }
 
+        [Description("How many times event was started")]
         [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("event_start_count")]
-        [Description("How many times event was started")]
         public int EventStartCount { get; set; }
         public override string EventDescription { get; }
 

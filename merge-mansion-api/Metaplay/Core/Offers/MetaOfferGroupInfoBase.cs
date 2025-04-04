@@ -6,8 +6,8 @@ using Metaplay.Core.Model;
 
 namespace Metaplay.Core.Offers
 {
-    [MetaSerializable]
     [MetaReservedMembers(100, 200)]
+    [MetaSerializable]
     public abstract class MetaOfferGroupInfoBase : IMetaActivableConfigData<MetaOfferGroupId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MetaOfferGroupId>, IHasGameConfigKey<MetaOfferGroupId>, IMetaActivableInfo<MetaOfferGroupId>, IGameConfigPostLoad
     {
         [MetaMember(100, (MetaMemberFlags)0)]

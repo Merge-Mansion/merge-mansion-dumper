@@ -6,10 +6,10 @@ using Metaplay.Core.Math;
 namespace Metaplay.Core.InAppPurchase
 {
     [MetaSerializable]
+    [MetaDeserializationConvertFromIntegrationImplementation]
+    [MetaReservedMembers(18, 100)]
     [MetaReservedMembers(1, 12)]
     [MetaReservedMembers(13, 17)]
-    [MetaReservedMembers(18, 100)]
-    [MetaDeserializationConvertFromIntegrationImplementation]
     public abstract class InAppPurchaseEvent : IMetaIntegrationConstructible<InAppPurchaseEvent>, IMetaIntegration<InAppPurchaseEvent>, IMetaIntegration, IMetaIntegrationConstructible, IRequireSingleConcreteType
     {
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -44,8 +44,8 @@ namespace Metaplay.Core.InAppPurchase
         [MetaMember(18, (MetaMemberFlags)0)]
         public int NumValidationsStarted { get; set; }
 
-        [MetaMember(19, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(19, (MetaMemberFlags)0)]
         public int NumValidationTransientErrors { get; set; }
 
         [MetaMember(9, (MetaMemberFlags)0)]

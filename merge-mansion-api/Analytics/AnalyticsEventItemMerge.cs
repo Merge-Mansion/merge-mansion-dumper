@@ -13,9 +13,9 @@ namespace Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [JsonProperty("item_name")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [Description("Item that has been merge")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("item_name")]
         public string MergedItem { get; set; }
         public override string EventDescription { get; }
 
@@ -28,27 +28,27 @@ namespace Analytics
         }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        [JsonProperty("item_level")]
         [Description("Merged item level")]
+        [JsonProperty("item_level")]
         public int MergedItemLevel { get; set; }
 
-        [Description("Merge chain total length of the merged item")]
         [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("item_mergechain_total_length")]
+        [Description("Merge chain total length of the merged item")]
         public int MergedItemMergeChainTotalLength { get; set; }
 
+        [JsonProperty("item_mergechain_unlocked_length")]
         [Description("Merge chain unlocked length of the merged item")]
         [MetaMember(4, (MetaMemberFlags)0)]
-        [JsonProperty("item_mergechain_unlocked_length")]
         public int MergedItemMergeChainUnlockedLength { get; set; }
 
         public AnalyticsEventItemMerge(string itemType, int itemLevel, int itemMergeChainTotalLength, int itemMergeChainUnlockedLength)
         {
         }
 
+        [Description("Is this spawner?")]
         [MetaMember(5, (MetaMemberFlags)0)]
         [JsonProperty("spawner")]
-        [Description("Is this spawner?")]
         public bool IsSpawner { get; set; }
         public override IEnumerable<string> KeywordsForEventInstance { get; }
 

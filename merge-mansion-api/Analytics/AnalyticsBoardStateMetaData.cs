@@ -19,8 +19,8 @@ namespace Analytics
         [MetaMember(2, (MetaMemberFlags)0)]
         public int? Charges { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("duration_left", NullValueHandling = (NullValueHandling)1)]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public MetaDuration? TimeContainerRemaining { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
@@ -35,18 +35,18 @@ namespace Analytics
         {
         }
 
+        [JsonProperty("item_level")]
         [MetaMember(5, (MetaMemberFlags)0)]
         [Description("Item level")]
-        [JsonProperty("item_level")]
         public int ItemLevel { get; set; }
 
+        [MetaMember(6, (MetaMemberFlags)0)]
         [Description("Merge chain total length of the item")]
         [JsonProperty("item_mergechain_total_length")]
-        [MetaMember(6, (MetaMemberFlags)0)]
         public int ItemMergeChainTotalLength { get; set; }
 
-        [JsonProperty("item_mergechain_unlocked_length")]
         [MetaMember(7, (MetaMemberFlags)0)]
+        [JsonProperty("item_mergechain_unlocked_length")]
         [Description("Merge chain unlocked length of the item")]
         public int ItemMergeChainUnlockedLength { get; set; }
 

@@ -12,24 +12,24 @@ namespace Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [JsonProperty("item_name")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("item_name")]
         [Description("Display name of the IAP product")]
         public string ItemName { get; set; }
 
         [JsonProperty("transaction_id")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         [Description("Transaction to which revenue is attributed")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public string TransactionId { get; set; }
 
         [JsonProperty("order_id")]
-        [Description("Order to which revenue is attributed")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("Order to which revenue is attributed")]
         public string OrderId { get; set; }
 
         [JsonProperty("iap_platform_id")]
-        [Description("Platform identifier of the item.")]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [Description("Platform identifier of the item.")]
         public string PlatformId { get; set; }
         public override string EventDescription { get; }
 

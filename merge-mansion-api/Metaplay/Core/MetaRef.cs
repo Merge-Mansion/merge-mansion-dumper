@@ -6,7 +6,7 @@ using Metaplay.Core.Config;
 
 namespace Metaplay.Core
 {
-    public class MetaRef<TItem> : IMetaRef where TItem : class, IGameConfigData
+    public class MetaRef<TItem> : IMetaRef, IMetaRefBase where TItem : class, IGameConfigData
     {
         private static readonly Type KeyType = typeof(TItem).GetInterfaces().FirstOrDefault(x => typeof(IGameConfigData).IsAssignableFrom(x))?.GetGenericArguments().FirstOrDefault(); // 0x0
         private static readonly PropertyInfo KeyProperty = typeof(TItem).GetProperty("ConfigKey"); // 0x8

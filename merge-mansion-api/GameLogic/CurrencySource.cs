@@ -92,6 +92,8 @@ namespace GameLogic
         DigEventSinkItemUse = 83,
         DigEventShelfCompletion = 84,
         DigEventShelfShinyCompletion = 85,
-        DigEventBoardCompleted = 86
+        DigEventBoardCompleted = 86,
+        DigEventCollectionComplete = 87,
+        GreatEscapeMinigameComplete = 88
     }
 }

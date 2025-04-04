@@ -1,5 +1,8 @@
 using Metaplay.Core.Model;
 using System;
+using System.Collections.Generic;
+using Metaplay.Core.Analytics;
+using Newtonsoft.Json;
 
 namespace Metaplay.Core.EventLog
 {
@@ -21,6 +24,21 @@ namespace Metaplay.Core.EventLog
         }
 
         public EntityEventLogEntry(MetaEventLogEntry.BaseParams baseParams, MetaTime modelTime, int payloadSchemaVersion, TPayload payload)
+        {
+        }
+
+        [MetaOnMemberDeserializationFailure("CreateContextDeserializationFailureSubstitute")]
+        [MetaMember(4, (MetaMemberFlags)0)]
+        public AnalyticsContextBase Context { get; set; }
+
+        [JsonIgnore]
+        [MetaMember(5, (MetaMemberFlags)0)]
+        public Dictionary<int, string> LabelsAsInts { get; set; }
+
+        [JsonProperty("labels")]
+        public Dictionary<string, string> LabelsForDashboard { get; }
+
+        public EntityEventLogEntry(MetaEventLogEntry.BaseParams baseParams, MetaTime modelTime, int payloadSchemaVersion, TPayload payload, AnalyticsContextBase context, Dictionary<int, string> labelsAsInts)
         {
         }
     }

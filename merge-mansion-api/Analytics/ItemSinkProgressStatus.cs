@@ -13,8 +13,8 @@ namespace Analytics
         [JsonProperty("current")]
         public int Current { get; set; }
 
-        [JsonProperty("target")]
         [Description("How many items the sink expects")]
+        [JsonProperty("target")]
         [MetaMember(2, (MetaMemberFlags)0)]
         public int Target { get; set; }
 

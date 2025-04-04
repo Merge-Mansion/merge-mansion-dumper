@@ -13,20 +13,20 @@ namespace GameLogic.Player.Leaderboard.ShortLeaderboardEvent
         [MetaMember(1, (MetaMemberFlags)0)]
         public string DisplayName { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public string AssociationId { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         [ServerOnly]
         public PlayerSegmentId PlayerSegmentId { get; set; }
 
-        [ServerOnly]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [ServerOnly]
         public int SegmentIdPriority { get; set; }
 
-        [ServerOnly]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [ServerOnly]
         public string BotType { get; set; }
 
         private ShortLeaderboardEventDivisionAvatar()

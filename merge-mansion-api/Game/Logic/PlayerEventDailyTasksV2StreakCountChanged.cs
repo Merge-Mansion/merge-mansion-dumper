@@ -6,9 +6,9 @@ using GameLogic;
 
 namespace Game.Logic
 {
+    [AnalyticsEvent(25, "Daily tasks V2 streak count changed", 1, null, true, false, false)]
     [AnalyticsEventKeywords(new string[] { "daily" })]
     [MetaBlockedMembers(new int[] { 3 })]
-    [AnalyticsEvent(25, "Daily tasks V2 streak count changed", 1, null, true, false, false)]
     public class PlayerEventDailyTasksV2StreakCountChanged : PlayerEventBase
     {
         [MetaMember(1, (MetaMemberFlags)0)]

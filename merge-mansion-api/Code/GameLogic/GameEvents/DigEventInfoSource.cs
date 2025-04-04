@@ -28,5 +28,7 @@ namespace Code.GameLogic.GameEvents
         public DigEventInfoSource()
         {
         }
+
+        private string CollectionId { get; set; }
     }
 }

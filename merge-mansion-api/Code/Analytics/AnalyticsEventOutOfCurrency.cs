@@ -13,14 +13,14 @@ namespace Code.Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [JsonProperty("type")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [Description("The feature that caused the trigger")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("type")]
         public CurrencySink Type { get; set; }
 
+        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("virtual_currency_name")]
         [Description("The name of currency")]
-        [MetaMember(2, (MetaMemberFlags)0)]
         public Currencies CurrencyName { get; set; }
         public override string EventDescription { get; }
 

@@ -4,9 +4,9 @@ using Metaplay.Core.Client;
 
 namespace Metaplay.Core.League.Messages
 {
-    [MetaReservedMembers(200, 300)]
-    [MetaSerializableDerived(102)]
     [LeaguesEnabledCondition]
+    [MetaSerializableDerived(102)]
+    [MetaReservedMembers(200, 300)]
     public class DivisionEntityClientData : EntityClientData
     {
         [MetaMember(201, (MetaMemberFlags)0)]

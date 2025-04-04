@@ -13,16 +13,16 @@ namespace Analytics
     [AnalyticsEventKeywords(new string[] { "event" })]
     public class AnalyticsPlayerPetRewardGained : AnalyticsPlayerRewardGained
     {
-        [JsonProperty("pet_id")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [Description("ID of the pet received")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("pet_id")]
         public string PetId;
-        [Description("Number of pets received")]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Number of pets received")]
         [JsonProperty("amount")]
         public int Amount;
-        [JsonProperty("reward_type")]
         [Description("Type of the reward received")]
+        [JsonProperty("reward_type")]
         public sealed override string RewardType { get; }
         public override string EventDescription { get; }
 

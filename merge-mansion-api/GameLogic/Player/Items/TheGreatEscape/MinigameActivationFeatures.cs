@@ -4,7 +4,7 @@ using System;
 namespace GameLogic.Player.Items.TheGreatEscape
 {
     [MetaSerializable]
-    public class MinigameActivationFeatures
+    public class MinigameActivationFeatures : IMinigameActivationFeatures
     {
         public static MinigameActivationFeatures NoMinigameActivationFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

@@ -177,6 +177,12 @@ namespace GameLogic.Player
         SortedDictionary<int, F64> MoneySpentPerDay { get; }
 
         RandomPCG DigEventRandom { get; }
+
+        MergeBoardId ActiveMergeBoardId { get; }
+
+        IEnumerable<EnergyModeEventModel> ActiveEnergyModeEvents { get; }
+
+        Dictionary<string, ValueTuple<int, MetaTime>> AdsWatchLimiterTrack { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

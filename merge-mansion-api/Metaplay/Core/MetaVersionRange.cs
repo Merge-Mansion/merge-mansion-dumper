@@ -1,6 +1,7 @@
 using Metaplay.Core.Model;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Metaplay.Core
 {
@@ -23,6 +24,7 @@ namespace Metaplay.Core
             MaxVersion = maxVersion;
         }
 
+        [IgnoreDataMember]
         public IEnumerable<int> Enumerate { get; }
     }
 }

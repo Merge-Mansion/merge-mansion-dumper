@@ -18,6 +18,8 @@ namespace Metaplay.Core
         SupercellId = 10,
         Ethereum = 11,
         ImmutableX = 12,
-        CompanyAccount = 13
+        CompanyAccount = 13,
+        _ReservedDontUse2 = 14,
+        Steam = 15
     }
 }

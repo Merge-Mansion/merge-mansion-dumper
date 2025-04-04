@@ -9,15 +9,15 @@ using Metaplay.Core;
 namespace Analytics
 {
     [MetaBlockedMembers(new int[] { 1 })]
-    [AnalyticsEventKeywords(new string[] { "event", "task" })]
     [AnalyticsEvent(152, "Progression event item collected", 1, null, true, true, false)]
+    [AnalyticsEventKeywords(new string[] { "event", "task" })]
     public class AnalyticsEventProgressionEventItemCollected : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [JsonProperty("event_id")]
-        [MetaMember(6, (MetaMemberFlags)0)]
         [Description("Event where progress was made")]
+        [MetaMember(6, (MetaMemberFlags)0)]
+        [JsonProperty("event_id")]
         public string EventId { get; set; }
 
         [JsonProperty("board_id")]
@@ -25,18 +25,18 @@ namespace Analytics
         [Description("Board where event item was collected")]
         public MergeBoardId BoardId { get; set; }
 
+        [JsonProperty("event_progress_gained")]
         [MetaMember(3, (MetaMemberFlags)0)]
         [Description("How many points player made")]
-        [JsonProperty("event_progress_gained")]
         public int EventProgressGained { get; set; }
 
-        [MetaMember(4, (MetaMemberFlags)0)]
         [Description("True if item was collected from inventory")]
         [JsonProperty("from_inventory")]
+        [MetaMember(4, (MetaMemberFlags)0)]
         public bool FromInventory { get; set; }
 
-        [JsonProperty("item_name")]
         [Description("Collected item")]
+        [JsonProperty("item_name")]
         [MetaMember(5, (MetaMemberFlags)0)]
         public string ItemType { get; set; }
         public override string EventDescription { get; }
@@ -49,14 +49,14 @@ namespace Analytics
         {
         }
 
-        [JsonProperty("item_level")]
         [MetaMember(7, (MetaMemberFlags)0)]
         [Description("Item level")]
+        [JsonProperty("item_level")]
         public int ItemLevel { get; set; }
 
-        [Description("Merge chain total length of the item")]
-        [MetaMember(8, (MetaMemberFlags)0)]
         [JsonProperty("item_mergechain_total_length")]
+        [MetaMember(8, (MetaMemberFlags)0)]
+        [Description("Merge chain total length of the item")]
         public int ItemMergeChainTotalLength { get; set; }
 
         [JsonProperty("item_mergechain_unlocked_length")]

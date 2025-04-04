@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using GameLogic.Player.Items.Production;
 using Metaplay.Core.Model;
 using System;
+using Metaplay.Core;
 
 namespace GameLogic.Merge
 {

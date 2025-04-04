@@ -21,14 +21,14 @@ namespace Analytics
         [Description("Board event id")]
         public string EventId { get; set; }
 
+        [Description("Board id")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("board_id")]
-        [Description("Board id")]
         public string BoardId { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
         [Description("Related item name")]
         [JsonProperty("item_name")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public string ItemName { get; set; }
         public override string EventDescription { get; }
 

@@ -22,5 +22,7 @@ namespace Code.GameLogic.GameEvents
         public TheGreatEscapeMinigameInfoSource()
         {
         }
+
+        public bool DisableTimer { get; set; }
     }
 }

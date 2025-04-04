@@ -3,12 +3,8 @@ using Metaplay.Core.Config;
 
 namespace Metaplay.Core
 {
-    public interface IMetaRef
+    public interface IMetaRef : IMetaRefBase
     {
-        Type ItemType { get; }
-
-        object KeyObject { get; }
-
         bool IsResolved { get; }
 
         IMetaRef CreateResolved(IGameConfigDataResolver resolver);

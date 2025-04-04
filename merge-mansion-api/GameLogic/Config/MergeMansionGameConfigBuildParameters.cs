@@ -5,8 +5,8 @@ using Metaplay.Core.Forms;
 
 namespace GameLogic.Config
 {
-    [MetaBlockedMembers(new int[] { 3, 4, 5, 6, 100 })]
     [MetaSerializableDerived(1)]
+    [MetaBlockedMembers(new int[] { 3, 4, 5, 6, 100 })]
     public class MergeMansionGameConfigBuildParameters : GameConfigBuildParameters
     {
         public override bool IsIncremental { get; }
@@ -15,14 +15,14 @@ namespace GameLogic.Config
         {
         }
 
-        [MetaMember(1, (MetaMemberFlags)0)]
         [MetaFormNotEditable]
         [Obsolete]
+        [MetaMember(1, (MetaMemberFlags)0)]
         public string LegacySpreadSheetTitle { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
-        [Obsolete]
         [MetaFormNotEditable]
+        [Obsolete]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public string LegacySpreadSheetUrl { get; set; }
     }
 }

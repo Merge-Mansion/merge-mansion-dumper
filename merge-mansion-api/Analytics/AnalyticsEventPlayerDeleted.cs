@@ -17,9 +17,9 @@ namespace Analytics
         [MetaMember(1, (MetaMemberFlags)0)]
         public bool Scheduled { get; set; }
 
+        [JsonProperty("status")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Deletion status")]
-        [JsonProperty("status")]
         public PlayerDeletionStatus DeletionStatus { get; set; }
         public override string EventDescription { get; }
 

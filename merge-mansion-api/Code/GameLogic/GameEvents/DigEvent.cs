@@ -34,7 +34,6 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(8, (MetaMemberFlags)0)]
         public List<DigEventGoalState> GoalStates { get; set; }
-        public DigEventMinigameData MinigameData { get; set; }
         public int CollectedTreasures { get; }
         public int TotalTreasures { get; }
         public HashSet<string> RoundTreasures { get; set; }

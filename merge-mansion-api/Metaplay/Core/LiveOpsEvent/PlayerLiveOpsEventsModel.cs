@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Metaplay.Core.LiveOpsEvent
 {
-    [MetaSerializable]
     [MetaBlockedMembers(new int[] { 2 })]
+    [MetaSerializable]
     public class PlayerLiveOpsEventsModel
     {
         [MetaMember(1, (MetaMemberFlags)0)]

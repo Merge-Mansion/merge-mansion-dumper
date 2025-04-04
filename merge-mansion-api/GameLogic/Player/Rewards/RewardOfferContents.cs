@@ -23,8 +23,8 @@ namespace GameLogic.Player.Rewards
         {
         }
 
-        [MetaOnMemberDeserializationFailure("HandleRemovedOffers")]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("HandleRemovedOffers")]
         private MetaRef<MergeMansionOfferInfo> Offer { get; set; }
 
         [IgnoreDataMember]

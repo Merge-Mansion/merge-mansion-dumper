@@ -15,12 +15,12 @@ namespace Analytics
         [JsonProperty("shop_item_id")]
         public string ShopItemId { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("energy_type")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public EnergyType EnergyType { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("energy_amount")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public int EnergyAmount { get; set; }
 
         public AnalyticsFlashSaleImpressionEnergy()

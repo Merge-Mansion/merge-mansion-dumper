@@ -13,16 +13,16 @@ namespace Analytics
     [AnalyticsEvent(129, "Player received a decoration reward", 1, null, true, true, false)]
     public class AnalyticsPlayerDecorationRewardGained : AnalyticsPlayerRewardGained
     {
-        [Description("ID of the decoration received")]
-        [JsonProperty("decoration_id")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("decoration_id")]
+        [Description("ID of the decoration received")]
         public string DecorationId;
         [MetaMember(2, (MetaMemberFlags)0)]
-        [Description("Number of decorations received")]
         [JsonProperty("amount")]
+        [Description("Number of decorations received")]
         public int Amount;
-        [Description("Level of decoration received")]
         [JsonProperty("level", NullValueHandling = (NullValueHandling)1)]
+        [Description("Level of decoration received")]
         [MetaMember(3, (MetaMemberFlags)0)]
         public int? Level;
         [Description("Type of the reward received")]

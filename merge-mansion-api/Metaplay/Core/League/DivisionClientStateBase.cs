@@ -23,8 +23,8 @@ namespace Metaplay.Core.League
         }
 
         [MetaMember(102, (MetaMemberFlags)0)]
-        [NoChecksum]
         [Transient]
+        [NoChecksum]
         public int CurrentDivisionParticipantIdx { get; set; }
     }
 }

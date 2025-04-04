@@ -21,8 +21,8 @@ namespace Metaplay.Core.Player
         [MetaMember(3, (MetaMemberFlags)0)]
         public int LogicVersion { get; set; }
 
-        [FirebaseAnalyticsIgnore]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [FirebaseAnalyticsIgnore]
         public PlayerTimeZoneInfo TimeZoneInfo { get; set; }
 
         [FirebaseAnalyticsIgnore]

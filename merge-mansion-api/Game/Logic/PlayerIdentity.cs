@@ -27,8 +27,8 @@ namespace Game.Logic
         [ServerOnly]
         private HashSet<PlayerNameHistoryEntry> PlayerNameHistoryEntries { get; set; }
 
-        [MetaMember(7, (MetaMemberFlags)0)]
         [JsonProperty(NullValueHandling = (NullValueHandling)1)]
+        [MetaMember(7, (MetaMemberFlags)0)]
         public int? BotInstance { get; set; }
 
         public PlayerIdentity()

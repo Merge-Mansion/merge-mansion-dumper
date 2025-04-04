@@ -12,8 +12,8 @@ using GameLogic.Player;
 
 namespace Code.GameLogic.GameEvents
 {
+    [MetaBlockedMembers(new int[] { 12, 16 })]
     [MetaSerializable]
-    [MetaBlockedMembers(new int[] { 12 })]
     public class BoardInfo : IGameConfigData<MergeBoardId>, IGameConfigData, IHasGameConfigKey<MergeBoardId>
     {
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -80,10 +80,14 @@ namespace Code.GameLogic.GameEvents
         {
         }
 
-        [MetaMember(16, (MetaMemberFlags)0)]
-        public bool AllowEnergyMode { get; set; }
-
         public BoardInfo(MergeBoardId boardId, string displayName, string description, List<ValueTuple<int, ItemVisibility>> boardLayout, ICost itemSellCost, ConfigPrefabId boardPrefabId, MetaRef<BubblesSetup> bubblesSetup, string boardToggleSfxOverride, string boardMusicOverride, string disableAutospawns, string disableSelling, string energyType, string cobwebClearPoints, int width, int height, bool allowEnergyMode)
+        {
+        }
+
+        [MetaMember(17, (MetaMemberFlags)0)]
+        public int MaxEnergyConsumptionMultiplier { get; set; }
+
+        public BoardInfo(MergeBoardId boardId, string displayName, string description, List<ValueTuple<int, ItemVisibility>> boardLayout, ICost itemSellCost, ConfigPrefabId boardPrefabId, MetaRef<BubblesSetup> bubblesSetup, string boardToggleSfxOverride, string boardMusicOverride, string disableAutospawns, string disableSelling, string energyType, string cobwebClearPoints, int width, int height, int maxEnergyConsumptionMultiplier)
         {
         }
     }

@@ -10,8 +10,8 @@ using System.Runtime.CompilerServices;
 
 namespace GameLogic.Player
 {
-    [MetaSerializable]
     [MetaBlockedMembers(new int[] { 1, 2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 17, 18, 19, 21, 22, 23, 26 })]
+    [MetaSerializable]
     public class StoreStatus
     {
         private static int PurchaseHistoryLength;
@@ -112,8 +112,8 @@ namespace GameLogic.Player
         [MetaMember(30, (MetaMemberFlags)0)]
         public Dictionary<OfferPlacementId, StoreStatus.FlashSale> CurrentFlashSales { get; set; }
 
-        [MetaSerializable]
         [MetaBlockedMembers(new int[] { 3 })]
+        [MetaSerializable]
         public class FlashSale
         {
             [MetaMember(1, (MetaMemberFlags)0)]

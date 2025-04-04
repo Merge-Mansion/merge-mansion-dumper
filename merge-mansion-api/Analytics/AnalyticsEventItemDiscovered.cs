@@ -12,10 +12,10 @@ namespace Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [Description("Discovered item")]
-        [MetaOnMemberDeserializationFailure("FixItemType")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("item_name")]
+        [Description("Discovered item")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemType")]
         public string ItemName { get; set; }
         public override string EventDescription { get; }
 
@@ -27,19 +27,19 @@ namespace Analytics
         {
         }
 
-        [Description("Discovered item level")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("item_level")]
+        [Description("Discovered item level")]
         public int ItemLevel { get; set; }
 
-        [JsonProperty("item_mergechain_total_length")]
-        [Description("Merge chain total length of the discovered item")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("Merge chain total length of the discovered item")]
+        [JsonProperty("item_mergechain_total_length")]
         public int ItemMergeChainTotalLength { get; set; }
 
+        [Description("Merge chain unlocked length of the discovered item")]
         [JsonProperty("item_mergechain_unlocked_length")]
         [MetaMember(4, (MetaMemberFlags)0)]
-        [Description("Merge chain unlocked length of the discovered item")]
         public int ItemMergeChainUnlockedLength { get; set; }
 
         public AnalyticsEventItemDiscovered(string itemName, int itemLevel, int itemMergeChainTotalLength, int itemMergeChainUnlockedLength)

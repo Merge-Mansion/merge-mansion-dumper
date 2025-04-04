@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Merge;
 using Metaplay.Core.Offers;
 using GameLogic.Player.Rewards;
+using Code.GameLogic.Ads;
 
 namespace GameLogic.Advertisement
 {
@@ -58,6 +59,13 @@ namespace GameLogic.Advertisement
         public List<ValueTuple<PlayerReward, int>> Rewards { get; set; }
 
         public AdvertisementPlacementsInfo(AdvertisementPlacementId configKey, string adsProviderIds, int capPerCooldown, int rewardAmount, AdsRewardType adsRewardType, List<int> rewardIds, int threshold, List<MergeBoardId> boardIds, List<OfferPlacementId> offerPlacementIds, List<ValueTuple<PlayerReward, int>> rewards)
+        {
+        }
+
+        [MetaMember(11, (MetaMemberFlags)0)]
+        public AdsWatchLimiter AdsWatchLimiter { get; set; }
+
+        public AdvertisementPlacementsInfo(AdvertisementPlacementId configKey, string adsProviderIds, int capPerCooldown, int rewardAmount, AdsRewardType adsRewardType, List<int> rewardIds, int threshold, List<MergeBoardId> boardIds, List<OfferPlacementId> offerPlacementIds, List<ValueTuple<PlayerReward, int>> rewards, AdsWatchLimiter adsWatchLimiter)
         {
         }
     }

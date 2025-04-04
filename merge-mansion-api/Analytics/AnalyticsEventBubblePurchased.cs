@@ -14,19 +14,19 @@ namespace Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [Description("Item inside the bubble that was bought")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("item_name")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("Item inside the bubble that was bought")]
         public string ItemInBubble { get; set; }
 
-        [Description("How many diamonds the bubble costs")]
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("bubble_cost")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("How many diamonds the bubble costs")]
         public int BubbleCostInDiamonds { get; set; }
 
+        [Description("Merge Board Id")]
         [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("board_id")]
-        [Description("Merge Board Id")]
         public MergeBoardId BoardId { get; set; }
         public override string EventDescription { get; }
 
@@ -38,9 +38,9 @@ namespace Analytics
         {
         }
 
-        [Description("Attachments to the bubble")]
         [JsonProperty("attachments")]
         [MetaMember(11, (MetaMemberFlags)0)]
+        [Description("Attachments to the bubble")]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> Attachment { get; set; }
 
@@ -49,13 +49,13 @@ namespace Analytics
         }
 
         [Description("Is there and Active ads on the bubble")]
-        [JsonProperty("active_ads")]
         [MetaMember(7, (MetaMemberFlags)0)]
+        [JsonProperty("active_ads")]
         public bool IsActiveAds { get; set; }
 
+        [JsonProperty("purchased_with_ads")]
         [MetaMember(8, (MetaMemberFlags)0)]
         [Description("Was the bubble purchased with an ad")]
-        [JsonProperty("purchased_with_ads")]
         public bool PurchasedWithAds { get; set; }
 
         public AnalyticsEventBubblePurchased(string itemInBubble, int bubbleCostInDiamonds, MergeBoardId boardId, string attachment, int attachmentAmount, bool isActiveAds, bool purchasedWithAds)

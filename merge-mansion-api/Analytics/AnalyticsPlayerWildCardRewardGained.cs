@@ -17,8 +17,8 @@ namespace Analytics
         [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("card_pack_id")]
         public string WildCardId;
-        [JsonProperty("reward_type")]
         [Description("Type of the reward received")]
+        [JsonProperty("reward_type")]
         public sealed override string RewardType { get; }
         public override string EventDescription { get; }
 

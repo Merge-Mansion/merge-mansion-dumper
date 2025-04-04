@@ -39,5 +39,12 @@ namespace Code.GameLogic.GameEvents
         public TheGreatEscapeMinigameInfo(TheGreatEscapeMinigameId configKey, int actionsPerActivation, int totalActionsRequired, int timerPerActivation, PlayerReward minigameReward, int minigamePortal, int minigamePortalReplacement, int numberOfActivations)
         {
         }
+
+        [MetaMember(9, (MetaMemberFlags)0)]
+        public bool DisableTimer { get; set; }
+
+        public TheGreatEscapeMinigameInfo(TheGreatEscapeMinigameId configKey, int actionsPerActivation, int totalActionsRequired, int timerPerActivation, PlayerReward minigameReward, int minigamePortal, int minigamePortalReplacement, int numberOfActivations, bool disableTimer)
+        {
+        }
     }
 }

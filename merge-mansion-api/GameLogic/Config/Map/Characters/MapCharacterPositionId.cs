@@ -248,6 +248,19 @@ namespace GameLogic.Config.Map.Characters
         AreaPetHomeMapPatches = 5806,
         CinemaFirstMapCharacterPosition = 8199,
         CinemaEntryMapMaddie = 8200,
-        CinemaCharacter = 8201
+        CinemaCharacter = 8201,
+        AreaAtticFirstMapCharacterPosition = 8399,
+        AreaAtticEntryMapMaddie = 8400,
+        AreaAtticCharacter = 8401,
+        AreaShackExteriorFirstMapCharacterPosition = 8599,
+        AreaShackExteriorEntryMapMaddie = 8600,
+        AreaShackExteriorMaddie = 8601,
+        AreaShackExteriorCharacter = 8602,
+        AreaShackInteriorFirstMapCharacterPosition = 8799,
+        AreaShackInteriorEntryMapMaddie = 8800,
+        AreaShackInteriorCharacter = 8801,
+        AreaBeachBarFirstMapCharacterPosition = 8999,
+        AreaBeachBarEntryMapMaddie = 9000,
+        AreaBeachBarCharacter = 9001
     }
 }

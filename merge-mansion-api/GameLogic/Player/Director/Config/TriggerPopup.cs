@@ -33,5 +33,16 @@ namespace GameLogic.Player.Director.Config
 
         [IgnoreDataMember]
         public bool IsVisualAction { get; }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        public bool AllowBoard { get; set; }
+
+        public TriggerPopup(string popupId, List<ISerializableArg> args, bool allowBoard)
+        {
+        }
+
+        public TriggerPopup(string popupId, IEnumerable<string> args, bool allowBoard)
+        {
+        }
     }
 }

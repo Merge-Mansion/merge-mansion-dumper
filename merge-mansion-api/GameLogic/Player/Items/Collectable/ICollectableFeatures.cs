@@ -9,5 +9,7 @@ namespace GameLogic.Player.Items.Collectable
         ICollectAction CollectAction { get; }
 
         bool ConfirmCollectBelowMergeChainLevel { get; }
+
+        bool CollectOnSpawn { get; }
     }
 }

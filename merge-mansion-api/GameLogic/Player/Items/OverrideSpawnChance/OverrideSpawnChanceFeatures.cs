@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace GameLogic.Player.Items.OverrideSpawnChance
 {
     [MetaSerializable]
-    public class OverrideSpawnChanceFeatures
+    public class OverrideSpawnChanceFeatures : IOverrideSpawnChanceFeatures
     {
         public static OverrideSpawnChanceFeatures NoOverrideSpawnChance;
         [MetaMember(1, (MetaMemberFlags)0)]

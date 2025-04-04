@@ -13,9 +13,9 @@ namespace Analytics
     {
         public override AnalyticsEventType EventType { get; }
 
+        [Description("Currency Bank Id")]
         [JsonProperty("item_name")]
         [MetaMember(1, (MetaMemberFlags)0)]
-        [Description("Currency Bank Id")]
         public CurrencyBankId CurrencyBankId { get; set; }
 
         [Description("Currency Bank amount")]
@@ -24,8 +24,8 @@ namespace Analytics
         public long Amount { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
-        [Description("Currency Bank currency type")]
         [JsonProperty("currency_type")]
+        [Description("Currency Bank currency type")]
         public Currencies CurrencyType { get; set; }
         public override string EventDescription { get; }
 
@@ -37,8 +37,8 @@ namespace Analytics
         {
         }
 
-        [JsonProperty("trigger_type")]
         [Description("Event Offer Trigger Type")]
+        [JsonProperty("trigger_type")]
         [MetaMember(4, (MetaMemberFlags)0)]
         public string TriggerType { get; set; }
 

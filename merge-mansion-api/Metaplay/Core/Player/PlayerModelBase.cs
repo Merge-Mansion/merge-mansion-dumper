@@ -17,10 +17,10 @@ using Metaplay.Core.LiveOpsEvent;
 namespace Metaplay.Core.Player
 {
     [MetaBlockedMembers(new int[] { 9, 15, 20, 21, 26, 27, 36, 44 })]
-    [MetaReservedMembers(10000, 20000)]
+    [MetaReservedMembers(1, 6)]
     [MetaReservedMembers(12, 99)]
     [MetaReservedMembers(7, 10)]
-    [MetaReservedMembers(1, 6)]
+    [MetaReservedMembers(10000, 20000)]
     public abstract class PlayerModelBase<TPlayerModel, TPlayerStatistics, TPlayerMetaOfferGroups, TPlayerGuildState> : IPlayerModel<TPlayerModel>, IPlayerModelBase, IModel<IPlayerModelBase>, IModel, ISchemaMigratable, IMetaIntegrationConstructible<IPlayerModelBase>, IMetaIntegration<IPlayerModelBase>, IMetaIntegration, IMetaIntegrationConstructible, IRequireSingleConcreteType
     {
         private static int CurrentBaseFixupVersion;
@@ -47,32 +47,32 @@ namespace Metaplay.Core.Player
         public MetaTime CurrentTime { get; }
         public MetaTime CurrentTimeWithoutDebugTimeOffset { get; }
 
-        [MetaMember(1, (MetaMemberFlags)0)]
-        [Transient]
         [ExcludeFromGdprExport]
+        [Transient]
+        [MetaMember(1, (MetaMemberFlags)0)]
         public MetaTime TimeAtFirstTick { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(2, (MetaMemberFlags)0)]
         [Transient]
+        [ExcludeFromGdprExport]
         public long CurrentTick { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
-        [Transient]
         [NoChecksum]
         [ExcludeFromGdprExport]
+        [Transient]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public bool IsOnline { get; set; }
 
-        [ExcludeFromGdprExport]
         [Transient]
-        [NoChecksum]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [NoChecksum]
+        [ExcludeFromGdprExport]
         public string SessionDeviceGuid { get; set; }
 
         [NoChecksum]
+        [Transient]
         [ExcludeFromGdprExport]
         [MetaMember(40, (MetaMemberFlags)0)]
-        [Transient]
         public SessionToken SessionToken { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
@@ -92,16 +92,16 @@ namespace Metaplay.Core.Player
         [MetaMember(37, (MetaMemberFlags)0)]
         public LanguageSelectionSource LanguageSelectionSource { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(14, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public List<string> FirebaseMessagingTokensLegacy { get; set; }
 
         [MetaMember(33, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         public PlayerPushNotifications PushNotifications { get; set; }
 
-        [NoChecksum]
         [MetaMember(16, (MetaMemberFlags)0)]
+        [NoChecksum]
         public List<InAppPurchaseEvent> InAppPurchaseHistory { get; set; }
 
         [ServerOnly]
@@ -116,12 +116,12 @@ namespace Metaplay.Core.Player
         [MetaMember(18, (MetaMemberFlags)0)]
         public int NumFailedInAppPurchases { get; set; }
 
-        [MetaMember(19, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(19, (MetaMemberFlags)0)]
         public List<InAppPurchaseEvent> FailedInAppPurchaseHistory { get; set; }
 
-        [NoChecksum]
         [MetaMember(17, (MetaMemberFlags)0)]
+        [NoChecksum]
         public Dictionary<string, InAppPurchaseEvent> PendingInAppPurchases { get; set; }
 
         [MetaMember(35, (MetaMemberFlags)0)]
@@ -137,8 +137,8 @@ namespace Metaplay.Core.Player
         [MetaMember(45, (MetaMemberFlags)0)]
         public List<PlayerMailItem> MailInbox { get; set; }
 
-        [MetaMember(22, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
+        [MetaMember(22, (MetaMemberFlags)0)]
         [ServerOnly]
         public HashSet<int> ReceivedBroadcastIds { get; set; }
 
@@ -158,8 +158,8 @@ namespace Metaplay.Core.Player
         [NoChecksum]
         public Dictionary<AuthenticationKey, PlayerAuthEntryBase> AttachedAuthMethods { get; set; }
 
-        [NoChecksum]
         [MetaMember(28, (MetaMemberFlags)0)]
+        [NoChecksum]
         public PlayerDeletionStatus DeletionStatus { get; set; }
 
         [MetaMember(29, (MetaMemberFlags)0)]
@@ -180,8 +180,8 @@ namespace Metaplay.Core.Player
         [MetaMember(38, (MetaMemberFlags)0)]
         public int SearchVersion { get; set; }
 
-        [ServerOnly]
         [MetaMember(39, (MetaMemberFlags)0)]
+        [ServerOnly]
         public PlayerExperimentsState Experiments { get; set; }
         public IPlayerMetaOfferGroups MetaOfferGroups { get; set; }
 
@@ -189,14 +189,14 @@ namespace Metaplay.Core.Player
         [MetaMember(43, (MetaMemberFlags)0)]
         public bool IsDeveloper { get; set; }
 
-        [MetaMember(47, (MetaMemberFlags)0)]
-        [Transient]
         [ServerOnly]
+        [Transient]
+        [MetaMember(47, (MetaMemberFlags)0)]
         public bool IsClientConnected { get; set; }
 
+        [ServerOnly]
         [Transient]
         [MetaMember(48, (MetaMemberFlags)0)]
-        [ServerOnly]
         public ClientAppPauseStatus ClientAppPauseStatus { get; set; }
 
         [MetaMember(52, (MetaMemberFlags)0)]

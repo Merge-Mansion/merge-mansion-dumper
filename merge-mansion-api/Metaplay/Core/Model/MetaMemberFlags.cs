@@ -9,7 +9,8 @@ namespace Metaplay.Core.Model
         Hidden = 1 << 0,
         NoChecksum = 1 << 1,
         Transient = 1 << 2,
-        ExcludeFromGdprExport = 1 << 3,
-        ServerOnly = Hidden | NoChecksum
+        ServerOnly = Hidden | NoChecksum,
+        _LegacyDontUse_ExcludeFromGdprExport = 8,
+        ExcludeFromEventLog = 16
     }
 }

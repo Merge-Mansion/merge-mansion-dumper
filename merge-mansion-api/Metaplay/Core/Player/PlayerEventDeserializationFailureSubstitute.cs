@@ -9,7 +9,7 @@ namespace Metaplay.Core.Player
     public class PlayerEventDeserializationFailureSubstitute : PlayerEventBase, IEntityEventPayloadDeserializationFailureSubstitute
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        public EntityEventDeserializationFailureInfo FailureInfo { get; set; }
+        public AbstractTypeDeserializationFailureInfo<AnalyticsEventBase> FailureInfo { get; set; }
         public override string EventDescription { get; }
 
         public PlayerEventDeserializationFailureSubstitute()

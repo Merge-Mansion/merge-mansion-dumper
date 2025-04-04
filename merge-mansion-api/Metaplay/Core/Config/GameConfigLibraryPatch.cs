@@ -13,12 +13,12 @@ namespace Metaplay.Core.Config
         [JsonProperty("appendedItems")]
         private Dictionary<TKey, TInfo> _appendedItems;
         [JsonIgnore]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [MaxCollectionSize(2147483647)]
+        [MetaMember(1, (MetaMemberFlags)0)]
         private List<GameConfigDataContent<TInfo>> _replacedItemsForSerialization { get; set; }
 
-        [JsonIgnore]
         [MaxCollectionSize(2147483647)]
+        [JsonIgnore]
         [MetaMember(2, (MetaMemberFlags)0)]
         private List<GameConfigDataContent<TInfo>> _appendedItemsForSerialization { get; set; }
 
@@ -30,9 +30,8 @@ namespace Metaplay.Core.Config
         {
         }
 
-        internal override void PatchContentDangerouslyInPlace(Dictionary<TKey, TInfo> libraryItems)
+        internal override void PatchContentDangerouslyInPlace(Dictionary<TKey, TInfo> entryContent)
         {
-            return;
             throw new NotImplementedException();
         }
     }

@@ -51,5 +51,9 @@ namespace Metaplay.Core.Player
             {
             }
         }
+
+        PlayerExperimentInfo(PlayerExperimentId experimentId, List<PlayerExperimentInfo.Variant> variants)
+        {
+        }
     }
 }

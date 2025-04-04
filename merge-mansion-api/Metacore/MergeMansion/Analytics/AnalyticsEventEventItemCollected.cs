@@ -17,19 +17,19 @@ namespace Metacore.MergeMansion.Analytics
         [JsonProperty("item_name")]
         public string ItemName { get; set; }
 
+        [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Event item collected from board")]
         [JsonProperty("board_id")]
-        [MetaMember(2, (MetaMemberFlags)0)]
         public string BoardId { get; set; }
 
+        [JsonProperty("event_id")]
         [MetaMember(3, (MetaMemberFlags)0)]
         [Description("Event id")]
-        [JsonProperty("event_id")]
         public string EventId { get; set; }
 
-        [JsonProperty("rarity")]
         [MetaMember(4, (MetaMemberFlags)0)]
         [Description("Event item rarity")]
+        [JsonProperty("rarity")]
         public string Rarity { get; set; }
         public override string EventDescription { get; }
 

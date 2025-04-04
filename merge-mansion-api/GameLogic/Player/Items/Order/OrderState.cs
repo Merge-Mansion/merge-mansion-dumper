@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using GameLogic.Random;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Items.Order
 {

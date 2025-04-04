@@ -7,8 +7,8 @@ using Metaplay.Core.Player;
 
 namespace GameLogic.Player.Actions.Multi
 {
-    [MetaSerializable]
     [MetaBlockedMembers(new int[] { 9, 11 })]
+    [MetaSerializable]
     public struct PlayerOfferImpressionData
     {
         [MetaMember(1, (MetaMemberFlags)0)]

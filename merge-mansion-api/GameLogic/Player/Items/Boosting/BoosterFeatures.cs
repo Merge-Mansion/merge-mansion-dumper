@@ -6,7 +6,7 @@ using System;
 namespace GameLogic.Player.Items.Boosting
 {
     [MetaSerializable]
-    public class BoosterFeatures
+    public class BoosterFeatures : IBoosterFeatures
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public bool DoesBoost { get; set; }

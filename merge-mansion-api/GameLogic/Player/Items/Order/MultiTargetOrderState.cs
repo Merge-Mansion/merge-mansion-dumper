@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using System;
 using System.Collections.Generic;
 using GameLogic.Random;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Items.Order
 {

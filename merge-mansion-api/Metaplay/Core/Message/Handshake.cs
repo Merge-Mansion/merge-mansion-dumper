@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using System;
 using System.Runtime.Serialization;
 using Metaplay.Core.Session;
+using Metaplay.Core.Client;
 
 namespace Metaplay.Core.Message
 {
@@ -42,18 +43,14 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(5, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class ClientHello : MetaMessage
         {
-            [MetaMember(1, (MetaMemberFlags)0)]
-            public string ClientVersion { get; set; }
+            public ClientVersion ClientVersion { get; set; }
 
             [MetaMember(2, (MetaMemberFlags)0)]
             public string BuildNumber { get; set; }
-
-            [MetaMember(3, (MetaMemberFlags)0)]
-            public MetaVersionRange SupportedLogicVersions { get; set; }
 
             [MetaMember(4, (MetaMemberFlags)0)]
             public uint FullProtocolHash { get; set; }
@@ -83,9 +80,7 @@ namespace Metaplay.Core.Message
 
             public ClientHello(string clientVersion, string buildNumber, MetaVersionRange supportedLogicVersions, uint fullProtocolHash, string commitId, DateTime timestamp, uint appLaunchId, uint clientSessionNonce, uint clientSessionConnectionNdx, ClientPlatform platform, int loginProtocolVersion)
             {
-                ClientVersion = clientVersion;
                 BuildNumber = buildNumber;
-                SupportedLogicVersions = supportedLogicVersions;
                 FullProtocolHash = fullProtocolHash;
                 CommitId = commitId;
                 Timestamp = timestamp;
@@ -102,7 +97,6 @@ namespace Metaplay.Core.Message
 
             [MetaMember(12, (MetaMemberFlags)0)]
             public string TargetHostname { get; set; }
-            public int ClientLogicVersion { get; }
 
             public ClientHello(string clientVersion, string buildNumber, int clientLogicVersion, uint fullProtocolHash, string commitId, MetaTime timestamp, uint appLaunchId, uint clientSessionNonce, uint clientSessionConnectionNdx, ClientPlatform platform, int loginProtocolVersion, string targetHostname)
             {
@@ -111,6 +105,19 @@ namespace Metaplay.Core.Message
             [MetaMember(6, (MetaMemberFlags)0)]
             private MetaTime _timestamp;
             public ClientHello(string clientVersion, string buildNumber, int clientLogicVersion, uint fullProtocolHash, string commitId, DateTime timestamp, uint appLaunchId, uint clientSessionNonce, uint clientSessionConnectionNdx, ClientPlatform platform, int loginProtocolVersion, string targetHostname)
+            {
+            }
+
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public string BuildVersion { get; set; }
+
+            [MetaMember(3, (MetaMemberFlags)0)]
+            private MetaVersionRange SupportedLogicVersionsLegacy { get; set; }
+
+            [MetaMember(13, (MetaMemberFlags)0)]
+            private ClientVersion ClientVersionPayload { get; set; }
+
+            public ClientHello(string buildVersion, string buildNumber, ClientVersion clientVersion, uint fullProtocolHash, string commitId, DateTime timestamp, uint appLaunchId, uint clientSessionNonce, uint clientSessionConnectionNdx, ClientPlatform platform, int loginProtocolVersion, string targetHostname)
             {
             }
         }
@@ -151,8 +158,8 @@ namespace Metaplay.Core.Message
             [PrettyPrint((PrettyPrintFlag)8)]
             [MetaMember(2, (MetaMemberFlags)0)]
             private MetaTime _connectionAbandonedAt;
-            [MetaMember(3, (MetaMemberFlags)0)]
             [PrettyPrint((PrettyPrintFlag)8)]
+            [MetaMember(3, (MetaMemberFlags)0)]
             private MetaTime _abandonedCompletedAt;
         }
 
@@ -330,8 +337,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MetaBlockedMembers(new int[] { 7, 8 })]
         [MetaSerializable]
+        [MetaBlockedMembers(new int[] { 7, 8 })]
         public struct ServerOptions
         {
             [MetaMember(1, (MetaMemberFlags)0)]
@@ -366,8 +373,8 @@ namespace Metaplay.Core.Message
             [MetaMember(2, (MetaMemberFlags)0)]
             public string DeviceId { get; set; }
 
-            [Sensitive]
             [MetaMember(3, (MetaMemberFlags)0)]
+            [Sensitive]
             public string AuthToken { get; set; }
 
             private CreateGuestAccountResponse()
@@ -379,8 +386,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MetaMessage(19, (MessageDirection)1, true)]
         [MessageRoutingRuleProtocol]
+        [MetaMessage(19, (MessageDirection)1, true)]
         public class LoginAndResumeSessionRequest : MetaMessage
         {
             [MetaMember(1, (MetaMemberFlags)0)]
@@ -389,8 +396,8 @@ namespace Metaplay.Core.Message
             [MetaMember(2, (MetaMemberFlags)0)]
             public SessionResumptionInfo SessionToResume { get; set; }
 
-            [MetaMember(3, (MetaMemberFlags)0)]
             [Sensitive]
+            [MetaMember(3, (MetaMemberFlags)0)]
             public byte[] ResumptionToken { get; set; }
 
             [MetaMember(4, (MetaMemberFlags)0)]
@@ -408,8 +415,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MetaMessage(32, (MessageDirection)1, true)]
         [MessageRoutingRuleProtocol]
+        [MetaMessage(32, (MessageDirection)1, true)]
         public class DualSocialAuthenticationLoginRequest : Handshake.LoginRequest
         {
             [MetaMember(100, (MetaMemberFlags)0)]
@@ -427,6 +434,21 @@ namespace Metaplay.Core.Message
             }
 
             public DualSocialAuthenticationLoginRequest(EntityId playerIdHint, bool isBot, LoginDebugDiagnostics debugDiagnostics, Handshake.ILoginRequestGamePayload gamePayload, SocialAuthenticationClaimBase claim, string deviceId, string authToken)
+            {
+            }
+        }
+
+        [MetaMessage(94, (MessageDirection)2, true)]
+        public class ClientPatchVersionTooOld : MetaMessage
+        {
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public int MinimumPatchVersionRequired { get; set; }
+
+            private ClientPatchVersionTooOld()
+            {
+            }
+
+            public ClientPatchVersionTooOld(int minimumPatchVersionRequired)
             {
             }
         }

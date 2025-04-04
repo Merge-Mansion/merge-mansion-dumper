@@ -9,5 +9,7 @@ namespace GameLogic.Advertisement
         public AdvertisementPlacementId()
         {
         }
+
+        public static AdvertisementPlacementId AdsGlobalLimit;
     }
 }

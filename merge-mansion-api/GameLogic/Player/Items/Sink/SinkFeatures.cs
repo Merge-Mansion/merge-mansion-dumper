@@ -3,9 +3,9 @@ using System;
 
 namespace GameLogic.Player.Items.Sink
 {
-    [MetaBlockedMembers(new int[] { 3 })]
     [MetaSerializable]
-    public class SinkFeatures
+    [MetaBlockedMembers(new int[] { 3 })]
+    public class SinkFeatures : ISinkFeatures
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public bool IsSink { get; set; }

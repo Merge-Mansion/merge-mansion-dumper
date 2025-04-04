@@ -21,8 +21,8 @@ namespace Analytics
         [Description("New state for the event")]
         public string State { get; set; }
 
-        [JsonProperty("level")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [JsonProperty("level")]
         [Description("Level associated to the event, if any")]
         public int? Level { get; set; }
         public override string EventDescription { get; }

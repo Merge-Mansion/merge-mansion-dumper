@@ -20,8 +20,8 @@ namespace Analytics
         [Description("Item that was sinked")]
         public string SourceItem { get; set; }
 
-        [JsonProperty("target_item")]
         [Description("Item that source_item was sinked into")]
+        [JsonProperty("target_item")]
         [MetaMember(2, (MetaMemberFlags)0)]
         public string TargetItem { get; set; }
 
@@ -30,9 +30,9 @@ namespace Analytics
         [JsonProperty("context")]
         public MergeBoardId MergeBoardId { get; set; }
 
-        [JsonProperty("sink_status_multi")]
         [MetaMember(4, (MetaMemberFlags)0)]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
+        [JsonProperty("sink_status_multi")]
         [Description("Sink status for FactoryType=Multi")]
         public Dictionary<string, ItemSinkProgressStatus> SinkStatusMulti { get; set; }
 
@@ -54,19 +54,19 @@ namespace Analytics
         {
         }
 
+        [MetaMember(6, (MetaMemberFlags)0)]
         [Description("Source item level")]
         [JsonProperty("source_item_level")]
-        [MetaMember(6, (MetaMemberFlags)0)]
         public int SourceItemLevel { get; set; }
 
-        [JsonProperty("source_item_mergechain_total_length")]
         [Description("Merge chain total length of the source item")]
         [MetaMember(7, (MetaMemberFlags)0)]
+        [JsonProperty("source_item_mergechain_total_length")]
         public int SourceItemMergeChainTotalLength { get; set; }
 
+        [Description("Merge chain unlocked length of the source item")]
         [JsonProperty("source_item_mergechain_unlocked_length")]
         [MetaMember(8, (MetaMemberFlags)0)]
-        [Description("Merge chain unlocked length of the source item")]
         public int SourceItemMergeChainUnlockedLength { get; set; }
 
         [Description("Target item level")]
@@ -75,8 +75,8 @@ namespace Analytics
         public int TargetItemLevel { get; set; }
 
         [Description("Merge chain total length of the target item")]
-        [JsonProperty("target_item_mergechain_total_length")]
         [MetaMember(10, (MetaMemberFlags)0)]
+        [JsonProperty("target_item_mergechain_total_length")]
         public int TargetItemMergeChainTotalLength { get; set; }
 
         [JsonProperty("target_item_mergechain_unlocked_length")]
@@ -88,39 +88,39 @@ namespace Analytics
         {
         }
 
-        [JsonProperty("target_item_sink_type")]
         [MetaMember(12, (MetaMemberFlags)0)]
         [Description("Target Item SinkType")]
+        [JsonProperty("target_item_sink_type")]
         public string TargetItemSinkType { get; set; }
 
-        [MetaMember(13, (MetaMemberFlags)0)]
         [Description("SinkTag of source item")]
+        [MetaMember(13, (MetaMemberFlags)0)]
         [JsonProperty("source_item_tag")]
         public string SourceItemSinkTag { get; set; }
 
-        [JsonProperty("source_item_points")]
-        [MetaMember(14, (MetaMemberFlags)0)]
         [Description("How many points is the item worth")]
+        [MetaMember(14, (MetaMemberFlags)0)]
+        [JsonProperty("source_item_points")]
         public int SourceItemSinkPoints { get; set; }
 
-        [JsonProperty("target_item_points")]
-        [MetaMember(15, (MetaMemberFlags)0)]
         [Description("How many points in total are currently in target item")]
+        [MetaMember(15, (MetaMemberFlags)0)]
+        [JsonProperty("target_item_points")]
         public int TargetItemSinkPoints { get; set; }
 
-        [JsonProperty("order_item_phase")]
         [Description("What phase is order item in")]
         [MetaMember(16, (MetaMemberFlags)0)]
+        [JsonProperty("order_item_phase")]
         public string OrderItemPhase { get; set; }
 
         [Description("Current order index")]
-        [MetaMember(17, (MetaMemberFlags)0)]
         [JsonProperty("order_index")]
+        [MetaMember(17, (MetaMemberFlags)0)]
         public int OrderIndex { get; set; }
 
-        [Description("Was order completed?")]
-        [MetaMember(18, (MetaMemberFlags)0)]
         [JsonProperty("is_order_completed")]
+        [MetaMember(18, (MetaMemberFlags)0)]
+        [Description("Was order completed?")]
         public bool IsOrderCompleted { get; set; }
 
         private AnalyticsEventItemSink(string sourceItem, string targetItem, MergeBoardId mergeBoardId, Dictionary<string, ItemSinkProgressStatus> sinkStatusMulti, SimpleSinkProgressStatus sinkStatusSimple, int sourceItemLevel, int sourceItemMergeChainTotalLength, int sourceItemMergeChainUnlockedLength, int targetItemLevel, int targetItemMergeChainTotalLength, int targetItemMergeChainUnlockedLength, int targetItemSinkPoints)

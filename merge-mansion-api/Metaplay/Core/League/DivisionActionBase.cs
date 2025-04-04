@@ -3,8 +3,8 @@ using Metaplay.Core.Model;
 namespace Metaplay.Core.League
 {
     [MetaSerializable]
-    [MetaImplicitMembersRange(101, 200)]
     [ModelActionExecuteFlags((ModelActionExecuteFlags)1)]
+    [MetaImplicitMembersRange(101, 200)]
     public abstract class DivisionActionBase : ModelAction<IDivisionModel>
     {
         [MetaMember(101, (MetaMemberFlags)0)]

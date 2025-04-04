@@ -11,43 +11,43 @@ namespace Analytics
     {
         public override AnalyticsEventType EventType { get; }
 
+        [Description("Ad platform")]
         [JsonProperty("ad_platform")]
         [MetaMember(1, (MetaMemberFlags)0)]
-        [Description("Ad platform")]
         public string AdPlatform { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
-        [JsonProperty("ad_network")]
         [Description("Ad Network (previously Ad Source)")]
+        [JsonProperty("ad_network")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public string AdSource { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
-        [Description("Ad unit name")]
         [JsonProperty("ad_unit_name")]
+        [Description("Ad unit name")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public string AdUnitName { get; set; }
 
-        [JsonProperty("ad_format")]
         [Description("Ad format")]
+        [JsonProperty("ad_format")]
         [MetaMember(4, (MetaMemberFlags)0)]
         public string AdFormat { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
-        [JsonProperty("currency")]
         [Description("Currency")]
+        [JsonProperty("currency")]
         public string Currency { get; set; }
 
-        [JsonProperty("value")]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [JsonProperty("value")]
         [Description("Value")]
         public double? Value { get; set; }
 
-        [MetaMember(7, (MetaMemberFlags)0)]
         [JsonProperty("auction_id")]
+        [MetaMember(7, (MetaMemberFlags)0)]
         [Description("Auction Id")]
         public string AuctionId { get; set; }
 
-        [Description("Ad placement")]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [Description("Ad placement")]
         [JsonProperty("ad_placement")]
         public string AdPlacement { get; set; }
 

@@ -19,10 +19,6 @@ namespace Metaplay.Core.Config
         {
         }
 
-        public GameConfigStructurePatch(Dictionary<int, object> replacedMembersByTagId)
-        {
-        }
-
         public GameConfigStructurePatch(Dictionary<string, object> replacedMembersByName)
         {
         }

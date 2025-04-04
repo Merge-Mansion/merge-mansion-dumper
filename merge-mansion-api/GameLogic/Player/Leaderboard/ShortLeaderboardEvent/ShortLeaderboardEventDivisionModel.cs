@@ -22,5 +22,9 @@ namespace GameLogic.Player.Leaderboard.ShortLeaderboardEvent
         public ShortLeaderboardEventDivisionModel()
         {
         }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [ServerOnly]
+        public MetaTime? MatchMakingStartTime { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using Code.GameLogic.GameEvents;
 namespace GameLogic.Player.Items.Leaderboard
 {
     [MetaSerializable]
-    public class LeaderboardFeatures
+    public class LeaderboardFeatures : ILeaderboardFeatures
     {
         public static LeaderboardFeatures NoLeaderboardFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

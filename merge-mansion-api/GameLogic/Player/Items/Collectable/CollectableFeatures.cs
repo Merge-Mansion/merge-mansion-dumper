@@ -3,8 +3,8 @@ using System;
 
 namespace GameLogic.Player.Items.Collectable
 {
-    [MetaBlockedMembers(new int[] { 3 })]
     [MetaSerializable]
+    [MetaBlockedMembers(new int[] { 3 })]
     public class CollectableFeatures : ICollectableFeatures
     {
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -30,6 +30,17 @@ namespace GameLogic.Player.Items.Collectable
         }
 
         public CollectableFeatures(bool collectable, ICollectAction collectAction, bool confirmCollectBelowMergeChainLevel)
+        {
+        }
+
+        [MetaMember(5, (MetaMemberFlags)0)]
+        public bool CollectOnSpawn { get; set; }
+
+        public CollectableFeatures(ICollectAction collectAction, bool confirmCollectBelowMergeChainLevel, bool collectOnSpawn)
+        {
+        }
+
+        public CollectableFeatures(bool collectable, ICollectAction collectAction, bool confirmCollectBelowMergeChainLevel, bool collectOnSpawn)
         {
         }
     }

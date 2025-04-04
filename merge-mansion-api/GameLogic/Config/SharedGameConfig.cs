@@ -73,19 +73,19 @@ namespace GameLogic.Config
 {
     public class SharedGameConfig : SharedGameConfigBase
     {
-        [GameConfigSyntaxAdapter(new string[] { "ItemKey -> ItemKey #key" }, new string[] { }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "SequenceId -> SequenceId #key" }, new string[] { }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("Items", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "SequenceId -> SequenceId #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "ItemKey -> ItemKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<int, ItemDefinition> Items { get; set; }
 
-        [GameConfigEntryTransform(typeof(MergeChainSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MergeChains", true, null)]
+        [GameConfigEntryTransform(typeof(MergeChainSource))]
         public GameConfigLibrary<MergeChainId, MergeChainDefinition> MergeChains { get; set; }
 
-        [GameConfigEntryTransform(typeof(CodexDiscoveryRewardSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(CodexDiscoveryRewardSource))]
         [GameConfigEntry("CodexDiscoveryRewards", true, null)]
         public GameConfigLibrary<CodexDiscoveryRewardId, CodexDiscoveryRewardInfo> CodexDiscoveryRewards { get; set; }
 
@@ -94,57 +94,57 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CodexCategoryId, CodexCategoryInfo> CodexCategories { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(BubblesSetupSource))]
         [GameConfigEntry("BubbleSetups", true, null)]
+        [GameConfigEntryTransform(typeof(BubblesSetupSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<BubblesSetupId, BubblesSetup> BubbleSetups { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(MergeRewardSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MergeRewards", true, null)]
         public GameConfigLibrary<MergeRewardId, MergeReward> XpMergeRewards { get; set; }
 
-        [GameConfigEntryTransform(typeof(TimedMergeBoardSource))]
         [GameConfigEntry("TimedMergeBoards", true, null)]
+        [GameConfigEntryTransform(typeof(TimedMergeBoardSource))]
         [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
         public GameConfigLibrary<MergeBoardId, TimedMergeBoard> TimedMergeBoards { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "BoardId -> BoardId #key" }, new string[] { }, false)]
         [GameConfigEntry("Boards", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "BoardId -> BoardId #key" }, new string[] { }, false)]
         public GameConfigLibrary<MergeBoardId, BoardInfo> Boards { get; set; }
 
-        [GameConfigEntry("BoardEvents", true, null)]
         [GameConfigEntryTransform(typeof(BoardEventSource))]
+        [GameConfigEntry("BoardEvents", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
         public GameConfigLibrary<EventId, BoardEventInfo> BoardEvents { get; set; }
 
-        [GameConfigEntry("ShopEvents", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "ShopEventId -> ShopEventId #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(ShopEventConfigSourceItem))]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigEntry("ShopEvents", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ShopEventId -> ShopEventId #key" }, new string[] { }, false)]
         public GameConfigLibrary<EventId, ShopEventInfo> ShopEvents { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
         [GameConfigEntry("CollectibleBoardEvents", true, null)]
         [GameConfigEntryTransform(typeof(CollectibleBoardEventSource))]
-        [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         public GameConfigLibrary<CollectibleBoardEventId, CollectibleBoardEventInfo> CollectibleBoardEvents { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
         [GameConfigEntry("LeaderboardEvents", true, null)]
         [GameConfigEntryTransform(typeof(LeaderboardEventSource))]
-        [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         public GameConfigLibrary<LeaderboardEventId, LeaderboardEventInfo> LeaderboardEvents { get; set; }
 
         [GameConfigEntry("ProgressionEvents", true, null)]
-        [GameConfigEntryTransform(typeof(ProgressionEventSource))]
-        [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(ProgressionEventSource))]
         public GameConfigLibrary<ProgressionEventId, ProgressionEventInfo> ProgressionEvents { get; set; }
 
-        [GameConfigEntry("MapCharacterEvents", true, null)]
         [GameConfigEntryTransform(typeof(MapCharacterEventDefinitionSource))]
+        [GameConfigEntry("MapCharacterEvents", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "MapCharacterEventId -> MapCharacterEventId #key" }, new string[] { }, false)]
         public GameConfigLibrary<MapCharacterEventId, MapCharacterEventDefinition> MapCharacterEvents { get; set; }
 
@@ -152,52 +152,52 @@ namespace GameLogic.Config
         [GameConfigEntry("EventCurrencies", true, null)]
         public GameConfigLibrary<EventCurrencyId, EventCurrencyInfo> EventCurrencies { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "EventLevelId -> EventLevelId #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(EventLevelInfoSource))]
         [GameConfigEntry("EventLevels", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "EventLevelId -> EventLevelId #key" }, new string[] { }, false)]
         public GameConfigLibrary<EventLevelId, EventLevelInfo> EventLevels { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "SetId -> SetId #key" }, new string[] { }, false)]
         [GameConfigEntry("EventLevelSets", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "SetId -> SetId #key" }, new string[] { }, false)]
         private GameConfigLibrary<EventLevelSetId, EventLevels> LevelSets { get; set; }
 
         [GameConfigEntry("EventTasks", true, null)]
-        [GameConfigEntryTransform(typeof(EventTaskConfigSourceItem))]
         [GameConfigSyntaxAdapter(new string[] { "EventTaskId -> EventTaskId #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(EventTaskConfigSourceItem))]
         public GameConfigLibrary<EventTaskId, EventTaskInfo> EventTasks { get; set; }
 
-        [GameConfigEntryTransform(typeof(EventShopOfferSourceConfigItem))]
         [GameConfigEntry("EventOffers", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "EventOfferId -> EventOfferId #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(EventShopOfferSourceConfigItem))]
         public GameConfigLibrary<EventOfferId, EventOfferInfo> EventOffers { get; set; }
 
         [GameConfigEntry("ProgressionEventPerks", true, null)]
-        [GameConfigEntryTransform(typeof(ProgressionEventPerkSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(ProgressionEventPerkSource))]
         public GameConfigLibrary<ProgressionEventPerkId, ProgressionEventPerkInfo> ProgressionEventPerks { get; set; }
 
-        [GameConfigEntryTransform(typeof(EventOfferSetSource))]
         [GameConfigEntry("EventOfferSets", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "EventOfferSetId -> EventOfferSetId #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(EventOfferSetSource))]
         public GameConfigLibrary<EventOfferSetId, EventOfferSetInfo> EventOfferSets { get; set; }
 
+        [GameConfigEntry("TieredOffers", true, null)]
         [GameConfigEntryTransform(typeof(TieredOfferSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntry("TieredOffers", true, null)]
         public GameConfigLibrary<TieredOfferId, TieredOffer> TieredOffers { get; set; }
 
         [GameConfigEntry("DailyTasks", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(DailyTaskSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DailyTaskId, DailyTaskDefinition> DailyTasks { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("Areas", true, null)]
         public GameConfigLibrary<AreaId, AreaInfo> Areas { get; set; }
 
+        [GameConfigEntry("HotspotDefinitions", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "HotspotId -> HotspotId #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(HotspotDefinitionSource))]
-        [GameConfigEntry("HotspotDefinitions", true, null)]
         public GameConfigLibrary<HotspotId, HotspotDefinition> HotspotDefinitions { get; set; }
 
         [GameConfigEntry("MapSpots", true, null)]
@@ -205,17 +205,17 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "MapSpotId -> MapSpotId #key" }, new string[] { }, false)]
         public GameConfigLibrary<MapSpotId, MapSpotInfo> MapSpots { get; set; }
 
-        [GameConfigEntry("PlayerLevels", true, null)]
-        [GameConfigEntryTransform(typeof(PlayerLevelDataSource))]
         [GameConfigSyntaxAdapter(new string[] { "LevelKey -> LevelKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(PlayerLevelDataSource))]
+        [GameConfigEntry("PlayerLevels", true, null)]
         public GameConfigLibrary<int, PlayerLevelData> PlayerLevels { get; set; }
 
-        [GameConfigEntry("InventorySlots", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("InventorySlots", true, null)]
         public GameConfigLibrary<InventorySlotId, InventorySlotsConfig> InventorySlots { get; set; }
 
-        [GameConfigEntryTransform(typeof(LevelUpTutorialConfigSource))]
         [GameConfigEntry("LevelUpTutorialConfig", true, null)]
+        [GameConfigEntryTransform(typeof(LevelUpTutorialConfigSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigId -> ConfigId #key" }, new string[] { }, false)]
         public GameConfigLibrary<LevelUpTutorialConfigId, LevelUpTutorialConfig> LevelUpTutorialConfig { get; set; }
 
@@ -229,59 +229,59 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<ShopLayoutId, ShopLayout> ShopLayouts { get; set; }
 
-        [GameConfigEntry("DynamicPurchaseProducts", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ShopItemId -> ShopItemId #key" }, new string[] { }, false)]
+        [GameConfigEntry("DynamicPurchaseProducts", true, null)]
         [GameConfigEntryTransform(typeof(DynamicPurchaseDefinitionSource))]
         public GameConfigLibrary<ShopItemId, DynamicPurchaseDefinition> DynamicPurchaseProducts { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         [GameConfigEntry("CurrencyBank", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         [GameConfigEntryTransform(typeof(CurrencyBankSource))]
         public GameConfigLibrary<CurrencyBankId, CurrencyBankInfo> CurrencyBanks { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "GameFeatureId -> GameFeatureId #key" }, new string[] { }, false)]
         [GameConfigEntry("GameFeatures", true, null)]
         [GameConfigEntryTransform(typeof(GameFeatureSettingSource))]
-        [GameConfigSyntaxAdapter(new string[] { "GameFeatureId -> GameFeatureId #key" }, new string[] { }, false)]
         public GameConfigLibrary<GameFeatureId, GameFeatureSetting> GameFeatures { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         [GameConfigEntry("SharedGlobals", true, null)]
         public SharedGlobals SharedGlobals { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "RuleId -> RuleId #key" }, new string[] { }, false)]
-        [GameConfigEntry("SuppressedWarnings", true, null)]
         [GameConfigEntryTransform(typeof(SuppressedWarningsSource))]
+        [GameConfigEntry("SuppressedWarnings", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "RuleId -> RuleId #key" }, new string[] { }, false)]
         public GameConfigLibrary<int, SuppressedBuildLogsInfo> SuppressedWarnings { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("AddressablesDownloadProcesses", true, null)]
         [GameConfigEntryTransform(typeof(AddressablesDownloadProcessSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<AddressablesDownloadProcessId, AddressablesDownloadProcess> AddressablesDownloadProcesses { get; set; }
 
+        [GameConfigEntry("ReEngagementSettings", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(ReEngagementSettingsSource))]
-        [GameConfigEntry("ReEngagementSettings", true, null)]
         public GameConfigLibrary<ReEngagementSettingsId, ReEngagementSettings> ReEngagementSettings { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         [GameConfigEntry("FishingSettings", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         public FishingSettings FishingSettings { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        [GameConfigEntryTransform(typeof(ScheduledActionSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("ScheduledActions", true, null)]
+        [GameConfigEntryTransform(typeof(ScheduledActionSource))]
         public GameConfigLibrary<ScheduledActionId, ScheduledActionInfo> ScheduledActions { get; set; }
 
-        [GameConfigEntry("StoryDefinitions", true, null)]
         [GameConfigEntryTransform(typeof(StoryElementInfoSourceItem))]
         [GameConfigSyntaxAdapter(new string[] { "StoryDefinitionId -> StoryDefinitionId #key" }, new string[] { }, false)]
+        [GameConfigEntry("StoryDefinitions", true, null)]
         public GameConfigLibrary<StoryDefinitionId, StoryElementInfo> StoryElements { get; set; }
 
+        [GameConfigEntry("DialogItems", true, null)]
         [GameConfigEntryTransform(typeof(DialogItemInfoSourceItem))]
         [GameConfigSyntaxAdapter(new string[] { "DialogItemId -> DialogItemId #key" }, new string[] { }, false)]
-        [GameConfigEntry("DialogItems", true, null)]
         public GameConfigLibrary<DialogItemId, DialogItemInfo> DialogItems { get; set; }
 
         [GameConfigEntry("CollectibleDialoguesInfo", true, null)]
@@ -289,19 +289,19 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CollectibleDialoguesInfoId, CollectibleDialoguesInfo> CollectibleDialoguesInfo { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "DialogCharacterType -> DialogCharacterType #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(DialogueCharacterSource))]
+        [GameConfigSyntaxAdapter(new string[] { "DialogCharacterType -> DialogCharacterType #key" }, new string[] { }, false)]
         [GameConfigEntry("DialogueCharacters", true, null)]
         public GameConfigLibrary<DialogCharacterType, DialogueCharacterInfo> DialogueCharacters { get; set; }
 
-        [GameConfigEntry("GarageCleanupEvents", true, null)]
         [GameConfigEntryTransform(typeof(GarageCleanupEventSourceConfigItem))]
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigEntry("GarageCleanupEvents", true, null)]
         public GameConfigLibrary<GarageCleanupEventId, GarageCleanupEventInfo> GarageCleanupEvents { get; set; }
 
-        [GameConfigEntryTransform(typeof(GarageCleanupBoardRowSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key", "RowNumber -> RowNumber #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(GarageCleanupBoardRowSource))]
         [GameConfigEntry("GarageCleanupBoardRows", true, null)]
         public GameConfigLibrary<GarageCleanupBoardRowId, GarageCleanupBoardRowInfo> GarageCleanupBoardRows { get; set; }
 
@@ -310,53 +310,53 @@ namespace GameLogic.Config
         [GameConfigEntry("GarageCleanupPatternSets", true, null)]
         public GameConfigLibrary<GarageCleanupPatternSetId, GarageCleanupPatternSetInfo> GarageCleanupPatternSets { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key", "RowNumber -> RowNumber #key" }, new string[] { }, false)]
         [GameConfigEntry("GarageCleanupPatternRows", true, null)]
         [GameConfigEntryTransform(typeof(GarageCleanupPatternRowSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key", "RowNumber -> RowNumber #key" }, new string[] { }, false)]
         public GameConfigLibrary<GarageCleanupPatternRowId, GarageCleanupPatternRowInfo> GarageCleanupPatternRows { get; set; }
 
-        [GameConfigEntry("GarageCleanupRewards", true, null)]
-        [GameConfigEntryTransform(typeof(GarageCleanupRewardSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(GarageCleanupRewardSource))]
+        [GameConfigEntry("GarageCleanupRewards", true, null)]
         public GameConfigLibrary<GarageCleanupRewardId, GarageCleanupRewardInfo> GarageCleanupRewards { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "DecorationId -> DecorationId #key" }, new string[] { }, false)]
-        [GameConfigEntry("Decorations", true, null)]
         [GameConfigEntryTransform(typeof(DecorationInfoSource))]
+        [GameConfigEntry("Decorations", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "DecorationId -> DecorationId #key" }, new string[] { }, false)]
         public GameConfigLibrary<DecorationId, DecorationInfo> Decorations { get; set; }
 
-        [GameConfigEntryTransform(typeof(LayeredDecorationSetSource))]
         [GameConfigSyntaxAdapter(new string[] { "SetId -> SetId #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(LayeredDecorationSetSource))]
         [GameConfigEntry("LayeredDecorations", true, null)]
         public GameConfigLibrary<LayeredDecorationSetId, LayeredDecorationSetInfo> LayeredDecorations { get; set; }
 
-        [GameConfigEntry("SocialAuthentication", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "AuthenticationPlatformId -> AuthenticationPlatformId #key" }, new string[] { }, false)]
+        [GameConfigEntry("SocialAuthentication", true, null)]
         public GameConfigLibrary<AuthenticationPlatform, SocialAuthenticationConfig> SocialAuthentication { get; set; }
 
-        [GameConfigEntry("SocialMedia", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(SocialMediaSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("SocialMedia", true, null)]
         public GameConfigLibrary<SocialMediaId, SocialMediaInfo> SocialMedia { get; set; }
 
+        [GameConfigEntry("SocialAuthRewards", true, null)]
         [GameConfigEntryTransform(typeof(SocialAuthRewardSource))]
         [GameConfigSyntaxAdapter(new string[] { "SocialAuthRewardId -> SocialAuthRewardId #key" }, new string[] { }, false)]
-        [GameConfigEntry("SocialAuthRewards", true, null)]
         public GameConfigLibrary<SocialAuthRewardId, SocialAuthRewardInfo> SocialAuthRewards { get; set; }
 
+        [GameConfigEntry("Videos", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(VideoSource))]
-        [GameConfigEntry("Videos", true, null)]
         public GameConfigLibrary<VideoId, Video> Videos { get; set; }
 
-        [GameConfigEntryTransform(typeof(SlideShowSource))]
-        [GameConfigEntry("SlideShows", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("SlideShows", true, null)]
+        [GameConfigEntryTransform(typeof(SlideShowSource))]
         public GameConfigLibrary<SlideShowId, SlideShow> SlideShows { get; set; }
 
         [GameConfigEntryTransform(typeof(CutsceneInfoSource))]
-        [GameConfigEntry("Cutscenes", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "CutsceneId -> CutsceneId #key" }, new string[] { }, false)]
+        [GameConfigEntry("Cutscenes", true, null)]
         public GameConfigLibrary<CutsceneId, CutsceneInfo> Cutscenes { get; set; }
 
         public override void Import(GameConfigImporter importer)
@@ -428,47 +428,47 @@ namespace GameLogic.Config
         }
 
         public HashSet<int> SecondaryEnergyMergeBoardPortalItems { get; set; }
-        public Dictionary<MergeBoardId, CollectibleBoardEventId> FishingEventBoards { get; set; }
+        public Dictionary<CollectibleBoardEventId, MergeBoardId> FishingEventBoards { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("ProgressionEventStreaks", true, null)]
         [GameConfigEntryTransform(typeof(ProgressionEventStreakRewardsSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<ProgressionEventStreakId, ProgressionEventStreakRewards> ProgressionEventStreaks { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "SeasonId -> SeasonId #key" }, new string[] { }, false)]
-        [GameConfigEntry("Seasons", true, null)]
         [GameConfigEntryTransform(typeof(SeasonInfoSource))]
+        [GameConfigEntry("Seasons", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "SeasonId -> SeasonId #key" }, new string[] { }, false)]
         public GameConfigLibrary<SeasonId, SeasonInfo> Seasons { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(RentableInventorySettingsSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("RentableInventorySettings", true, null)]
         public GameConfigLibrary<RentableInventorySettingsId, RentableInventorySettings> RentableInventorySettings { get; set; }
 
-        [GameConfigEntry("PetInfos", true, null)]
         [GameConfigEntryTransform(typeof(PetInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("PetInfos", true, null)]
         public GameConfigLibrary<PetId, PetInfo> PetInfos { get; set; }
 
-        [GameConfigEntry("DecorationShops", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigEntry("DecorationShops", true, null)]
         [GameConfigEntryTransform(typeof(DecorationShopSource))]
         public GameConfigLibrary<DecorationShopId, DecorationShopInfo> DecorationShops { get; set; }
 
         [GameConfigEntryTransform(typeof(DecorationShopSetSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("DecorationShopSets", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DecorationShopSetId, DecorationShopSetInfo> DecorationShopSets { get; set; }
 
-        [GameConfigEntryTransform(typeof(DecorationShopItemSource))]
         [GameConfigEntry("DecorationShopItems", true, null)]
+        [GameConfigEntryTransform(typeof(DecorationShopItemSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DecorationShopItemId, DecorationShopItemInfo> DecorationShopItems { get; set; }
 
-        [GameConfigEntry("DynamicEventTasks", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "EventTaskId -> EventTaskId #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(EventTaskConfigSourceItem))]
+        [GameConfigSyntaxAdapter(new string[] { "EventTaskId -> EventTaskId #key" }, new string[] { }, false)]
+        [GameConfigEntry("DynamicEventTasks", true, null)]
         public GameConfigLibrary<EventTaskId, EventTaskInfo> DynamicEventTasks { get; set; }
 
         [GameConfigEntry("DynamicEventRewards", true, null)]
@@ -476,14 +476,14 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
         public GameConfigLibrary<DynamicEventRewardId, DynamicEventRewardInfo> DynamicEventRewards { get; set; }
 
-        [GameConfigEntry("DynamicEventItems", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(DynamicEventItemInfoSourceItem))]
+        [GameConfigEntry("DynamicEventItems", true, null)]
         public GameConfigLibrary<DynamicEventItemId, DynamicEventItemInfo> DynamicEventItems { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(DynamicEventHelperInfoSourceItem))]
         [GameConfigEntry("DynamicEventHelpers", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DynamicEventHelperId, DynamicEventHelperInfo> DynamicEventHelpers { get; set; }
 
         [GameConfigEntry("EnergyModes", true, null)]
@@ -509,9 +509,9 @@ namespace GameLogic.Config
         [GameConfigEntry("Languages", true, null)]
         public GameConfigLibrary<LanguageId, LanguageInfo> Languages { get; set; }
 
-        [GameConfigEntry("InAppProducts", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ProductId -> ProductId #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(InAppProductConfigSource))]
+        [GameConfigEntry("InAppProducts", true, null)]
         public GameConfigLibrary<InAppProductId, InAppProductInfo> InAppProducts { get; set; }
 
         [GameConfigEntryTransform(typeof(PlayerSegmentInfoSourceItem))]
@@ -524,15 +524,15 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "OfferId -> OfferId #key" }, new string[] { }, false)]
         public GameConfigLibrary<MetaOfferId, MergeMansionOfferInfo> Offers { get; set; }
 
-        [GameConfigEntry("TieredOfferItems", true, null)]
-        [GameConfigEntryTransform(typeof(MergeMansionOfferSourceConfigItem))]
         [GameConfigSyntaxAdapter(new string[] { "OfferId -> OfferId #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(MergeMansionOfferSourceConfigItem))]
+        [GameConfigEntry("TieredOfferItems", true, null)]
         public GameConfigLibrary<MetaOfferId, MergeMansionOfferInfo> TieredOfferItems { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        [GameConfigEntryTransform(typeof(MergeMansionOfferGroupSourceItem))]
         [GameConfigEntry("OfferGroups", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "GroupId -> GroupId #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigEntryTransform(typeof(MergeMansionOfferGroupSourceItem))]
         public GameConfigLibrary<MetaOfferGroupId, MergeMansionOfferGroupInfo> OfferGroups { get; set; }
 
         [GameConfigEntry("SideBoardEvents", true, null)]
@@ -541,62 +541,62 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         public GameConfigLibrary<SideBoardEventId, SideBoardEventInfo> SideBoardEvents { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "EventCharacterId -> EventCharacterId #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(EventCharacterInfoSource))]
+        [GameConfigSyntaxAdapter(new string[] { "EventCharacterId -> EventCharacterId #key" }, new string[] { }, false)]
         [GameConfigEntry("EventCharacters", true, null)]
         public GameConfigLibrary<EventCharacterId, EventCharacterInfo> EventCharacters { get; set; }
         public Dictionary<MergeBoardId, SideBoardEventId> SideBoardEventBoards { get; set; }
         public List<ItemDefinition> FishingRodItems { get; set; }
-        public Dictionary<ItemDefinition, OverrideSpawnChanceFeatures> OverrideSpawnChanceByItemDefinition { get; set; }
+        public Dictionary<ItemDefinition, IOverrideSpawnChanceFeatures> OverrideSpawnChanceByItemDefinition { get; set; }
         public List<HotspotId> AreaUnlockHotspots { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntry("Music_Tracks", true, null)]
         [GameConfigEntryTransform(typeof(MMTrackSource))]
+        [GameConfigEntry("Music_Tracks", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<string, MMTrack> Tracks { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("Music_Playlists", true, null)]
         [GameConfigEntryTransform(typeof(MMPlaylistSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<string, MMPlaylist> Playlists { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("CardStacks", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CardStackId, CardStackInfo> CardStacks { get; set; }
 
         [GameConfigEntry("WebShopSettings", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         public WebShopSettings WebShopSettings { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(AdvertisementPlacementsSource))]
         [GameConfigEntry("AdvertisementPlacements", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<AdvertisementPlacementId, AdvertisementPlacementsInfo> AdvertisementPlacements { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        [GameConfigEntryTransform(typeof(MysteryMachineEventSource))]
         [GameConfigEntry("MysteryMachineEvents", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(MysteryMachineEventSource))]
         public GameConfigLibrary<MysteryMachineEventId, MysteryMachineEventInfo> MysteryMachineEvents { get; set; }
 
-        [GameConfigEntry("MysteryMachineItemSets", true, null)]
-        [GameConfigEntryTransform(typeof(MysteryMachineItemSetSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(MysteryMachineItemSetSource))]
+        [GameConfigEntry("MysteryMachineItemSets", true, null)]
         public GameConfigLibrary<MysteryMachineItemSetId, MysteryMachineItemSetInfo> MysteryMachineItemSets { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(MysteryMachineItemSource))]
         [GameConfigEntry("MysteryMachineItems", true, null)]
+        [GameConfigEntryTransform(typeof(MysteryMachineItemSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineItemId, MysteryMachineItemInfo> MysteryMachineItems { get; set; }
 
+        [GameConfigEntry("MysteryMachineItemScores", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(MysteryMachineItemScoreSource))]
-        [GameConfigEntry("MysteryMachineItemScores", true, null)]
         public GameConfigLibrary<MysteryMachineItemScoreId, MysteryMachineItemScore> MysteryMachineItemScores { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MysteryMachineSpecialItems", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineSpecialItemSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineSpecialItemItemId, MysteryMachineSpecialItemInfo> MysteryMachineSpecialItems { get; set; }
 
         [GameConfigEntry("MysteryMachineItemChainMultipliers", true, null)]
@@ -604,9 +604,9 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineChainMultiplierId, MysteryMachineChainMultiplierInfo> MysteryMachineChainMultipliers { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(MysteryMachineExtraItemGrantingSource))]
         [GameConfigEntry("MysteryMachineExtraItemGranting", true, null)]
+        [GameConfigEntryTransform(typeof(MysteryMachineExtraItemGrantingSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineExtraItemGrantingId, MysteryMachineExtraItemGrantingInfo> MysteryMachineExtraItemGranting { get; set; }
 
         [GameConfigEntry("MysteryMachineMultipliers", true, null)]
@@ -624,49 +624,49 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineCurrencyItemId, MysteryMachineCurrencyItemInfo> MysteryMachineCurrencyItems { get; set; }
 
-        [GameConfigEntry("MergeMysteryMachineCurrencyItemChains", true, null)]
-        [GameConfigEntryTransform(typeof(MysteryMachineCurrencyItemChainSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(MysteryMachineCurrencyItemChainSource))]
+        [GameConfigEntry("MergeMysteryMachineCurrencyItemChains", true, null)]
         public GameConfigLibrary<MysteryMachineCurrencyItemChainId, MysteryMachineCurrencyItemChainInfo> MysteryMachineCurrencyItemChains { get; set; }
 
-        [GameConfigEntry("MergeMysteryMachineProgressionEventProgressItems", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(MysteryMachineProgressionEventProgressItemSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("MergeMysteryMachineProgressionEventProgressItems", true, null)]
         public GameConfigLibrary<MysteryMachineProgressionEventProgressItemId, MysteryMachineProgressionEventProgressItemInfo> MysteryMachineProgressionEventProgressItems { get; set; }
 
-        [GameConfigEntryTransform(typeof(MysteryMachineProgressionEventProgressItemChainSource))]
         [GameConfigEntry("MergeMysteryMachineProgressionEventProgressItemChains", true, null)]
+        [GameConfigEntryTransform(typeof(MysteryMachineProgressionEventProgressItemChainSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineProgressionEventProgressItemChainId, MysteryMachineProgressionEventProgressItemChainInfo> MysteryMachineProgressionEventProgressItemChains { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MysteryMachineHeatLevels", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineHeatLevelSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineHeatLevelId, MysteryMachineHeatLevelInfo> MysteryMachineHeatLevels { get; set; }
 
+        [GameConfigEntry("MysteryMachinePerks", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(MysteryMachinePerkSource))]
-        [GameConfigEntry("MysteryMachinePerks", true, null)]
         public GameConfigLibrary<MysteryMachinePerkId, MysteryMachinePerkInfo> MysteryMachinePerks { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MysteryMachineSpecialSales", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineSpecialSaleSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineSpecialSaleId, MysteryMachineSpecialSaleInfo> MysteryMachineSpecialSales { get; set; }
 
         [GameConfigEntry("MysteryMachineTasks", true, null)]
-        [GameConfigEntryTransform(typeof(MysteryMachineTaskSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(MysteryMachineTaskSource))]
         public GameConfigLibrary<MysteryMachineTaskId, MysteryMachineTaskInfo> MysteryMachineTasks { get; set; }
 
-        [GameConfigEntry("MysteryMachineTaskSets", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("MysteryMachineTaskSets", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineTaskSetSource))]
         public GameConfigLibrary<MysteryMachineTaskSetId, MysteryMachineTaskSetInfo> MysteryMachineTaskSets { get; set; }
 
         [GameConfigEntry("MysteryMachineLevels", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(MysteryMachineLevelSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineLevelId, MysteryMachineLevelInfo> MysteryMachineLevels { get; set; }
         public Dictionary<MergeBoardId, MysteryMachineEventId> MysteryMachineEventBoards { get; set; }
 
@@ -675,83 +675,83 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<ProducerInventorySlotId, ProducerInventorySlotConfig> ProducerInventorySlots { get; set; }
 
-        [GameConfigEntry("OfferPopupTriggers", true, null)]
-        [GameConfigEntryTransform(typeof(OfferPopupTriggerSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(OfferPopupTriggerSource))]
+        [GameConfigEntry("OfferPopupTriggers", true, null)]
         public GameConfigLibrary<OfferPopupTriggerId, OfferPopupTrigger> OfferPopupTriggers { get; set; }
 
-        [GameConfigEntry("LocationTravels", true, null)]
         [GameConfigEntryTransform(typeof(LocationTravelSource))]
+        [GameConfigEntry("LocationTravels", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<LocationTravelId, LocationTravelInfo> LocationTravels { get; set; }
 
         private Dictionary<FlashSaleGroupId, FlashSaleGroupDefinition> combinedFlashSaleGroups;
+        [GameConfigEntry("FlashSales", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(FlashSaleSource))]
-        [GameConfigEntry("FlashSales", true, null)]
         public GameConfigLibrary<ShopItemId, FlashSaleDefinition> GarageFlashSales { get; set; }
 
-        [GameConfigEntryTransform(typeof(FlashSaleSource))]
-        [GameConfigEntry("EventFlashSales", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("EventFlashSales", true, null)]
+        [GameConfigEntryTransform(typeof(FlashSaleSource))]
         public GameConfigLibrary<ShopItemId, FlashSaleDefinition> EventFlashSales { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(FlashSalesGroupSource))]
         [GameConfigEntry("FlashSaleGroups", true, null)]
+        [GameConfigEntryTransform(typeof(FlashSalesGroupSource))]
         public GameConfigLibrary<FlashSaleGroupId, FlashSaleGroupDefinition> GarageFlashSaleGroups { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(FlashSalesGroupSource))]
         [GameConfigEntry("EventFlashSaleGroups", true, null)]
+        [GameConfigEntryTransform(typeof(FlashSalesGroupSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<FlashSaleGroupId, FlashSaleGroupDefinition> EventFlashSaleGroups { get; set; }
 
-        [GameConfigEntry("FlashSaleShopSettings", true, null)]
-        [GameConfigEntryTransform(typeof(FlashSaleShopSettingsSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(FlashSaleShopSettingsSource))]
+        [GameConfigEntry("FlashSaleShopSettings", true, null)]
         public GameConfigLibrary<FlashSaleShopSettingsId, FlashSaleShopSettings> FlashSaleShopSettings { get; set; }
 
+        [GameConfigEntryTransform(typeof(DailyTaskV2Source))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("DailyTasksV2", true, null)]
-        [GameConfigEntryTransform(typeof(DailyTaskV2Source))]
         public GameConfigLibrary<DailyTaskV2Id, DailyTaskV2Info> DailyTasksV2 { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntry("DailyTasksV2CompletionRewards", true, null)]
         [GameConfigEntryTransform(typeof(DailyTasksV2CompletionRewardSource))]
+        [GameConfigEntry("DailyTasksV2CompletionRewards", true, null)]
         public GameConfigLibrary<DailyTasksV2CompletionRewardId, DailyTasksV2CompletionRewardInfo> DailyTasksV2CompletionRewards { get; set; }
 
+        [GameConfigEntryTransform(typeof(DailyTasksV2MergeChainSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("DailyTasksV2MergeChains", true, null)]
-        [GameConfigEntryTransform(typeof(DailyTasksV2MergeChainSource))]
         public GameConfigLibrary<MergeChainId, DailyTasksV2MergeChainInfo> DailyTasksV2MergeChains { get; set; }
 
-        [GameConfigEntry("DailyTasksV2Settings", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
+        [GameConfigEntry("DailyTasksV2Settings", true, null)]
         public DailyTasksV2Settings DailyTasksV2Settings { get; set; }
         public List<int> MysteryMachineItemIds { get; set; }
 
         [GameConfigEntry("EnergyModeEvents", true, null)]
-        [GameConfigEntryTransform(typeof(EnergyModeEventSource))]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(EnergyModeEventSource))]
         public GameConfigLibrary<EnergyModeEventId, EnergyModeEventInfo> EnergyModeEvents { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> MiniEventId #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(MiniEventConfigSource))]
         [GameConfigEntry("MiniEvents", true, null)]
+        [GameConfigEntryTransform(typeof(MiniEventConfigSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> MiniEventId #key" }, new string[] { }, false)]
         public GameConfigLibrary<MiniEventId, MiniEventInfo> MiniEvents { get; set; }
 
-        [GameConfigEntryTransform(typeof(MakeYourOwnOfferSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(MakeYourOwnOfferSource))]
         [GameConfigEntry("MakeYourOwnOffers", true, null)]
         public GameConfigLibrary<MetaOfferId, MakeYourOwnOfferInfo> MakeYourOwnOffers { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(SoloMilestoneEventInfoSource))]
         [GameConfigEntry("SoloMilestoneEvents", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<SoloMilestoneEventId, SoloMilestoneEventInfo> SoloMilestoneEvents { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
@@ -759,19 +759,19 @@ namespace GameLogic.Config
         [GameConfigEntry("SoloMilestoneMilestones", true, null)]
         public GameConfigLibrary<SoloMilestoneMilestonesId, SoloMilestoneMilestonesInfo> SoloMilestoneMilestones { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(SoloMilestoneTokenSpawnsInfoSource))]
         [GameConfigEntry("SoloMilestoneTokenSpawns", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<SoloMilestoneTokenSpawnsId, SoloMilestoneTokenSpawnsInfo> SoloMilestoneTokenSpawns { get; set; }
 
-        [GameConfigEntry("DailyScoopMilestones", true, null)]
         [GameConfigEntryTransform(typeof(DailyScoopMilestoneDataSource))]
+        [GameConfigEntry("DailyScoopMilestones", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DailyScoopMilestoneId, DailyScoopMilestoneData> DailyScoopMilestones { get; set; }
 
-        [GameConfigEntry("DailyScoopStandardObjectives", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(DailyScoopStandardObjectiveDataSource))]
+        [GameConfigEntry("DailyScoopStandardObjectives", true, null)]
         public GameConfigLibrary<DailyScoopStandardObjectiveId, DailyScoopStandardObjectiveData> DailyScoopStandardObjectives { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
@@ -779,38 +779,38 @@ namespace GameLogic.Config
         [GameConfigEntry("DailyScoopSpecialObjectives", true, null)]
         public GameConfigLibrary<DailyScoopSpecialObjectiveId, DailyScoopSpecialObjectiveData> DailyScoopSpecialObjectives { get; set; }
 
+        [GameConfigEntry("DailyScoopDays", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(DailyScoopDayDataSource))]
-        [GameConfigEntry("DailyScoopDays", true, null)]
         public GameConfigLibrary<DailyScoopDayId, DailyScoopDayData> DailyScoopDays { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(DailyScoopWeekDataSource))]
         [GameConfigEntry("DailyScoopWeeks", true, null)]
+        [GameConfigEntryTransform(typeof(DailyScoopWeekDataSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DailyScoopWeekId, DailyScoopWeekData> DailyScoopWeeks { get; set; }
 
-        [GameConfigEntryTransform(typeof(DailyScoopEventInfoSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("DailyScoopEvents", true, null)]
+        [GameConfigEntryTransform(typeof(DailyScoopEventInfoSource))]
         public GameConfigLibrary<DailyScoopEventId, DailyScoopEventInfo> DailyScoopEvents { get; set; }
 
-        [GameConfigEntry("TagRewards", true, null)]
-        [GameConfigEntryTransform(typeof(TagRewardsSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(TagRewardsSource))]
+        [GameConfigEntry("TagRewards", true, null)]
         public GameConfigLibrary<string, TagRewardsInfo> TagRewards { get; set; }
 
-        [GameConfigEntry("OrderRequirements", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(OrderRequirementsSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("OrderRequirements", true, null)]
         public GameConfigLibrary<OrderRequirementsId, OrderRequirements> OrderRequirements { get; set; }
 
         [GameConfigEntry("GemSettings", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         public GemSettings GemSettings { get; set; }
 
-        [GameConfigEntryTransform(typeof(MapObjectGroupInfoSource))]
         [GameConfigEntry("MapObjectGroups", true, null)]
+        [GameConfigEntryTransform(typeof(MapObjectGroupInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MapObjectGroupId, MapObjectGroupInfo> MapObjectGroups { get; set; }
         public List<ItemDefinition> CutGemItems { get; set; }
@@ -818,42 +818,42 @@ namespace GameLogic.Config
         public Dictionary<MergeBoardId, CollectibleBoardEventId> GemMineEventBoards { get; set; }
         public HashSet<int> CardItems { get; set; }
 
-        [GameConfigEntry("DailyTasksV2BoultonLeague", true, null)]
-        [GameConfigEntryTransform(typeof(DailyTaskV2BoultonLeagueSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(DailyTaskV2BoultonLeagueSource))]
+        [GameConfigEntry("DailyTasksV2BoultonLeague", true, null)]
         public GameConfigLibrary<DailyTaskV2Id, DailyTaskV2BoultonLeagueInfo> DailyTasksV2BoultonLeague { get; set; }
 
-        [GameConfigEntryTransform(typeof(DailyTaskV2BoultonLeagueUnlimitedSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(DailyTaskV2BoultonLeagueUnlimitedSource))]
         [GameConfigEntry("DailyTasksV2BoultonLeagueUnlimited", true, null)]
         public GameConfigLibrary<DailyTaskV2Id, DailyTaskV2BoultonLeagueUnlimitedInfo> DailyTasksV2BoultonLeagueUnlimited { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(DailyTasksV2ItemBoultonLeagueSource))]
         [GameConfigEntry("DailyTasksV2ItemsBoultonLeague", true, null)]
+        [GameConfigEntryTransform(typeof(DailyTasksV2ItemBoultonLeagueSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<ItemTypeConstant, DailyTasksV2ItemBoultonLeagueInfo> DailyTasksV2ItemsBoultonLeague { get; set; }
 
-        [GameConfigEntryTransform(typeof(BoultonLeagueEventSource))]
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("BoultonLeagueEvents", true, null)]
+        [GameConfigEntryTransform(typeof(BoultonLeagueEventSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         public GameConfigLibrary<BoultonLeagueEventId, BoultonLeagueEventInfo> BoultonLeagueEvents { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntry("BoultonLeagueStages", true, null)]
         [GameConfigEntryTransform(typeof(BoultonLeagueStageSource))]
+        [GameConfigEntry("BoultonLeagueStages", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<BoultonLeagueStageId, BoultonLeagueStageInfo> BoultonLeagueStages { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(ItemInPocketInfoSource))]
         [GameConfigEntry("ItemsInPocket", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigEntryTransform(typeof(ItemInPocketInfoSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<ItemInPocketId, ItemInPocketInfo> ItemInPocketInfos { get; set; }
 
-        [GameConfigEntry("TemporaryCardCollectionEvents", true, null)]
-        [GameConfigEntryTransform(typeof(TemporaryCardCollectionEventSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigEntryTransform(typeof(TemporaryCardCollectionEventSource))]
+        [GameConfigEntry("TemporaryCardCollectionEvents", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<TemporaryCardCollectionEventId, TemporaryCardCollectionEventInfo> TemporaryCardCollectionEvents { get; set; }
 
         [GameConfigEntry("MysteryMachineLeaderboardConfigs", true, null)]
@@ -866,29 +866,29 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(MysteryMachineLeaderboardRewardSource))]
         public GameConfigLibrary<MysteryMachineLeaderboardRewardId, MysteryMachineLeaderboardRewardInfo> MysteryMachineLeaderboardRewards { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MysteryMachineLeaderboardTopRankingRewards", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineLeaderboardTopRankingRewardSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineLeaderboardTopRankingRewardId, MysteryMachineLeaderboardTopRankingRewardInfo> MysteryMachineLeaderboardTopRankingRewards { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MysteryMachineLeaderboardPercentileRankingRewards", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineLeaderboardPercentileRankingRewardSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineLeaderboardPercentileRankingRewardId, MysteryMachineLeaderboardPercentileRankingRewardInfo> MysteryMachineLeaderboardPercentileRankingRewards { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("CardCollectionCardInfos", true, null)]
         [GameConfigEntryTransform(typeof(CardCollectionCardInfoSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CardCollectionCardId, CardCollectionCardInfo> CardCollectionCardInfos { get; set; }
 
         [GameConfigEntry("CardCollectionCardSetInfos", true, null)]
-        [GameConfigEntryTransform(typeof(CardCollectionCardSetInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(CardCollectionCardSetInfoSource))]
         public GameConfigLibrary<CardCollectionCardSetId, CardCollectionCardSetInfo> CardCollectionCardSetInfos { get; set; }
 
-        [GameConfigEntry("CardCollectionPackInfos", true, null)]
-        [GameConfigEntryTransform(typeof(CardCollectionPackInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(CardCollectionPackInfoSource))]
+        [GameConfigEntry("CardCollectionPackInfos", true, null)]
         public GameConfigLibrary<CardCollectionPackId, CardCollectionPackInfo> CardCollectionPackInfos { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
@@ -896,34 +896,34 @@ namespace GameLogic.Config
         [GameConfigEntry("CardCollection_Card_Activation", true, null)]
         public GameConfigLibrary<CardCollectionCardActivationId, CardCollectionCardActivationInfo> CardCollectionCardActivationInfos { get; set; }
 
-        [GameConfigEntryTransform(typeof(CardCollectionPackActivationInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("CardCollection_Packs_Activation", true, null)]
+        [GameConfigEntryTransform(typeof(CardCollectionPackActivationInfoSource))]
         public GameConfigLibrary<CardCollectionPackActivationId, CardCollectionPackActivationInfo> CardCollectionPackActivationInfos { get; set; }
 
-        [GameConfigEntryTransform(typeof(CardCollectionHiddenRarityActivationInfoSource))]
-        [GameConfigEntry("CardCollection_HiddenRarity_Activation", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("CardCollection_HiddenRarity_Activation", true, null)]
+        [GameConfigEntryTransform(typeof(CardCollectionHiddenRarityActivationInfoSource))]
         public GameConfigLibrary<CardCollectionHiddenRarityActivationId, CardCollectionHiddenRarityActivationInfo> CardCollectionHiddenRarityActivationInfos { get; set; }
 
         [GameConfigEntryTransform(typeof(CardCollectionSetActivationInfoSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("CardCollection_Set_Activation", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CardCollectionSetActivationId, CardCollectionSetActivationInfo> CardCollectionSetActivationInfos { get; set; }
 
         [GameConfigEntryTransform(typeof(CardCollectionBalanceInfoSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("CardCollectionBalanceInfos", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CardCollectionBalanceId, CardCollectionBalanceInfo> CardCollectionBalanceInfos { get; set; }
 
-        [GameConfigEntryTransform(typeof(CardCollectionEvidenceBoxSource))]
         [GameConfigEntry("CardCollection_EvidenceBoxes", true, null)]
+        [GameConfigEntryTransform(typeof(CardCollectionEvidenceBoxSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CardCollectionEvidenceBoxId, CardCollectionEvidenceBoxInfo> CardCollectionEvidenceBoxes { get; set; }
 
-        [GameConfigEntry("CardCollection_DuplicateCardRewards", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(CardCollectionDuplicateRewardSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("CardCollection_DuplicateCardRewards", true, null)]
         public GameConfigLibrary<CardCollectionDuplicateRewardId, CardCollectionDuplicateRewardInfo> CardCollectionDuplicateCardRewards { get; set; }
 
         [GameConfigEntry("TaskGroups", true, null)]
@@ -931,51 +931,51 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<TaskGroupId, TaskGroupDefinition> TaskGroups { get; set; }
 
+        [GameConfigEntry("RewardContainers", true, null)]
         [GameConfigEntryTransform(typeof(RewardContainerSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntry("RewardContainers", true, null)]
         public GameConfigLibrary<RewardContainerId, RewardContainerInfo> RewardContainers { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntry("MysteryMachineScreens", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineScreenSource))]
+        [GameConfigEntry("MysteryMachineScreens", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineScreenId, MysteryMachineScreenInfo> MysteryMachineScreens { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("MysteryMachineScreenMessagePacks", true, null)]
         [GameConfigEntryTransform(typeof(MysteryMachineScreenMessagePackSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineScreenMessagePackId, MysteryMachineScreenMessagePackInfo> MysteryMachineScreenMessagePacks { get; set; }
 
-        [GameConfigEntry("MysteryMachineScreenMessages", true, null)]
-        [GameConfigEntryTransform(typeof(MysteryMachineScreenMessageSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(MysteryMachineScreenMessageSource))]
+        [GameConfigEntry("MysteryMachineScreenMessages", true, null)]
         public GameConfigLibrary<MysteryMachineScreenMessageId, MysteryMachineScreenMessageInfo> MysteryMachineScreenMessages { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("FallbackItems", true, null)]
         [GameConfigEntryTransform(typeof(FallbackItemInfoSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<FallbackItemId, FallbackItemInfo> FallbackItems { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntry("FallbackPlayerRewards", true, null)]
         [GameConfigEntryTransform(typeof(FallbackPlayerRewardInfoSource))]
+        [GameConfigEntry("FallbackPlayerRewards", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<FallbackPlayerRewardId, FallbackPlayerRewardInfo> FallbackPlayerRewards { get; set; }
         public Dictionary<int, ItemInPocketInfo> ItemInPocketInfoByItemId { get; set; }
         public Dictionary<int, FallbackItemInfo> FallbackItemInfoByItemId { get; set; }
-        public HashSet<ItemDefinition> ItemsAvailableOnlyDuringCardCollectionEvent { get; set; }
+        public HashSet<IItemDefinition> ItemsAvailableOnlyDuringCardCollectionEvent { get; set; }
         public Dictionary<MysteryMachineLeaderboardConfigId, HashSet<PlayerSegmentId>> MysteryMachineLeaderboardRewardSegments { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         [GameConfigEntry("CardCollectionSettings", true, null)]
         public CardCollectionSettings CardCollectionSettings { get; set; }
 
-        [GameConfigEntryTransform(typeof(EnergySettingsConfigSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(EnergySettingsConfigSource))]
         [GameConfigEntry("EnergySettings", true, null)]
         public GameConfigLibrary<EnergyType, EnergySettingsConfig> EnergySettings { get; set; }
 
-        [GameConfigEntry("HotspotTables", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("HotspotTables", true, null)]
         public GameConfigLibrary<CustomHotspotTableId, CustomHotspotTablesInfo> CustomTables { get; set; }
         public Dictionary<int, CardCollectionPackId> CardPacksByItemId { get; set; }
         public List<TemporaryCardCollectionEventInfo> OrderedTemporaryCardCollectionEventInfos { get; set; }
@@ -994,45 +994,45 @@ namespace GameLogic.Config
         public GameConfigLibrary<MetaOfferId, DelayedOfferPurchaseRequirement> DelayedOfferPurchaseRequirements { get; set; }
 
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigEntryTransform(typeof(ProgressionPackSource))]
         [GameConfigEntry("ProgressionPacks", true, null)]
+        [GameConfigEntryTransform(typeof(ProgressionPackSource))]
         public GameConfigLibrary<ProgressionPackId, ProgressionPack> ProgressionPacks { get; set; }
 
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        [GameConfigEntryTransform(typeof(ProgressionPackEventSource))]
         [GameConfigEntry("ProgressionPackEvents", true, null)]
+        [GameConfigEntryTransform(typeof(ProgressionPackEventSource))]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<ProgressionPackEventId, ProgressionPackEventInfo> ProgressionPackEvents { get; set; }
 
-        [GameConfigEntry("RewardUpgradables", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(RewardUpgradableSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("RewardUpgradables", true, null)]
         public GameConfigLibrary<RewardUpgradableId, RewardUpgradableInfo> RewardUpgradables { get; set; }
 
         [GameConfigEntryTransform(typeof(ShortLeaderboardEventSource))]
-        [GameConfigEntry("ShortLeaderboardEvents", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigEntry("ShortLeaderboardEvents", true, null)]
         public GameConfigLibrary<ShortLeaderboardEventId, ShortLeaderboardEventInfo> ShortLeaderboardEvents { get; set; }
 
-        [GameConfigEntry("ShortLeaderboardEventStages", true, null)]
-        [GameConfigEntryTransform(typeof(ShortLeaderboardEventStageSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntryTransform(typeof(ShortLeaderboardEventStageSource))]
+        [GameConfigEntry("ShortLeaderboardEventStages", true, null)]
         public GameConfigLibrary<ShortLeaderboardEventStageId, ShortLeaderboardEventStageInfo> ShortLeaderboardEventStages { get; set; }
 
         [GameConfigEntry("SharedProducerSettings", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(SharedProducerSettingsSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<SharedProducerSettingsId, SharedProducerSettings> SharedProducerSettings { get; set; }
         public HashSet<MergeBoardId> ShortLeaderboardEventBoards { get; set; }
 
         [GameConfigEntry("DigEventItemInfo", true, null)]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntryTransform(typeof(DigEventItemSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DigEventItemId, DigEventItemInfo> DigEventItemInfos { get; set; }
 
-        [GameConfigEntry("DigEventBoards", true, null)]
         [GameConfigEntryTransform(typeof(DigEventBoardsSource))]
+        [GameConfigEntry("DigEventBoards", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DigEventBoardId, DigEventBoards> DigEventBoards { get; set; }
 
@@ -1041,9 +1041,9 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DigEventMuseumShelfId, DigEventMuseumShelfInfo> DigEventShelves { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("DigEventInfo", true, null)]
         [GameConfigEntryTransform(typeof(DigEventInfoSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DigEventId, DigEventInfo> DigEvents { get; set; }
 
         [GameConfigEntry("DigEventShinyProgression", true, null)]
@@ -1051,17 +1051,22 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<DigEventShinyProgressionId, DigEventShinyProgression> DigEventShinyProgression { get; set; }
 
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("CardCollection_SupportingEvents", true, null)]
         [GameConfigEntryTransform(typeof(CardCollectionSupportingEventSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
         public GameConfigLibrary<CardCollectionSupportingEventId, CardCollectionSupportingEventInfo> CardCollectionSupportingEvents { get; set; }
 
+        [GameConfigEntryTransform(typeof(CardCollectionSupportingEventReplacementPackSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         [GameConfigEntry("CardCollection_SupportingEvents_Packs", true, null)]
-        [GameConfigEntryTransform(typeof(CardCollectionSupportingEventReplacementPackSource))]
         public GameConfigLibrary<CardCollectionPackId, CardCollectionSupportingEventReplacementPackInfo> CardCollectionSupportingEventsReplacementPacks { get; set; }
         public Dictionary<ValueTuple<CardStars, TemporaryCardCollectionEventId>, DuplicateRewardPair> DuplicateRewards { get; set; }
         public Dictionary<MergeBoardId, CollectibleBoardEventId> DigEventMergeBoards { get; set; }
+
+        [GameConfigEntryTransform(typeof(AreasGlobalUnlockRequirementSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigEntry("AreasGlobalUnlockRequirements", true, null)]
+        public GameConfigLibrary<AreasGlobalUnlockRequirementId, AreasGlobalUnlockRequirementInfo> AreasGlobalUnlockRequirements { get; set; }
     }
 }

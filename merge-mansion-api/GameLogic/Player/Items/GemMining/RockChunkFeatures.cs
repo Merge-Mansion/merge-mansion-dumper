@@ -4,7 +4,7 @@ using System;
 namespace GameLogic.Player.Items.GemMining
 {
     [MetaSerializable]
-    public class RockChunkFeatures
+    public class RockChunkFeatures : IRockChunkFeatures
     {
         public static RockChunkFeatures NoRockChunkFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

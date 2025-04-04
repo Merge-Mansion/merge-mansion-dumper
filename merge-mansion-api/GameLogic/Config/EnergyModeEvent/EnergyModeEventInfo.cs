@@ -6,12 +6,14 @@ using Metaplay.Core;
 using GameLogic.Player.Modes;
 using GameLogic.Player.Requirements;
 using Code.GameLogic.GameEvents;
+using System.Collections.Generic;
 
 namespace GameLogic.Config.EnergyModeEvent
 {
-    [MetaSerializable]
+    [MetaBlockedMembers(new int[] { 4 })]
     [MetaActivableConfigData("EnergyModeEvent", false, true)]
-    public class EnergyModeEventInfo : IMetaActivableConfigData<EnergyModeEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EnergyModeEventId>, IHasGameConfigKey<EnergyModeEventId>, IMetaActivableInfo<EnergyModeEventId>
+    [MetaSerializable]
+    public class EnergyModeEventInfo : IMetaActivableConfigData<EnergyModeEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EnergyModeEventId>, IHasGameConfigKey<EnergyModeEventId>, IMetaActivableInfo<EnergyModeEventId>, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public EnergyModeEventId ConfigKey { get; set; }
@@ -21,9 +23,6 @@ namespace GameLogic.Config.EnergyModeEvent
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public string Description { get; set; }
-
-        [MetaMember(4, (MetaMemberFlags)0)]
-        public MetaRef<EnergyModeInfo> EnergyModeRef { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
         public MetaActivableParams ActivableParams { get; set; }
@@ -48,6 +47,38 @@ namespace GameLogic.Config.EnergyModeEvent
         public EventCategoryInfo CategoryInfo { get; set; }
 
         public EnergyModeEventInfo(EnergyModeEventId configKey, string displayName, string description, MetaRef<EnergyModeInfo> energyModeRef, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, string nameLocId, EventCategoryInfo categoryInfo)
+        {
+        }
+
+        [MetaMember(9, (MetaMemberFlags)0)]
+        public EnergyModeEnableType EnergyModeEnableType { get; set; }
+
+        [MetaMember(10, (MetaMemberFlags)0)]
+        public List<MetaRef<EnergyModeInfo>> EnergyModeRefs { get; set; }
+
+        [MetaMember(11, (MetaMemberFlags)0)]
+        private string PrefabsOverride { get; set; }
+
+        [MetaMember(12, (MetaMemberFlags)0)]
+        public EventGroupId GroupId { get; set; }
+
+        [MetaMember(13, (MetaMemberFlags)0)]
+        public int Priority { get; set; }
+
+        [MetaMember(14, (MetaMemberFlags)0)]
+        public string StartPopupDescLocId { get; set; }
+
+        [MetaMember(15, (MetaMemberFlags)0)]
+        public string EndPopupDescLocId { get; set; }
+
+        [MetaMember(16, (MetaMemberFlags)0)]
+        public string TaskDescLocId { get; set; }
+
+        [MetaMember(17, (MetaMemberFlags)0)]
+        public string InfoPopupDescLocId { get; set; }
+        public string SharedEventId { get; }
+
+        public EnergyModeEventInfo(EnergyModeEventId configKey, string displayName, string description, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, string nameLocId, EventCategoryInfo categoryInfo, EnergyModeEnableType energyModeEnableType, List<MetaRef<EnergyModeInfo>> energyModeRefs, string prefabsOverride, EventGroupId groupId, int priority, string startPopupDescLocId, string endPopupDescLocId, string taskDescLocId, string infoPopupDescLocId)
         {
         }
     }

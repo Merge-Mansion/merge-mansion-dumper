@@ -7,16 +7,16 @@ using Metaplay.Core.Rewards;
 
 namespace Metaplay.Core.InGameMail
 {
-    [MetaReservedMembers(0, 100)]
     [MetaSerializableDerived(100)]
+    [MetaReservedMembers(0, 100)]
     public class SimplePlayerMail : MetaInGameMail
     {
         [MetaValidateRequired]
         [MetaMember(1, (MetaMemberFlags)0)]
         public LocalizedString Title { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
         [MetaFormTextArea]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public LocalizedString Body { get; set; }
 
         [MetaFormFieldContext("AttachmentRewardList", true)]

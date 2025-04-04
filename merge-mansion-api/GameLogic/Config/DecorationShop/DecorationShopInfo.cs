@@ -9,8 +9,8 @@ using Code.GameLogic.GameEvents;
 
 namespace GameLogic.Config.DecorationShop
 {
-    [MetaActivableConfigData("DecorationShop", false, true)]
     [MetaSerializable]
+    [MetaActivableConfigData("DecorationShop", false, true)]
     public class DecorationShopInfo : IMetaActivableConfigData<DecorationShopId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<DecorationShopId>, IHasGameConfigKey<DecorationShopId>, IMetaActivableInfo<DecorationShopId>, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]

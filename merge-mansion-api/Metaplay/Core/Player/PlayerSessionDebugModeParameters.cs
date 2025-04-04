@@ -10,8 +10,8 @@ namespace Metaplay.Core.Player
         [JsonRequired]
         [MetaMember(1, (MetaMemberFlags)0)]
         public bool EnableEntityDebugConfig;
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonRequired]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public PlayerDebugIncidentUploadMode IncidentUploadMode;
         public PlayerSessionDebugModeParameters(bool enableEntityDebugConfig, PlayerDebugIncidentUploadMode incidentUploadMode)
         {

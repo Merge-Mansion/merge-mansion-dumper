@@ -24,6 +24,9 @@ using GameLogic.MergeChains;
 using Metaplay.Core.Math;
 using GameLogic.Player.Requirements;
 using GameLogic.Player.Rewards;
+using GameLogic.Player.Items.OverrideSpawnChance;
+using GameLogic.Player.Director.Config;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Items
 {
@@ -39,7 +42,7 @@ namespace GameLogic.Player.Items
 
         IChestFeatures ChestFeatures { get; }
 
-        SinkFeatures SinkFeatures { get; }
+        ISinkFeatures SinkFeatures { get; }
 
         IBubbleFeatures BubbleFeatures { get; }
 
@@ -51,31 +54,31 @@ namespace GameLogic.Player.Items
 
         IGemWeightFeatures GemWeightFeatures { get; }
 
-        RockChunkFeatures RockChunkFeatures { get; }
+        IRockChunkFeatures RockChunkFeatures { get; }
 
-        FishingRodFeatures FishingRodFeatures { get; }
+        IFishingRodFeatures FishingRodFeatures { get; }
 
         ICollectableFeatures CollectableFeatures { get; }
 
-        LeaderboardFeatures LeaderboardFeatures { get; }
+        ILeaderboardFeatures LeaderboardFeatures { get; }
 
-        PortalFeatures PortalFeatures { get; }
+        IPortalFeatures PortalFeatures { get; }
 
-        BoosterFeatures BoosterFeatures { get; }
+        IBoosterFeatures BoosterFeatures { get; }
 
         IConsumableFeatures ConsumableFeatures { get; }
 
         IMiniEventFeatures MiniEventFeatures { get; }
 
-        PrisonBadgeFeatures PrisonBadgeFeatures { get; }
+        IPrisonBadgeFeatures PrisonBadgeFeatures { get; }
 
-        SinkableFeatures SinkableFeatures { get; }
+        ISinkableFeatures SinkableFeatures { get; }
 
-        PostBoxFeatures PostBoxFeatures { get; }
+        IPostBoxFeatures PostBoxFeatures { get; }
 
-        EscapeToolFeatures EscapeToolFeatures { get; }
+        IEscapeToolFeatures EscapeToolFeatures { get; }
 
-        MinigameActivationFeatures MinigameActivationFeatures { get; }
+        IMinigameActivationFeatures MinigameActivationFeatures { get; }
 
         string ItemType { get; }
 
@@ -122,5 +125,35 @@ namespace GameLogic.Player.Items
         List<PlayerReward> Rewards { get; }
 
         ITimeContainerFeatures TimeContainerFeatures { get; }
+
+        IFramesFeatures FramesFeatures { get; }
+
+        IOverrideSpawnChanceFeatures OverrideSpawnChanceFeatures { get; }
+
+        IAudioFeatures AudioFeatures { get; }
+
+        IPrisonLetterFeatures PrisonLetterFeatures { get; }
+
+        IItemEffectFeatures ItemEffectFeatures { get; }
+
+        List<string> AnalyticsMetaData { get; }
+
+        List<int> CombineInfoWithItem { get; }
+
+        List<string> SpawnEffects { get; }
+
+        bool ShowCustomItemInfoPopupOnDiscovery { get; }
+
+        string SinkTag { get; set; }
+
+        int SinkPoints { get; set; }
+
+        List<int> OverrideProductionSource { get; set; }
+
+        IEnumerable<IDirectorAction> OnDiscovered { get; }
+
+        bool IsMaxLevel { get; }
+
+        MetaRef<MergeChainDefinition> MergeChainRef { get; }
     }
 }

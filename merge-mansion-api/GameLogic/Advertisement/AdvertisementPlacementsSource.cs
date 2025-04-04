@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Merge;
 using Metaplay.Core.Offers;
+using Metaplay.Core;
 
 namespace GameLogic.Advertisement
 {
@@ -28,5 +29,6 @@ namespace GameLogic.Advertisement
         private List<string> RewardAux0 { get; set; }
         private List<string> RewardAux1 { get; set; }
         private List<int> RewardWeight { get; set; }
+        public MetaDuration CooldownBetweenAds { get; set; }
     }
 }

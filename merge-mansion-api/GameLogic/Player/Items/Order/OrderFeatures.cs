@@ -38,5 +38,9 @@ namespace GameLogic.Player.Items.Order
         public OrderFeatures(bool isOrder, bool hideRequirementsPhaseProgressBar, IItemProducer decayProducer, IOrderSpawner orderProducer, OrderItemDecayLogic decayLogic)
         {
         }
+
+        public OrderFeatures(bool isOrder, bool hideRequirementsPhaseProgressBar, IItemProducer decayProducer, IOrderSpawner orderProducer, OrderItemDecayLogic decayLogic, IPlacement rewardsPlacement)
+        {
+        }
     }
 }

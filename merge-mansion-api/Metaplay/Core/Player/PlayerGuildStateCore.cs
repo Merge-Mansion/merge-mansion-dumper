@@ -21,13 +21,13 @@ namespace Metaplay.Core.Player
         [ServerOnly]
         public int LastPendingGuildOpEpoch { get; set; }
 
+        [ServerOnly]
         [MetaMember(4, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
-        [ServerOnly]
         public Dictionary<int, GuildMemberGuildOpLogEntry> PendingGuildOps { get; set; }
 
-        [ServerOnly]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [ServerOnly]
         public int LastPlayerOpEpoch { get; set; }
 
         [ServerOnly]

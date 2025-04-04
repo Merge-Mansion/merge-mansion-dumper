@@ -6,8 +6,8 @@ using Metaplay.Core;
 
 namespace Game.Logic
 {
-    [AnalyticsEventKeywords(new string[] { "chest" })]
     [AnalyticsEvent(28, "Player opening chest", 1, null, true, false, false)]
+    [AnalyticsEventKeywords(new string[] { "chest" })]
     [MetaBlockedMembers(new int[] { 3 })]
     public class PlayerEventOpeningChest : PlayerEventBase
     {

@@ -13,14 +13,14 @@ namespace Analytics
         [Description("Platform Id")]
         public string PlatformId { get; set; }
 
-        [Description("Placement Id")]
         [JsonProperty("placement")]
+        [Description("Placement Id")]
         [MetaMember(201, (MetaMemberFlags)0)]
         public string PlacementId { get; set; }
 
+        [MetaMember(202, (MetaMemberFlags)0)]
         [JsonProperty("automatic_show")]
         [Description("Shown automatically")]
-        [MetaMember(202, (MetaMemberFlags)0)]
         public bool AutomaticallyShown { get; set; }
 
         [MetaMember(203, (MetaMemberFlags)0)]

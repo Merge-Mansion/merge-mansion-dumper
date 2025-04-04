@@ -78,8 +78,8 @@ namespace Metaplay.Core.Message
                 }
             }
 
-            [MetaImplicitMembersRange(1, 100)]
             [MetaSerializable((MetaSerializableFlags)1)]
+            [MetaImplicitMembersRange(1, 100)]
             public struct LanguageUpdateInfo
             {
                 public LanguageId ActiveLanguage; // 0x0
@@ -181,8 +181,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(16, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class SessionStartRequest : MetaMessage
         {
             [MetaMember(1, (MetaMemberFlags)0)]
@@ -230,6 +230,13 @@ namespace Metaplay.Core.Message
                     ClientActiveLanguage = LanguageId.FromString("en"),
                     ClientLocalizationVersion = new ContentHash(new MetaUInt128(0xD4B4D04FCA615E18, 0xB5774112D9F05D30))
                 };
+            }
+
+            [MetaMember(10, (MetaMemberFlags)0)]
+            public PlayerLocation? OverrideLocation { get; set; }
+
+            public SessionStartRequest(int queryId, string deviceGuid, SessionProtocol.ClientDeviceInfo deviceInfo, PlayerTimeZoneInfo timeZoneInfo, SessionProtocol.SessionResourceProposal resourceProposal, ISessionStartRequestGamePayload gamePayload, CompressionAlgorithmSet supportedArchiveCompressions, ClientAppPauseStatus clientAppPauseStatus, PlayerLocation? overrideLocation)
+            {
             }
         }
 
@@ -397,8 +404,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MetaMessage(43, (MessageDirection)1, true)]
         [MessageRoutingRuleProtocol]
+        [MetaMessage(43, (MessageDirection)1, true)]
         public class SessionStartAbortReasonTrailer : MetaMessage
         {
             [MetaMember(1, (MetaMemberFlags)0)]

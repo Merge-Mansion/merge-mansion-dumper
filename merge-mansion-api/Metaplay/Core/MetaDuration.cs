@@ -7,8 +7,6 @@ namespace Metaplay.Core
     [MetaSerializable]
     public struct MetaDuration : IComparable<MetaDuration>
     {
-        // 0x0
-        public static readonly MetaDuration Zero = default;
         // 0x8
         private static Regex s_pattern = new Regex(@"^(\-)?(\d+)\.(\d{2}):(\d{2}):(\d{2})\.(\d{7})$", RegexOptions.Compiled);
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -100,6 +98,12 @@ namespace Metaplay.Core
                 throw new ArgumentException();
             return Milliseconds.CompareTo(v.Milliseconds);
         }
+
+        public static MetaDuration Zero { get; }
+        public static MetaDuration Second { get; }
+        public static MetaDuration Minute { get; }
+        public static MetaDuration Hour { get; }
+        public static MetaDuration Day { get; }
     //public override string ToString() { }
     }
 }

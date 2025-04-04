@@ -15,8 +15,8 @@ namespace Metaplay.Core.Player
         [MetaMember(2, (MetaMemberFlags)0)]
         public string DisplayName { get; set; }
 
-        [FirebaseAnalyticsIgnore]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [FirebaseAnalyticsIgnore]
         public List<string> FastForwardedPhases { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]

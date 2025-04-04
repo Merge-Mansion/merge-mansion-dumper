@@ -13,12 +13,12 @@ namespace Metaplay.Core.League
         public IDivisionScore DivisionScore { get; set; }
         public int SortOrderIndex { get; set; }
 
-        [ServerOnly]
         [MetaMember(101, (MetaMemberFlags)0)]
+        [ServerOnly]
         public int AvatarDataEpoch { get; set; }
 
-        [MetaMember(102, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(102, (MetaMemberFlags)0)]
         public IDivisionRewards ResolvedDivisionRewards { get; set; }
 
         [IgnoreDataMember]

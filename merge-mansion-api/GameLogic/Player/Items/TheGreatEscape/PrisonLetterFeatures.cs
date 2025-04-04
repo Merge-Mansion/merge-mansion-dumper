@@ -5,7 +5,7 @@ using GameLogic.Player.Rewards;
 namespace GameLogic.Player.Items.TheGreatEscape
 {
     [MetaSerializable]
-    public class PrisonLetterFeatures
+    public class PrisonLetterFeatures : IPrisonLetterFeatures
     {
         public static PrisonLetterFeatures NoPrisonLetterFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

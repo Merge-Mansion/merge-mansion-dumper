@@ -7,9 +7,9 @@ using Metaplay.Core.Rewards;
 
 namespace Metaplay.Core.InGameMail
 {
+    [MetaReservedMembers(200, 300)]
     [MetaSerializable]
     [MetaReservedMembers(101, 102)]
-    [MetaReservedMembers(200, 300)]
     [MetaFormDerivedMembersOnly]
     [MetaFormUseAsContext]
     public abstract class MetaInGameMail

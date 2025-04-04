@@ -1,6 +1,7 @@
 using Metaplay.Core.Model;
 using System;
 using System.Collections.Generic;
+using Metaplay.Core.Math;
 
 namespace Metaplay.Core.EventLog
 {
@@ -37,6 +38,15 @@ namespace Metaplay.Core.EventLog
             public PendingSegment(List<TEntry> entries)
             {
             }
+
+            [MetaMember(2, (MetaMemberFlags)0)]
+            public MetaUInt128 PreviousSegmentLastEntryUniqueId;
+            public PendingSegment(List<TEntry> entries, MetaUInt128 previousSegmentLastEntryUniqueId)
+            {
+            }
         }
+
+        [MetaMember(107, (MetaMemberFlags)0)]
+        public MetaUInt128 PreviousSegmentLastEntryUniqueId;
     }
 }

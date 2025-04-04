@@ -5,8 +5,8 @@ using System;
 
 namespace Metaplay.Core.Player
 {
-    [AnalyticsEvent(1015, "IAP Subscription State Updated", 1, "The state of an IAP subscription was updated. A state update can be a subscription renewal or some other change, such as a change in the auto-renewal status of the subscription. Here, expiration is not considered a state update, as it happens based on time.", true, true, false)]
     [AnalyticsEventKeywords(new string[] { "InAppPurchase" })]
+    [AnalyticsEvent(1015, "IAP Subscription State Updated", 1, "The state of an IAP subscription was updated. A state update can be a subscription renewal or some other change, such as a change in the auto-renewal status of the subscription. Here, expiration is not considered a state update, as it happens based on time.", true, true, false)]
     public class PlayerEventIAPSubscriptionStateUpdated : PlayerEventBase
     {
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -15,8 +15,8 @@ namespace Metaplay.Core.Player
         [MetaMember(2, (MetaMemberFlags)0)]
         public string OriginalTransactionId { get; set; }
 
-        [FirebaseAnalyticsIgnore]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [FirebaseAnalyticsIgnore]
         public SubscriptionInstanceState? SubscriptionInstanceState { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]

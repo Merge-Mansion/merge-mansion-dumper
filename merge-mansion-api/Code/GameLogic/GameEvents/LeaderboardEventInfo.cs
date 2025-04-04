@@ -17,9 +17,9 @@ using Merge;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaBlockedMembers(new int[] { 10, 16 })]
     [MetaSerializable]
     [MetaActivableConfigData("LeaderboardEvent", false, true)]
+    [MetaBlockedMembers(new int[] { 10, 16 })]
     public class LeaderboardEventInfo : IMetaActivableConfigData<LeaderboardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<LeaderboardEventId>, IHasGameConfigKey<LeaderboardEventId>, IMetaActivableInfo<LeaderboardEventId>, IBoardEventInfo, IBubbleBonusEvent, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]

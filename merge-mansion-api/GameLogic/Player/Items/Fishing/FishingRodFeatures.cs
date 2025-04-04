@@ -7,7 +7,7 @@ using GameLogic.Player.Board.Placement;
 namespace GameLogic.Player.Items.Fishing
 {
     [MetaSerializable]
-    public class FishingRodFeatures
+    public class FishingRodFeatures : IFishingRodFeatures
     {
         public static FishingRodFeatures NoFishingRodFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

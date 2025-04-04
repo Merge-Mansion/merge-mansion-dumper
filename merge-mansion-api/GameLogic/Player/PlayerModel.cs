@@ -43,19 +43,19 @@ using Code.GameLogic.GameEvents.CardCollectionSupportingEvent;
 
 namespace GameLogic.Player
 {
-    [MetaReservedMembers(99, 300)]
-    [MetaReservedMembers(11, 12)]
     [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274 })]
+    [SupportedSchemaVersions(21, 47)]
+    [MetaReservedMembers(11, 12)]
+    [MetaReservedMembers(99, 400)]
     [MetaSerializableDerived(1)]
-    [SupportedSchemaVersions(21, 44)]
     public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IPlayer, IGenerationContext
     {
         public static int MaxLoginCounts;
         public static int MaxEnergySpentDays;
         public static int MaxMoneySpentDays;
         public static int TicksPerSecond;
-        [MetaMember(211, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(211, (MetaMemberFlags)0)]
         [Transient]
         public Dictionary<MergeBoardId, MetaTime> BoardActivationsLeftAnalyticsEvents;
         [IgnoreDataMember]
@@ -113,12 +113,12 @@ namespace GameLogic.Player
         [MetaMember(106, (MetaMemberFlags)0)]
         public SpawnFactoryState SpawnFactoryState { get; set; }
 
-        [MetaMember(107, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
+        [MetaMember(107, (MetaMemberFlags)0)]
         public BoardInventory GarageBoardInventory { get; set; }
 
-        [MetaMember(109, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
+        [MetaMember(109, (MetaMemberFlags)0)]
         public MergeBoard GarageMergeBoard { get; set; }
 
         [ExcludeFromGdprExport]
@@ -165,12 +165,12 @@ namespace GameLogic.Player
         [MetaMember(215, (MetaMemberFlags)0)]
         public List<MetaTime> SessionsInTheLast240HoursStartAt { get; set; }
 
-        [MetaMember(216, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(216, (MetaMemberFlags)0)]
         public SupercellIdBindingState SupercellIdBindingState { get; set; }
 
-        [MetaMember(217, (MetaMemberFlags)0)]
         [Transient]
+        [MetaMember(217, (MetaMemberFlags)0)]
         public string AnalyticsApiKey { get; set; }
 
         [MetaMember(218, (MetaMemberFlags)0)]
@@ -179,12 +179,12 @@ namespace GameLogic.Player
         [MetaMember(219, (MetaMemberFlags)0)]
         public HashSet<PlayerSegmentId> ForcedSegments { get; set; }
 
-        [ServerOnly]
         [MetaMember(261, (MetaMemberFlags)0)]
+        [ServerOnly]
         public Queue<PlayerAnalyticsEventDPL2> AnalyticsEvents { get; set; }
 
-        [MetaMember(221, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(221, (MetaMemberFlags)0)]
         public int NumOfResets { get; set; }
 
         [MetaMember(222, (MetaMemberFlags)0)]
@@ -370,8 +370,8 @@ namespace GameLogic.Player
         [MetaMember(272, (MetaMemberFlags)0)]
         public PlayerDailyScoopEventModel DailyScoopEvents { get; set; }
 
-        [MetaMember(273, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(273, (MetaMemberFlags)0)]
         public List<int> MassMailsReceived { get; set; }
 
         [IgnoreDataMember]
@@ -424,8 +424,8 @@ namespace GameLogic.Player
         [MetaMember(288, (MetaMemberFlags)0)]
         public PlayerShortLeaderboardEventsModel ShortLeaderboardEvents { get; set; }
 
-        [MetaMember(285, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(285, (MetaMemberFlags)0)]
         public ShortLeaderboardStatus ShortLeaderboardStatus { get; set; }
 
         [MetaMember(286, (MetaMemberFlags)0)]
@@ -466,5 +466,9 @@ namespace GameLogic.Player
         [MetaMember(297, (MetaMemberFlags)0)]
         public HashSet<EventLevelData> EventLevelsUpgradedByCardCollectionSupportingEvent { get; set; }
         public IEnumerable<CardCollectionSupportingEventModel> ActiveCardCollectionSupportingEvents { get; }
+
+        [MetaMember(298, (MetaMemberFlags)0)]
+        public Dictionary<string, ValueTuple<int, MetaTime>> AdsWatchLimiterTrack { get; set; }
+        public IEnumerable<EnergyModeEventModel> ActiveEnergyModeEvents { get; }
     }
 }

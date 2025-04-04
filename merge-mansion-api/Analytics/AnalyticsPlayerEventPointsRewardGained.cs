@@ -17,13 +17,13 @@ namespace Analytics
         [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("event_id")]
         public string EventId;
-        [Description("Amount of points received")]
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("amount")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Amount of points received")]
         public int Amount;
-        [Description("Total event points")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("saldo")]
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("Total event points")]
         public long TotalAfterAdd;
         [Description("Type of the reward received")]
         [JsonProperty("reward_type")]
