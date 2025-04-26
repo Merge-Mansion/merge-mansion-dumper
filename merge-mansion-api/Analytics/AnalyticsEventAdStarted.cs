@@ -8,8 +8,8 @@ using GameLogic.Player;
 
 namespace Analytics
 {
-    [MetaBlockedMembers(new int[] { 3 })]
     [AnalyticsEvent(187, "Rewarded ad started", 1, null, true, true, false)]
+    [MetaBlockedMembers(new int[] { 3 })]
     public class AnalyticsEventAdStarted : AnalyticsServersideEventBase
     {
         public override AnalyticsEventType EventType { get; }

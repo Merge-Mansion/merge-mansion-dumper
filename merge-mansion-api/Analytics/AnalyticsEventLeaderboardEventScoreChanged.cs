@@ -8,9 +8,9 @@ using Metaplay.Core;
 
 namespace Analytics
 {
-    [AnalyticsEvent(164, "Leaderboard event score changed", 1, null, true, true, false)]
-    [MetaBlockedMembers(new int[] { 1 })]
     [AnalyticsEventKeywords(new string[] { "event" })]
+    [MetaBlockedMembers(new int[] { 1 })]
+    [AnalyticsEvent(164, "Leaderboard event score changed", 1, null, true, true, false)]
     public class AnalyticsEventLeaderboardEventScoreChanged : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }

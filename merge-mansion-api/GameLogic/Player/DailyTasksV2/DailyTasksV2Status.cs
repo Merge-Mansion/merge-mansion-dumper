@@ -11,20 +11,20 @@ namespace GameLogic.Player.DailyTasksV2
     [MetaSerializable]
     public class DailyTasksV2Status
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
+        [MetaMember(1, (MetaMemberFlags)0)]
         public string TasksSetId { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public MetaTime StartTime { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public MetaTime EndTime { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public List<DailyTaskV2State> Tasks { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
@@ -39,24 +39,24 @@ namespace GameLogic.Player.DailyTasksV2
         [ExcludeFromGdprExport]
         public bool IsCompletionResolved { get; set; }
 
-        [MetaMember(8, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
+        [MetaMember(8, (MetaMemberFlags)0)]
         public int LastResolvedConsecutiveTimeExtensionNumber { get; set; }
 
         [ExcludeFromGdprExport]
         [MetaMember(9, (MetaMemberFlags)0)]
         public int StreakCount { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(10, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string AlgorithmLogContent { get; set; }
 
         [ExcludeFromGdprExport]
         [MetaMember(11, (MetaMemberFlags)0)]
         public bool DidOpenPopupAtLeastOnce { get; set; }
 
-        [MetaMember(12, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
+        [MetaMember(12, (MetaMemberFlags)0)]
         public string LastGeneratedTaskVisibleHotspotHash { get; set; }
 
         [ExcludeFromGdprExport]

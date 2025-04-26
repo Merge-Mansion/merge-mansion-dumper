@@ -13,12 +13,12 @@ namespace Analytics
     [AnalyticsEventKeywords(new string[] { "event" })]
     public class AnalyticsPlayerCardPackRewardGained : AnalyticsPlayerRewardGained
     {
-        [Description("ID of the card pack received")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("item_name")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("ID of the card pack received")]
         public string CardPackId;
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("amount")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Number of card packs received")]
         public int Amount;
         [Description("Type of the reward received")]

@@ -5,8 +5,8 @@ using GameLogic;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaSerializable]
     [MetaBlockedMembers(new int[] { 4 })]
+    [MetaSerializable]
     public class BoultonLeagueStatus
     {
         [MetaMember(1, (MetaMemberFlags)0)]

@@ -149,6 +149,20 @@ namespace Analytics
         ServerError = 138,
         DigEventMinigame = 139,
         EventItemCollected = 140,
-        OutOfCurrency = 141
+        OutOfCurrency = 141,
+        LoadingScreenSeen = 142,
+        MetaPlayConnected = 143,
+        ConfigsLoaded = 144,
+        PlayerModelBuilt = 145,
+        TosSeen = 146,
+        TosTicked = 147,
+        ConsentSeen = 148,
+        ConsentAccepted = 149,
+        AttSeen = 150,
+        AttAccepted = 151,
+        SceneStarted = 152,
+        SceneFinished = 153,
+        GameLaunchedSuccessfully = 154,
+        GameLaunchingStep = 155
     }
 }

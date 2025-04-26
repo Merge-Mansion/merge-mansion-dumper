@@ -8,8 +8,8 @@ using System.Runtime.Serialization;
 
 namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
 {
-    [MetaSerializable]
     [MetaActivableConfigData("CardCollectionSupportingEvent", false, true)]
+    [MetaSerializable]
     public class CardCollectionSupportingEventInfo : IMetaActivableConfigData<CardCollectionSupportingEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<CardCollectionSupportingEventId>, IHasGameConfigKey<CardCollectionSupportingEventId>, IMetaActivableInfo<CardCollectionSupportingEventId>, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]

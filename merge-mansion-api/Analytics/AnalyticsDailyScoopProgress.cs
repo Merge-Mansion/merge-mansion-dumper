@@ -8,9 +8,9 @@ using System.Collections.Generic;
 
 namespace Analytics
 {
+    [MetaBlockedMembers(new int[] { 5, 6, 8, 10, 11, 14, 15, 19 })]
     [AnalyticsEvent(198, "Daily Scoop Task Progress", 1, null, true, true, false)]
     [AnalyticsEventKeywords(new string[] { "daily" })]
-    [MetaBlockedMembers(new int[] { 5, 6, 8, 10, 11, 14, 15, 19 })]
     public class AnalyticsDailyScoopProgress : AnalyticsServersideEventBase
     {
         public override AnalyticsEventType EventType { get; }

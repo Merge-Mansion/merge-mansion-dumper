@@ -6,8 +6,8 @@ using System;
 
 namespace Analytics
 {
-    [AnalyticsEvent(144, "Garage cleanup item turned in", 1, null, true, true, false)]
     [AnalyticsEventKeywords(new string[] { "event" })]
+    [AnalyticsEvent(144, "Garage cleanup item turned in", 1, null, true, true, false)]
     public class AnalyticsEventGarageCleanupSlotFilled : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }

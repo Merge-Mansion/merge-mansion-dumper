@@ -8,8 +8,8 @@ using Metaplay.Core;
 
 namespace Analytics
 {
-    [MetaBlockedMembers(new int[] { 1 })]
     [AnalyticsEvent(152, "Progression event item collected", 1, null, true, true, false)]
+    [MetaBlockedMembers(new int[] { 1 })]
     [AnalyticsEventKeywords(new string[] { "event", "task" })]
     public class AnalyticsEventProgressionEventItemCollected : AnalyticsServersideEventBase
     {

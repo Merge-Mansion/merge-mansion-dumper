@@ -38,8 +38,8 @@ namespace GameLogic.Player.DailyTasks
         [ExcludeFromGdprExport]
         public bool PendingFirstImpressionAnalytics { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(12, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string DailyTasksSetId { get; set; }
 
         [MetaMember(14, (MetaMemberFlags)0)]
@@ -68,8 +68,8 @@ namespace GameLogic.Player.DailyTasks
         [ExcludeFromGdprExport]
         public int AllTimeRefreshPurchasesCount { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(21, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public int DailyRefreshPurchasesCount { get; set; }
     }
 }

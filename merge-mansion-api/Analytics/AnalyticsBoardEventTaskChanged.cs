@@ -16,9 +16,9 @@ namespace Analytics
         [Description("ID of the event")]
         [MetaMember(1, (MetaMemberFlags)0)]
         public string EventId;
-        [JsonProperty("event_task_id")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [Description("ID of the event task")]
+        [JsonProperty("event_task_id")]
         public string EventTaskId;
         [JsonProperty("state")]
         [MetaMember(3, (MetaMemberFlags)0)]
@@ -31,23 +31,23 @@ namespace Analytics
         {
         }
 
-        [Description("Items required by the task")]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("Items required by the task")]
         [JsonProperty("required_items")]
         public List<AnalyticsBoardEventTaskChanged.ItemRequirement> RequiredItems;
-        [Description("Task type: dynamic / predefined")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("Task type: dynamic / predefined")]
         [JsonProperty("task_type")]
         public string TaskType;
+        [MetaMember(6, (MetaMemberFlags)0)]
         [Description("Task rewards")]
         [JsonProperty("rewards")]
-        [MetaMember(6, (MetaMemberFlags)0)]
         public List<AnalyticsPlayerReward> Rewards;
         [MetaSerializable]
         public class ItemRequirement
         {
-            [JsonProperty("item_id")]
             [MetaMember(1, (MetaMemberFlags)0)]
+            [JsonProperty("item_id")]
             public int ItemId;
             [MetaMember(2, (MetaMemberFlags)0)]
             [JsonProperty("merge_chain_id")]

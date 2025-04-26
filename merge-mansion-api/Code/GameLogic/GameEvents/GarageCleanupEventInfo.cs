@@ -12,8 +12,8 @@ using System.Runtime.Serialization;
 namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
-    [MetaActivableConfigData("GarageCleanupEvent", false, true)]
     [MetaBlockedMembers(new int[] { 10, 11, 12, 13, 15, 16 })]
+    [MetaActivableConfigData("GarageCleanupEvent", false, true)]
     public class GarageCleanupEventInfo : IMetaActivableConfigData<GarageCleanupEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<GarageCleanupEventId>, IHasGameConfigKey<GarageCleanupEventId>, IMetaActivableInfo<GarageCleanupEventId>, IValidatable, IEventSharedInfo
     {
         public static GarageCleanupEventInfo.BoardSizeInfo BoardSize;

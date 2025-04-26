@@ -179,8 +179,8 @@ namespace GameLogic.Player
         [MetaMember(219, (MetaMemberFlags)0)]
         public HashSet<PlayerSegmentId> ForcedSegments { get; set; }
 
-        [MetaMember(261, (MetaMemberFlags)0)]
         [ServerOnly]
+        [MetaMember(261, (MetaMemberFlags)0)]
         public Queue<PlayerAnalyticsEventDPL2> AnalyticsEvents { get; set; }
 
         [ServerOnly]
@@ -199,8 +199,8 @@ namespace GameLogic.Player
         [MetaMember(226, (MetaMemberFlags)0)]
         public PlayerCollectibleBoardEventsModel CollectibleBoardEvents { get; set; }
 
-        [NoChecksum]
         [MetaMember(227, (MetaMemberFlags)0)]
+        [NoChecksum]
         public sealed override string PlayerName { get; set; }
 
         [MetaMember(228, (MetaMemberFlags)0)]
@@ -283,8 +283,8 @@ namespace GameLogic.Player
         [MetaMember(245, (MetaMemberFlags)0)]
         public PlayerDecorationShopsModel DecorationShops { get; set; }
 
-        [MetaMember(247, (MetaMemberFlags)0)]
         [Transient]
+        [MetaMember(247, (MetaMemberFlags)0)]
         public bool IsProductionEnvironment { get; set; }
         public DynamicEventTaskStatus DynamicEventTaskStatus { get; set; }
         public PlayerModifiersChangedEvent ModifiersChanged { get; set; }
@@ -424,8 +424,8 @@ namespace GameLogic.Player
         [MetaMember(288, (MetaMemberFlags)0)]
         public PlayerShortLeaderboardEventsModel ShortLeaderboardEvents { get; set; }
 
-        [ServerOnly]
         [MetaMember(285, (MetaMemberFlags)0)]
+        [ServerOnly]
         public ShortLeaderboardStatus ShortLeaderboardStatus { get; set; }
 
         [MetaMember(286, (MetaMemberFlags)0)]

@@ -9,8 +9,8 @@ using Metaplay.Core;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaBlockedMembers(new int[] { 11 })]
     [MetaSerializableDerived(18)]
+    [MetaBlockedMembers(new int[] { 11 })]
     public class TemporaryCardCollectionEventModel : MetaActivableState<TemporaryCardCollectionEventId, TemporaryCardCollectionEventInfo>
     {
         private static byte InitialBoolFields;

@@ -15,8 +15,8 @@ namespace Analytics
         [MetaMember(2, (MetaMemberFlags)0)]
         public bool IsActive { get; set; }
 
-        [JsonProperty("level", NullValueHandling = (NullValueHandling)1)]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [JsonProperty("level", NullValueHandling = (NullValueHandling)1)]
         public int? Level { get; set; }
 
         public AnalyticsBoardStateDecorationMetaData()

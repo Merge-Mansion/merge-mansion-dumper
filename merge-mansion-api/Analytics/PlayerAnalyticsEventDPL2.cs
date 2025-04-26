@@ -20,11 +20,11 @@ namespace Analytics
         [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("unique_id")]
         public MetaUInt128 UniqueId;
-        [JsonProperty("context")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [JsonProperty("context")]
         public AnalyticsContextBase Context;
-        [JsonProperty("payload")]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [JsonProperty("payload")]
         [MetaOnMemberDeserializationFailure("CreateAnalyticsEventDeserializationSubstitute")]
         public AnalyticsEventBase Payload;
     }

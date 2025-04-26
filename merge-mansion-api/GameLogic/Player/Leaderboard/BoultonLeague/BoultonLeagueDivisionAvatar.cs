@@ -16,8 +16,8 @@ namespace GameLogic.Player.Leaderboard.BoultonLeague
         [MetaMember(1, (MetaMemberFlags)0)]
         public string DisplayName { get; set; }
 
-        [ServerOnly]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [ServerOnly]
         public string AssociationId { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]

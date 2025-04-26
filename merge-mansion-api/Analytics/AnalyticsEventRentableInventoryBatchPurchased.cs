@@ -7,9 +7,9 @@ using GameLogic;
 
 namespace Analytics
 {
+    [AnalyticsEventKeywords(new string[] { "buysell", "event" })]
     [MetaBlockedMembers(new int[] { 3 })]
     [AnalyticsEvent(174, "Rentable inventory purchased", 1, null, true, true, false)]
-    [AnalyticsEventKeywords(new string[] { "buysell", "event" })]
     public class AnalyticsEventRentableInventoryBatchPurchased : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }

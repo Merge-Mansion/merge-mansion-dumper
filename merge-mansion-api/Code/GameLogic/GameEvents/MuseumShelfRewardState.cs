@@ -3,8 +3,8 @@ using Metaplay.Core.Model;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaSerializable]
     [ForceExplicitEnumValues]
+    [MetaSerializable]
     public enum MuseumShelfRewardState
     {
         NoneClaimed = 0,

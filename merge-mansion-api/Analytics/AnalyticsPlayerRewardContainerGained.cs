@@ -12,9 +12,9 @@ namespace Analytics
     [AnalyticsEvent(216, "Player received reward container", 1, null, false, true, false)]
     public class AnalyticsPlayerRewardContainerGained : AnalyticsPlayerRewardGained
     {
-        [Description("ID of the received item")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("item_name")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("ID of the received item")]
         public string ItemName;
         [JsonProperty("reward_type")]
         [Description("Type of the reward received")]

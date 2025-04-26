@@ -6,8 +6,8 @@ using System.ComponentModel;
 
 namespace Analytics
 {
-    [AnalyticsEvent(199, "Daily Scoop status changed", 1, null, false, true, false)]
     [AnalyticsEventKeywords(new string[] { "daily" })]
+    [AnalyticsEvent(199, "Daily Scoop status changed", 1, null, false, true, false)]
     public class AnalyticsDailyScoopStatusChanged : AnalyticsServersideEventBase
     {
         public override string EventDescription { get; }

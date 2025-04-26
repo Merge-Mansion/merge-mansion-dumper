@@ -7,9 +7,9 @@ using System.ComponentModel;
 
 namespace Analytics
 {
+    [MetaReservedMembers(100, 199)]
     [MetaDeserializationConvertFromConcreteDerivedType(typeof(AnalyticsFlashSaleImpressionItem))]
     [MetaSerializable]
-    [MetaReservedMembers(100, 199)]
     public abstract class AnalyticsFlashSaleImpressionItemBase
     {
         [MetaMember(100, (MetaMemberFlags)0)]

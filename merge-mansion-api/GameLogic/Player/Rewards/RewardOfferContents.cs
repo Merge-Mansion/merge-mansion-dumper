@@ -8,8 +8,8 @@ using Metaplay.Core.Rewards;
 
 namespace GameLogic.Player.Rewards
 {
-    [MetaSerializableDerived(34)]
     [MetaBlockedMembers(new int[] { 1 })]
+    [MetaSerializableDerived(34)]
     public class RewardOfferContents : PlayerReward
     {
         [IgnoreDataMember]
@@ -23,8 +23,8 @@ namespace GameLogic.Player.Rewards
         {
         }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
         [MetaOnMemberDeserializationFailure("HandleRemovedOffers")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         private MetaRef<MergeMansionOfferInfo> Offer { get; set; }
 
         [IgnoreDataMember]

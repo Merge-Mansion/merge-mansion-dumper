@@ -6,8 +6,8 @@ using GameLogic.Player;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaSerializable]
     [MetaBlockedMembers(new int[] { 6 })]
+    [MetaSerializable]
     public class DigEvent
     {
         public List<DigEventTreasureItem> TreasureConfigs;

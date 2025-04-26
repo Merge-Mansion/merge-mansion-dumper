@@ -7,8 +7,8 @@ using System.Collections.Generic;
 
 namespace Analytics
 {
-    [AnalyticsEvent(103, "Item merged", 1, null, true, true, false)]
     [AnalyticsEventKeywords(new string[] { "item", "merge" })]
+    [AnalyticsEvent(103, "Item merged", 1, null, true, true, false)]
     public class AnalyticsEventItemMerge : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }

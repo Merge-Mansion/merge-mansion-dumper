@@ -28,5 +28,9 @@ namespace Metaplay.Core.Config
             return;
             throw new NotImplementedException();
         }
+
+        public GameConfigStructurePatch(Dictionary<int, object> replacedMembersByTagId)
+        {
+        }
     }
 }

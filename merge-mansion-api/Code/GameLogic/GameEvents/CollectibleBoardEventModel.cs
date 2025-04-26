@@ -11,8 +11,8 @@ using Metaplay.Core.Offers;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaBlockedMembers(new int[] { 17 })]
     [MetaSerializableDerived(8)]
+    [MetaBlockedMembers(new int[] { 17 })]
     public class CollectibleBoardEventModel : ExtendableEventState<CollectibleBoardEventId, CollectibleBoardEventInfo>, ILevelBoardEventModel, ILevelEventModel, IBoardEventModel, IPointsEvent, IGroupIdGetter
     {
         public static int InitialLevel;

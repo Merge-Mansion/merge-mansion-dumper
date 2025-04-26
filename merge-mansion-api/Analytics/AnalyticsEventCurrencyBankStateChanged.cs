@@ -7,8 +7,8 @@ using System;
 
 namespace Analytics
 {
-    [AnalyticsEvent(162, "Currency Bank state changed", 1, null, true, true, false)]
     [AnalyticsEventKeywords(new string[] { "event" })]
+    [AnalyticsEvent(162, "Currency Bank state changed", 1, null, true, true, false)]
     public class AnalyticsEventCurrencyBankStateChanged : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
