@@ -15,44 +15,44 @@ namespace GameLogic
     [MetaSerializable]
     public class AdsRewardData
     {
-        [ExcludeFromGdprExport]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string AdPlacement { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public AdvertisementPlacementId AdPlacementId { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string ItemName { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string AuctionId { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         public ShopItemId ShopItemId { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public int ItemDiamondValue { get; set; }
 
         [MetaMember(7, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         public AdsRewardType AdsRewardType { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public int ItemCostValue { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(9, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public Currencies ItemCostValueType { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(10, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string AdvertiserId { get; set; }
 
         [MetaMember(11, (MetaMemberFlags)0)]
@@ -67,8 +67,8 @@ namespace GameLogic
         [ExcludeFromGdprExport]
         public Coordinate BubbleCoordinates { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(14, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public AnalyticsContext AnalyticsContext { get; set; }
 
         [MetaMember(15, (MetaMemberFlags)0)]
@@ -98,8 +98,8 @@ namespace GameLogic
         [ExcludeFromGdprExport]
         public string RequiredTaskItems { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(18, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string RequiredMergeChains { get; set; }
 
         public AdsRewardData(string adsProviderIds, AdvertisementPlacementId adPlacementId, string itemName, string auctionId, ShopItemId shopItemId, int itemDiamondValue, AdsRewardType adsRewardType, int itemCostValue, Currencies itemCostValueType, string advertiserId, string networkId, MergeBoardId mergeBoardId, Coordinate itemCoordinates, AnalyticsContext analyticsContext, OfferPlacementId offerPlacementId, ICollection<MergeBoardAct> productActs, PlayerReward dailyAdReward, string requiredTaskItems, string requiredMergeChains)

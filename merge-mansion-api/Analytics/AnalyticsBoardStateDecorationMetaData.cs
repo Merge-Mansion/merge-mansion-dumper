@@ -11,8 +11,8 @@ namespace Analytics
         [JsonProperty("item_type")]
         public string DecorationId { get; set; }
 
-        [JsonProperty("is_active")]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [JsonProperty("is_active")]
         public bool IsActive { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]

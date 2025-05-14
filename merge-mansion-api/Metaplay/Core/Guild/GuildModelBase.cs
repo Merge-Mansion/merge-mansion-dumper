@@ -8,8 +8,8 @@ using System.Collections.Generic;
 
 namespace Metaplay.Core.Guild
 {
-    [MetaReservedMembers(1, 100)]
     [MetaBlockedMembers(new int[] { 11 })]
+    [MetaReservedMembers(1, 100)]
     public abstract class GuildModelBase<TGuildModel, TGuildMember> : IGuildModel<TGuildModel>, IGuildModelBase, IMultiplayerModel<IGuildModelBase>, IModel<IGuildModelBase>, IModel, ISchemaMigratable, IMultiplayerModel
     {
         [IgnoreDataMember]
@@ -75,8 +75,8 @@ namespace Metaplay.Core.Guild
         public int RunningInviteId { get; set; }
 
         [PrettyPrint((PrettyPrintFlag)16)]
-        [ServerOnly]
         [MetaMember(13, (MetaMemberFlags)0)]
+        [ServerOnly]
         public GuildEventLog EventLog { get; set; }
         public int MemberCount { get; }
         public abstract int MaxNumMembers { get; }
@@ -85,8 +85,8 @@ namespace Metaplay.Core.Guild
         {
         }
 
-        [ServerOnly]
         [MetaMember(14, (MetaMemberFlags)0)]
+        [ServerOnly]
         public int SearchVersion { get; set; }
     }
 }

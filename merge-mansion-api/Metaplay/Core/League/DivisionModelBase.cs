@@ -46,8 +46,8 @@ namespace Metaplay.Core.League
         [MetaMember(311, (MetaMemberFlags)0)]
         public int NextParticipantIdx { get; set; }
 
-        [ServerOnly]
         [MetaMember(310, (MetaMemberFlags)0)]
+        [ServerOnly]
         public IDivisionServerModel ServerModel { get; set; }
 
         [Obsolete("Use Participants instead.")]

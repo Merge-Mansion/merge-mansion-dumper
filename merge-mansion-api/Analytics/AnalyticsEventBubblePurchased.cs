@@ -24,9 +24,9 @@ namespace Analytics
         [Description("How many diamonds the bubble costs")]
         public int BubbleCostInDiamonds { get; set; }
 
-        [Description("Merge Board Id")]
-        [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("board_id")]
+        [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("Merge Board Id")]
         public MergeBoardId BoardId { get; set; }
         public override string EventDescription { get; }
 
@@ -38,8 +38,8 @@ namespace Analytics
         {
         }
 
-        [JsonProperty("attachments")]
         [MetaMember(11, (MetaMemberFlags)0)]
+        [JsonProperty("attachments")]
         [Description("Attachments to the bubble")]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> Attachment { get; set; }
@@ -48,9 +48,9 @@ namespace Analytics
         {
         }
 
-        [Description("Is there and Active ads on the bubble")]
-        [MetaMember(7, (MetaMemberFlags)0)]
         [JsonProperty("active_ads")]
+        [MetaMember(7, (MetaMemberFlags)0)]
+        [Description("Is there and Active ads on the bubble")]
         public bool IsActiveAds { get; set; }
 
         [JsonProperty("purchased_with_ads")]

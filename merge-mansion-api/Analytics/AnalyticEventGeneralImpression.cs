@@ -13,9 +13,9 @@ namespace Analytics
         [Description("Platform Id")]
         public string PlatformId { get; set; }
 
+        [MetaMember(201, (MetaMemberFlags)0)]
         [JsonProperty("placement")]
         [Description("Placement Id")]
-        [MetaMember(201, (MetaMemberFlags)0)]
         public string PlacementId { get; set; }
 
         [MetaMember(202, (MetaMemberFlags)0)]

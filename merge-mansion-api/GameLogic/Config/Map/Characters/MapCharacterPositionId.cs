@@ -261,6 +261,24 @@ namespace GameLogic.Config.Map.Characters
         AreaShackInteriorCharacter = 8801,
         AreaBeachBarFirstMapCharacterPosition = 8999,
         AreaBeachBarEntryMapMaddie = 9000,
-        AreaBeachBarCharacter = 9001
+        AreaBeachBarCharacter = 9001,
+        AreaPetHomeMapTofu = 5807,
+        OfficeFirstMapCharacterPosition = 9199,
+        OfficeEntryMapMaddie = 9200,
+        OfficeCharacter = 9201,
+        AreaTinCanTelescope = 9202,
+        AreaTinCanKiosk = 9203,
+        AreaTinCanPier = 9204,
+        AreaTinCanMainEntrance = 9205,
+        AreaTinCanCellarEntrance = 9206,
+        AreaTinCanBridge = 9207,
+        FactoryBoulevardFirstMapCharacterPosition = 9799,
+        FactoryBoulevardEntryMapMaddie = 9800,
+        FactoryBoulevardMaddieFactoryDoor = 9801,
+        FactoryBoulevardMaddieDamWall = 9802,
+        FactoryBoulevardMaddiePathLeft = 9803,
+        FactoryBoulevardMaddieGarden = 9804,
+        FactoryBoulevardMaddieKiosk = 9805,
+        FactoryBoulevardCharacter = 9806
     }
 }

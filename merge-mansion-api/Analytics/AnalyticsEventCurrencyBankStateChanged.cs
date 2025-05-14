@@ -7,8 +7,8 @@ using System;
 
 namespace Analytics
 {
-    [AnalyticsEventKeywords(new string[] { "event" })]
     [AnalyticsEvent(162, "Currency Bank state changed", 1, null, true, true, false)]
+    [AnalyticsEventKeywords(new string[] { "event" })]
     public class AnalyticsEventCurrencyBankStateChanged : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
@@ -18,14 +18,14 @@ namespace Analytics
         [Description("Currency Bank Id from config")]
         public CurrencyBankId CurrencyBankId { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("state")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Threshold value for this stash")]
         public CurrencyBankState CurrencyBankState { get; set; }
 
-        [Description("Unique id for this players activation")]
         [JsonProperty("activation_id")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("Unique id for this players activation")]
         public string ActivationId { get; set; }
         public override string EventDescription { get; }
 

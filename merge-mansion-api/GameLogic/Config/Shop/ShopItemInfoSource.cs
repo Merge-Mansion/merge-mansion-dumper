@@ -39,5 +39,7 @@ namespace GameLogic.Config.Shop
         public ShopItemInfoSource()
         {
         }
+
+        private bool Disabled { get; set; }
     }
 }

@@ -31,8 +31,8 @@ namespace Analytics
         {
         }
 
-        [JsonProperty("trigger_type")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [JsonProperty("trigger_type")]
         [Description("Event Offer Trigger Type")]
         public string TriggerType { get; set; }
 

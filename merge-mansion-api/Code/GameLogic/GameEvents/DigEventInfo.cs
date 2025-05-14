@@ -6,6 +6,7 @@ using GameLogic.Player.Rewards;
 
 namespace Code.GameLogic.GameEvents
 {
+    [MetaBlockedMembers(new int[] { 6 })]
     [MetaSerializable]
     public class DigEventInfo : IGameConfigData<DigEventId>, IGameConfigData, IHasGameConfigKey<DigEventId>
     {
@@ -24,8 +25,8 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(5, (MetaMemberFlags)0)]
         public int SpecialItemsAmount { get; set; }
 
-        [MetaMember(6, (MetaMemberFlags)0)]
-        public List<DigEventMuseumShelfId> Museum { get; set; }
+        [MetaMember(15, (MetaMemberFlags)0)]
+        public DigEventMuseumCollectionId Museum { get; set; }
 
         [MetaMember(7, (MetaMemberFlags)0)]
         public bool AnyItemOnMuseumShelfs { get; set; }
@@ -57,10 +58,17 @@ namespace Code.GameLogic.GameEvents
         {
         }
 
-        [MetaMember(14, (MetaMemberFlags)0)]
-        public string CollectionId { get; set; }
-
         public DigEventInfo(DigEventId configKey, bool mainHud, List<DigEventBoardId> mainBoards, List<DigEventBoardId> infiniteBoards, int specialItemsAmount, List<DigEventMuseumShelfId> museum, bool anyItemOnMuseumShelfs, bool museumStartsEmpty, int shinyItemsAmount, List<DigEventBoardId> shinyBoards, int tapMultiplier, PlayerReward eventReward, string sinkItem, string collectionId)
+        {
+        }
+
+        [MetaMember(14, (MetaMemberFlags)0)]
+        public string ThemeId { get; set; }
+
+        [MetaMember(16, (MetaMemberFlags)0)]
+        public List<DigEventShinyProgressionId> ShinyProgressionIds { get; set; }
+
+        public DigEventInfo(DigEventId configKey, bool mainHud, List<DigEventBoardId> mainBoards, List<DigEventBoardId> infiniteBoards, int specialItemsAmount, DigEventMuseumCollectionId museum, bool anyItemOnMuseumShelfs, bool museumStartsEmpty, int shinyItemsAmount, List<DigEventBoardId> shinyBoards, int tapMultiplier, PlayerReward eventReward, string sinkItem, string themeId, List<DigEventShinyProgressionId> shinyProgressionIds)
         {
         }
     }

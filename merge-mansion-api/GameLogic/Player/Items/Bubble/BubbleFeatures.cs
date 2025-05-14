@@ -2,6 +2,7 @@ using System;
 using System.Runtime.Serialization;
 using Metaplay.Core;
 using Metaplay.Core.Model;
+using System.Collections.Generic;
 
 namespace GameLogic.Player.Items.Bubble
 {
@@ -26,9 +27,6 @@ namespace GameLogic.Player.Items.Bubble
         public int SpawnOdds { get; set; }
 
         [IgnoreDataMember]
-        public ItemDefinition Replacement => ReplacementItem?.Deref();
-
-        [IgnoreDataMember]
         public ValueTuple<Currencies, int> OpenCost => (OpenCurrency, OpenQuantity);
 
         private BubbleFeatures()
@@ -42,6 +40,17 @@ namespace GameLogic.Player.Items.Bubble
             OpenQuantity = openQuantity;
             ReplacementItem = replacementItem;
             SpawnOdds = spawnOdds;
+        }
+
+        private List<BubbleVariantsDefinition> bubbleVariantsDefinitions;
+        [MetaMember(6, (MetaMemberFlags)0)]
+        public List<BubbleVariationId> BubbleVariants { get; set; }
+
+        [IgnoreDataMember]
+        public MetaRef<ItemDefinition> ReplacementItemRef { get; }
+
+        public BubbleFeatures(MetaDuration bubbleDuration, Currencies openCurrency, int openQuantity, MetaRef<ItemDefinition> replacementItem, int spawnOdds, List<BubbleVariationId> bubbleVariants)
+        {
         }
     }
 }

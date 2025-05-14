@@ -13,12 +13,12 @@ namespace Analytics
     [AnalyticsEventKeywords(new string[] { "event", "discovery" })]
     public class AnalyticsPlayerWildCardRewardGained : AnalyticsPlayerRewardGained
     {
-        [Description("ID of the wild card received")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("card_pack_id")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("ID of the wild card received")]
         public string WildCardId;
-        [Description("Type of the reward received")]
         [JsonProperty("reward_type")]
+        [Description("Type of the reward received")]
         public sealed override string RewardType { get; }
         public override string EventDescription { get; }
 

@@ -6,9 +6,9 @@ using Metaplay.Core;
 
 namespace GameLogic.Player.Leaderboard.BoultonLeague
 {
-    [MetaSerializableDerived(151)]
-    [MetaSerializable]
     [PlayerLeaguesEnabledCondition]
+    [MetaSerializable]
+    [MetaSerializableDerived(151)]
     public class BoultonLeagueDivisionAvatar : PlayerDivisionAvatarBase, IMetacoreLeagueAvatar
     {
         [MetaMember(3, (MetaMemberFlags)0)]

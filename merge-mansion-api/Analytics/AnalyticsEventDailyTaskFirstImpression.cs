@@ -30,13 +30,13 @@ namespace Analytics
         public int RequiredItemCount { get; set; }
 
         [JsonProperty("reward_item")]
-        [Description("The received reward item id")]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("The received reward item id")]
         public string RewardItem { get; set; }
 
-        [Description("How many reward items were received")]
         [JsonProperty("reward_item_count")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("How many reward items were received")]
         public int RewardItemCount { get; set; }
 
         [JsonProperty("local_datetime")]
@@ -44,19 +44,19 @@ namespace Analytics
         [Description("Player's local date and time")]
         public string LocalDateTime { get; set; }
 
-        [Description("Task ConfigKey")]
-        [MetaMember(7, (MetaMemberFlags)0)]
         [JsonProperty("task_id")]
+        [MetaMember(7, (MetaMemberFlags)0)]
+        [Description("Task ConfigKey")]
         public string TaskId { get; set; }
 
-        [Description("Daily Tasks Set Id")]
-        [MetaMember(8, (MetaMemberFlags)0)]
         [JsonProperty("daily_tasks_set_id")]
+        [MetaMember(8, (MetaMemberFlags)0)]
+        [Description("Daily Tasks Set Id")]
         public string DailyTasksSetId { get; set; }
 
         [JsonProperty("daily_tasks_final_rewards_id")]
-        [Description("Daily Tasks Final Rewards Id")]
         [MetaMember(9, (MetaMemberFlags)0)]
+        [Description("Daily Tasks Final Rewards Id")]
         public string DailyTasksFinalRewardsId { get; set; }
         public override string EventDescription { get; }
 
@@ -78,13 +78,13 @@ namespace Analytics
         }
 
         [JsonProperty("required_item_level")]
-        [Description("Required item level")]
         [MetaMember(11, (MetaMemberFlags)0)]
+        [Description("Required item level")]
         public int RequiredItemLevel { get; set; }
 
-        [Description("Merge chain total length of the required item")]
         [JsonProperty("required_item_mergechain_total_length")]
         [MetaMember(12, (MetaMemberFlags)0)]
+        [Description("Merge chain total length of the required item")]
         public int RequiredItemMergeChainTotalLength { get; set; }
 
         [JsonProperty("required_item_mergechain_unlocked_length")]
@@ -97,14 +97,14 @@ namespace Analytics
         [Description("Reward item level")]
         public int RewardItemLevel { get; set; }
 
-        [Description("Merge chain total length of the reward item")]
-        [MetaMember(15, (MetaMemberFlags)0)]
         [JsonProperty("reward_item_mergechain_total_length")]
+        [MetaMember(15, (MetaMemberFlags)0)]
+        [Description("Merge chain total length of the reward item")]
         public int RewardItemMergeChainTotalLength { get; set; }
 
-        [Description("Merge chain unlocked length of the reward item")]
-        [MetaMember(16, (MetaMemberFlags)0)]
         [JsonProperty("reward_item_mergechain_unlocked_length")]
+        [MetaMember(16, (MetaMemberFlags)0)]
+        [Description("Merge chain unlocked length of the reward item")]
         public int RewardItemMergeChainUnlockedLength { get; set; }
 
         public AnalyticsEventDailyTaskFirstImpression(string taskId, int taskIndex, string requiredItem, int requiredItemCount, string rewardItem, int rewardItemCount, string localDateTime, string dailyTasksSetId, string dailyTasksFinalRewardsId, bool isPurchasedTask, int requiredItemLevel, int requiredItemMergeChainTotalLength, int requiredItemMergeChainUnlockedLength, int rewardItemLevel, int rewardItemMergeChainTotalLength, int rewardItemMergeChainUnlockedLength)

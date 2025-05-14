@@ -8,15 +8,15 @@ using System.Collections.Generic;
 
 namespace Analytics
 {
-    [AnalyticsEvent(150, "Flash Sale Impression", 1, null, false, true, false)]
     [MetaBlockedMembers(new int[] { 1, 2 })]
+    [AnalyticsEvent(150, "Flash Sale Impression", 1, null, false, true, false)]
     public class AnalyticEventFlashSaleImpression : AnalyticsServersideEventBase
     {
         public override AnalyticsEventType EventType { get; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
-        [Description("Impression Id")]
         [JsonProperty("impression_id")]
+        [Description("Impression Id")]
         public string ImpressionId { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
@@ -29,9 +29,9 @@ namespace Analytics
         [Description("Placement Id")]
         public string PlacementId { get; set; }
 
+        [MetaMember(6, (MetaMemberFlags)0)]
         [JsonProperty("impressions")]
         [Description("Impressions")]
-        [MetaMember(6, (MetaMemberFlags)0)]
         public List<AnalyticsFlashSaleImpressionItemBase> Impressions { get; set; }
         public override string EventDescription { get; }
 

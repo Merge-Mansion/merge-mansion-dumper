@@ -113,6 +113,8 @@ namespace GameLogic.Decorations
         LDE_Rumors2025_TB1 = 104,
         LDE_Rumors2025_TB2 = 105,
         LDE_Rumors2025_TC1 = 106,
-        LDE_Rumors2025_TC2 = 107
+        LDE_Rumors2025_TC2 = 107,
+        SP_PigPet2025_TA1 = 108,
+        SP_PigPet2025_TA2 = 109
     }
 }

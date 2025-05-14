@@ -8,25 +8,25 @@ using System;
 
 namespace Analytics
 {
-    [AnalyticsEventKeywords(new string[] { "event" })]
     [AnalyticsEvent(203, "Boulton League event score changed", 1, null, true, true, false)]
+    [AnalyticsEventKeywords(new string[] { "event" })]
     public class AnalyticsEventBoultonLeagueEventScoreChanged : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [Description("Event id")]
-        [JsonProperty("event_id")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("event_id")]
+        [Description("Event id")]
         public BoultonLeagueEventId EventId { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        [Description("Leaderboard division id")]
         [JsonProperty("division_id")]
+        [Description("Leaderboard division id")]
         public EntityId DivisionId { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
-        [Description("League stage number")]
         [JsonProperty("stage_number")]
+        [Description("League stage number")]
         public int StageNumber { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
@@ -34,19 +34,19 @@ namespace Analytics
         [Description("Amount of points/score gained")]
         public int ScoreAmount { get; set; }
 
-        [Description("Source of points/score gained")]
-        [JsonProperty("score_source_type")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [JsonProperty("score_source_type")]
+        [Description("Source of points/score gained")]
         public BoultonLeagueEventScoreSourceType ScoreSourceType { get; set; }
 
-        [Description("New total score")]
-        [JsonProperty("total_score")]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [JsonProperty("total_score")]
+        [Description("New total score")]
         public int TotalScore { get; set; }
 
+        [MetaMember(7, (MetaMemberFlags)0)]
         [JsonProperty("stage_demotion_score_threshold")]
         [Description("Possible score requirement to avoid demotion to the previous league stage after the event concludes")]
-        [MetaMember(7, (MetaMemberFlags)0)]
         public int StageDemotionScoreThreshold { get; set; }
 
         [MetaMember(8, (MetaMemberFlags)0)]

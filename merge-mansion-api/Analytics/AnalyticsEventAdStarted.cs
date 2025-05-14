@@ -20,8 +20,8 @@ namespace Analytics
         public string AdPlacement { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        [Description("Item name")]
         [JsonProperty("item_name")]
+        [Description("Item name")]
         public string ItemName { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
@@ -39,27 +39,27 @@ namespace Analytics
         }
 
         [MetaMember(5, (MetaMemberFlags)0)]
-        [Description("Item Diamond value")]
         [JsonProperty("item_diamond_price")]
+        [Description("Item Diamond value")]
         public int ItemDiamondValue { get; set; }
 
         public AnalyticsEventAdStarted(string adPlacement, string itemName, string auctionId, int itemDiamondValue)
         {
         }
 
-        [Description("Item cost value")]
         [MetaMember(6, (MetaMemberFlags)0)]
         [JsonProperty("item_cost_value")]
+        [Description("Item cost value")]
         public int ItemCostValue { get; set; }
 
-        [JsonProperty("item_cost_value_type")]
         [MetaMember(7, (MetaMemberFlags)0)]
+        [JsonProperty("item_cost_value_type")]
         [Description("Item cost value type")]
         public Currencies ItemCostValueType { get; set; }
 
+        [MetaMember(8, (MetaMemberFlags)0)]
         [JsonProperty("advertiser_id")]
         [Description("Advertiser Id")]
-        [MetaMember(8, (MetaMemberFlags)0)]
         public string AdvertiserId { get; set; }
 
         [MetaMember(9, (MetaMemberFlags)0)]
@@ -67,32 +67,32 @@ namespace Analytics
         [Description("Ad Network")]
         public string NetworkId { get; set; }
 
-        [Description("Amount of time skipped for a producer")]
         [MetaMember(10, (MetaMemberFlags)0)]
         [JsonProperty("time_skipped_amount")]
+        [Description("Amount of time skipped for a producer")]
         public string TimeSkippedAmount { get; set; }
 
         [MetaMember(11, (MetaMemberFlags)0)]
-        [Description("Diamond value of time skipped")]
         [JsonProperty("time_skipped_diamond_value")]
+        [Description("Diamond value of time skipped")]
         public int TimeSkippedDiamondValue { get; set; }
 
-        [Description("Remaining time for producer")]
-        [JsonProperty("time_remaining_amount")]
         [MetaMember(12, (MetaMemberFlags)0)]
+        [JsonProperty("time_remaining_amount")]
+        [Description("Remaining time for producer")]
         public string ProducerTimeRemaining { get; set; }
 
         public AnalyticsEventAdStarted(string adPlacement, string itemName, string auctionId, int itemDiamondValue, int itemCostValue, Currencies itemCostValueType, string advertiserId, string networkId, AnalyticsContext analyticsContext)
         {
         }
 
-        [Description("Required task items")]
-        [JsonProperty("required_items")]
         [MetaMember(13, (MetaMemberFlags)0)]
+        [JsonProperty("required_items")]
+        [Description("Required task items")]
         public string RequiredTaskItems { get; set; }
 
-        [JsonProperty("required_merge_chain")]
         [MetaMember(14, (MetaMemberFlags)0)]
+        [JsonProperty("required_merge_chain")]
         [Description("Required merge chain")]
         public string RequiredMergeChains { get; set; }
 

@@ -7,8 +7,8 @@ using Analytics;
 
 namespace Game.Logic
 {
-    [AnalyticsEventKeywords(new string[] { "item" })]
     [AnalyticsEvent(23, "Inventory changed", 1, null, true, true, false)]
+    [AnalyticsEventKeywords(new string[] { "item" })]
     public class InventoryChanged : AnalyticsServersideEventBase
     {
         [MetaMember(1, (MetaMemberFlags)0)]

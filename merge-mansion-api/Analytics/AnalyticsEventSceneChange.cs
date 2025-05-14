@@ -11,9 +11,9 @@ namespace Analytics
     [AnalyticsEvent(185, "Scene change", 1, null, false, true, false)]
     public class AnalyticsEventSceneChange : AnalyticsServersideEventBase
     {
-        [Description("ID of the scene from where transition is happening")]
         [JsonProperty("scene_from")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("ID of the scene from where transition is happening")]
         public LocationId SceneFrom;
         [JsonProperty("scene_to")]
         [MetaMember(2, (MetaMemberFlags)0)]

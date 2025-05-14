@@ -29,8 +29,8 @@ namespace Game.Logic
         [MetaValidateRequired]
         public LocalizedString FullTopic { get; set; }
 
-        [MetaValidateRequired]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [MetaValidateRequired]
         [MetaFormTextArea]
         public LocalizedString FullContent { get; set; }
 
@@ -44,24 +44,24 @@ namespace Game.Logic
         [MetaMember(7, (MetaMemberFlags)0)]
         public List<PlayerReward> Attachments { get; set; }
 
-        [MetaFormNotEditable]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [MetaFormNotEditable]
         public long EndDay { get; set; }
 
-        [MetaFormNotEditable]
         [MetaMember(9, (MetaMemberFlags)0)]
+        [MetaFormNotEditable]
         public int BroadcastNo { get; set; }
 
         [MetaFormFieldCustomValidator(typeof(MergeMansionInGameMail.SocialMediaPlatformValidator))]
         [MetaMember(10, (MetaMemberFlags)0)]
         public List<SocialMediaPlatform> SocialMediaButtonsToShow { get; set; }
 
-        [MetaFormNotEditable]
         [MetaMember(11, (MetaMemberFlags)0)]
+        [MetaFormNotEditable]
         public MergeMansionInGameMailContentType ContentType { get; set; }
 
-        [MetaFormNotEditable]
         [MetaMember(12, (MetaMemberFlags)0)]
+        [MetaFormNotEditable]
         public string ContentExtra { get; set; }
         public override string TitleExcerpt { get; }
         public override string BodyExcerpt { get; }

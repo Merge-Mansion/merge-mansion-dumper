@@ -11,8 +11,8 @@ namespace GameLogic.Player.Items.Bubble
         [MetaMember(1, (MetaMemberFlags)0)]
         public MetaTime BubbleEndTime { get; set; }
 
-        [Obsolete("Bonuses should be used instead")]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [Obsolete("Bonuses should be used instead")]
         public IBubbleBonus Bonus { get; set; }
 
         public BubbleState()
@@ -27,6 +27,13 @@ namespace GameLogic.Player.Items.Bubble
         public List<IBubbleBonus> Bonuses { get; set; }
 
         public BubbleState(MetaTime endTime, List<IBubbleBonus> bonuses)
+        {
+        }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        public BubbleVariationId VariationId { get; set; }
+
+        public BubbleState(IPlayer player, IBubbleFeatures bubbleFeatures, MetaTime startTime, List<IBubbleBonus> bonuses)
         {
         }
     }

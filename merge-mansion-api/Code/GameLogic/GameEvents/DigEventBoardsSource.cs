@@ -2,6 +2,7 @@ using Code.GameLogic.Config;
 using Metaplay.Core.Config;
 using System;
 using System.Collections.Generic;
+using Metaplay.Core.Math;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -21,5 +22,7 @@ namespace Code.GameLogic.GameEvents
         public DigEventBoardsSource()
         {
         }
+
+        private F32 CompensationChance { get; set; }
     }
 }

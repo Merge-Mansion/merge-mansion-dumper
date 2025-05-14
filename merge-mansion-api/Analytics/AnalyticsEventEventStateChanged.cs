@@ -22,8 +22,8 @@ namespace Analytics
         [Description("Merge board corresponding to the event")]
         public MergeBoardId BoardId { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("ended_by_customer_support")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         [Description("Ended by customer support?")]
         public bool EndedByCustomerSupport { get; set; }
         public override string EventDescription { get; }

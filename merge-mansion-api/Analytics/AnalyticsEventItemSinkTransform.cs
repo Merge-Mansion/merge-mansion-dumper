@@ -13,34 +13,34 @@ namespace Analytics
     {
         public override AnalyticsEventType EventType { get; }
 
-        [Description("Id of the board where the item was sinked")]
-        [JsonProperty("context")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("context")]
+        [Description("Id of the board where the item was sinked")]
         public MergeBoardId MergeBoardId { get; set; }
 
-        [Description("Source item SinkType")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("source_item_sink_type")]
+        [Description("Source item SinkType")]
         public string SourceItemSinkType { get; set; }
 
-        [Description("Name of the item sink transformed into")]
-        [JsonProperty("item_name")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [JsonProperty("item_name")]
+        [Description("Name of the item sink transformed into")]
         public string NewItemName { get; set; }
 
-        [Description("Original sink item name")]
-        [JsonProperty("origin_item_name")]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [JsonProperty("origin_item_name")]
+        [Description("Original sink item name")]
         public string OriginItemName { get; set; }
 
+        [MetaMember(5, (MetaMemberFlags)0)]
         [JsonProperty("total_points")]
         [Description("If sink item required points, then how many points were in the original sink item")]
-        [MetaMember(5, (MetaMemberFlags)0)]
         public int TotalPoints { get; set; }
 
-        [Description("True if original item was Order item")]
-        [JsonProperty("was_order_item")]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [JsonProperty("was_order_item")]
+        [Description("True if original item was Order item")]
         public bool WasOrderItem { get; set; }
         public override string EventDescription { get; }
 

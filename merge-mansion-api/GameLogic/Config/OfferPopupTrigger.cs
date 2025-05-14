@@ -62,5 +62,6 @@ namespace GameLogic.Config
         public static string ShowMethodPromptForFreeOffer { get; }
         public static string ShowMethodEventPassPurchaseClicked { get; }
         public static string ShowMethodMysteryMachineOutOfCurrencyConfirmation { get; }
+        public static string ShowMethodProgressionPackLastChance { get; }
     }
 }

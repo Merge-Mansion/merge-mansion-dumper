@@ -9,13 +9,13 @@ namespace Analytics
     [MetaBlockedMembers(new int[] { 1 })]
     public class LeaderboardSnapshotPlayerEntry
     {
-        [Description("Rank")]
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("rank")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Rank")]
         public int Rank { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("points")]
+        [MetaMember(3, (MetaMemberFlags)0)]
         [Description("Points")]
         public int Points { get; set; }
 
@@ -32,9 +32,9 @@ namespace Analytics
         {
         }
 
-        [Description("Bot Type")]
-        [MetaMember(5, (MetaMemberFlags)0)]
         [JsonProperty("bot_type")]
+        [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("Bot Type")]
         public string BotType { get; set; }
 
         public LeaderboardSnapshotPlayerEntry(string associationId, int rank, int points, string botType)

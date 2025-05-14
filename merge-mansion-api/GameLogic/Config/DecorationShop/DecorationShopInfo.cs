@@ -6,12 +6,13 @@ using System.Collections.Generic;
 using Metaplay.Core;
 using GameLogic.Player.Requirements;
 using Code.GameLogic.GameEvents;
+using Code.GameLogic.Config;
 
 namespace GameLogic.Config.DecorationShop
 {
     [MetaSerializable]
     [MetaActivableConfigData("DecorationShop", false, true)]
-    public class DecorationShopInfo : IMetaActivableConfigData<DecorationShopId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<DecorationShopId>, IHasGameConfigKey<DecorationShopId>, IMetaActivableInfo<DecorationShopId>, IEventSharedInfo
+    public class DecorationShopInfo : IMetaActivableConfigData<DecorationShopId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<DecorationShopId>, IHasGameConfigKey<DecorationShopId>, IMetaActivableInfo<DecorationShopId>, IEventSharedInfo, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public DecorationShopId ConfigKey { get; set; }

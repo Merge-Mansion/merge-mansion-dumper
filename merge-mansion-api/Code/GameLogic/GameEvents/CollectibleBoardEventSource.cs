@@ -77,5 +77,6 @@ namespace Code.GameLogic.GameEvents
         private string ContextCategory { get; set; }
         private string ContextSubCategory { get; set; }
         private string ConnectedMinigameId { get; set; }
+        private string PrefabsOverride { get; set; }
     }
 }

@@ -39,9 +39,9 @@ namespace Analytics
         {
         }
 
+        [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("trigger_type")]
         [Description("Event Offer Trigger Type")]
-        [MetaMember(4, (MetaMemberFlags)0)]
         public string TriggerType { get; set; }
 
         public AnalyticEventGeneralOfferImpression(string eventId, OfferImpressionType type, string iapPlatformId, string placementId, bool automaticallyShown, string impressionId, string triggerType, bool isLastChance)

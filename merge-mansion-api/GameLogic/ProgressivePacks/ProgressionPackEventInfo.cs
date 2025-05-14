@@ -16,7 +16,7 @@ namespace GameLogic.ProgressivePacks
 {
     [MetaSerializable]
     [MetaActivableConfigData("ProgressionPackEvent", false, true)]
-    public class ProgressionPackEventInfo : IMetaActivableConfigData<ProgressionPackEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<ProgressionPackEventId>, IHasGameConfigKey<ProgressionPackEventId>, IMetaActivableInfo<ProgressionPackEventId>, IEventSharedInfo, IValidatable
+    public class ProgressionPackEventInfo : ICoreSupportingEventInfo<ProgressionPackEventId>, IMetaActivableConfigData<ProgressionPackEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<ProgressionPackEventId>, IHasGameConfigKey<ProgressionPackEventId>, IMetaActivableInfo<ProgressionPackEventId>, ICoreSupportingEventInfo, IEventSharedInfo, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public ProgressionPackEventId ConfigKey { get; set; }
@@ -83,5 +83,9 @@ namespace GameLogic.ProgressivePacks
         public ProgressionPackEventInfo(ProgressionPackEventId configKey, ProgressionPackId offerId, StatsObjectiveType objectiveType, string displayName, string description, PlayerRequirement unlockRequirement, List<MetaRef<PlayerSegmentInfo>> segments, int priority, MetaRef<InAppProductInfo> premiumIAP, List<string> objectiveParameter, MetaRef<MergeMansionOfferGroupInfo> offerGroupId, MetaActivableParams activableParams, string placementId, EventCategoryInfo categoryInfo)
         {
         }
+
+        public string CoreSupportingEventConfigKey { get; }
+        public string CoreSupportingEventDisplayName { get; }
+        public CoreSupportingEventType CoreSupportingEventType { get; }
     }
 }

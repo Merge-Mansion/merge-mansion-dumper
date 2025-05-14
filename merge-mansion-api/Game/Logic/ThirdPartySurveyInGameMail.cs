@@ -18,12 +18,12 @@ namespace Game.Logic
         [MetaMember(2, (MetaMemberFlags)0)]
         public string Url { get; set; }
 
-        [MetaFormFieldContext("AttachmentRewardList", true)]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [MetaFormFieldContext("AttachmentRewardList", true)]
         public List<PlayerReward> StartingRewards { get; set; }
 
-        [MetaFormFieldContext("AttachmentRewardList", true)]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [MetaFormFieldContext("AttachmentRewardList", true)]
         public List<PlayerReward> CompletingRewards { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]

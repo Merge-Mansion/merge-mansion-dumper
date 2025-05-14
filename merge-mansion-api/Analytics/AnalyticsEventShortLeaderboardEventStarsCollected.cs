@@ -13,8 +13,8 @@ namespace Analytics
         public sealed override AnalyticsEventType EventType { get; }
 
         [JsonProperty("event_id")]
-        [Description("Event id where stars were collected.")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("Event id where stars were collected.")]
         public ShortLeaderboardEventId EventId { get; set; }
 
         [JsonProperty("stage_number")]
@@ -27,14 +27,14 @@ namespace Analytics
         [Description("Rank (1-based) that player had at end of stage.")]
         public int Rank { get; set; }
 
-        [Description("Number of stars collected.")]
-        [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("leaderboard_stars")]
+        [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("Number of stars collected.")]
         public int LeaderboardStars { get; set; }
 
-        [Description("Total number of stars after stars for this stage were collected.")]
-        [MetaMember(5, (MetaMemberFlags)0)]
         [JsonProperty("leaderboard_stars_saldo")]
+        [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("Total number of stars after stars for this stage were collected.")]
         public int LeaderboardStarsSaldo { get; set; }
 
         [JsonProperty("stage_cost")]
@@ -47,8 +47,8 @@ namespace Analytics
         [Description("How many times the stage has been replayed. 0 if this is the first time.")]
         public int StageReplay { get; set; }
 
-        [MetaMember(8, (MetaMemberFlags)0)]
         [JsonProperty("score")]
+        [MetaMember(8, (MetaMemberFlags)0)]
         [Description("Score player had during this stage.")]
         public long Score { get; set; }
         public override string EventDescription { get; }

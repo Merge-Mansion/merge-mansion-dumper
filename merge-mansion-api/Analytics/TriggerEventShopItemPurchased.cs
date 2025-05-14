@@ -7,8 +7,8 @@ using System;
 
 namespace Analytics
 {
-    [MetaBlockedMembers(new int[] { 1 })]
     [AnalyticsEvent(3045, "Shop item purchased", 1, null, false, false, true)]
+    [MetaBlockedMembers(new int[] { 1 })]
     public class TriggerEventShopItemPurchased : PlayerTriggerEvent
     {
         [MetaMember(2, (MetaMemberFlags)0)]

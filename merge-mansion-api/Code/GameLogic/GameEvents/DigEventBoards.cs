@@ -3,6 +3,7 @@ using Metaplay.Core.Config;
 using System;
 using System.Collections.Generic;
 using GameLogic.Player.Rewards;
+using Metaplay.Core.Math;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -33,6 +34,13 @@ namespace Code.GameLogic.GameEvents
         }
 
         public DigEventBoards(DigEventBoardId configKey, int boardWidth, int boardHeight, int cellSize, List<DigEventItemId> boardItems, PlayerReward boardReward)
+        {
+        }
+
+        [MetaMember(7, (MetaMemberFlags)0)]
+        public F32 CompensationChance { get; set; }
+
+        public DigEventBoards(DigEventBoardId configKey, int boardWidth, int boardHeight, int cellSize, List<DigEventItemId> boardItems, PlayerReward boardReward, F32 compensationChance)
         {
         }
     }

@@ -1,5 +1,6 @@
 using Metaplay.Core;
 using System;
+using System.Collections.Generic;
 
 namespace GameLogic.Player.Items.Bubble
 {
@@ -13,8 +14,10 @@ namespace GameLogic.Player.Items.Bubble
 
         int SpawnOdds { get; }
 
-        ItemDefinition Replacement { get; }
-
         ValueTuple<Currencies, int> OpenCost { get; }
+
+        List<BubbleVariationId> BubbleVariants { get; }
+
+        MetaRef<ItemDefinition> ReplacementItemRef { get; }
     }
 }

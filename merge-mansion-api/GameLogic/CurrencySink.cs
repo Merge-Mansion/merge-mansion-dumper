@@ -48,6 +48,8 @@ namespace GameLogic
         SkipEvidenceBoxCooldown = 40,
         BuyEvidenceBox = 41,
         ReplayShortLeaderboardEventStage = 42,
-        DigEventTileReveal = 43
+        DigEventTileReveal = 43,
+        BuyMoreDigEventTapsPopup = 44,
+        MixABooster = 45
     }
 }

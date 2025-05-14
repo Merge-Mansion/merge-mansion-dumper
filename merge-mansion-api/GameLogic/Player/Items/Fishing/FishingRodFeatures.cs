@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using GameLogic.Player.Items.Production;
 using GameLogic.Player.Board.Placement;
+using System.Runtime.Serialization;
 
 namespace GameLogic.Player.Items.Fishing
 {
@@ -14,7 +15,7 @@ namespace GameLogic.Player.Items.Fishing
         public bool IsFishingRod { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        public List<ItemOdds> ItemOdds { get; set; }
+        public IReadOnlyList<ItemOdds> ItemOdds { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public IPlacement Placement { get; set; }

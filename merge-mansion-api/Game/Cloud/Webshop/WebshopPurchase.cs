@@ -16,8 +16,8 @@ namespace Game.Cloud.Webshop
         [MetaMember(3, (MetaMemberFlags)0)]
         [ServerOnly]
         public MetaTime PurchaseTime;
-        [ServerOnly]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [ServerOnly]
         public WebshopType Type;
         [MetaMember(5, (MetaMemberFlags)0)]
         public List<WebshopItem> Items;

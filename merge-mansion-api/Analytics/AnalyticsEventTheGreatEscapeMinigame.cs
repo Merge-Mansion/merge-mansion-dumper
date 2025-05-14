@@ -22,29 +22,29 @@ namespace Analytics
         [Description("The required progress to complete the minigame")]
         public int Requirement { get; set; }
 
-        [Description("If minigame is completed or not")]
         [JsonProperty("completed")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("If minigame is completed or not")]
         public bool Completed { get; set; }
 
-        [Description("The number of bars destroyed")]
-        [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("bars_destroyed")]
+        [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("The number of bars destroyed")]
         public int BarsDestroyed { get; set; }
 
-        [Description("The number of taps the user made")]
         [JsonProperty("number_of_taps")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("The number of taps the user made")]
         public int NumberOfTaps { get; set; }
 
-        [Description("The number of seconds player used during the run")]
         [JsonProperty("timer_seconds")]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [Description("The number of seconds player used during the run")]
         public F32 TimerSeconds { get; set; }
 
         [JsonProperty("tries")]
-        [Description("The number of tries player had in minigame")]
         [MetaMember(7, (MetaMemberFlags)0)]
+        [Description("The number of tries player had in minigame")]
         public int Tries { get; set; }
         public override string EventDescription { get; }
 
@@ -57,8 +57,8 @@ namespace Analytics
         }
 
         [JsonProperty("mini_game_name")]
-        [Description("Minigame name")]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [Description("Minigame name")]
         public string MinigameName { get; set; }
     }
 }

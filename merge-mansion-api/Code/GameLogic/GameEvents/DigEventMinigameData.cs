@@ -1,11 +1,12 @@
 using Metaplay.Core.Model;
 using System;
 using System.Collections.Generic;
+using GameLogic;
 
 namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
-    public class DigEventMinigameData
+    public class DigEventMinigameData : IDigEventMinigameData
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public int DigEventLevel { get; set; }

@@ -9,6 +9,7 @@ using System.Runtime.Serialization;
 using System;
 using GameLogic.MergeChains;
 using Game.Cloud.Config;
+using GameLogic.TaskLists;
 
 namespace GameLogic.Area
 {
@@ -116,6 +117,22 @@ namespace GameLogic.Area
         public bool ForceTravelOnNotify { get; set; }
 
         public AreaInfo(AreaId configKey, LocationId locationId, string titleLocalizationId, string categoryLocalizationId, List<PlayerRequirement> teaseRequirements, List<PlayerRequirement> unlockRequirements, List<PlayerReward> rewards, string lockedDescriptionLocalizationId, string unlockedDescriptionLocalizationId, string shortDescriptionLocalizationId, List<MetaRef<HotspotDefinition>> hotspots, List<MetaRef<MapSpotInfo>> mapSpots, HotspotId unlockedBy, MergeChainId unlockInstructionMergeChain, MetaRef<AreaInfo> unlockInstructionArea, MetaRef<AreaInfo> nextAreaToUnlock, bool notifyOnStart, bool forceTravelOnNotify)
+        {
+        }
+
+        [MetaMember(20, (MetaMemberFlags)0)]
+        public bool IsTaskGroupV2Enabled { get; set; }
+
+        [MetaMember(21, (MetaMemberFlags)0)]
+        public List<MetaRef<TaskListInfo>> TaskListRefs { get; set; }
+
+        [IgnoreDataMember]
+        public IEnumerable<TaskListInfo> TaskLists { get; }
+
+        [IgnoreDataMember]
+        public bool HasTaskLists { get; }
+
+        public AreaInfo(AreaId configKey, LocationId locationId, string titleLocalizationId, string categoryLocalizationId, List<PlayerRequirement> teaseRequirements, List<PlayerRequirement> unlockRequirements, List<PlayerReward> rewards, string lockedDescriptionLocalizationId, string unlockedDescriptionLocalizationId, string shortDescriptionLocalizationId, List<MetaRef<HotspotDefinition>> hotspots, List<MetaRef<MapSpotInfo>> mapSpots, HotspotId unlockedBy, MergeChainId unlockInstructionMergeChain, MetaRef<AreaInfo> unlockInstructionArea, MetaRef<AreaInfo> nextAreaToUnlock, bool notifyOnStart, bool forceTravelOnNotify, bool isTaskGroupV2Enabled, List<MetaRef<TaskListInfo>> taskListRefs)
         {
         }
     }

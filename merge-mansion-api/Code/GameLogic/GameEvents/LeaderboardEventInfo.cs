@@ -134,8 +134,8 @@ namespace Code.GameLogic.GameEvents
         {
         }
 
-        [ServerOnly]
         [MetaMember(23, (MetaMemberFlags)0)]
+        [ServerOnly]
         public LeaderboardEventMatchmakingBucketsId MatchmakingBuckets { get; set; }
 
         [MetaMember(24, (MetaMemberFlags)0)]

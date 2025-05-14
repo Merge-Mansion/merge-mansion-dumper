@@ -6,8 +6,8 @@ using System.ComponentModel;
 
 namespace Analytics
 {
-    [AnalyticsEventKeywords(new string[] { "daily" })]
     [AnalyticsEvent(199, "Daily Scoop status changed", 1, null, false, true, false)]
+    [AnalyticsEventKeywords(new string[] { "daily" })]
     public class AnalyticsDailyScoopStatusChanged : AnalyticsServersideEventBase
     {
         public override string EventDescription { get; }
@@ -28,19 +28,19 @@ namespace Analytics
         [Description("Day ID")]
         public string DayId { get; set; }
 
-        [Description("Status of the task, unlocked/completed")]
-        [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("daily_challenge_status")]
+        [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("Status of the task, unlocked/completed")]
         public TaskStatus Status { get; set; }
 
-        [Description("The type of the task, Standard/Special")]
-        [MetaMember(5, (MetaMemberFlags)0)]
         [JsonProperty("daily_challenge_objective_category")]
+        [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("The type of the task, Standard/Special")]
         public TaskType Type { get; set; }
 
-        [Description("The amount of event tokens the task rewards")]
         [JsonProperty("daily_challenge_token_amount")]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [Description("The amount of event tokens the task rewards")]
         public int TokenAmount { get; set; }
 
         public AnalyticsDailyScoopStatusChanged()
@@ -51,9 +51,9 @@ namespace Analytics
         {
         }
 
-        [Description("Task ID")]
-        [MetaMember(7, (MetaMemberFlags)0)]
         [JsonProperty("daily_challenge_task_id")]
+        [MetaMember(7, (MetaMemberFlags)0)]
+        [Description("Task ID")]
         public string TaskId { get; set; }
 
         public AnalyticsDailyScoopStatusChanged(string eventId, string weekId, string dayId, TaskStatus status, TaskType type, int tokenAmount, string taskId)

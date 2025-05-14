@@ -1,5 +1,6 @@
 using System;
 using Merge;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player.Items
 {
@@ -7,6 +8,8 @@ namespace GameLogic.Player.Items
     {
         bool IsPortal { get; }
 
-        MergeBoardId TargetBoardId { get; }
+        PortalType Type { get; }
+
+        Option<MergeBoardId> TargetBoardIdOption { get; }
     }
 }

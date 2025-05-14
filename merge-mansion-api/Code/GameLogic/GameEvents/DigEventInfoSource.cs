@@ -12,7 +12,7 @@ namespace Code.GameLogic.GameEvents
         public List<DigEventBoardId> MainBoards { get; set; }
         public List<DigEventBoardId> InfiniteBoards { get; set; }
         public int SpecialItemsAmount { get; set; }
-        public List<DigEventMuseumShelfId> Museum { get; set; }
+        public DigEventMuseumCollectionId Museum { get; set; }
         public bool AnyItemOnMuseumShelfs { get; set; }
         public bool MuseumStartsEmpty { get; set; }
         public int ShinyItemsAmount { get; set; }
@@ -29,6 +29,7 @@ namespace Code.GameLogic.GameEvents
         {
         }
 
-        private string CollectionId { get; set; }
+        private string ThemeId { get; set; }
+        private List<DigEventShinyProgressionId> ShinyProgression { get; set; }
     }
 }

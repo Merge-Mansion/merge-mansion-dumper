@@ -6,8 +6,8 @@ using Metaplay.Core.Forms;
 namespace GameLogic.Player.Rewards
 {
     [MetaSerializableDerived(8)]
-    [Obsolete("Old way of removing currency from players. To be removed after all current mails with NegativeRewards are consumed.")]
     [MetaFormHidden]
+    [Obsolete("Old way of removing currency from players. To be removed after all current mails with NegativeRewards are consumed.")]
     public class NegativeReward : PlayerReward
     {
         [MetaMember(1, (MetaMemberFlags)0)]

@@ -3,6 +3,7 @@ using Metaplay.Core.Config;
 using Metaplay.Core;
 using System;
 using System.Runtime.Serialization;
+using Game.Cloud.Config;
 
 namespace GameLogic.Area
 {
@@ -15,13 +16,10 @@ namespace GameLogic.Area
         private MapSpotId MapSpotId { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        private MetaRef<AreaInfo> AreaRef { get; set; }
+        private AreaInfoDef AreaRef { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public string TitleId { get; set; }
-
-        [IgnoreDataMember]
-        public AreaInfo Area { get; }
 
         public MapSpotInfo()
         {

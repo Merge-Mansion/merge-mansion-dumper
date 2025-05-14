@@ -7,8 +7,8 @@ using GameLogic;
 
 namespace Game.Logic
 {
-    [AnalyticsEventKeywords(new string[] { "item" })]
     [AnalyticsEvent(5, "Gained/gifted item", 1, null, true, false, false)]
+    [AnalyticsEventKeywords(new string[] { "item" })]
     public class PlayerEventGainedItem : PlayerEventBase
     {
         [Obsolete("Used for compatibility with old event data")]

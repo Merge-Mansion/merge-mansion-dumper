@@ -12,12 +12,12 @@ namespace Analytics
         public override string EventDescription { get; }
         public override AnalyticsEventType EventType { get; }
 
-        [JsonProperty("menu_name")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [JsonProperty("menu_name")]
         public string MenuName { get; set; }
 
-        [JsonProperty("ui_name")]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [JsonProperty("ui_name")]
         public string UiName { get; set; }
 
         public AnalyticsEventEnergyModeButtonClicked()

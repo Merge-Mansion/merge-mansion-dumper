@@ -16,24 +16,24 @@ namespace Analytics
         [JsonProperty("producer_level")]
         [MetaMember(8, (MetaMemberFlags)0)]
         public int ProducerLvl;
-        [MetaMember(9, (MetaMemberFlags)0)]
         [JsonProperty("target_id")]
+        [MetaMember(9, (MetaMemberFlags)0)]
         public string TargetId;
-        [MetaMember(10, (MetaMemberFlags)0)]
         [JsonProperty("target_lvl")]
+        [MetaMember(10, (MetaMemberFlags)0)]
         public int TargetLvl;
-        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
-        [MetaMember(11, (MetaMemberFlags)0)]
         [JsonProperty("board_items")]
+        [MetaMember(11, (MetaMemberFlags)0)]
+        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> BoardItems;
         public sealed override AnalyticsEventType EventType { get; }
 
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("bot_configuration_id")]
+        [MetaMember(1, (MetaMemberFlags)0)]
         public string ConfigId { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("test_id")]
+        [MetaMember(2, (MetaMemberFlags)0)]
         public string TestId { get; set; }
 
         [JsonProperty("total_sessions")]

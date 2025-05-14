@@ -12,9 +12,9 @@ using GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents.DailyScoop
 {
-    [MetaActivableConfigData("DailyScoopEvent", false, true)]
     [MetaSerializable]
-    public class DailyScoopEventInfo : IMetaActivableConfigData<DailyScoopEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<DailyScoopEventId>, IHasGameConfigKey<DailyScoopEventId>, IMetaActivableInfo<DailyScoopEventId>, IEventSharedInfo
+    [MetaActivableConfigData("DailyScoopEvent", false, true)]
+    public class DailyScoopEventInfo : ICoreSupportingEventInfo<DailyScoopEventId>, IMetaActivableConfigData<DailyScoopEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<DailyScoopEventId>, IHasGameConfigKey<DailyScoopEventId>, IMetaActivableInfo<DailyScoopEventId>, ICoreSupportingEventInfo, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public DailyScoopEventId ConfigKey { get; set; }
@@ -70,5 +70,9 @@ namespace Code.GameLogic.GameEvents.DailyScoop
         public DailyScoopEventInfo(DailyScoopEventId configKey, string displayName, string description, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, List<DailyScoopWeekId> weekIds, List<MetaRef<PlayerSegmentInfo>> segments, List<PlayerSegmentId> weekSegments, int priority, EventCategoryInfo categoryInfo)
         {
         }
+
+        public CoreSupportingEventType CoreSupportingEventType { get; }
+        public string CoreSupportingEventDisplayName { get; }
+        public string CoreSupportingEventConfigKey { get; }
     }
 }

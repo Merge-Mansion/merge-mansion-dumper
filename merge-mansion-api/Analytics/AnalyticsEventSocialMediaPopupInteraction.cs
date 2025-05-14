@@ -14,8 +14,8 @@ namespace Analytics
         [Description("ConfigKey")]
         public string ConfigKey;
         [JsonProperty("interaction")]
-        [Description("Interaction type")]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Interaction type")]
         public string Interaction;
         [JsonProperty("source")]
         [MetaMember(3, (MetaMemberFlags)0)]

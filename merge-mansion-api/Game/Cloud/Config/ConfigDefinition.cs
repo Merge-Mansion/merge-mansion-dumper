@@ -3,7 +3,7 @@ using Metaplay.Core.Model;
 namespace Game.Cloud.Config
 {
     [MetaSerializable]
-    public abstract class ConfigDefinition<TKeyObject, TValueObject>
+    public abstract class ConfigDefinition<TKeyObject, TValueObject> : IConfigDefinition<TKeyObject, TValueObject>
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public TKeyObject ConfigKey { get; set; }

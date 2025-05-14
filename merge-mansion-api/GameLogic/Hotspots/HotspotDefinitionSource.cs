@@ -7,6 +7,7 @@ using Code.GameLogic.Hotspots;
 using Metaplay.Core;
 using GameLogic.Config.Map.Characters;
 using GameLogic.Area;
+using GameLogic.TaskLists;
 
 namespace GameLogic.Hotspots
 {
@@ -72,5 +73,8 @@ namespace GameLogic.Hotspots
         private List<string> DifficultyRewardAux0 { get; set; }
         private List<string> DifficultyRewardAux1 { get; set; }
         private List<int> DifficultyRewardAmount { get; set; }
+        public int Order { get; set; }
+        public TaskListId TaskListId { get; set; }
+        private List<string> Tags { get; set; }
     }
 }

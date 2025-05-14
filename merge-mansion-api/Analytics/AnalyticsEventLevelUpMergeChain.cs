@@ -12,9 +12,9 @@ namespace Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [Description("Id of the merge chain that was leveled up")]
-        [MetaMember(1, (MetaMemberFlags)0)]
         [JsonProperty("merge_chain_id")]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("Id of the merge chain that was leveled up")]
         public MergeChainId MergeChainId { get; set; }
 
         [JsonProperty("merge_chain_level")]

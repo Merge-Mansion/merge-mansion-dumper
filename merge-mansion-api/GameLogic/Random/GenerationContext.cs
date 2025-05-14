@@ -14,6 +14,7 @@ namespace GameLogic.Random
         public RandomPCG Random { get; }
         public SharedGameConfig GameConfig { get; }
         public GarageCleanupEventModel GarageCleanupEventModel { get; }
+        public IMergeMansionGameConfig MergeMansionGameConfig { get; }
 
         public GenerationContext(IPlayer player, GarageCleanupEventModel garageCleanupEventModel)
         {

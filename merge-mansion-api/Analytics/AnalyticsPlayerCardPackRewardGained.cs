@@ -21,8 +21,8 @@ namespace Analytics
         [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Number of card packs received")]
         public int Amount;
-        [Description("Type of the reward received")]
         [JsonProperty("reward_type")]
+        [Description("Type of the reward received")]
         public sealed override string RewardType { get; }
         public override string EventDescription { get; }
 

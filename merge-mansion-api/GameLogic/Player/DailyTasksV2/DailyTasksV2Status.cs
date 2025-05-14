@@ -11,8 +11,8 @@ namespace GameLogic.Player.DailyTasksV2
     [MetaSerializable]
     public class DailyTasksV2Status
     {
-        [ExcludeFromGdprExport]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string TasksSetId { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
@@ -39,28 +39,28 @@ namespace GameLogic.Player.DailyTasksV2
         [ExcludeFromGdprExport]
         public bool IsCompletionResolved { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public int LastResolvedConsecutiveTimeExtensionNumber { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(9, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public int StreakCount { get; set; }
 
         [MetaMember(10, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         public string AlgorithmLogContent { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(11, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public bool DidOpenPopupAtLeastOnce { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(12, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public string LastGeneratedTaskVisibleHotspotHash { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(13, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public List<MetaRef<ItemDefinition>> LastGeneratedTaskRewardItemsHistory { get; set; }
 
         public DailyTasksV2Status()
@@ -69,6 +69,6 @@ namespace GameLogic.Player.DailyTasksV2
 
         [MetaMember(14, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
-        public Dictionary<DailyTaskV2Id, DailyTaskV2StateCustomizationForBoultonLeague> BoultonLeagueTasksCustomizations { get; set; }
+        public Dictionary<DailyTaskV2Id, DailyTaskV2StateCustomizationForBoultonLeague> TasksCustomizations { get; set; }
     }
 }

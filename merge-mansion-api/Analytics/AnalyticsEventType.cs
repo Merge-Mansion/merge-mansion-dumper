@@ -163,6 +163,7 @@ namespace Analytics
         SceneStarted = 152,
         SceneFinished = 153,
         GameLaunchedSuccessfully = 154,
-        GameLaunchingStep = 155
+        GameLaunchingStep = 155,
+        CreateRecipe = 156
     }
 }

@@ -6,8 +6,8 @@ using System;
 
 namespace Analytics
 {
-    [JsonConverter(typeof(AnalyticsEventThirdPartySurveyCompletedJsonConverter))]
     [AnalyticsEvent(140, "Third Party Survey completed", 1, null, true, true, false)]
+    [JsonConverter(typeof(AnalyticsEventThirdPartySurveyCompletedJsonConverter))]
     public class AnalyticsEventThirdPartySurveyCompleted : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
@@ -31,13 +31,13 @@ namespace Analytics
         {
         }
 
-        [Description("Association Id")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("association_id")]
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("Association Id")]
         public string AssociationId { get; set; }
 
-        [MetaMember(4, (MetaMemberFlags)0)]
         [JsonProperty("survey_response")]
+        [MetaMember(4, (MetaMemberFlags)0)]
         [Description("Survey Response")]
         public string SurveyResponse { get; set; }
 

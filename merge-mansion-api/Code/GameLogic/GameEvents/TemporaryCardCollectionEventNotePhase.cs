@@ -7,6 +7,7 @@ namespace Code.GameLogic.GameEvents
     {
         Preview = 0,
         Start = 1,
-        End = 2
+        End = 2,
+        Info = 3
     }
 }

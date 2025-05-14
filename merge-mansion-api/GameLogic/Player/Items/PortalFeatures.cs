@@ -2,6 +2,7 @@ using GameLogic.Merge;
 using Metaplay.Core.Model;
 using Merge;
 using System;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player.Items
 {
@@ -20,6 +21,14 @@ namespace GameLogic.Player.Items
         }
 
         private PortalFeatures()
+        {
+        }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        public PortalType Type { get; set; }
+        public Option<MergeBoardId> TargetBoardIdOption { get; }
+
+        public PortalFeatures(PortalType type, MergeBoardId targetBoardId)
         {
         }
     }

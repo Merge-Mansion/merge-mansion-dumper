@@ -12,14 +12,14 @@ namespace Metacore.MergeMansion.Analytics
     {
         public sealed override AnalyticsEventType EventType { get; }
 
+        [JsonProperty("item_name")]
         [MetaMember(1, (MetaMemberFlags)0)]
         [Description("Event item name")]
-        [JsonProperty("item_name")]
         public string ItemName { get; set; }
 
+        [JsonProperty("board_id")]
         [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Event item collected from board")]
-        [JsonProperty("board_id")]
         public string BoardId { get; set; }
 
         [JsonProperty("event_id")]
@@ -27,9 +27,9 @@ namespace Metacore.MergeMansion.Analytics
         [Description("Event id")]
         public string EventId { get; set; }
 
+        [JsonProperty("rarity")]
         [MetaMember(4, (MetaMemberFlags)0)]
         [Description("Event item rarity")]
-        [JsonProperty("rarity")]
         public string Rarity { get; set; }
         public override string EventDescription { get; }
 

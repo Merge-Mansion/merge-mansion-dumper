@@ -19,5 +19,7 @@ namespace GameLogic.Random
         SharedGameConfig GameConfig { get; }
 
         GarageCleanupEventModel GarageCleanupEventModel { get; }
+
+        IMergeMansionGameConfig MergeMansionGameConfig { get; }
     }
 }

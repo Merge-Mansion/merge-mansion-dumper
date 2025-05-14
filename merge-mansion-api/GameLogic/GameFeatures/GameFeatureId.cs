@@ -51,6 +51,8 @@ namespace GameLogic.GameFeatures
         PetsEnabled = 37,
         WebShop = 38,
         DailyTasksMenuV2 = 39,
-        Haptics = 40
+        Haptics = 40,
+        Segmentor = 41,
+        ConnectivityCheckEnabled = 42
     }
 }

@@ -14,6 +14,7 @@ using GameLogic.Config.Map.Characters;
 using GameLogic.Hotspots.CardStack;
 using Code.GameLogic.Hotspots;
 using Game.Cloud.Config;
+using GameLogic.TaskLists;
 
 namespace GameLogic.Hotspots
 {
@@ -50,9 +51,6 @@ namespace GameLogic.Hotspots
         [MetaMember(10, (MetaMemberFlags)0)]
         public List<IDirectorAction> AppearActions { get; set; }
         public HotspotId ConfigKey => Id;
-
-        [IgnoreDataMember]
-        public AreaInfo Area { get; }
 
         [IgnoreDataMember]
         public bool IsAreaUnlockHotspot { get; }
@@ -187,9 +185,6 @@ namespace GameLogic.Hotspots
         [MetaMember(26, (MetaMemberFlags)0)]
         private MetaRef<AreaInfo> AreaInfoOverride { get; set; }
 
-        [IgnoreDataMember]
-        public AreaInfo MapSpotArea { get; }
-
         public HotspotDefinition(HotspotId id, HotspotType type, MergeBoardId mergeBoardId, List<PlayerRequirement> requirements, IEnumerable<HotspotId> unlockingParents, List<PlayerReward> rewards, List<IDirectorAction> completionActions, List<IDirectorAction> finalizationActions, List<IDirectorAction> appearActions, MapSpotId mapSpot, TaskGroupId taskGroupId, List<PlayerRequirement> unlockRequirements, bool isIndependentTask, int appearActionMax, List<MetaRef<MapCharacterEventDefinition>> appearMapCharactersEvents, int completeActionMax, HotspotId completeFocusHotspotId, List<MetaRef<MapCharacterEventDefinition>> completeMapCharactersEvents, List<PlayerReward> bonusRewards, MetaDuration bonusTimerDuration, string completeVFXId, string descriptionLocalizationId, LocationTravelId locationTravelId, AreaId areaInfoOverride)
         {
         }
@@ -255,6 +250,22 @@ namespace GameLogic.Hotspots
         public CustomHotspotTablesInfo HotspotTableInfo { get; }
 
         public HotspotDefinition(HotspotId id, HotspotType type, MergeBoardId mergeBoardId, List<PlayerRequirement> requirements, IEnumerable<HotspotId> unlockingParents, List<PlayerReward> rewards, List<IDirectorAction> completionActions, List<IDirectorAction> finalizationActions, List<IDirectorAction> appearActions, MapSpotId mapSpot, TaskGroupId taskGroupId, List<PlayerRequirement> unlockRequirements, bool isIndependentTask, int appearActionMax, List<MetaRef<MapCharacterEventDefinition>> appearMapCharactersEvents, int completeActionMax, HotspotId completeFocusHotspotId, List<MetaRef<MapCharacterEventDefinition>> completeMapCharactersEvents, List<PlayerReward> bonusRewards, MetaDuration bonusTimerDuration, string completeVFXId, string descriptionLocalizationId, LocationTravelId locationTravelId, AreaId areaInfoOverride, int soloMilestoneHotspotValue, CustomHotspotTableId customHotspotTableId, MultistepGroupId multistepGroupId, int boultonLeaguePoints, bool delayDebrisAnimation, int difficulty, List<PlayerReward> difficultyRewards)
+        {
+        }
+
+        [MetaMember(36, (MetaMemberFlags)0)]
+        public int Order { get; set; }
+
+        [MetaMember(37, (MetaMemberFlags)0)]
+        public TaskListId TaskListId { get; set; }
+
+        [MetaMember(38, (MetaMemberFlags)0)]
+        public List<string> Tags { get; set; }
+
+        [IgnoreDataMember]
+        public bool IsValidInAreaCompletion { get; }
+
+        public HotspotDefinition(HotspotId id, HotspotType type, MergeBoardId mergeBoardId, List<PlayerRequirement> requirements, IEnumerable<HotspotId> unlockingParents, List<PlayerReward> rewards, List<IDirectorAction> completionActions, List<IDirectorAction> finalizationActions, List<IDirectorAction> appearActions, MapSpotId mapSpot, TaskGroupId taskGroupId, List<PlayerRequirement> unlockRequirements, bool isIndependentTask, int appearActionMax, List<MetaRef<MapCharacterEventDefinition>> appearMapCharactersEvents, int completeActionMax, HotspotId completeFocusHotspotId, List<MetaRef<MapCharacterEventDefinition>> completeMapCharactersEvents, List<PlayerReward> bonusRewards, MetaDuration bonusTimerDuration, string completeVFXId, string descriptionLocalizationId, LocationTravelId locationTravelId, AreaId areaInfoOverride, int soloMilestoneHotspotValue, CustomHotspotTableId customHotspotTableId, MultistepGroupId multistepGroupId, int boultonLeaguePoints, bool delayDebrisAnimation, int difficulty, List<PlayerReward> difficultyRewards, int order, TaskListId taskListId, List<string> tags)
         {
         }
     }

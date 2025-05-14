@@ -152,26 +152,26 @@ namespace Metaplay.Core.Message
             {
             }
 
-            [PrettyPrint((PrettyPrintFlag)8)]
             [MetaMember(1, (MetaMemberFlags)0)]
+            [PrettyPrint((PrettyPrintFlag)8)]
             private MetaTime _connectionStartedAt;
-            [PrettyPrint((PrettyPrintFlag)8)]
             [MetaMember(2, (MetaMemberFlags)0)]
-            private MetaTime _connectionAbandonedAt;
             [PrettyPrint((PrettyPrintFlag)8)]
+            private MetaTime _connectionAbandonedAt;
             [MetaMember(3, (MetaMemberFlags)0)]
+            [PrettyPrint((PrettyPrintFlag)8)]
             private MetaTime _abandonedCompletedAt;
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(7, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class DeviceLoginRequest : Handshake.LoginRequest
         {
             [MetaMember(1, (MetaMemberFlags)0)]
             public string DeviceId { get; set; } // 0x30
 
-            [MetaMember(2, (MetaMemberFlags)0)]
             [Sensitive]
+            [MetaMember(2, (MetaMemberFlags)0)]
             public string AuthToken { get; set; } // 0x38
 
             private DeviceLoginRequest()
@@ -232,8 +232,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(31, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class SocialAuthenticationLoginRequest : Handshake.LoginRequest
         {
             [MetaMember(100, (MetaMemberFlags)0)]
@@ -373,8 +373,8 @@ namespace Metaplay.Core.Message
             [MetaMember(2, (MetaMemberFlags)0)]
             public string DeviceId { get; set; }
 
-            [MetaMember(3, (MetaMemberFlags)0)]
             [Sensitive]
+            [MetaMember(3, (MetaMemberFlags)0)]
             public string AuthToken { get; set; }
 
             private CreateGuestAccountResponse()
@@ -386,8 +386,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(19, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class LoginAndResumeSessionRequest : MetaMessage
         {
             [MetaMember(1, (MetaMemberFlags)0)]
@@ -415,8 +415,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(32, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class DualSocialAuthenticationLoginRequest : Handshake.LoginRequest
         {
             [MetaMember(100, (MetaMemberFlags)0)]
@@ -425,8 +425,8 @@ namespace Metaplay.Core.Message
             [MetaMember(101, (MetaMemberFlags)0)]
             public string DeviceId { get; set; }
 
-            [MetaMember(102, (MetaMemberFlags)0)]
             [Sensitive]
+            [MetaMember(102, (MetaMemberFlags)0)]
             public string AuthToken { get; set; }
 
             private DualSocialAuthenticationLoginRequest()

@@ -34,8 +34,8 @@ namespace Metaplay.Core.Player
         [MetaMember(12, (MetaMemberFlags)0)]
         public InAppPurchasePaymentType? PaymentType { get; set; }
 
-        [MetaMember(8, (MetaMemberFlags)0)]
         [FirebaseAnalyticsIgnore]
+        [MetaMember(8, (MetaMemberFlags)0)]
         public PurchaseAnalyticsContext PurchaseContext { get; set; }
 
         [FirebaseAnalyticsIgnore]

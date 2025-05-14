@@ -21,8 +21,8 @@ namespace GameLogic.Player.Director.Actions
         {
         }
 
-        [Obsolete("Replaced by Args. Required for migration.")]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [Obsolete("Replaced by Args. Required for migration.")]
         private List<string> Args_DEPRECATED { get; set; }
 
         public TriggerPopupSerializedAction(string popupId, List<ISerializableArg> args)

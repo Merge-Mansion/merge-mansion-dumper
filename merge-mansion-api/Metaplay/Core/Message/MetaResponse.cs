@@ -3,8 +3,8 @@ using Metaplay.Core.Model;
 namespace Metaplay.Core.Message
 {
     [MetaSerializable]
-    [MetaImplicitMembersDefaultRangeForMostDerivedClass(1, 100)]
     [RequestResponse]
+    [MetaImplicitMembersDefaultRangeForMostDerivedClass(1, 100)]
     public abstract class MetaResponse
     {
         protected MetaResponse()

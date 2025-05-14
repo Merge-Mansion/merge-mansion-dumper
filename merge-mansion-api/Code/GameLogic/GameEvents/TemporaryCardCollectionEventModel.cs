@@ -56,9 +56,6 @@ namespace Code.GameLogic.GameEvents
         public int LastPrestigeLevelNoted { get; set; }
 
         [IgnoreDataMember]
-        private bool InformantTipBeingProcessed { get; set; }
-
-        [IgnoreDataMember]
         public TemporaryCardCollectionEventInfo Info { get; }
         public bool PreviewNoted { get; set; }
         public bool StartNoted { get; set; }
@@ -87,5 +84,7 @@ namespace Code.GameLogic.GameEvents
             {
             }
         }
+
+        public bool InfoNoted { get; set; }
     }
 }

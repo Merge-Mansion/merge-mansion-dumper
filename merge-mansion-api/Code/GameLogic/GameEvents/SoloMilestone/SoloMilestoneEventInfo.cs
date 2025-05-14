@@ -5,12 +5,13 @@ using System;
 using GameLogic.Player.Requirements;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Code.GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents.SoloMilestone
 {
-    [MetaActivableConfigData("SoloMilestoneEvent", false, true)]
     [MetaSerializable]
-    public class SoloMilestoneEventInfo : IMetaActivableConfigData<SoloMilestoneEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<SoloMilestoneEventId>, IHasGameConfigKey<SoloMilestoneEventId>, IMetaActivableInfo<SoloMilestoneEventId>, IEventSharedInfo
+    [MetaActivableConfigData("SoloMilestoneEvent", false, true)]
+    public class SoloMilestoneEventInfo : ICoreSupportingEventInfo<SoloMilestoneEventId>, IMetaActivableConfigData<SoloMilestoneEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<SoloMilestoneEventId>, IHasGameConfigKey<SoloMilestoneEventId>, IMetaActivableInfo<SoloMilestoneEventId>, ICoreSupportingEventInfo, IEventSharedInfo, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public SoloMilestoneEventId ConfigKey { get; set; }
@@ -68,5 +69,9 @@ namespace Code.GameLogic.GameEvents.SoloMilestone
         public SoloMilestoneEventInfo(SoloMilestoneEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, PlayerRequirement unlockRequirement, List<SoloMilestoneMilestonesId> milestones, bool tokenSpawnsEnabled, string theme, int priority, EventCategoryInfo categoryInfo)
         {
         }
+
+        public string CoreSupportingEventDisplayName { get; }
+        public string CoreSupportingEventConfigKey { get; }
+        public CoreSupportingEventType CoreSupportingEventType { get; }
     }
 }

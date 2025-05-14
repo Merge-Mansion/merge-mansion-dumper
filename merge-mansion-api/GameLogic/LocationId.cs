@@ -13,6 +13,7 @@ namespace GameLogic
         LevelEditor = 9999,
         TombUnderground = 4,
         MansionInterior = 5,
-        Beach = 6
+        Beach = 6,
+        TinCanFactory = 7
     }
 }

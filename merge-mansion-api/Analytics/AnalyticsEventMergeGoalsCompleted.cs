@@ -9,8 +9,8 @@ using Metaplay.Core;
 
 namespace Analytics
 {
-    [AnalyticsEvent(108, "Merge goals completed", 1, null, false, true, false)]
     [MetaBlockedMembers(new int[] { 6 })]
+    [AnalyticsEvent(108, "Merge goals completed", 1, null, false, true, false)]
     public class AnalyticsEventMergeGoalsCompleted : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
@@ -25,9 +25,9 @@ namespace Analytics
         [Description("Area where hotspot is located")]
         public string AreaName { get; set; }
 
-        [Description("How many hotspots were completed thus far")]
-        [MetaMember(3, (MetaMemberFlags)0)]
         [JsonProperty("merge_goals_completed")]
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("How many hotspots were completed thus far")]
         public int CompletedHotSpots { get; set; }
         public override string EventDescription { get; }
 
@@ -39,14 +39,14 @@ namespace Analytics
         {
         }
 
-        [Description("MapSpot where the hotspot is located")]
         [JsonProperty("map_spot_id")]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("MapSpot where the hotspot is located")]
         public string MapSpot { get; set; }
 
-        [Description("Multistep Group Id of the hotspot task (may be empty)")]
         [JsonProperty("task_group_id")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("Multistep Group Id of the hotspot task (may be empty)")]
         public string TaskGroup { get; set; }
 
         public AnalyticsEventMergeGoalsCompleted(PlayerModel player, HotspotId hotspotId, string areaName, int completedHotSpots, string mapSpot, string taskGroup)
@@ -58,9 +58,9 @@ namespace Analytics
         [Description("How much time is left for bonus")]
         public double? BonusTimeLeft { get; set; }
 
-        [Description("Character id of the hotspot task (may be empty)")]
         [JsonProperty("character_id")]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [Description("Character id of the hotspot task (may be empty)")]
         public string Character { get; set; }
 
         [JsonProperty("bonus_rewards")]
@@ -72,9 +72,9 @@ namespace Analytics
         {
         }
 
-        [Description("Completed hotspots in the current area")]
         [JsonProperty("completed_hotspots_in_area")]
         [MetaMember(10, (MetaMemberFlags)0)]
+        [Description("Completed hotspots in the current area")]
         public int CompletedHotspotsInArea { get; set; }
 
         [MetaMember(11, (MetaMemberFlags)0)]
@@ -83,6 +83,15 @@ namespace Analytics
         public int UncompletedHotspotsInArea { get; set; }
 
         public AnalyticsEventMergeGoalsCompleted(PlayerModel player, HotspotId hotspotId, string areaName, int completedHotSpots, int completedHotspotsInArea, int uncompletedHotspotsInArea, string mapSpot, string taskGroup, MetaDuration? bonusTimeLeft, string character, AnalyticsPlayerBonusReward[] bonusRewards)
+        {
+        }
+
+        [JsonProperty("group_id")]
+        [MetaMember(12, (MetaMemberFlags)0)]
+        [Description("Task group Id of the hotspot task (may be empty)")]
+        public string TaskGroupId { get; set; }
+
+        public AnalyticsEventMergeGoalsCompleted(PlayerModel player, HotspotId hotspotId, string areaName, int completedHotSpots, int completedHotspotsInArea, int uncompletedHotspotsInArea, string mapSpot, string taskGroup, string taskGroupId, MetaDuration? bonusTimeLeft, string character, AnalyticsPlayerBonusReward[] bonusRewards)
         {
         }
     }

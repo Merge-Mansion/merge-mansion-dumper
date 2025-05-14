@@ -5,8 +5,8 @@ using GameLogic;
 
 namespace Code.GameLogic.GameEvents
 {
-    [MetaBlockedMembers(new int[] { 4 })]
     [MetaSerializable]
+    [MetaBlockedMembers(new int[] { 4 })]
     public class BoultonLeagueStatus
     {
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -31,8 +31,8 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(7, (MetaMemberFlags)0)]
         public BoultonLeagueStatus.DailyTasksV2FtuePart DailyTasksV2FtuePartInspected { get; set; }
 
-        [ForceExplicitEnumValues]
         [MetaSerializable]
+        [ForceExplicitEnumValues]
         public enum DailyTasksV2FtuePart
         {
             NotSeen = 0,

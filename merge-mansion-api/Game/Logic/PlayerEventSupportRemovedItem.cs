@@ -6,8 +6,8 @@ using Merge;
 
 namespace Game.Logic
 {
-    [AnalyticsEventKeywords(new string[] { "item" })]
     [AnalyticsEvent(10, "Support removed item", 1, null, true, false, false)]
+    [AnalyticsEventKeywords(new string[] { "item" })]
     public class PlayerEventSupportRemovedItem : PlayerEventBase
     {
         [Obsolete("Item information now stored in ItemType. ItemId kept for backwards compatibility")]

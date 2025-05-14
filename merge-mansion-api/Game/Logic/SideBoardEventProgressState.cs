@@ -9,16 +9,16 @@ namespace Game.Logic
     [MetaSerializable]
     public class SideBoardEventProgressState
     {
-        [ExcludeFromGdprExport]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public SideBoardEventId SideBoardEventId { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public SideBoardEventStateReport CurrentState { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public Dictionary<int, SideBoardEventStateReport> ReportByEventLevel { get; set; }
 
         public SideBoardEventProgressState()

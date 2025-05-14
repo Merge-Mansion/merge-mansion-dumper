@@ -2,8 +2,8 @@ using Metaplay.Core.Model;
 
 namespace GameLogic
 {
-    [ForceExplicitEnumValues]
     [MetaSerializable]
+    [ForceExplicitEnumValues]
     public enum CurrencySource
     {
         Unknown = 0,
@@ -94,6 +94,9 @@ namespace GameLogic
         DigEventShelfShinyCompletion = 85,
         DigEventBoardCompleted = 86,
         DigEventCollectionComplete = 87,
-        GreatEscapeMinigameComplete = 88
+        GreatEscapeMinigameComplete = 88,
+        ItemSoldReEngagement = 89,
+        DigEventConsolidation = 90,
+        Merge = 91
     }
 }

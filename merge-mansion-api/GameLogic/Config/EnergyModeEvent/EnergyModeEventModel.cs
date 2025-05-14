@@ -26,5 +26,8 @@ namespace GameLogic.Config.EnergyModeEvent
         }
 
         public bool EnergyModeEnableHandled { get; set; }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        private EnergyModeEnableType? CachedEnergyModeEnableType { get; set; }
     }
 }

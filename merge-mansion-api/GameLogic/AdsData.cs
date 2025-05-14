@@ -23,32 +23,32 @@ namespace GameLogic
         [ExcludeFromGdprExport]
         public string adsProviderIds { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(2, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public bool canBeClaimed { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         public AdsRewardType rewardType { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public ShopItemId shopItemId { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(6, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public MergeBoardId mergeBoardId { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(7, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public OfferPlacementId offerPlacementId { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(8, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public Coordinate itemCoordinates { get; set; }
 
-        [ExcludeFromGdprExport]
         [MetaMember(9, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public AdvertisementPlacementId adPlacementId { get; set; }
 
         [IgnoreDataMember]
@@ -58,8 +58,8 @@ namespace GameLogic
         {
         }
 
-        [ExcludeFromGdprExport]
         [MetaMember(10, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
         public PlayerReward dailyAdReward { get; set; }
 
         public AdsData(string adsProviderIds, bool canBeClaimed, AdsRewardType rewardType, ShopItemId shopItemId, MergeBoardId mergeBoardId, OfferPlacementId offerPlacementId, Coordinate itemCoordinates, AdvertisementPlacementId adPlacementId, ICollection<MergeBoardAct> productActs, PlayerReward dailyAdReward)

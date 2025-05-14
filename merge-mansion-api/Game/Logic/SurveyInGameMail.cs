@@ -21,12 +21,12 @@ namespace Game.Logic
         [MetaMember(2, (MetaMemberFlags)0)]
         public string Token { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
         [MetaFormNotEditable]
+        [MetaMember(3, (MetaMemberFlags)0)]
         public string SurveyDataAddress { get; set; }
 
-        [MetaMember(4, (MetaMemberFlags)0)]
         [MetaFormNotEditable]
+        [MetaMember(4, (MetaMemberFlags)0)]
         public string ResultAddress { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]

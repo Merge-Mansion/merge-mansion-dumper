@@ -12,8 +12,8 @@ namespace Metaplay.Core.InAppPurchase
         public PurchaseAnalyticsContext GameAnalyticsContext;
         [MetaMember(3, (MetaMemberFlags)0)]
         public string DeviceId;
-        [NoChecksum]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [NoChecksum]
         [Transient]
         public PendingPurchaseAnalyticsContextStatus Status;
         private PendingNonDynamicPurchaseContext()

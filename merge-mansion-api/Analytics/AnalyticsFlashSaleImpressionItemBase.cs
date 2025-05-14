@@ -7,9 +7,9 @@ using System.ComponentModel;
 
 namespace Analytics
 {
+    [MetaSerializable]
     [MetaReservedMembers(100, 199)]
     [MetaDeserializationConvertFromConcreteDerivedType(typeof(AnalyticsFlashSaleImpressionItem))]
-    [MetaSerializable]
     public abstract class AnalyticsFlashSaleImpressionItemBase
     {
         [MetaMember(100, (MetaMemberFlags)0)]
@@ -27,9 +27,9 @@ namespace Analytics
         {
         }
 
-        [Description("Attachment")]
-        [JsonProperty("attachment")]
         [MetaMember(102, (MetaMemberFlags)0)]
+        [JsonProperty("attachment")]
+        [Description("Attachment")]
         public string Attachment { get; set; }
 
         [MetaMember(103, (MetaMemberFlags)0)]

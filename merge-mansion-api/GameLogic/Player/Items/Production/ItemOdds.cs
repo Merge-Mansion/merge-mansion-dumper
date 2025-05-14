@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace GameLogic.Player.Items.Production
 {
     [MetaSerializable]
-    public class ItemOdds
+    public class ItemOdds : IItemOdds
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public MetaRef<ItemDefinition> Type { get; set; } // 0x10

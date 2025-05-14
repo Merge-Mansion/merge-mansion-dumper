@@ -6,9 +6,9 @@ using GameLogic.Player;
 
 namespace Code.GameLogic.GameEvents
 {
+    [MetaSerializableDerived(1)]
     [MetaBlockedMembers(new int[] { 6 })]
-    [MetaSerializable]
-    public class DigEvent
+    public class DigEvent : ICoreSupportEventMinigameModel
     {
         public List<DigEventTreasureItem> TreasureConfigs;
         [MetaMember(9, (MetaMemberFlags)0)]
@@ -43,6 +43,18 @@ namespace Code.GameLogic.GameEvents
         }
 
         public DigEvent(PlayerModel player, string digEventId, long digEventEnergy)
+        {
+        }
+
+        private static byte InitialBoolFields;
+        [MetaMember(10, (MetaMemberFlags)0)]
+        private byte BoolFields3 { get; set; }
+        public bool MinigameInfoPopupTriggered { get; set; }
+        public bool SpecialItemFound { get; set; }
+        public bool CollectionItemFound { get; set; }
+        public bool CollectionInfoPopupTriggered { get; set; }
+
+        public DigEvent(IPlayer player, string digEventId)
         {
         }
     }

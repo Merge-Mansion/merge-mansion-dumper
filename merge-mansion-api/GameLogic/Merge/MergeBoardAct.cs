@@ -1,6 +1,7 @@
 using GameLogic.Player.Board;
 using GameLogic.Player.Items;
 using Metaplay.Core;
+using System;
 
 namespace GameLogic.Merge
 {
@@ -26,5 +27,6 @@ namespace GameLogic.Merge
 
         public readonly MergeItem SourceItem;
         public readonly ItemDefinition ItemToPocket;
+        public readonly object AnalyticsData;
     }
 }

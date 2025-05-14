@@ -9,8 +9,8 @@ using GameLogic.Player;
 
 namespace Analytics
 {
-    [AnalyticsEventKeywords(new string[] { "event", "task" })]
     [AnalyticsEvent(190, "Mystery Machine score at end of run", 1, null, true, true, false)]
+    [AnalyticsEventKeywords(new string[] { "event", "task" })]
     public class AnalyticsEventMachineScore : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
@@ -20,9 +20,9 @@ namespace Analytics
         [Description("Event instance number, increments per event instance. Specific to the player's instances. See machine_event_instance_id for global id.")]
         public int MachineEventInstance { get; set; }
 
-        [Description("Run number, increments every time machine is started")]
-        [MetaMember(2, (MetaMemberFlags)0)]
         [JsonProperty("run_number")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Run number, increments every time machine is started")]
         public int RunNumber { get; set; }
 
         [JsonProperty("score")]
@@ -35,9 +35,9 @@ namespace Analytics
         [Description("Permanent (machine level-based) score multiplier")]
         public double PermanentMultiplier { get; set; }
 
+        [JsonProperty("temporary_multiplier")]
         [MetaMember(5, (MetaMemberFlags)0)]
         [Description("Temporary (run-based) score multiplier")]
-        [JsonProperty("temporary_multiplier")]
         public double TemporaryMultiplier { get; set; }
 
         [JsonProperty("heat_level")]
@@ -45,18 +45,18 @@ namespace Analytics
         [Description("Heat level reached during the run")]
         public int HeatLevel { get; set; }
 
-        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [JsonProperty("items_spawned")]
+        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [MetaMember(7, (MetaMemberFlags)0)]
         public Dictionary<string, int> ItemsSpawned { get; set; }
 
-        [MetaMember(8, (MetaMemberFlags)0)]
-        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [JsonProperty("diamonds_spent_on_special_items")]
+        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
+        [MetaMember(8, (MetaMemberFlags)0)]
         public Dictionary<string, int> DiamondsSpentOnSpecialItems { get; set; }
 
-        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [JsonProperty("battery_spent_on_special_items")]
+        [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [MetaMember(9, (MetaMemberFlags)0)]
         public Dictionary<string, int> BatterySpentOnSpecialItems { get; set; }
 
@@ -93,8 +93,8 @@ namespace Analytics
         {
         }
 
-        [MetaMember(14, (MetaMemberFlags)0)]
         [JsonProperty("diamonds_spent_on_machine_energy")]
+        [MetaMember(14, (MetaMemberFlags)0)]
         public int DiamondsSpentOnMachineEnergy { get; set; }
 
         [JsonProperty("total_diamonds_spent")]
@@ -105,14 +105,14 @@ namespace Analytics
         {
         }
 
-        [Description("Position of player on the leaderboard after the run. Only sent if the run was a new high score and the event is using a leaderboard. Null in case not or the leaderboard request fails.")]
         [JsonProperty("leaderboard_position", NullValueHandling = (NullValueHandling)1)]
         [MetaMember(16, (MetaMemberFlags)0)]
+        [Description("Position of player on the leaderboard after the run. Only sent if the run was a new high score and the event is using a leaderboard. Null in case not or the leaderboard request fails.")]
         public int? LeaderboardPosition { get; set; }
 
-        [Description("Global instance id of the event. Can be used to track the same event across different players.")]
-        [MetaMember(17, (MetaMemberFlags)0)]
         [JsonProperty("machine_event_instance_id")]
+        [MetaMember(17, (MetaMemberFlags)0)]
+        [Description("Global instance id of the event. Can be used to track the same event across different players.")]
         public string MachineEventInstanceId { get; set; }
 
         public AnalyticsEventMachineScore(int machineEventInstance, string machineEventInstanceId, int runNumber, int score, F64 permanentMultiplier, F64 temporaryMultiplier, int heatLevel, Dictionary<string, int> itemsSpawned, Dictionary<string, int> diamondsSpentOnSpecialItems, Dictionary<string, int> batterySpentOnSpecialItems, AnalyticsContext context, int numberOfTaps, string startTime, int mysteryMachineEnergyRemaining, int diamondsSpentOnMachineEnergy)

@@ -12,7 +12,7 @@ using Metaplay.Core;
 namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
-    public class ProgressionPackEventModel : MetaActivableState<ProgressionPackEventId, ProgressionPackEventInfo>, IPointsEvent, IGroupIdGetter
+    public class ProgressionPackEventModel : MetaActivableState<ProgressionPackEventId, ProgressionPackEventInfo>, IPointsEvent, IGroupIdGetter, ICoreSupportingEventModel
     {
         public static int InitialLevelNumber;
         private static int InitialLevelProgress;
@@ -72,5 +72,8 @@ namespace Code.GameLogic.GameEvents
         public ProgressionPackEventModel(ProgressionPackEventInfo info)
         {
         }
+
+        [IgnoreDataMember]
+        public bool RequiresPlayerAttention { get; }
     }
 }

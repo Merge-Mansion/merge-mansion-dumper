@@ -5,12 +5,13 @@ using System;
 using GameLogic.Player.Requirements;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Code.GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
 {
-    [MetaActivableConfigData("CardCollectionSupportingEvent", false, true)]
     [MetaSerializable]
-    public class CardCollectionSupportingEventInfo : IMetaActivableConfigData<CardCollectionSupportingEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<CardCollectionSupportingEventId>, IHasGameConfigKey<CardCollectionSupportingEventId>, IMetaActivableInfo<CardCollectionSupportingEventId>, IEventSharedInfo
+    [MetaActivableConfigData("CardCollectionSupportingEvent", false, true)]
+    public class CardCollectionSupportingEventInfo : IMetaActivableConfigData<CardCollectionSupportingEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<CardCollectionSupportingEventId>, IHasGameConfigKey<CardCollectionSupportingEventId>, IMetaActivableInfo<CardCollectionSupportingEventId>, IEventSharedInfo, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public CardCollectionSupportingEventId ConfigKey { get; set; }

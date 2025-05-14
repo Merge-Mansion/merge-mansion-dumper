@@ -7,11 +7,12 @@ using System;
 using GameLogic.Player.Rewards;
 using System.Collections.Generic;
 using GameLogic.StatsTracking;
+using Code.GameLogic.GameEvents;
 
 namespace Code.GameLogic.Player.Events.DailyScoopEvent
 {
     [MetaSerializable]
-    public class DailyScoopEventModel : MetaActivableState<DailyScoopEventId, DailyScoopEventInfo>
+    public class DailyScoopEventModel : MetaActivableState<DailyScoopEventId, DailyScoopEventInfo>, ICoreSupportingEventModel
     {
         [IgnoreDataMember]
         private PlayerSegmentId eventSegment;
@@ -70,5 +71,8 @@ namespace Code.GameLogic.Player.Events.DailyScoopEvent
         [IgnoreDataMember]
         public bool objectivesProgressLogged;
         public bool TodayObjectivesSeen { get; set; }
+
+        [IgnoreDataMember]
+        public bool RequiresPlayerAttention { get; }
     }
 }

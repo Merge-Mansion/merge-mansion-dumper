@@ -183,6 +183,16 @@ namespace GameLogic.Player
         IEnumerable<EnergyModeEventModel> ActiveEnergyModeEvents { get; }
 
         Dictionary<string, ValueTuple<int, MetaTime>> AdsWatchLimiterTrack { get; }
+
+        IEnumerable<CoreSupportEventModel> ActiveCoreSupportEvents { get; }
+
+        PlayerCoreSupportEventsModel CoreSupportEvents { get; }
+
+        DigEventBoardId CurrentDigEventBoard { get; set; }
+
+        IDigEventMinigameData DigEventMinigameData { get; }
+
+        DigEventMuseumModel DigEventMuseum { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

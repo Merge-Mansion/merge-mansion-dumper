@@ -8,6 +8,7 @@ using Metaplay.Core.Serialization;
 using Metaplay.Core.Session;
 using System;
 using Metaplay.Core.Math;
+using Metacore;
 
 namespace Metaplay.Core.Message
 {
@@ -238,6 +239,16 @@ namespace Metaplay.Core.Message
             public SessionStartRequest(int queryId, string deviceGuid, SessionProtocol.ClientDeviceInfo deviceInfo, PlayerTimeZoneInfo timeZoneInfo, SessionProtocol.SessionResourceProposal resourceProposal, ISessionStartRequestGamePayload gamePayload, CompressionAlgorithmSet supportedArchiveCompressions, ClientAppPauseStatus clientAppPauseStatus, PlayerLocation? overrideLocation)
             {
             }
+
+            [MetaMember(100, (MetaMemberFlags)0)]
+            public string IpAddress { get; set; }
+
+            [MetaMember(101, (MetaMemberFlags)0)]
+            public int StoredIpAddress { get; set; }
+
+            public SessionStartRequest(int queryId, string deviceGuid, SessionProtocol.ClientDeviceInfo deviceInfo, PlayerTimeZoneInfo timeZoneInfo, SessionProtocol.SessionResourceProposal resourceProposal, ISessionStartRequestGamePayload gamePayload, CompressionAlgorithmSet supportedArchiveCompressions, ClientAppPauseStatus clientAppPauseStatus, PlayerLocation? overrideLocation, string ipAddress, RestoreCountryCode.StoredIpAddressKind storedIpAddressKind)
+            {
+            }
         }
 
         [MetaMessage(17, (MessageDirection)2, true)]
@@ -404,8 +415,8 @@ namespace Metaplay.Core.Message
             }
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(43, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class SessionStartAbortReasonTrailer : MetaMessage
         {
             [MetaMember(1, (MetaMemberFlags)0)]
@@ -430,8 +441,8 @@ namespace Metaplay.Core.Message
         {
         }
 
-        [MessageRoutingRuleProtocol]
         [MetaMessage(42, (MessageDirection)1, true)]
+        [MessageRoutingRuleProtocol]
         public class SessionStartAbort : MetaMessage
         {
             [MetaMember(1, (MetaMemberFlags)0)]

@@ -18,9 +18,9 @@ namespace Analytics
         [MetaMember(2, (MetaMemberFlags)0)]
         [Description("Previous decoration that was in the slot (null if there was nothing)")]
         public string PreviousDecorationId;
-        [Description("New decoration that was put in the slot (null if slot was cleared)")]
         [JsonProperty("decoration_id_new")]
         [MetaMember(3, (MetaMemberFlags)0)]
+        [Description("New decoration that was put in the slot (null if slot was cleared)")]
         public string NewDecorationId;
         public override AnalyticsEventType EventType { get; }
         public override string EventDescription { get; }

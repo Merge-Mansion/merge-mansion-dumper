@@ -7,13 +7,14 @@ using GameLogic.Player.Modes;
 using GameLogic.Player.Requirements;
 using Code.GameLogic.GameEvents;
 using System.Collections.Generic;
+using Code.GameLogic.Config;
 
 namespace GameLogic.Config.EnergyModeEvent
 {
+    [MetaSerializable]
     [MetaBlockedMembers(new int[] { 4 })]
     [MetaActivableConfigData("EnergyModeEvent", false, true)]
-    [MetaSerializable]
-    public class EnergyModeEventInfo : IMetaActivableConfigData<EnergyModeEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EnergyModeEventId>, IHasGameConfigKey<EnergyModeEventId>, IMetaActivableInfo<EnergyModeEventId>, IEventSharedInfo
+    public class EnergyModeEventInfo : IMetaActivableConfigData<EnergyModeEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EnergyModeEventId>, IHasGameConfigKey<EnergyModeEventId>, IMetaActivableInfo<EnergyModeEventId>, IEventSharedInfo, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public EnergyModeEventId ConfigKey { get; set; }

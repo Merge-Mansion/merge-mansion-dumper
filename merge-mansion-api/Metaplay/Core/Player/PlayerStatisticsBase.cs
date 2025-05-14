@@ -3,9 +3,9 @@ using System;
 
 namespace Metaplay.Core.Player
 {
+    [MetaSerializable]
     [MetaReservedMembers(1, 5)]
     [MetaReservedMembers(6, 100)]
-    [MetaSerializable]
     public abstract class PlayerStatisticsBase
     {
         [MetaMember(1, (MetaMemberFlags)0)]

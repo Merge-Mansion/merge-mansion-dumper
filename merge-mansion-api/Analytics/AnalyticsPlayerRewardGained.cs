@@ -15,23 +15,23 @@ namespace Analytics
         public override AnalyticsEventType EventType { get; }
         public abstract string RewardType { get; }
 
-        [Description("Source of the reward received")]
         [MetaMember(200, (MetaMemberFlags)0)]
         [JsonProperty("reward_source")]
+        [Description("Source of the reward received")]
         public CurrencySource RewardSource { get; set; }
 
-        [Description("Context")]
-        [JsonProperty("context")]
         [MetaMember(201, (MetaMemberFlags)0)]
+        [JsonProperty("context")]
+        [Description("Context")]
         public string Context { get; set; }
 
-        [Description("Context")]
-        [JsonProperty("offer_set_id")]
         [MetaMember(202, (MetaMemberFlags)0)]
+        [JsonProperty("offer_set_id")]
+        [Description("Context")]
         public string EventOfferSetId { get; set; }
 
-        [JsonProperty("event_level_id")]
         [MetaMember(203, (MetaMemberFlags)0)]
+        [JsonProperty("event_level_id")]
         [Description("Level id")]
         public EventLevelId EventLevelId { get; set; }
 

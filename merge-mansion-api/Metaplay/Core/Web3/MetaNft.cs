@@ -9,8 +9,8 @@ namespace Metaplay.Core.Web3
     [MetaReservedMembers(100, 200)]
     public abstract class MetaNft : ISchemaMigratable
     {
-        [MetaFormNotEditable]
         [MetaMember(100, (MetaMemberFlags)0)]
+        [MetaFormNotEditable]
         public NftId TokenId;
         [MetaMember(101, (MetaMemberFlags)0)]
         [MetaFormNotEditable]
@@ -18,11 +18,11 @@ namespace Metaplay.Core.Web3
         [MetaMember(102, (MetaMemberFlags)0)]
         [MetaFormNotEditable]
         public NftOwnerAddress OwnerAddress;
-        [MetaFormNotEditable]
         [MetaMember(104, (MetaMemberFlags)0)]
-        public bool IsMinted;
         [MetaFormNotEditable]
+        public bool IsMinted;
         [MetaMember(103, (MetaMemberFlags)0)]
+        [MetaFormNotEditable]
         public ulong UpdateCounter;
         [IgnoreDataMember]
         public NftMetadataImportContext MetadataImportContext { get; set; }

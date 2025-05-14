@@ -12,8 +12,8 @@ namespace Analytics
         public sealed override AnalyticsEventType EventType { get; }
 
         [JsonProperty("platform")]
-        [Description("Platform whose auth method was attached")]
         [MetaMember(1, (MetaMemberFlags)0)]
+        [Description("Platform whose auth method was attached")]
         public string Platform { get; set; }
 
         [JsonProperty("attached_auth_methods")]

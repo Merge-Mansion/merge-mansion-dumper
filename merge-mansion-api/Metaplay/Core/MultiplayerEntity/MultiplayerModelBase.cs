@@ -21,8 +21,8 @@ namespace Metaplay.Core.MultiplayerEntity
         [Transient]
         public MetaTime TimeAtFirstTick { get; set; }
 
-        [Transient]
         [MetaMember(201, (MetaMemberFlags)0)]
+        [Transient]
         public long CurrentTick { get; set; }
 
         [MetaMember(202, (MetaMemberFlags)0)]

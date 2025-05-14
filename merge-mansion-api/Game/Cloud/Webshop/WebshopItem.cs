@@ -17,12 +17,12 @@ namespace Game.Cloud.Webshop
         [MetaMember(101, (MetaMemberFlags)0)]
         public bool IsConsumed { get; set; }
 
-        [ServerOnly]
         [MetaMember(102, (MetaMemberFlags)0)]
+        [ServerOnly]
         public int ReferencePrice { get; set; }
 
-        [ServerOnly]
         [MetaMember(103, (MetaMemberFlags)0)]
+        [ServerOnly]
         public string ReferenceCurrency { get; set; }
 
         [MetaMember(104, (MetaMemberFlags)0)]
@@ -33,8 +33,8 @@ namespace Game.Cloud.Webshop
         [ServerOnly]
         public int Price { get; set; }
 
-        [ServerOnly]
         [MetaMember(106, (MetaMemberFlags)0)]
+        [ServerOnly]
         public string Sku { get; set; }
         public virtual bool ShouldEarlyConsume { get; }
         public abstract InAppProductId ProductId { get; }

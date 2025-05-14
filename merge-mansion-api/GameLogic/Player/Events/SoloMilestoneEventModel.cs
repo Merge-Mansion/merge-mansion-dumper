@@ -11,7 +11,7 @@ using Metaplay.Core.Player;
 namespace GameLogic.Player.Events
 {
     [MetaSerializableDerived(16)]
-    public class SoloMilestoneEventModel : MetaActivableState<SoloMilestoneEventId, SoloMilestoneEventInfo>, IEnergyAttachmentEvent, IItemActivationEvent, IHotspotCompletionEvent
+    public class SoloMilestoneEventModel : MetaActivableState<SoloMilestoneEventId, SoloMilestoneEventInfo>, IEnergyAttachmentEvent, IItemActivationEvent, IHotspotCompletionEvent, ICoreSupportingEventModel
     {
         [IgnoreDataMember]
         public int InitialMilestoneNumber;
@@ -67,5 +67,8 @@ namespace GameLogic.Player.Events
         public SoloMilestoneEventModel(SoloMilestoneEventInfo info)
         {
         }
+
+        [IgnoreDataMember]
+        public bool RequiresPlayerAttention { get; }
     }
 }

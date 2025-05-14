@@ -9,15 +9,15 @@ using Metaplay.Core;
 namespace Analytics
 {
     [AnalyticsEvent(152, "Progression event item collected", 1, null, true, true, false)]
-    [MetaBlockedMembers(new int[] { 1 })]
     [AnalyticsEventKeywords(new string[] { "event", "task" })]
+    [MetaBlockedMembers(new int[] { 1 })]
     public class AnalyticsEventProgressionEventItemCollected : AnalyticsServersideEventBase
     {
         public sealed override AnalyticsEventType EventType { get; }
 
-        [Description("Event where progress was made")]
-        [MetaMember(6, (MetaMemberFlags)0)]
         [JsonProperty("event_id")]
+        [MetaMember(6, (MetaMemberFlags)0)]
+        [Description("Event where progress was made")]
         public string EventId { get; set; }
 
         [JsonProperty("board_id")]
@@ -30,14 +30,14 @@ namespace Analytics
         [Description("How many points player made")]
         public int EventProgressGained { get; set; }
 
-        [Description("True if item was collected from inventory")]
         [JsonProperty("from_inventory")]
         [MetaMember(4, (MetaMemberFlags)0)]
+        [Description("True if item was collected from inventory")]
         public bool FromInventory { get; set; }
 
-        [Description("Collected item")]
         [JsonProperty("item_name")]
         [MetaMember(5, (MetaMemberFlags)0)]
+        [Description("Collected item")]
         public string ItemType { get; set; }
         public override string EventDescription { get; }
 
@@ -49,9 +49,9 @@ namespace Analytics
         {
         }
 
+        [JsonProperty("item_level")]
         [MetaMember(7, (MetaMemberFlags)0)]
         [Description("Item level")]
-        [JsonProperty("item_level")]
         public int ItemLevel { get; set; }
 
         [JsonProperty("item_mergechain_total_length")]
