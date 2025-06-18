@@ -111,5 +111,12 @@ namespace Code.GameLogic.GameEvents
         public ShopEventInfo(EventId eventId, string displayName, string description, MetaActivableParams activableParams, List<MetaRef<EventOfferInfo>> eventShopOfferInfos, MetaRef<EventLevels> eventLevels, MetaRef<EventCurrencyInfo> eventCurrencyInfo, List<MetaRef<BoardEventInfo>> hintedBoardEventInfos, ExtendableEventParams extendableEventParams, MetaDuration extensionPurchaseSafetyMargin, MetaRef<InAppProductInfo> extensionInAppProduct, ConfigPrefabId endPopupId, ConfigPrefabId shopPopupId, ConfigPrefabId hudButtonId, List<MetaRef<EventOfferSetInfo>> eventOfferSetInfos, PlayerRequirement previewRequirement, PlayerRequirement unlockRequirement, EventGroupId groupId, string prefabsId, int priority)
         {
         }
+
+        [MetaMember(36, (MetaMemberFlags)0)]
+        public EventCategoryInfo CategoryInfo { get; set; }
+
+        public ShopEventInfo(EventId eventId, string displayName, string description, MetaActivableParams activableParams, List<MetaRef<EventOfferInfo>> eventShopOfferInfos, MetaRef<EventLevels> eventLevels, MetaRef<EventCurrencyInfo> eventCurrencyInfo, List<MetaRef<BoardEventInfo>> hintedBoardEventInfos, ExtendableEventParams extendableEventParams, MetaDuration extensionPurchaseSafetyMargin, MetaRef<InAppProductInfo> extensionInAppProduct, ConfigPrefabId endPopupId, ConfigPrefabId shopPopupId, ConfigPrefabId hudButtonId, List<MetaRef<EventOfferSetInfo>> eventOfferSetInfos, PlayerRequirement previewRequirement, PlayerRequirement unlockRequirement, EventGroupId groupId, string prefabsId, int priority, EventCategoryInfo categoryInfo)
+        {
+        }
     }
 }

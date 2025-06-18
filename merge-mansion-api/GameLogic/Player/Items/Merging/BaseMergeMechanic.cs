@@ -54,7 +54,7 @@ namespace GameLogic.Player.Items.Merging
 
         [MetaMember(5, (MetaMemberFlags)0)]
         public StorageActionType StorageAction { get; set; }
-        public abstract IEnumerable<ValueTuple<ItemDefinition, F32>> PossibleMergeResults { get; }
+        public abstract IEnumerable<ValueTuple<IItemDefinition, F32>> PossibleMergeResults { get; }
 
         protected BaseMergeMechanic()
         {

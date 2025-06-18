@@ -34,5 +34,7 @@ namespace GameLogic.Player
 
         public static string ContextIAP;
         private static string CardCollectionSource;
+        private static string NONE_CONTEXT;
+        private static string MAIN_HUD_CONTEXT;
     }
 }

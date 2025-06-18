@@ -15,7 +15,7 @@ namespace GameLogic.Player.Items.Fishing
         public bool IsFishingRod { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        public IReadOnlyList<ItemOdds> ItemOdds { get; set; }
+        public List<ItemOdds> ItemOdds { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public IPlacement Placement { get; set; }

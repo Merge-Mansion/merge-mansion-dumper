@@ -5,6 +5,8 @@ namespace Code.GameLogic.GameEvents
         SoloMilestone = 0,
         DailyScoop = 1,
         ProgressionPack = 2,
-        MixABooster = 3
+        MixABooster = 3,
+        BoultonLeagues = 3,
+        AdStampCard = 5
     }
 }

@@ -59,5 +59,12 @@ namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
         public CardCollectionSupportingEventInfo(CardCollectionSupportingEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, PlayerRequirement unlockRequirement, EventGroupId groupId, int priority, bool upgradeUnclaimedPacks, bool showEndPopup, List<string> eventWhiteList)
         {
         }
+
+        [MetaMember(12, (MetaMemberFlags)0)]
+        public EventCategoryInfo CategoryInfo { get; set; }
+
+        public CardCollectionSupportingEventInfo(CardCollectionSupportingEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, PlayerRequirement unlockRequirement, EventGroupId groupId, int priority, bool upgradeUnclaimedPacks, bool showEndPopup, List<string> eventWhiteList, EventCategoryInfo categoryInfo)
+        {
+        }
     }
 }

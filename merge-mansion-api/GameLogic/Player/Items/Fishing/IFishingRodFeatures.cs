@@ -9,7 +9,7 @@ namespace GameLogic.Player.Items.Fishing
     {
         bool IsFishingRod { get; }
 
-        IReadOnlyList<ItemOdds> ItemOdds { get; }
+        List<ItemOdds> ItemOdds { get; }
 
         IPlacement Placement { get; }
 

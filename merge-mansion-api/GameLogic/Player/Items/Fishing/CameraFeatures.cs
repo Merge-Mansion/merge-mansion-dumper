@@ -4,7 +4,7 @@ using System;
 namespace GameLogic.Player.Items.Fishing
 {
     [MetaSerializable]
-    public class CameraFeatures
+    public class CameraFeatures : ICameraFeatures
     {
         public static CameraFeatures NoCameraFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

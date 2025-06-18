@@ -1,6 +1,7 @@
 using Metaplay.Core.Model;
 using GameLogic.CardCollection;
 using GameLogic.Fallbacks;
+using System;
 
 namespace GameLogic.Player.Rewards
 {
@@ -20,5 +21,7 @@ namespace GameLogic.Player.Rewards
         public RewardCardCollectionInformantTip(CardCollectionCardId cardId, FallbackPlayerRewardId fallbackPlayerRewardId, CurrencySource currencySource)
         {
         }
+
+        public override bool ShouldShowInfoButton { get; }
     }
 }

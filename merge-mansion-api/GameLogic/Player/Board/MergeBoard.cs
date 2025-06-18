@@ -12,6 +12,7 @@ using GameLogic.Random;
 using System.Reflection;
 using Newtonsoft.Json;
 using System.Runtime.CompilerServices;
+using Code.GameLogic.Player.Board;
 
 namespace GameLogic.Player.Board
 {
@@ -31,7 +32,7 @@ namespace GameLogic.Player.Board
         public IEnumerable<MergeItem> MergeItems { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<Coordinate> Coordinates { get; }
+        public IEnumerable<ICoordinate> Coordinates { get; }
 
         [MetaMember(9, (MetaMemberFlags)0)]
         public BoardBubbleState BubbleState { get; }
@@ -86,7 +87,7 @@ namespace GameLogic.Player.Board
         public MergeItem Item { get; set; }
 
         [IgnoreDataMember]
-        public IEnumerable<ValueTuple<Coordinate, MergeItem>> Items { get; }
+        public IEnumerable<ValueTuple<ICoordinate, MergeItem>> Items { get; }
 
         public MergeBoard()
         {

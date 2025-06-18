@@ -31,5 +31,8 @@ namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
         public CardCollectionSupportingEventSource()
         {
         }
+
+        private string ContextCategory { get; set; }
+        private string ContextSubCategory { get; set; }
     }
 }

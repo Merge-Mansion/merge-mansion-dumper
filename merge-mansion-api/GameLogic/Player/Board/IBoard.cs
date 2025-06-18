@@ -4,6 +4,7 @@ using GameLogic.Player.Items;
 using Merge;
 using System.Reflection;
 using Metaplay.Core;
+using Code.GameLogic.Player.Board;
 
 namespace GameLogic.Player.Board
 {
@@ -14,7 +15,7 @@ namespace GameLogic.Player.Board
 
         IEnumerable<MergeItem> MergeItems { get; }
 
-        IEnumerable<Coordinate> Coordinates { get; }
+        IEnumerable<ICoordinate> Coordinates { get; }
 
         BoardBubbleState BubbleState { get; }
 

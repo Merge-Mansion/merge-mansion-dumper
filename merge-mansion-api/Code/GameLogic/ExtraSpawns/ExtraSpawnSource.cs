@@ -42,5 +42,10 @@ namespace Code.GameLogic.ExtraSpawns
         public ExtraSpawnSource()
         {
         }
+
+        private List<string> RequirementType { get; set; }
+        private List<string> RequirementId { get; set; }
+        private List<string> RequirementAmount { get; set; }
+        private List<string> RequirementAux0 { get; set; }
     }
 }

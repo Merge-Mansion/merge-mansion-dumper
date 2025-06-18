@@ -65,5 +65,12 @@ namespace Code.GameLogic.GameEvents
         public TemporaryCardCollectionEventInfo(TemporaryCardCollectionEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, PlayerRequirement unlockRequirement, List<CardCollectionCardSetId> cardSetIds, CardCollectionBalanceId balanceId, List<CardCollectionEvidenceBoxId> evidenceBoxIds, List<PlayerReward> rewards, OddsPopupStyle oddsPopupStyle, List<PlayerReward> prestigeRewards, int segmentPriority)
         {
         }
+
+        [MetaMember(14, (MetaMemberFlags)0)]
+        public EventCategoryInfo CategoryInfo { get; set; }
+
+        public TemporaryCardCollectionEventInfo(TemporaryCardCollectionEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, PlayerRequirement unlockRequirement, List<CardCollectionCardSetId> cardSetIds, CardCollectionBalanceId balanceId, List<CardCollectionEvidenceBoxId> evidenceBoxIds, List<PlayerReward> rewards, OddsPopupStyle oddsPopupStyle, List<PlayerReward> prestigeRewards, int segmentPriority, EventCategoryInfo categoryInfo)
+        {
+        }
     }
 }

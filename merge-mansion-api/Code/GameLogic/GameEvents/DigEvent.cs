@@ -57,5 +57,9 @@ namespace Code.GameLogic.GameEvents
         public DigEvent(IPlayer player, string digEventId)
         {
         }
+
+        [MetaMember(11, (MetaMemberFlags)0)]
+        public ServerRevealTileClickResult LastRevealResult { get; set; }
+        public CoreSupportEventMinigameId MinigameId { get; }
     }
 }

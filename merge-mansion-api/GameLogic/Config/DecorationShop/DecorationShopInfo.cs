@@ -55,5 +55,12 @@ namespace GameLogic.Config.DecorationShop
         public DecorationShopInfo(DecorationShopId configKey, string displayName, string description, string nameLocId, List<MetaRef<DecorationShopSetInfo>> setRefs, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, int priority)
         {
         }
+
+        [MetaMember(10, (MetaMemberFlags)0)]
+        public EventCategoryInfo CategoryInfo { get; set; }
+
+        public DecorationShopInfo(DecorationShopId configKey, string displayName, string description, string nameLocId, List<MetaRef<DecorationShopSetInfo>> setRefs, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, int priority, EventCategoryInfo categoryInfo)
+        {
+        }
     }
 }

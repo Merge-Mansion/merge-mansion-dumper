@@ -8,6 +8,7 @@ namespace Code.GameLogic.GameEvents
     public enum CoreSupportEventType
     {
         None = 0,
-        DigEvent = 1
+        DigEvent = 1,
+        ClassicRaces = 2
     }
 }

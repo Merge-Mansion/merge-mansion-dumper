@@ -97,6 +97,7 @@ namespace GameLogic
         GreatEscapeMinigameComplete = 88,
         ItemSoldReEngagement = 89,
         DigEventConsolidation = 90,
-        Merge = 91
+        Merge = 91,
+        ClassicRacesEventStageWon = 92
     }
 }

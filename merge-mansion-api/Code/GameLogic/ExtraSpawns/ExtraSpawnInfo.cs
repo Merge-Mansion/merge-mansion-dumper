@@ -9,6 +9,7 @@ using Code.GameLogic.GameEvents;
 using Metaplay.Core;
 using GameLogic.Player.Items;
 using Metacore.MergeMansion.Common.Options;
+using GameLogic.Player.Requirements;
 
 namespace Code.GameLogic.ExtraSpawns
 {
@@ -69,6 +70,15 @@ namespace Code.GameLogic.ExtraSpawns
         }
 
         public ExtraSpawnInfo(string configKey, IExtraSpawnTrigger trigger, int? itemMinLevel, int? itemMaxLevel, List<string> eventFilters, List<string> includeTags, List<string> excludeTags, List<MergeBoardId> includeBoards, List<MergeBoardId> excludeBoards, F32 spawnChance, List<ValueTuple<Currencies, ExtraSpawnAmountRange, IExtraSpawnFormula>> spawnCurrencies, List<ValueTuple<CoreSupportEventTokenId, ExtraSpawnAmountRange, IExtraSpawnFormula>> spawnTokens, List<ValueTuple<MetaRef<ItemDefinition>, long>> spawnItems, int visualPriority, CoreSupportEventSegmentFeature<CoreSupportEventExtraSpawnGroupId> segmentFeature, List<CoreSupportEventType> eventTypeFilters)
+        {
+        }
+
+        [MetaMember(17, (MetaMemberFlags)0)]
+        private List<PlayerRequirement> Requirements { get; set; }
+        public Option<List<ValueTuple<Currencies, ExtraSpawnAmountRange, IExtraSpawnFormula>>> SpawnCurrenciesOption { get; }
+        public Option<List<ValueTuple<CoreSupportEventTokenId, ExtraSpawnAmountRange, IExtraSpawnFormula>>> SpawnTokensOption { get; }
+
+        public ExtraSpawnInfo(string configKey, IExtraSpawnTrigger trigger, int? itemMinLevel, int? itemMaxLevel, List<string> eventFilters, List<string> includeTags, List<string> excludeTags, List<MergeBoardId> includeBoards, List<MergeBoardId> excludeBoards, F32 spawnChance, List<ValueTuple<Currencies, ExtraSpawnAmountRange, IExtraSpawnFormula>> spawnCurrencies, List<ValueTuple<CoreSupportEventTokenId, ExtraSpawnAmountRange, IExtraSpawnFormula>> spawnTokens, List<ValueTuple<MetaRef<ItemDefinition>, long>> spawnItems, int visualPriority, CoreSupportEventSegmentFeature<CoreSupportEventExtraSpawnGroupId> segmentFeature, List<CoreSupportEventType> eventTypeFilters, List<PlayerRequirement> requirements)
         {
         }
     }

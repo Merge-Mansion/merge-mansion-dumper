@@ -23,5 +23,9 @@ namespace Code.GameLogic.GameEvents
         Option<CoreSupportEventCollectionId> CollectionIdOption { get; }
 
         string NameLocId { get; }
+
+        CoreSupportEventStartPopupAction StartPopupAction { get; }
+
+        CoreSupportEventTokenTarget FallbackTokenTarget { get; }
     }
 }

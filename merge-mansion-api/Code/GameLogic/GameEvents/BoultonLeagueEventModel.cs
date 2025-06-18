@@ -51,5 +51,7 @@ namespace Code.GameLogic.GameEvents
         public BoultonLeagueEventModel(BoultonLeagueEventInfo eventInfo)
         {
         }
+
+        public EventCategoryInfo CategoryInfo { get; }
     }
 }

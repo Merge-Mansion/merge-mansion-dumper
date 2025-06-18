@@ -9,5 +9,7 @@ namespace Code.GameLogic.GameEvents
         int Priority { get; }
 
         string SharedEventId { get; }
+
+        EventCategoryInfo CategoryInfo { get; }
     }
 }

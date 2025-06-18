@@ -5,7 +5,7 @@ using System;
 namespace GameLogic.Player.Items.Collectable
 {
     [MetaSerializableDerived(9)]
-    public class CollectEventCurrencyAction : ICollectAction
+    public class CollectEventCurrencyAction : ICollectEventCurrencyAction, ICollectAction
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public EventCurrencyId EventCurrencyId { get; set; }

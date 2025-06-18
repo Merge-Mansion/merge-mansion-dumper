@@ -2,11 +2,12 @@ using Metaplay.Core.Model;
 using System;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
+using Code.GameLogic.Player.Board;
 
 namespace GameLogic.Player.Board
 {
     [MetaSerializable]
-    public struct Coordinate
+    public struct Coordinate : ICoordinate
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public int X { get; set; }
@@ -19,12 +20,12 @@ namespace GameLogic.Player.Board
         public bool IsInvalid { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<Coordinate> CrossNeighbours { get; }
+        public IEnumerable<ICoordinate> CrossNeighbours { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<Coordinate> Clockwise3x3 { get; }
+        public IEnumerable<ICoordinate> Clockwise3x3 { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<Coordinate> ClockwiseLarger3x3 { get; }
+        public IEnumerable<ICoordinate> ClockwiseLarger3x3 { get; }
     }
 }

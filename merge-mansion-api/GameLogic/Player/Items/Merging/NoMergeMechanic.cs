@@ -21,7 +21,7 @@ namespace GameLogic.Player.Items.Merging
         }
 
         [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, F32>> PossibleMergeResults { get; }
+        public IEnumerable<ValueTuple<IItemDefinition, F32>> PossibleMergeResults { get; }
 
         public NoMergeMechanic()
         {

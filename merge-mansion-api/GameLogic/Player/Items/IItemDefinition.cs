@@ -27,9 +27,13 @@ using GameLogic.Player.Rewards;
 using GameLogic.Player.Items.OverrideSpawnChance;
 using GameLogic.Player.Director.Config;
 using Metaplay.Core;
+using Metaplay.Core.Model;
+using Metaplay.Core.Serialization;
 
 namespace GameLogic.Player.Items
 {
+    [MetaSerializable]
+    [MetaDeserializationConvertFromConcreteDerivedType(typeof(ItemDefinition))]
     public interface IItemDefinition
     {
         ISpawnFeatures SpawnFeatures { get; }
@@ -155,5 +159,9 @@ namespace GameLogic.Player.Items
         bool IsMaxLevel { get; }
 
         MetaRef<MergeChainDefinition> MergeChainRef { get; }
+
+        ICameraFeatures CameraFeatures { get; }
+
+        IWeightFeatures WeightFeatures { get; }
     }
 }

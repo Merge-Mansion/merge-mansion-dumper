@@ -41,5 +41,9 @@ namespace Analytics
         [MetaMember(6, (MetaMemberFlags)0)]
         [Description("Act number of the event (The Great Escape only)")]
         public int LevelGroup;
+        [JsonProperty("placement")]
+        [MetaMember(7, (MetaMemberFlags)0)]
+        [Description("Placement where the level was reached (Ad Stamp Card Event only)")]
+        public string Placement;
     }
 }

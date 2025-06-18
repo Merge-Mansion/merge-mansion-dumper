@@ -47,26 +47,48 @@ using GameLogic.DailyTasksV2;
 using Code.GameLogic.GameEvents.SoloMilestone;
 using Code.GameLogic.GameEvents.DailyScoop;
 using Metaplay.Core.Config;
+using GameLogic.Config.DecorationShop;
+using Metaplay.Core.Math;
+using System.Collections.Immutable;
+using Metacore;
+using GameLogic.MixABooster;
+using GameLogic.Player.Items.OverrideSpawnChance;
+using Code.GameLogic.ExtraSpawns;
+using GameLogic.Config.EnergyModeEvent;
+using GameLogic.DailyTasks;
+using GameLogic.Advertisement;
+using GameLogic.Player.Items.Bubble;
+using Code.GameLogic.DynamicEvents;
+using GameLogic.Player;
+using GameLogic.TaskLists;
+using GameLogic.Inventory;
+using GameLogic.Player.Items.Order;
+using GameLogic.Player.Items.Sink;
+using GameLogic.Audio;
+using GameLogic.Story.Videos;
+using GameLogic.Story.SlideShows;
+using Metaplay.Core.Localization;
+using Code.GameLogic.Hotspots;
 
 namespace GameLogic.Config
 {
     public interface IMergeMansionGameConfig
     {
-        GameConfigLibrary<int, ItemInPocketInfo> ItemInPocketInfoByItemId { get; }
+        IReadOnlyDictionary<int, ConfigLookupValue<ItemInPocketInfo>> ItemInPocketInfoByItemId { get; }
 
         SharedGlobals SharedGlobals { get; }
 
-        GameConfigLibrary<HotspotId, IEnumerable<HotspotDefinition>> HotspotOpensAfterCompletion { get; }
+        IReadOnlyDictionary<HotspotId, IEnumerable<HotspotDefinition>> HotspotOpensAfterCompletion { get; }
 
-        GameConfigLibrary<FlashSaleGroupId, FlashSaleGroupDefinition> FlashSaleGroups { get; }
+        IReadOnlyDictionary<FlashSaleGroupId, ConfigLookupValue<FlashSaleGroupDefinition>> FlashSaleGroups { get; }
 
         CardCollectionSettings CardCollectionSettings { get; }
 
-        GameConfigLibrary<int, CardCollectionPackId> CardPacksByItemId { get; }
+        IReadOnlyDictionary<int, CardCollectionPackId> CardPacksByItemId { get; }
 
         WebShopSettings WebShopSettings { get; }
 
-        GameConfigLibrary<int, FallbackItemInfo> FallbackItemInfoByItemId { get; }
+        IReadOnlyDictionary<int, ConfigLookupValue<FallbackItemInfo>> FallbackItemInfoByItemId { get; }
 
         GameConfigLibrary<SharedProducerSettingsId, SharedProducerSettings> SharedProducerSettings { get; }
 
@@ -279,5 +301,199 @@ namespace GameLogic.Config
         GameConfigLibrary<SoloMilestoneEventId, SoloMilestoneEventInfo> SoloMilestoneEvents { get; }
 
         GameConfigLibrary<DailyScoopEventId, DailyScoopEventInfo> DailyScoopEvents { get; }
+
+        IReadOnlyDictionary<int, CardCollectionCardId> InformantTipsByItemId { get; }
+
+        IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> CollectibleBoardEventBoards { get; }
+
+        IReadOnlyDictionary<ValueTuple<CardStars, TemporaryCardCollectionEventId>, DuplicateRewardPair> DuplicateRewards { get; }
+
+        IReadOnlyDictionary<DecorationShopItemId, List<PlayerSegmentId>> DecorationShopItemSegments { get; }
+
+        IReadOnlyDictionary<int, IReadOnlyList<ValueTuple<ConfigLookupValue<ItemDefinition>, F32>>> ItemProducingParents { get; }
+
+        IReadOnlyDictionary<MergeBoardId, LeaderboardEventId> LeaderboardEventBoards { get; }
+
+        int MaxPlayerLevel { get; }
+
+        IReadOnlyDictionary<MysteryMachineLeaderboardConfigId, IImmutableSet<PlayerSegmentId>> MysteryMachineLeaderboardRewardSegments { get; }
+
+        IReadOnlyList<int> MysteryMachineItemIds { get; }
+
+        DailyTasksV2Settings DailyTasksV2Settings { get; }
+
+        IReadOnlyDictionary<OfferPlacementId, List<MetaOfferGroupId>> OfferGroupIdsByOfferPlacementId { get; }
+
+        IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> TheGreatEscapeEventBoards { get; }
+
+        IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> DigEventMergeBoards { get; }
+
+        IReadOnlyList<ConfigLookupValue<TemporaryCardCollectionEventInfo>> OrderedTemporaryCardCollectionEventInfos { get; }
+
+        IReadOnlyDictionary<CollectibleBoardEventId, MergeBoardId> FishingEventBoards { get; }
+
+        IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> GemMineEventBoards { get; }
+
+        IReadOnlyDictionary<MergeBoardId, List<IStringId>> EventsByMergeBoard { get; }
+
+        IImmutableSet<int> CardItems { get; }
+
+        IReadOnlyList<IReadOnlyList<int>> ProducerVariants { get; }
+
+        IImmutableSet<int> CardDeckItems { get; }
+
+        IReadOnlyList<HotspotId> AreaUnlockHotspots { get; }
+
+        IReadOnlyDictionary<MergeBoardId, MysteryMachineEventId> MysteryMachineEventBoards { get; }
+
+        IImmutableSet<MergeBoardId> AuxEnergyMergeBoards { get; }
+
+        IReadOnlyList<PortalPieceChainData> PortalPieceChains { get; }
+
+        IReadOnlyDictionary<MergeBoardId, SideBoardEventId> SideBoardEventBoards { get; }
+
+        RestoreCountryCodeSettings RestoreCountryCodeSettings { get; }
+
+        IReadOnlyDictionary<DialogItemId, List<DialogCharacterType>> CharactersToForceDiscoverByNonHotspotDialogItemId { get; }
+
+        IImmutableSet<int> ItemsAcceptedBySinks { get; }
+
+        IReadOnlyDictionary<OfferPlacementId, List<OfferPlacementId>> OfferPlacementIds { get; }
+
+        IReadOnlyDictionary<MergeBoardId, EventId> BoardEventBoards { get; }
+
+        IImmutableSet<MergeBoardId> ShortLeaderboardEventBoards { get; }
+
+        IReadOnlyDictionary<LeaderboardEventId, List<ConfigLookupValue<MergeChainDefinition>>> MergeChainsByLeaderboardEventId { get; }
+
+        IReadOnlyCollection<ConfigLookupValue<IItemDefinition>> ItemsAvailableOnlyDuringCardCollectionEvent { get; }
+
+        GameConfigLibrary<MixABoosterEventId, MixABoosterEventInfo> MixABoosterEvents { get; }
+
+        GameConfigLibrary<MixABoosterRecipeId, MixABoosterRecipe> MixABoosterRecipes { get; }
+
+        GameConfigLibrary<MixABoosterIngredientId, MixABoosterIngredient> MixABoosterIngredients { get; }
+
+        GameConfigLibrary<EventTaskId, EventTaskInfo> DynamicEventTasks { get; }
+
+        GameConfigLibrary<AdStampCardEventId, AdStampCardEventInfo> AdStampCardEvents { get; }
+
+        IReadOnlyDictionary<ConfigLookupValue<ItemDefinition>, IOverrideSpawnChanceFeatures> OverrideSpawnChanceByItemDefinition { get; }
+
+        IReadOnlyList<ConfigLookupValue<ItemDefinition>> FishItems { get; }
+
+        IReadOnlyList<ConfigLookupValue<ItemDefinition>> FishingRodItems { get; }
+
+        IReadOnlyList<ConfigLookupValue<ItemDefinition>> CutGemItems { get; }
+
+        IReadOnlyList<ConfigLookupValue<ItemDefinition>> PrisonerLetterItems { get; }
+
+        IReadOnlyList<ConfigLookupValue<ItemDefinition>> PrisonBadgeItems { get; }
+
+        GameConfigLibrary<int, ExtraSpawnItemValueInfo> ExtraSpawnItemValues { get; }
+
+        GameConfigLibrary<Currencies, ExtraSpawnCurrencyValueInfo> ExtraSpawnCurrencyValues { get; }
+
+        GameConfigLibrary<EnergyModeEventId, EnergyModeEventInfo> EnergyModeEvents { get; }
+
+        GameConfigLibrary<DecorationShopId, DecorationShopInfo> DecorationShops { get; }
+
+        GameConfigLibrary<DailyTaskId, DailyTaskDefinition> DailyTasks { get; }
+
+        GameConfigLibrary<AdvertisementPlacementId, AdvertisementPlacementsInfo> AdvertisementPlacements { get; }
+
+        GameConfigLibrary<MysteryMachineSpecialSaleId, MysteryMachineSpecialSaleInfo> MysteryMachineSpecialSales { get; }
+
+        GameConfigLibrary<BubblesSetupId, BubblesSetup> BubbleSetups { get; }
+
+        GameConfigLibrary<ProgressionPackEventId, ProgressionPackEventInfo> ProgressionPackEvents { get; }
+
+        GameConfigLibrary<CoreSupportEventId, CoreSupportEventInfo> CoreSupportEvents { get; }
+
+        GameConfigLibrary<MysteryMachineCurrencyItemChainId, MysteryMachineCurrencyItemChainInfo> MysteryMachineCurrencyItemChains { get; }
+
+        GameConfigLibrary<MysteryMachineCurrencyItemId, MysteryMachineCurrencyItemInfo> MysteryMachineCurrencyItems { get; }
+
+        GameConfigLibrary<MysteryMachineExtraItemGrantingId, MysteryMachineExtraItemGrantingInfo> MysteryMachineExtraItemGranting { get; }
+
+        GameConfigLibrary<MysteryMachineChainMultiplierId, MysteryMachineChainMultiplierInfo> MysteryMachineChainMultipliers { get; }
+
+        GameConfigLibrary<MysteryMachineItemScoreId, MysteryMachineItemScore> MysteryMachineItemScores { get; }
+
+        GameConfigLibrary<MysteryMachineSpecialItemItemId, MysteryMachineSpecialItemInfo> MysteryMachineSpecialItems { get; }
+
+        GameConfigLibrary<MysteryMachineProgressionEventProgressItemChainId, MysteryMachineProgressionEventProgressItemChainInfo> MysteryMachineProgressionEventProgressItemChains { get; }
+
+        GameConfigLibrary<ItemTypeConstant, DailyTasksV2ItemBoultonLeagueInfo> DailyTasksV2ItemsBoultonLeague { get; }
+
+        GameConfigLibrary<DailyScoopDayId, DailyScoopDayData> DailyScoopDays { get; }
+
+        GameConfigLibrary<DailyScoopWeekId, DailyScoopWeekData> DailyScoopWeeks { get; }
+
+        GameConfigLibrary<DailyScoopMilestoneId, DailyScoopMilestoneData> DailyScoopMilestones { get; }
+
+        GameConfigLibrary<DailyScoopSpecialObjectiveId, DailyScoopSpecialObjectiveData> DailyScoopSpecialObjectives { get; }
+
+        GameConfigLibrary<DailyScoopStandardObjectiveId, DailyScoopStandardObjectiveData> DailyScoopStandardObjectives { get; }
+
+        GameConfigLibrary<DynamicEventRewardId, DynamicEventRewardInfo> DynamicEventRewards { get; }
+
+        GameConfigLibrary<SoloMilestoneTokenSpawnsId, SoloMilestoneTokenSpawnsInfo> SoloMilestoneTokenSpawns { get; }
+
+        GameConfigLibrary<DynamicEventItemId, DynamicEventItemInfo> DynamicEventItems { get; }
+
+        GameConfigLibrary<ShortLeaderboardEventStageId, ShortLeaderboardEventStageInfo> ShortLeaderboardEventStages { get; }
+
+        GameConfigLibrary<DailyTaskV2Id, DailyTaskV2BoultonLeagueInfo> DailyTasksV2BoultonLeague { get; }
+
+        GameConfigLibrary<EnergyType, EnergySettingsConfig> EnergySettings { get; }
+
+        GameConfigLibrary<TaskListId, TaskListInfo> TaskLists { get; }
+
+        GameConfigLibrary<DailyTaskV2Id, DailyTaskV2Info> DailyTasksV2 { get; }
+
+        GameConfigLibrary<AreasGlobalUnlockRequirementId, AreasGlobalUnlockRequirementInfo> AreasGlobalUnlockRequirements { get; }
+
+        GameConfigLibrary<SoloMilestoneMilestonesId, SoloMilestoneMilestonesInfo> SoloMilestoneMilestones { get; }
+
+        GameConfigLibrary<DynamicEventHelperId, DynamicEventHelperInfo> DynamicEventHelpers { get; }
+
+        GameConfigLibrary<DailyTaskV2Id, DailyTaskV2BoultonLeagueUnlimitedInfo> DailyTasksV2BoultonLeagueUnlimited { get; }
+
+        GameConfigLibrary<RentableInventorySettingsId, RentableInventorySettings> RentableInventorySettings { get; }
+
+        GameConfigLibrary<TaskGroupId, TaskGroupDefinition> TaskGroups { get; }
+
+        GameConfigLibrary<DigEventMuseumCollectionId, DigEventMuseumCollectionInfo> DigEventMuseumCollections { get; }
+
+        GameConfigLibrary<DecorationShopItemId, DecorationShopItemInfo> DecorationShopItems { get; }
+
+        GameConfigLibrary<MysteryMachineItemId, MysteryMachineItemInfo> MysteryMachineItems { get; }
+
+        GameConfigLibrary<MysteryMachineItemSetId, MysteryMachineItemSetInfo> MysteryMachineItemSets { get; }
+
+        GameConfigLibrary<MysteryMachineMultiplierId, MysteryMachineMultiplierInfo> MysteryMachineMultipliers { get; }
+
+        GameConfigLibrary<string, ExtraSpawnInfo> ExtraSpawns { get; }
+
+        GameConfigLibrary<BubbleVariationId, BubbleVariantsDefinition> BubbleVariations { get; }
+
+        GameConfigLibrary<OrderRequirementsId, OrderRequirements> OrderRequirements { get; }
+
+        GameConfigLibrary<string, TagRewardsInfo> TagRewards { get; }
+
+        GameConfigLibrary<TheGreatEscapeMinigameId, TheGreatEscapeMinigameInfo> TheGreatEscapeMinigames { get; }
+
+        GameConfigLibrary<string, MMPlaylist> Playlists { get; }
+
+        GameConfigLibrary<VideoId, Video> Videos { get; }
+
+        GameConfigLibrary<SlideShowId, SlideShow> SlideShows { get; }
+
+        GameConfigLibrary<LanguageId, LanguageInfo> Languages { get; }
+
+        GameConfigLibrary<CustomHotspotTableId, CustomHotspotTablesInfo> CustomTables { get; }
+
+        GameConfigLibrary<CoreSupportEventMinigameId, ClassicRacesMinigameInfo> ClassicRacesMinigames { get; }
     }
 }

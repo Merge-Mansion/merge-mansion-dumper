@@ -72,6 +72,7 @@ using GameLogic.MixABooster;
 using Metacore;
 using Code.GameLogic.ExtraSpawns;
 using GameLogic.TaskLists;
+using System.Collections.Immutable;
 
 namespace GameLogic.Config
 {
@@ -227,7 +228,7 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(ShopItemInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ShopItemId -> ShopItemId #key" }, new string[] { }, false)]
         public GameConfigLibrary<ShopItemId, ShopItemInfo> ShopItems { get; set; }
-        public GameConfigLibrary<FlashSaleGroupId, FlashSaleGroupDefinition> FlashSaleGroups { get; set; }
+        public IReadOnlyDictionary<FlashSaleGroupId, ConfigLookupValue<FlashSaleGroupDefinition>> FlashSaleGroups { get; set; }
 
         [GameConfigEntry("ShopLayouts", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
@@ -417,22 +418,22 @@ namespace GameLogic.Config
             }
         }
 
-        public Dictionary<OfferPlacementId, List<OfferPlacementId>> OfferPlacementIds { get; set; }
+        public IReadOnlyDictionary<OfferPlacementId, List<OfferPlacementId>> OfferPlacementIds { get; set; }
         public int MaxPlayerLevel { get; set; }
-        public Dictionary<MergeBoardId, List<CollectibleBoardEventId>> CollectibleBoardEventBoards { get; set; }
-        public Dictionary<MergeBoardId, LeaderboardEventId> LeaderboardEventBoards { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> CollectibleBoardEventBoards { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, LeaderboardEventId> LeaderboardEventBoards { get; set; }
         public Dictionary<DialogCharacterType, HashSet<HotspotId>> HotspotIdsByDialogCharacterTypeToDiscover { get; set; }
-        public Dictionary<LeaderboardEventId, HashSet<MergeChainDefinition>> MergeChainsByLeaderboardEventId { get; set; }
-        public Dictionary<DialogItemId, List<DialogCharacterType>> CharactersToForceDiscoverByNonHotspotDialogItemId { get; set; }
-        public Dictionary<OfferPlacementId, List<MetaOfferGroupId>> OfferGroupIdsByOfferPlacementId { get; set; }
+        public IReadOnlyDictionary<LeaderboardEventId, List<ConfigLookupValue<MergeChainDefinition>>> MergeChainsByLeaderboardEventId { get; set; }
+        public IReadOnlyDictionary<DialogItemId, List<DialogCharacterType>> CharactersToForceDiscoverByNonHotspotDialogItemId { get; set; }
+        public IReadOnlyDictionary<OfferPlacementId, List<MetaOfferGroupId>> OfferGroupIdsByOfferPlacementId { get; set; }
         private IEnumerable<IValidatable> ValidatableEntries { get; }
 
         public SharedGameConfig()
         {
         }
 
-        public HashSet<int> SecondaryEnergyMergeBoardPortalItems { get; set; }
-        public Dictionary<CollectibleBoardEventId, MergeBoardId> FishingEventBoards { get; set; }
+        public IImmutableSet<int> SecondaryEnergyMergeBoardPortalItems { get; set; }
+        public IReadOnlyDictionary<CollectibleBoardEventId, MergeBoardId> FishingEventBoards { get; set; }
 
         [GameConfigEntry("ProgressionEventStreaks", true, null)]
         [GameConfigEntryTransform(typeof(ProgressionEventStreakRewardsSource))]
@@ -498,16 +499,16 @@ namespace GameLogic.Config
         [GameConfigEntry("EnergyModeProgressionEventItems", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<int, EnergyModeProgressionEventItemInfo> EnergyModeProgressionEventItems { get; set; }
-        public HashSet<MergeBoardId> AuxEnergyMergeBoards { get; set; }
-        public List<ItemDefinition> FishItems { get; set; }
-        public HashSet<int> ItemsAcceptedBySinks { get; set; }
-        public Dictionary<int, IReadOnlyList<ValueTuple<ItemDefinition, F32>>> ItemProducingParents { get; set; }
-        public GameConfigLibrary<HotspotId, IEnumerable<HotspotDefinition>> HotspotOpensAfterCompletion { get; set; }
-        public Dictionary<MergeBoardId, EventId> BoardEventBoards { get; set; }
-        public List<List<int>> ProducerVariants { get; set; }
-        public Dictionary<MergeBoardId, List<IStringId>> EventsByMergeBoard { get; set; }
-        public List<PortalPieceChainData> PortalPieceChains { get; set; }
-        public Dictionary<DecorationShopItemId, List<PlayerSegmentId>> DecorationShopItemSegments { get; set; }
+        public IImmutableSet<MergeBoardId> AuxEnergyMergeBoards { get; set; }
+        public IReadOnlyList<ConfigLookupValue<ItemDefinition>> FishItems { get; set; }
+        public IImmutableSet<int> ItemsAcceptedBySinks { get; set; }
+        public IReadOnlyDictionary<int, IReadOnlyList<ValueTuple<ConfigLookupValue<ItemDefinition>, F32>>> ItemProducingParents { get; set; }
+        public IReadOnlyDictionary<HotspotId, IEnumerable<HotspotDefinition>> HotspotOpensAfterCompletion { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, EventId> BoardEventBoards { get; set; }
+        public IReadOnlyList<IReadOnlyList<int>> ProducerVariants { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, List<IStringId>> EventsByMergeBoard { get; set; }
+        public IReadOnlyList<PortalPieceChainData> PortalPieceChains { get; set; }
+        public IReadOnlyDictionary<DecorationShopItemId, List<PlayerSegmentId>> DecorationShopItemSegments { get; set; }
 
         [GameConfigEntry("Languages", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "LanguageId -> LanguageId #key" }, new string[] { }, false)]
@@ -549,10 +550,10 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(EventCharacterInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "EventCharacterId -> EventCharacterId #key" }, new string[] { }, false)]
         public GameConfigLibrary<EventCharacterId, EventCharacterInfo> EventCharacters { get; set; }
-        public Dictionary<MergeBoardId, SideBoardEventId> SideBoardEventBoards { get; set; }
-        public List<ItemDefinition> FishingRodItems { get; set; }
-        public Dictionary<ItemDefinition, IOverrideSpawnChanceFeatures> OverrideSpawnChanceByItemDefinition { get; set; }
-        public List<HotspotId> AreaUnlockHotspots { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, SideBoardEventId> SideBoardEventBoards { get; set; }
+        public IReadOnlyList<ConfigLookupValue<ItemDefinition>> FishingRodItems { get; set; }
+        public IReadOnlyDictionary<ConfigLookupValue<ItemDefinition>, IOverrideSpawnChanceFeatures> OverrideSpawnChanceByItemDefinition { get; set; }
+        public IReadOnlyList<HotspotId> AreaUnlockHotspots { get; set; }
 
         [GameConfigEntry("Music_Tracks", true, null)]
         [GameConfigEntryTransform(typeof(MMTrackSource))]
@@ -672,7 +673,7 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(MysteryMachineLevelSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MysteryMachineLevelId, MysteryMachineLevelInfo> MysteryMachineLevels { get; set; }
-        public Dictionary<MergeBoardId, MysteryMachineEventId> MysteryMachineEventBoards { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, MysteryMachineEventId> MysteryMachineEventBoards { get; set; }
 
         [GameConfigEntry("ProducerInventorySlots", true, null)]
         [GameConfigEntryTransform(typeof(ProducerInventorySlotSource))]
@@ -732,7 +733,7 @@ namespace GameLogic.Config
         [GameConfigEntry("DailyTasksV2Settings", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         public DailyTasksV2Settings DailyTasksV2Settings { get; set; }
-        public List<int> MysteryMachineItemIds { get; set; }
+        public IReadOnlyList<int> MysteryMachineItemIds { get; set; }
 
         [GameConfigEntry("EnergyModeEvents", true, null)]
         [GameConfigEntryTransform(typeof(EnergyModeEventSource))]
@@ -816,10 +817,10 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(MapObjectGroupInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<MapObjectGroupId, MapObjectGroupInfo> MapObjectGroups { get; set; }
-        public List<ItemDefinition> CutGemItems { get; set; }
-        public HashSet<int> CardDeckItems { get; set; }
-        public Dictionary<MergeBoardId, List<CollectibleBoardEventId>> GemMineEventBoards { get; set; }
-        public HashSet<int> CardItems { get; set; }
+        public IReadOnlyList<ConfigLookupValue<ItemDefinition>> CutGemItems { get; set; }
+        public IImmutableSet<int> CardDeckItems { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> GemMineEventBoards { get; set; }
+        public IImmutableSet<int> CardItems { get; set; }
 
         [GameConfigEntry("DailyTasksV2BoultonLeague", true, null)]
         [GameConfigEntryTransform(typeof(DailyTaskV2BoultonLeagueSource))]
@@ -963,10 +964,10 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(FallbackPlayerRewardInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<FallbackPlayerRewardId, FallbackPlayerRewardInfo> FallbackPlayerRewards { get; set; }
-        public GameConfigLibrary<int, ItemInPocketInfo> ItemInPocketInfoByItemId { get; set; }
-        public GameConfigLibrary<int, FallbackItemInfo> FallbackItemInfoByItemId { get; set; }
-        public HashSet<IItemDefinition> ItemsAvailableOnlyDuringCardCollectionEvent { get; set; }
-        public Dictionary<MysteryMachineLeaderboardConfigId, HashSet<PlayerSegmentId>> MysteryMachineLeaderboardRewardSegments { get; set; }
+        public IReadOnlyDictionary<int, ConfigLookupValue<ItemInPocketInfo>> ItemInPocketInfoByItemId { get; set; }
+        public IReadOnlyDictionary<int, ConfigLookupValue<FallbackItemInfo>> FallbackItemInfoByItemId { get; set; }
+        public IReadOnlyCollection<ConfigLookupValue<IItemDefinition>> ItemsAvailableOnlyDuringCardCollectionEvent { get; set; }
+        public IReadOnlyDictionary<MysteryMachineLeaderboardConfigId, IImmutableSet<PlayerSegmentId>> MysteryMachineLeaderboardRewardSegments { get; set; }
 
         [GameConfigEntry("CardCollectionSettings", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
@@ -980,16 +981,16 @@ namespace GameLogic.Config
         [GameConfigEntry("HotspotTables", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CustomHotspotTableId, CustomHotspotTablesInfo> CustomTables { get; set; }
-        public GameConfigLibrary<int, CardCollectionPackId> CardPacksByItemId { get; set; }
-        public List<TemporaryCardCollectionEventInfo> OrderedTemporaryCardCollectionEventInfos { get; set; }
+        public IReadOnlyDictionary<int, CardCollectionPackId> CardPacksByItemId { get; set; }
+        public IReadOnlyList<ConfigLookupValue<TemporaryCardCollectionEventInfo>> OrderedTemporaryCardCollectionEventInfos { get; set; }
 
         [GameConfigEntry("TheGreatEscapeMinigames", true, null)]
         [GameConfigEntryTransform(typeof(TheGreatEscapeMinigameInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<TheGreatEscapeMinigameId, TheGreatEscapeMinigameInfo> TheGreatEscapeMinigames { get; set; }
-        public List<ItemDefinition> PrisonBadgeItems { get; set; }
-        public List<ItemDefinition> PrisonerLetterItems { get; set; }
-        public Dictionary<MergeBoardId, List<CollectibleBoardEventId>> TheGreatEscapeEventBoards { get; set; }
+        public IReadOnlyList<ConfigLookupValue<ItemDefinition>> PrisonBadgeItems { get; set; }
+        public IReadOnlyList<ConfigLookupValue<ItemDefinition>> PrisonerLetterItems { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> TheGreatEscapeEventBoards { get; set; }
 
         [GameConfigEntry("OfferPurchaseRequirements", true, null)]
         [GameConfigEntryTransform(typeof(DelayedOfferPurchaseRequirementSource))]
@@ -1027,7 +1028,7 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(SharedProducerSettingsSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<SharedProducerSettingsId, SharedProducerSettings> SharedProducerSettings { get; set; }
-        public HashSet<MergeBoardId> ShortLeaderboardEventBoards { get; set; }
+        public IImmutableSet<MergeBoardId> ShortLeaderboardEventBoards { get; set; }
 
         [GameConfigEntry("DigEventItemInfo", true, null)]
         [GameConfigEntryTransform(typeof(DigEventItemSource))]
@@ -1064,8 +1065,8 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(CardCollectionSupportingEventReplacementPackSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CardCollectionPackId, CardCollectionSupportingEventReplacementPackInfo> CardCollectionSupportingEventsReplacementPacks { get; set; }
-        public Dictionary<ValueTuple<CardStars, TemporaryCardCollectionEventId>, DuplicateRewardPair> DuplicateRewards { get; set; }
-        public Dictionary<MergeBoardId, List<CollectibleBoardEventId>> DigEventMergeBoards { get; set; }
+        public IReadOnlyDictionary<ValueTuple<CardStars, TemporaryCardCollectionEventId>, DuplicateRewardPair> DuplicateRewards { get; set; }
+        public IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> DigEventMergeBoards { get; set; }
 
         [GameConfigEntry("AreasGlobalUnlockRequirements", true, null)]
         [GameConfigEntryTransform(typeof(AreasGlobalUnlockRequirementSource))]
@@ -1117,5 +1118,30 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(TaskListInfoSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<TaskListId, TaskListInfo> TaskLists { get; set; }
+
+        [GameConfigEntry("AdStampCardEvent", true, null)]
+        [GameConfigEntryTransform(typeof(AdStampCardEventSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        public GameConfigLibrary<AdStampCardEventId, AdStampCardEventInfo> AdStampCardEvents { get; set; }
+
+        [GameConfigEntry("ClassicRacesMinigames", true, null)]
+        [GameConfigEntryTransform(typeof(ClassicRacesMinigameSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<CoreSupportEventMinigameId, ClassicRacesMinigameInfo> ClassicRacesMinigames { get; set; }
+
+        [GameConfigEntry("ClassicRacesEventStages", true, null)]
+        [GameConfigEntryTransform(typeof(ClassicRacesEventStageSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<ClassicRacesEventStageId, ClassicRacesEventStageInfo> ClassicRacesEventStages { get; set; }
+
+        [GameConfigEntry("ExtraSpawnItemValues", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<int, ExtraSpawnItemValueInfo> ExtraSpawnItemValues { get; set; }
+
+        [GameConfigEntry("ExtraSpawnCurrencyValues", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<Currencies, ExtraSpawnCurrencyValueInfo> ExtraSpawnCurrencyValues { get; set; }
+        public IReadOnlyDictionary<int, CardCollectionCardId> InformantTipsByItemId { get; set; }
     }
 }

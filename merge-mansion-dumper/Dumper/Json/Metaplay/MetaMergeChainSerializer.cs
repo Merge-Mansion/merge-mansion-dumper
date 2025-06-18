@@ -281,6 +281,35 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
 
                 writer.WriteEndObject();
             }
+            else if (producer is ControlledPredefinedSequenceProducer cpsp)
+            {
+                writer.WriteStartObject();
+
+                writer.WritePropertyName("ControlledPredefinedSequence");
+                writer.WriteStartObject();
+
+                WriteProperty(writer, "RollType", cpsp.RollType.ToString(), serializer);
+                WriteProperty(writer, "ItemType", _config.Items.GetValueOrDefault(cpsp.ItemType).ItemType, serializer);
+
+                writer.WritePropertyName("Odds");
+                writer.WriteStartObject();
+
+                double weightSum = cpsp.Odds.Sum(x => x.Item2);
+                foreach (var odd in cpsp.Odds.GroupBy(x => x.Item1.ItemType))
+                {
+                    var weight = _dropAsPercent ?
+                        odd.Sum(x => x.Item2) / weightSum * 100 :
+                        odd.Sum(x => x.Item2);
+
+                    WriteProperty(writer, odd.Key, weight, serializer);
+                }
+
+                writer.WriteEndObject();
+
+                writer.WriteEndObject();
+
+                writer.WriteEndObject();
+            }
             else
             {
                 writer.WriteNull();

@@ -41,14 +41,17 @@ using GameLogic.Player.Leaderboard.BoultonLeague;
 using GameLogic.Player.Leaderboard.ShortLeaderboardEvent;
 using Code.GameLogic.GameEvents.CardCollectionSupportingEvent;
 using GameLogic.MixABooster;
+using Code.GameLogic.Player.Board;
+using GameLogic.Player.Events.AdStampCardEvent;
+using GameLogic.Player.Leaderboard.ClassicRacesEvent;
 
 namespace GameLogic.Player
 {
     [MetaSerializableDerived(1)]
     [MetaReservedMembers(99, 400)]
     [MetaReservedMembers(11, 12)]
-    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274 })]
-    [SupportedSchemaVersions(21, 47)]
+    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285 })]
+    [SupportedSchemaVersions(21, 48)]
     public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IPlayer, IGenerationContext
     {
         public static int MaxLoginCounts;
@@ -61,6 +64,7 @@ namespace GameLogic.Player
         public Dictionary<MergeBoardId, MetaTime> BoardActivationsLeftAnalyticsEvents;
         [IgnoreDataMember]
         private ICollection<MergeBoardAct> updateActs;
+        [Obsolete("use MergeMansionGameConfig instead")]
         [IgnoreDataMember]
         public SharedGameConfig GameConfig { get; }
 
@@ -117,9 +121,8 @@ namespace GameLogic.Player
         [MetaMember(106, (MetaMemberFlags)0)]
         public SpawnFactoryState SpawnFactoryState { get; set; }
 
-        [MetaMember(107, (MetaMemberFlags)0)]
-        [ExcludeFromGdprExport]
-        public BoardInventory GarageBoardInventory { get; set; }
+        [IgnoreDataMember]
+        public IBoardInventory GarageBoardInventory { get; set; }
 
         [MetaMember(109, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
@@ -257,8 +260,8 @@ namespace GameLogic.Player
         [MetaMember(235, (MetaMemberFlags)0)]
         private List<ProgressionEventId> ProgressionEventIAPStreaks { get; set; }
 
-        [MetaMember(236, (MetaMemberFlags)0)]
-        public BoardInventory RentableBoardInventory { get; set; }
+        [IgnoreDataMember]
+        public IBoardInventory RentableBoardInventory { get; set; }
 
         [MetaMember(237, (MetaMemberFlags)0)]
         public MetaTime RentableInventoryExpirationTime { get; set; }
@@ -267,7 +270,7 @@ namespace GameLogic.Player
         public int RentableInventoryBoughtBatchCount { get; set; }
 
         [IgnoreDataMember]
-        public ValueTuple<BoardInventory, MetaTime?> RentableInventory { get; }
+        public ValueTuple<IBoardInventory, MetaTime?> RentableInventory { get; }
 
         [IgnoreDataMember]
         public bool IsRentableInventoryExpired { get; }
@@ -275,8 +278,8 @@ namespace GameLogic.Player
         [IgnoreDataMember]
         public int ProgressionEventIAPStreakLength { get; }
 
-        [MetaMember(240, (MetaMemberFlags)0)]
-        public BoardInventory GarageBoardProducerInventory { get; set; }
+        [IgnoreDataMember]
+        public IBoardInventory GarageBoardProducerInventory { get; set; }
 
         [MetaMember(244, (MetaMemberFlags)0)]
         private MetaTime? previousIntervalCheckTime;
@@ -392,7 +395,7 @@ namespace GameLogic.Player
         public IEnumerable<MiniEventModel> ActiveMiniEvents { get; }
 
         [IgnoreDataMember]
-        public Dictionary<string, Coordinate> BubblesWithAds { get; }
+        public Dictionary<string, ICoordinate> BubblesWithAds { get; }
 
         [MetaMember(275, (MetaMemberFlags)0)]
         public RandomPCG RewardContainerRandom { get; set; }
@@ -408,10 +411,7 @@ namespace GameLogic.Player
 
         [MetaMember(279, (MetaMemberFlags)0)]
         public PlayerTemporaryCardCollectionEventsModel TemporaryCardCollectionEvents { get; set; }
-
-        [MetaMember(280, (MetaMemberFlags)0)]
-        [NoChecksum]
-        public Dictionary<string, Coordinate> bubbleAdsDictionary { get; set; }
+        public Dictionary<string, ICoordinate> bubbleAdsDictionary { get; set; }
 
         [IgnoreDataMember]
         public BoultonLeagueDivisionClientState BoultonLeagueDivisionClientState { get; }
@@ -435,10 +435,6 @@ namespace GameLogic.Player
 
         [MetaMember(288, (MetaMemberFlags)0)]
         public PlayerShortLeaderboardEventsModel ShortLeaderboardEvents { get; set; }
-
-        [MetaMember(285, (MetaMemberFlags)0)]
-        [ServerOnly]
-        public ShortLeaderboardStatus ShortLeaderboardStatus { get; set; }
 
         [MetaMember(286, (MetaMemberFlags)0)]
         public ProgressionPackEventsModel ProgressionPackEvents { get; set; }
@@ -505,5 +501,19 @@ namespace GameLogic.Player
         [MetaMember(305, (MetaMemberFlags)0)]
         public int CurrentDigEventShinyProgressIndex { get; set; }
         public IEnumerable<CoreSupportEventModel> ActiveCoreSupportEvents { get; }
+
+        [MetaMember(280, (MetaMemberFlags)0)]
+        [NoChecksum]
+        public Dictionary<string, Coordinate> bubbleAdsDictionaryInternal { get; set; }
+
+        [MetaMember(306, (MetaMemberFlags)0)]
+        public PlayerAdStampCardEventModel AdStampCardEvents { get; set; }
+
+        [MetaMember(307, (MetaMemberFlags)0)]
+        public RandomPCG DigEventChanceRandom { get; set; }
+
+        [IgnoreDataMember]
+        public ClassicRacesEventDivisionClientState ClassicRacesEventDivisionClientState { get; }
+        public IEnumerable<AdStampCardEventModel> ActiveAdStampCardEvents { get; }
     }
 }

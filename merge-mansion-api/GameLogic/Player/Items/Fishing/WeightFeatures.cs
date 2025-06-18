@@ -5,11 +5,12 @@ using GameLogic.Story;
 using System.Collections.Generic;
 using GameLogic.Player.Rewards;
 using Code.GameLogic.GameEvents;
+using System.Runtime.Serialization;
 
 namespace GameLogic.Player.Items.Fishing
 {
     [MetaSerializable]
-    public class WeightFeatures
+    public class WeightFeatures : IWeightFeatures
     {
         public static WeightFeatures NoWeightFeatures;
         [MetaMember(1, (MetaMemberFlags)0)]

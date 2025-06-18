@@ -5,7 +5,7 @@ using System;
 namespace GameLogic.Player.Leaderboard.ShortLeaderboardEvent
 {
     [MetaSerializableDerived(3)]
-    public class ShortLeaderboardEventDivisionClientState : DivisionClientStateBase<ShortLeaderboardDivisionHistoryEntry>
+    public class ShortLeaderboardEventDivisionClientState : DivisionClientStateBase<ShortLeaderboardEventDivisionHistoryEntry>
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public bool IsBannedFromParticipating { get; set; }

@@ -27,5 +27,8 @@ namespace Code.GameLogic.GameEvents
         public DigEventMuseumShelfModel(DigEventMuseumShelfInfo shelfInfo)
         {
         }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        private HashSet<string> SeenItems { get; set; }
     }
 }

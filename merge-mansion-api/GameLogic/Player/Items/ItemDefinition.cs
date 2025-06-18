@@ -36,7 +36,7 @@ using GameLogic.Player.Items.TheGreatEscape;
 
 namespace GameLogic.Player.Items
 {
-    [MetaSerializable]
+    [MetaSerializableDerived(1)]
     public class ItemDefinition : IGameConfigData<int>, IGameConfigData, IHasGameConfigKey<int>, IValidatable, IItemDefinition
     {
         [MetaMember(12, (MetaMemberFlags)0)]
@@ -231,10 +231,10 @@ namespace GameLogic.Player.Items
         public IFishingRodFeatures FishingRodFeatures { get; }
 
         [IgnoreDataMember]
-        public WeightFeatures WeightFeatures { get; }
+        public IWeightFeatures WeightFeatures { get; }
 
         [IgnoreDataMember]
-        public CameraFeatures CameraFeatures { get; }
+        public ICameraFeatures CameraFeatures { get; }
 
         [IgnoreDataMember]
         public ISinkableFeatures SinkableFeatures { get; }

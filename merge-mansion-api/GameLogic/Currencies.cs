@@ -27,6 +27,7 @@ namespace GameLogic
         InfiniteEnergy = 14,
         QuaternaryEnergy = 15,
         CardCollectionStars = 16,
-        DigEventTaps = 17
+        DigEventTaps = 17,
+        ProgressionEventPoints = 18
     }
 }

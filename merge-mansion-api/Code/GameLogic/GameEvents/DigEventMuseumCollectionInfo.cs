@@ -12,7 +12,6 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(2, (MetaMemberFlags)0)]
         public List<DigEventMuseumShelfId> Shelfs { get; set; }
-
         public DigEventMuseumCollectionId ConfigKey => CollectionId;
 
         public DigEventMuseumCollectionInfo()

@@ -28,5 +28,8 @@ namespace GameLogic.MixABooster
         public MixABoosterEventSource()
         {
         }
+
+        private string ContextCategory { get; set; }
+        private string ContextSubCategory { get; set; }
     }
 }

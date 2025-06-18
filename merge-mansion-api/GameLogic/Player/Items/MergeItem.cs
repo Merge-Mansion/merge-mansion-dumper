@@ -24,12 +24,13 @@ using System.Runtime.CompilerServices;
 using GameLogic.Player.Items.Order;
 using GameLogic.Config;
 using GameLogic.Player.Items.GemMining;
+using GameLogic.Config.Types;
 
 namespace GameLogic.Player.Items
 {
     [MetaSerializableDerived(2)]
     [MetaBlockedMembers(new int[] { 2 })]
-    public class MergeItem : IBoardItem
+    public class MergeItem : IBoardItem, IMergeItem
     {
         private static readonly MetaTime guaranteedFuture; // 0x0
         [IgnoreDataMember]
@@ -48,6 +49,7 @@ namespace GameLogic.Player.Items
         [IgnoreDataMember]
         public StorageState ActivationStorageState => Extra.ActivationStorageState;
 
+        [Obsolete("Use IMergeItem.Definition instead")]
         [IgnoreDataMember]
         public ItemDefinition Definition => DefinitionRef.Ref;
 
@@ -140,6 +142,7 @@ namespace GameLogic.Player.Items
         [IgnoreDataMember]
         public StorageState SpawnStorageState { get; }
 
+        [Obsolete("Use IMergeItem.ChestState instead")]
         [IgnoreDataMember]
         public ChestState ChestState { get; }
 
@@ -177,7 +180,7 @@ namespace GameLogic.Player.Items
         public ItemRewardsState RewardsState { get; }
 
         [IgnoreDataMember]
-        public MergeChainDefinition MergeChain { get; }
+        public IMergeChainDefinition MergeChain { get; }
 
         [IgnoreDataMember]
         public bool ShowTutorialFingerOnDiscovery { get; }
@@ -340,7 +343,7 @@ namespace GameLogic.Player.Items
         public bool HideSinkUndiscoveredItemsInHints { get; }
 
         [IgnoreDataMember]
-        public MetaTime CreatedAt { get; }
+        public MetacoreTime CreatedAt { get; }
 
         private static string HotspotTagKey;
         public MergeItem(IPlayer player, ItemDefinition itemDefinition, MetaTime timestamp, MergeBoardId boardId, ItemVisibility itemVisibility, bool insideBubble)
@@ -416,6 +419,22 @@ namespace GameLogic.Player.Items
         public bool LargeItem2x2 { get; }
 
         public MergeItem(IMergeMansionGameConfig config, ItemDefinition resultingItem, MergeItem sourceItem, MetaTime timestamp, IPlayer player)
+        {
+        }
+
+        private MergeItem(MetaRef<ItemDefinition> definitionRef, MetaTime timestamp, ItemVisibility itemVisibility)
+        {
+        }
+
+        public MergeItem(IPlayer player, MetaRef<ItemDefinition> itemDefinitionRef, MetaTime timestamp, MergeBoardId boardId, ItemVisibility itemVisibility, bool insideBubble, bool checkNullExtra)
+        {
+        }
+
+        public MergeItem(IMergeMansionGameConfig config, MetaRef<ItemDefinition> resultingItemRef, IMergeItem sourceItem, MetaTime timestamp, IPlayer player)
+        {
+        }
+
+        public MergeItem(MetaRef<ItemDefinition> itemDefinitionRef, MetaTime timestamp, ItemVisibility itemVisibility, DecayState decayState, ActivationState activationState, StorageState activationStorage, SpawnState spawnState, StorageState spawnStorage, IChestState chestState, ISinkState sinkState, TimeContainerState timeContainerState, ChargesState chargesState, XpState xpState, OrderParentState orderState, PersistentState persistentState, GemState gemState)
         {
         }
     }

@@ -170,5 +170,11 @@ namespace GameLogic.Config
 
         [MetaMember(70, (MetaMemberFlags)0)]
         public int PocketItemsCap { get; set; }
+
+        [MetaMember(71, (MetaMemberFlags)0)]
+        public bool AutoLevelUp { get; set; }
+
+        [MetaMember(72, (MetaMemberFlags)0)]
+        public bool DisableExperienceItemDrops { get; set; }
     }
 }

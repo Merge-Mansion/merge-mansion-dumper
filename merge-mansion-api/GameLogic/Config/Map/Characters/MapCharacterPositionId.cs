@@ -279,6 +279,12 @@ namespace GameLogic.Config.Map.Characters
         FactoryBoulevardMaddiePathLeft = 9803,
         FactoryBoulevardMaddieGarden = 9804,
         FactoryBoulevardMaddieKiosk = 9805,
-        FactoryBoulevardCharacter = 9806
+        FactoryBoulevardCharacter = 9806,
+        AreaPetHomeMapPablo = 5808,
+        DebRoomFirstMapCharacterPosition = 9999,
+        DebRoomEntryMapMaddie = 10000,
+        DebRoomDebMapSpot1 = 10001,
+        WestWingMaddie1 = 10002,
+        DebRoomMaddie2 = 10003
     }
 }

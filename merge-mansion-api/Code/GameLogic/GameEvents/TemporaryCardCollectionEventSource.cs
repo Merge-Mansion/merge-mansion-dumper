@@ -42,5 +42,7 @@ namespace Code.GameLogic.GameEvents
         }
 
         private int SegmentPriority { get; set; }
+        private string ContextCategory { get; set; }
+        private string ContextSubCategory { get; set; }
     }
 }

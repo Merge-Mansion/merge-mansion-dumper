@@ -4,7 +4,7 @@ using System;
 namespace GameLogic.Player.Items.Collectable
 {
     [MetaSerializableDerived(14)]
-    public class ShortLeaderboardEventCollectAction : IProgressCollectAction, ICollectAction
+    public class ShortLeaderboardEventCollectAction : IShortLeaderboardEventCollectAction, IProgressCollectAction, ICollectAction
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public int Progress { get; set; }

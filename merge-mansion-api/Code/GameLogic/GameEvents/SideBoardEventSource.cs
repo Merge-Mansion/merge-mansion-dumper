@@ -58,5 +58,7 @@ namespace Code.GameLogic.GameEvents
 
         private EventGroupId GroupId { get; set; }
         private int Priority { get; set; }
+        private string ContextCategory { get; set; }
+        private string ContextSubCategory { get; set; }
     }
 }

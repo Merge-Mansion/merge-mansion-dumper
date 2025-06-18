@@ -60,5 +60,14 @@ namespace Analytics
         public AnalyticEventLeaderboardSnapshot(EntityId divisionId, List<LeaderboardSnapshotPlayerEntry> players, AnalyticsLeaderboardSnapshotType snapshotType, int rank, string eventId, string newPlayerId)
         {
         }
+
+        [JsonProperty("stage_number", NullValueHandling = (NullValueHandling)1)]
+        [MetaMember(8, (MetaMemberFlags)0)]
+        [Description("Stage number in case event contains multiple stages")]
+        public int? StageNumber { get; set; }
+
+        public AnalyticEventLeaderboardSnapshot(EntityId divisionId, List<LeaderboardSnapshotPlayerEntry> players, AnalyticsLeaderboardSnapshotType snapshotType, int rank, string eventId, string newPlayerId, int? stageNumber)
+        {
+        }
     }
 }

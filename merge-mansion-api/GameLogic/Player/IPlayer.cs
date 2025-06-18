@@ -27,6 +27,8 @@ using GameLogic.Player.Items;
 using Merge;
 using Code.GameLogic.GameEvents.CardCollectionSupportingEvent;
 using Metaplay.Core.Math;
+using GameLogic.Player.Leaderboard.ShortLeaderboardEvent;
+using Code.GameLogic.Player.Board;
 
 namespace GameLogic.Player
 {
@@ -96,13 +98,13 @@ namespace GameLogic.Player
 
         string PlayerName { get; }
 
-        ValueTuple<BoardInventory, MetaTime?> RentableInventory { get; }
+        ValueTuple<IBoardInventory, MetaTime?> RentableInventory { get; }
 
         int ProgressionEventIAPStreakLength { get; }
 
-        BoardInventory GarageBoardInventory { get; }
+        IBoardInventory GarageBoardInventory { get; }
 
-        BoardInventory GarageBoardProducerInventory { get; }
+        IBoardInventory GarageBoardProducerInventory { get; }
 
         DynamicEventTaskStatus DynamicEventTaskStatus { get; }
 
@@ -148,7 +150,7 @@ namespace GameLogic.Player
 
         IEnumerable<DailyScoopEventModel> ActiveDailyScoopEvents { get; }
 
-        Dictionary<string, Coordinate> BubblesWithAds { get; }
+        Dictionary<string, ICoordinate> BubblesWithAds { get; }
 
         BoultonLeagueStatus BoultonLeagueStatus { get; }
 
@@ -193,6 +195,12 @@ namespace GameLogic.Player
         IDigEventMinigameData DigEventMinigameData { get; }
 
         DigEventMuseumModel DigEventMuseum { get; }
+
+        IBoardInventory RentableBoardInventory { get; }
+
+        F64 TotalIapSpend { get; }
+
+        ShortLeaderboardEventDivisionClientState ShortLeaderboardEventDivisionClientState { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

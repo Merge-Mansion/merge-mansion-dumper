@@ -11,6 +11,9 @@ namespace Code.GameLogic.GameEvents
         Debug = 3,
         MoveFromPocketToBoard = 4,
         Chest = 5,
-        Reward = 6
+        Reward = 6,
+        TaskCompletion = 7,
+        Trade = 8,
+        Unknown = 9
     }
 }

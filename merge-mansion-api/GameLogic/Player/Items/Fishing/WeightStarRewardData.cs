@@ -5,7 +5,7 @@ using GameLogic.Player.Rewards;
 namespace GameLogic.Player.Items.Fishing
 {
     [MetaSerializable]
-    public class WeightStarRewardData
+    public class WeightStarRewardData : IWeightStarRewardData
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public F32 Weight { get; set; }

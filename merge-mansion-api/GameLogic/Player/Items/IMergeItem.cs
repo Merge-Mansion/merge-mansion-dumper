@@ -1,0 +1,107 @@
+using GameLogic.Merge;
+using GameLogic.Config.Types;
+using GameLogic.Player.Items.Decay;
+using GameLogic.Player.Items.Activation;
+using GameLogic.Player.Items.Spawning;
+using GameLogic.Player.Items.Chest;
+using GameLogic.Player.Items.Boosting;
+using GameLogic.Player.Items.Bubble;
+using System;
+using GameLogic.Player.Items.Sink;
+using GameLogic.Player.Items.TimeContainer;
+using GameLogic.Player.Items.Charges;
+using GameLogic.Player.Items.Merging;
+using GameLogic.Player.Items.Attachments;
+using GameLogic.Player.Items.Fishing;
+using GameLogic.Player.Items.Persistent;
+using GameLogic.Player.Items.Order;
+using GameLogic.Player.Items.GemMining;
+using GameLogic.MergeChains;
+
+namespace GameLogic.Player.Items
+{
+    public interface IMergeItem : IBoardItem
+    {
+        ItemDefinition Definition { get; }
+
+        ItemVisibility Visibility { get; }
+
+        MetacoreTime CreatedAt { get; }
+
+        DecayState DecayState { get; }
+
+        ActivationState ActivationState { get; }
+
+        SpawnState SpawnState { get; }
+
+        StorageState ActivationStorageState { get; }
+
+        StorageState SpawnStorageState { get; }
+
+        ChestState ChestState { get; }
+
+        BoosterState BoosterState { get; }
+
+        BubbleState BubbleState { get; }
+
+        int SpecialActivationAmount { get; }
+
+        ISinkState SinkState { get; }
+
+        TimeContainerState TimeContainerState { get; }
+
+        ChargesState ChargesState { get; }
+
+        XpState ExperienceState { get; }
+
+        ItemAttachmentsState AttachmentsState { get; }
+
+        ItemLeaderboardState LeaderboardState { get; }
+
+        ItemRewardsState RewardsState { get; }
+
+        FishingRodState FishingRodState { get; }
+
+        WeightState WeightState { get; }
+
+        PersistentState PersistentState { get; }
+
+        OrderParentState OrderState { get; }
+
+        RockChunkState RockChunkState { get; }
+
+        GemState GemState { get; }
+
+        IMergeChainDefinition MergeChain { get; }
+
+        IItemEffectFeatures ItemActivationEffects { get; }
+
+        bool ShowTutorialFingerOnDiscovery { get; }
+
+        bool UseCalendarBasedCycle { get; }
+
+        bool HasActivationVfx { get; }
+
+        bool ActivationMiniGame { get; }
+
+        bool LargeItem2x2 { get; }
+
+        int ItemLevel { get; }
+
+        bool IsChest { get; }
+
+        bool SupportsSpawning { get; }
+
+        bool SupportsActivation { get; }
+
+        bool CanSpawn { get; }
+
+        bool IsInsideBubble { get; }
+
+        bool IsActivableOrder { get; }
+
+        bool IsVisible { get; }
+
+        bool IsPartiallyVisible { get; }
+    }
+}

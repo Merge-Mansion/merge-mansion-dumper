@@ -6,12 +6,13 @@ using System.Runtime.Serialization;
 using GameLogic.Player.Items;
 using Metaplay.Core;
 using Game.Logic;
+using Code.GameLogic.Player;
 
 namespace GameLogic.Player
 {
     [MetaSerializable]
     [MetaBlockedMembers(new int[] { 1, 2 })]
-    public class BoardInventory
+    public class BoardInventory : IBoardInventory
     {
         [MetaMember(3, (MetaMemberFlags)0)]
         public int Size { get; set; }
@@ -40,7 +41,7 @@ namespace GameLogic.Player
         }
 
         [MetaSerializable]
-        public class InventoryEntry
+        public class InventoryEntry : IInventoryEntry
         {
             [MetaMember(1, (MetaMemberFlags)0)]
             public MergeItem Item { get; set; }

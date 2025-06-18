@@ -8,6 +8,7 @@ using System.Runtime.Serialization;
 using System.Collections.Generic;
 using GameLogic.Merge;
 using GameLogic.Player.Rewards;
+using Code.GameLogic.Player.Board;
 
 namespace GameLogic
 {
@@ -63,6 +64,10 @@ namespace GameLogic
         public PlayerReward dailyAdReward { get; set; }
 
         public AdsData(string adsProviderIds, bool canBeClaimed, AdsRewardType rewardType, ShopItemId shopItemId, MergeBoardId mergeBoardId, OfferPlacementId offerPlacementId, Coordinate itemCoordinates, AdvertisementPlacementId adPlacementId, ICollection<MergeBoardAct> productActs, PlayerReward dailyAdReward)
+        {
+        }
+
+        public AdsData(string adsProviderIds, bool canBeClaimed, AdsRewardType rewardType, ShopItemId shopItemId, MergeBoardId mergeBoardId, OfferPlacementId offerPlacementId, ICoordinate itemCoordinates, AdvertisementPlacementId adPlacementId, ICollection<MergeBoardAct> productActs, PlayerReward dailyAdReward)
         {
         }
     }

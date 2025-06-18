@@ -14,6 +14,7 @@ namespace GameLogic
         TombUnderground = 4,
         MansionInterior = 5,
         Beach = 6,
-        TinCanFactory = 7
+        TinCanFactory = 7,
+        WestWing = 8
     }
 }

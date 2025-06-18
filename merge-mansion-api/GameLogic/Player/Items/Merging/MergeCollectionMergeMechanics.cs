@@ -22,7 +22,7 @@ namespace GameLogic.Player.Items.Merging
             throw new System.NotImplementedException();
         }
 
-        public override IEnumerable<ValueTuple<ItemDefinition, F32>> PossibleMergeResults { get; }
+        public override IEnumerable<ValueTuple<IItemDefinition, F32>> PossibleMergeResults { get; }
 
         private MergeCollectionMergeMechanics()
         {

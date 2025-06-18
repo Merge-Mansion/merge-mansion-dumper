@@ -13,7 +13,7 @@ using System.Reflection;
 namespace GameLogic.MergeChains
 {
     [MetaSerializable]
-    public class MergeChainDefinition : IGameConfigData<MergeChainId>, IGameConfigData, IHasGameConfigKey<MergeChainId>, IValidatable
+    public class MergeChainDefinition : IGameConfigData<MergeChainId>, IGameConfigData, IHasGameConfigKey<MergeChainId>, IValidatable, IMergeChainDefinition
     {
         private static HashSet<Type> allowedTypes = new()
         {
@@ -123,5 +123,8 @@ namespace GameLogic.MergeChains
         [MetaMember(10, (MetaMemberFlags)0)]
         public string OverrideMergeChainSfx { get; set; }
         public IEnumerable<ItemDefinition> DefaultItems => PrimaryChain.Select(x => x.First());
+
+        [IgnoreDataMember]
+        CodexDiscoveryRewardInfo GameLogic.MergeChains.IMergeChainDefinition.DiscoveryReward { get; }
     }
 }

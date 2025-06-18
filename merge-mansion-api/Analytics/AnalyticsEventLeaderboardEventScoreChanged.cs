@@ -48,5 +48,14 @@ namespace Analytics
         public AnalyticsEventLeaderboardEventScoreChanged(LeaderboardEventId eventId, LeaderboardEventScoreChangeSourceAction sourceAction, int scoreChange, int totalScore, EntityId divisionId)
         {
         }
+
+        [JsonProperty("stage_number", NullValueHandling = (NullValueHandling)1)]
+        [MetaMember(7, (MetaMemberFlags)0)]
+        [Description("Stage number in case event contains multiple stages")]
+        public int? StageNumber { get; set; }
+
+        public AnalyticsEventLeaderboardEventScoreChanged(LeaderboardEventId eventId, LeaderboardEventScoreChangeSourceAction sourceAction, int scoreChange, int totalScore, EntityId divisionId, int? stageNumber)
+        {
+        }
     }
 }

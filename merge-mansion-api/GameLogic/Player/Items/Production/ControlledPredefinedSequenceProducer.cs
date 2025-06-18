@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using GameLogic.Random;
 using Metaplay.Core.Math;
+using System.Linq;
 
 namespace GameLogic.Player.Items.Production
 {
@@ -23,7 +24,7 @@ namespace GameLogic.Player.Items.Production
         private List<ItemOdds> OddsList { get; set; }
 
         [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds { get; }
+        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => OddsList.Select(x => (x.Item, x.Weight));
 
         public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
         {

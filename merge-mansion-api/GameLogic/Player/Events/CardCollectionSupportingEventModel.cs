@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using Metaplay.Core.Activables;
 using Code.GameLogic.GameEvents.CardCollectionSupportingEvent;
 using System;
+using System.Runtime.Serialization;
 
 namespace GameLogic.Player.Events
 {
@@ -14,6 +15,8 @@ namespace GameLogic.Player.Events
 
         [MetaMember(2, (MetaMemberFlags)0)]
         private byte BoolFields { get; set; }
+
+        [IgnoreDataMember]
         public bool UpgradeEverything { get; }
         public bool PreviewNoted { get; set; }
         public bool StartNoted { get; set; }

@@ -3,17 +3,18 @@ using Metaplay.Core.Config;
 using System.Collections.Generic;
 using System;
 using Code.GameLogic.Config;
+using System.Runtime.Serialization;
 
 namespace GameLogic.Player.Items.Fishing
 {
     [MetaSerializable]
-    public class FishingSettings : GameConfigKeyValue<FishingSettings>, IValidatable
+    public class FishingSettings : GameConfigKeyValue<FishingSettings>, IValidatable, IFishingSettings
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public Dictionary<int, int> SmallFishWaterDropletCounts { get; set; }
+        [IgnoreDataMember]
+        public IReadOnlyDictionary<int, int> SmallFishWaterDropletCounts { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
-        public Dictionary<int, int> NonFishWaterDropletCounts { get; set; }
+        [IgnoreDataMember]
+        public IReadOnlyDictionary<int, int> NonFishWaterDropletCounts { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public int[] FishWeightCategoryOdds { get; set; }

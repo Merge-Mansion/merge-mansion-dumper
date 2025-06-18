@@ -9,6 +9,9 @@ namespace Code.GameLogic.ExtraSpawns
     {
         None = 0,
         ExponentialLevelMultiplier = 1,
-        BubbleCostMultiplier = 2
+        BubbleCostMultiplier = 2,
+        HotspotValue = 3,
+        ItemValue = 4,
+        ItemLevel = 5
     }
 }

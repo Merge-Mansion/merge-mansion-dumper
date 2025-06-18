@@ -155,7 +155,6 @@ namespace Analytics
         ConfigsLoaded = 144,
         PlayerModelBuilt = 145,
         TosSeen = 146,
-        TosTicked = 147,
         ConsentSeen = 148,
         ConsentAccepted = 149,
         AttSeen = 150,
@@ -164,6 +163,17 @@ namespace Analytics
         SceneFinished = 153,
         GameLaunchedSuccessfully = 154,
         GameLaunchingStep = 155,
-        CreateRecipe = 156
+        CreateRecipe = 156,
+        TosAgreed = 147,
+        NotificationPermissionRequested = 157,
+        AppsflyerInit = 158,
+        AppsflyerStart = 159,
+        FirebaseAppInit = 160,
+        FacebookInit = 161,
+        HelpshiftInit = 162,
+        SupercellInit = 163,
+        SupercellShowOverlay = 164,
+        AppsflyerResume = 165,
+        AppsflyerStop = 166
     }
 }

@@ -3,11 +3,13 @@ using Metaplay.Core.Math;
 using Metaplay.Core;
 using System.Collections.Generic;
 using System;
+using System.Runtime.Serialization;
+using GameLogic.Config.Types;
 
 namespace GameLogic.Player.Items.Chest
 {
     [MetaSerializable]
-    public class ChestState
+    public class ChestState : IChestState
     {
         private static F64 oneMinuteGemCost;
         private static F64 timeDiscountMin;
@@ -35,5 +37,11 @@ namespace GameLogic.Player.Items.Chest
 
         [MetaMember(8, (MetaMemberFlags)0)]
         public ChestContext ChestContext { get; set; }
+
+        [IgnoreDataMember]
+        public MetacoreTime OpenStartTime { get; }
+
+        [IgnoreDataMember]
+        public MetacoreTime EstimatedEndTime { get; }
     }
 }

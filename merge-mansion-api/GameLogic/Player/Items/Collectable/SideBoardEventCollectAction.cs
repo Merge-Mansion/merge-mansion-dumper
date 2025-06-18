@@ -6,7 +6,7 @@ namespace GameLogic.Player.Items.Collectable
 {
     [MetaSerializableDerived(11)]
     [MetaBlockedMembers(new int[] { 1 })]
-    public class SideBoardEventCollectAction : IProgressCollectAction, ICollectAction
+    public class SideBoardEventCollectAction : ISideBoardEventCollectAction, IProgressCollectAction, ICollectAction
     {
         [MetaMember(2, (MetaMemberFlags)0)]
         public int Progress { get; set; }
