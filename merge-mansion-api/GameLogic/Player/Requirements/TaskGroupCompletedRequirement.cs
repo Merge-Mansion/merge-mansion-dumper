@@ -10,7 +10,7 @@ namespace GameLogic.Player.Requirements
     public class TaskGroupCompletedRequirement : PlayerRequirement
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        private MetaRef<TaskGroupDefinition> TaskGroupRef { get; set; }
+        public MetaRef<TaskGroupDefinition> TaskGroupRef { get; set; }
 
         [IgnoreDataMember]
         public TaskGroupDefinition TaskGroup { get; }

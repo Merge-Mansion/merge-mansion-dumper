@@ -6,7 +6,7 @@
         private GameConfigBase _config; // 0x18
         //private CsvParseOptions _parseOptions; // 0x20
 
-        public GameConfigImporter(PatchedConfigArchive archive, IGameConfigDataResolver baseResolver, GameConfigBase config/*, CsvParseOptions parseOptions*/)
+        public GameConfigImporter(PatchedConfigArchive archive, GameConfigBase config/*, CsvParseOptions parseOptions*/)
         {
             _archive = archive;
             _config = config;

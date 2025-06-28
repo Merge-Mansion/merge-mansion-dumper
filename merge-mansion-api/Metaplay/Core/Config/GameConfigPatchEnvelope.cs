@@ -16,6 +16,12 @@ namespace Metaplay.Core.Config
             _serializedEntryPatches = serializedEntryPatches;
         }
 
+        // CUSTOM: Checks if a certain table is contained in patches
+        public bool ContainsEntry(string entryName)
+        {
+            return _serializedEntryPatches.ContainsKey(entryName);
+        }
+
         public void PatchEntryContentInPlace(object entryContent, string entryName, Type entryPatchType)
         {
             if (!TryDeserializeEntryPatch(entryName, entryPatchType, out var deserialized))

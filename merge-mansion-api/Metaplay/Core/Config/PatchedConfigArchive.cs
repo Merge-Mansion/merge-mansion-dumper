@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Metaplay.Core.Network.MessageTransport;
 
 namespace Metaplay.Core.Config
 {
@@ -16,6 +15,11 @@ namespace Metaplay.Core.Config
         {
             _archive = archive ?? throw new ArgumentNullException(nameof(archive));
             _patches = patches.ToArray();
+        }
+
+        public bool ContainsPatch(string entryName)
+        {
+            return _patches.Any(x => x.ContainsEntry(entryName));
         }
 
         public static PatchedConfigArchive WithNoPatches(ConfigArchive archive)

@@ -139,7 +139,7 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 return;
             }
 
-            else if (requirement is TemporaryCardCollectionEventActiveRequirement tccear)
+            if (requirement is TemporaryCardCollectionEventActiveRequirement tccear)
             {
                 JValue.CreateString("TemporaryCardCollectionEventActive").WriteTo(writer);
                 return;
@@ -165,6 +165,8 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 WriteProperty(writer, "CardStack", csr.CardStack, serializer);
             else if (requirement is CompleteIllustrationRequirement cir)
                 WriteProperty(writer, "CompleteIllustration", cir.Illustration, serializer);
+            else if (requirement is TaskGroupCompletedRequirement tgcr)
+                WriteProperty(writer, "TaskGroupCompleted", tgcr.TaskGroupRef.KeyObject, serializer);
             else if (requirement is MergeChainItemNeededRequirement mciReq)
             {
                 writer.WritePropertyName("MergeChainItemNeeded");

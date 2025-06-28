@@ -2,19 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
-using System.Xml.Linq;
-using GameLogic.Area;
-using GameLogic.Config;
-using GameLogic.Hotspots;
-using GameLogic.MergeChains;
-using GameLogic.Player.Items;
-using GameLogic.Player.Items.Production;
-using GameLogic.Story;
 using merge_mansion_api;
 using Metaplay.Core;
 using Metaplay.Core.Config;
@@ -22,8 +12,6 @@ using Metaplay.Core.IO;
 using Metaplay.Core.Math;
 using Metaplay.Core.Model;
 using Metaplay.Core.Serialization;
-using Newtonsoft.Json.Linq;
-using static Metaplay.Core.Player.PlayerPropertyConstant;
 
 namespace Metaplay.Generated
 {
@@ -680,7 +668,7 @@ namespace Metaplay.Generated
         // CUSTOM: Determines the wire data type from a given object
         private static WireDataType DetermineWireDataType(object item, Type itemType)
         {
-            if (itemType.IsAssignableTo(typeof(UInt128)))
+            if (itemType.IsAssignableTo(typeof(MetaUInt128)))
                 return WireDataType.VarInt128;
 
             if (itemType.IsAssignableTo(typeof(string)) ||

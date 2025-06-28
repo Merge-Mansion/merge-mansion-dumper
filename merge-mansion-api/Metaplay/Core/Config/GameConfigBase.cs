@@ -47,7 +47,7 @@ namespace Metaplay.Core.Config
                 throw new ArgumentNullException(nameof(baseResolver));
             ArchiveVersion = archive.BaselineArchive.Version;
             ArchiveCreatedAt = archive.BaselineArchive.CreatedAt;
-            var importer = new GameConfigImporter(archive, null, this);
+            var importer = new GameConfigImporter(archive, this);
             Import(importer);
             OnImported();
         }

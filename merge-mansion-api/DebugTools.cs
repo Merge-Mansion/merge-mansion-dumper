@@ -17,8 +17,17 @@ namespace merge_mansion_api
         public static void WriteIndex(string type, int index)
         {
 #if DEBUG
-            Console.Write($"\r{type}: {index:00000}\t\t\t\t");
+            ClearLine();
+            Console.Write($"{type}: {index:00000}\r");
 #endif
+        }
+
+        public static void ClearLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
 
         public static void WriteSendMessage(MetaMessage message)

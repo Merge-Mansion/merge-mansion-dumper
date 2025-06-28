@@ -1,41 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using GameLogic.Area;
-using GameLogic.MergeChains;
+using System.IO;
 
 namespace merge_mansion_dumper.Dumper
 {
     static class DumpHelper
     {
-        private const string MergeChainFileName = "dump/chain_item_odds.json";
-        private const string AreaFileName = "dump/areas.json";
-        private const string EventFileName = "dump/events.json";
-        private const string DailyTaskFileName = "dump/daily_tasks.json";
-        private const string DialogDirName = "dump/dialogs";
+        private const string MergeChainFileName = "chain_item_odds.json";
+        private const string AreaFileName = "areas.json";
+        private const string EventFileName = "events.json";
+        //private const string DialogDirName = "dialogs";
 
-        public static void DumpAll()
+        public static void DumpAll(string? outputDir)
         {
-            DumpMergeChains();
-            DumpAreas();
-            DumpEvents();
-            DumpDialogs();
+            DumpMergeChains(outputDir);
+            DumpAreas(outputDir);
+            DumpEvents(outputDir);
+            //DumpDialogs(outputDir);
         }
 
-        public static void UploadAll()
+        public static void DumpMergeChains(string? outputDir)
         {
-            // TODO: Implement uploader to wiki
-            GetMergeChainData();
-            GetAreaData();
-            GetEventData();
-        }
-
-        public static void DumpMergeChains()
-        {
+            ClearLine();
             Console.WriteLine("Dump merge chains... ");
 
             try
             {
-                CreateMergeChainDump().WriteJson(MergeChainFileName, ClientGlobal.SharedGameConfig);
+                CreateMergeChainDump().WriteJson(GetOutputFolder(MergeChainFileName, outputDir), ClientGlobal.SharedGameConfig);
             }
             catch (Exception e)
             {
@@ -43,13 +33,14 @@ namespace merge_mansion_dumper.Dumper
             }
         }
 
-        public static void DumpAreas()
+        public static void DumpAreas(string? outputDir)
         {
+            ClearLine();
             Console.WriteLine("Dump areas... ");
 
             try
             {
-                CreateAreaDumper().WriteJson(AreaFileName, ClientGlobal.SharedGameConfig);
+                CreateAreaDumper().WriteJson(GetOutputFolder(AreaFileName, outputDir), ClientGlobal.SharedGameConfig);
             }
             catch (Exception e)
             {
@@ -57,13 +48,14 @@ namespace merge_mansion_dumper.Dumper
             }
         }
 
-        public static void DumpEvents()
+        public static void DumpEvents(string? outputDir)
         {
+            ClearLine();
             Console.WriteLine("Dump events... ");
 
             try
             {
-                CreateEventDumper().WriteJson(EventFileName, ClientGlobal.SharedGameConfig);
+                CreateEventDumper().WriteJson(GetOutputFolder(EventFileName, outputDir), ClientGlobal.SharedGameConfig);
             }
             catch (Exception e)
             {
@@ -71,34 +63,35 @@ namespace merge_mansion_dumper.Dumper
             }
         }
 
-        public static void DumpDialogs()
-        {
-            Console.WriteLine("Dump dialogs... ");
+        //public static void DumpDialogs(string? outputDir)
+        //{
+        //    ClearLine();
+        //    Console.WriteLine("Dump dialogs... ");
 
-            try
-            {
-                CreateDialogDumper().ExportImages(DialogDirName, ClientGlobal.SharedGameConfig);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Skipped ({e.Message})");
-            }
-        }
+        //    try
+        //    {
+        //        CreateDialogDumper().ExportImages(GetOutputFolder(DialogDirName, outputDir), ClientGlobal.SharedGameConfig);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine($"Skipped ({e.Message})");
+        //    }
+        //}
 
-        public static IList<MergeChainDefinition> GetMergeChainData()
-        {
-            return CreateMergeChainDump().Dump(ClientGlobal.SharedGameConfig);
-        }
+        //public static IList<MergeChainDefinition> GetMergeChainData()
+        //{
+        //    return CreateMergeChainDump().Dump(ClientGlobal.SharedGameConfig);
+        //}
 
-        public static IList<AreaInfo> GetAreaData()
-        {
-            return CreateAreaDumper().Dump(ClientGlobal.SharedGameConfig);
-        }
+        //public static IList<AreaInfo> GetAreaData()
+        //{
+        //    return CreateAreaDumper().Dump(ClientGlobal.SharedGameConfig);
+        //}
 
-        public static IDictionary<string, object> GetEventData()
-        {
-            return CreateEventDumper().Dump(ClientGlobal.SharedGameConfig);
-        }
+        //public static IDictionary<string, object> GetEventData()
+        //{
+        //    return CreateEventDumper().Dump(ClientGlobal.SharedGameConfig);
+        //}
 
         private static MergeChainDumper CreateMergeChainDump()
         {
@@ -115,9 +108,29 @@ namespace merge_mansion_dumper.Dumper
             return new EventDumper();
         }
 
-        private static DialogDumper CreateDialogDumper()
+        //private static DialogDumper CreateDialogDumper()
+        //{
+        //    return new DialogDumper();
+        //}
+
+        private static string GetOutputFolder(string fileName, string? subDir)
         {
-            return new DialogDumper();
+            string outputDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dump");
+            if (subDir is not null)
+                outputDir = Path.Combine(outputDir, subDir);
+
+            if (!Directory.Exists(outputDir))
+                Directory.CreateDirectory(outputDir);
+
+            return Path.Combine(outputDir, fileName);
+        }
+
+        private static void ClearLine()
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
     }
 }

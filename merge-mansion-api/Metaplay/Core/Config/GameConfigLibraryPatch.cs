@@ -1,4 +1,3 @@
-using System;
 using Metaplay.Core.Model;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -7,6 +6,7 @@ namespace Metaplay.Core.Config
 {
     [MetaSerializable]
     public class GameConfigLibraryPatch<TKey, TInfo> : GameConfigEntryPatch<GameConfigLibrary<TKey, TInfo>, Dictionary<TKey, TInfo>>, IGameConfigLibraryPatch
+        where TInfo : IGameConfigData<TKey>
     {
         [JsonProperty("replacedItems")]
         private Dictionary<TKey, TInfo> _replacedItems;
@@ -32,7 +32,17 @@ namespace Metaplay.Core.Config
 
         internal override void PatchContentDangerouslyInPlace(Dictionary<TKey, TInfo> entryContent)
         {
-            throw new NotImplementedException();
+            foreach (var replacedItem in _replacedItemsForSerialization)
+            {
+                if (entryContent.ContainsKey(replacedItem.ConfigData.ConfigKey))
+                    entryContent[replacedItem.ConfigData.ConfigKey] = replacedItem.ConfigData;
+            }
+
+            foreach (var appendedItem in _appendedItemsForSerialization)
+            {
+                if (!entryContent.ContainsKey(appendedItem.ConfigData.ConfigKey))
+                    entryContent[appendedItem.ConfigData.ConfigKey] = appendedItem.ConfigData;
+            }
         }
     }
 }
