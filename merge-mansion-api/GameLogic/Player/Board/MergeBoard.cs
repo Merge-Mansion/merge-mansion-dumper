@@ -32,7 +32,7 @@ namespace GameLogic.Player.Board
         public IEnumerable<MergeItem> MergeItems { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<ICoordinate> Coordinates { get; }
+        public IEnumerable<Coordinate> Coordinates { get; }
 
         [MetaMember(9, (MetaMemberFlags)0)]
         public BoardBubbleState BubbleState { get; }
@@ -87,7 +87,7 @@ namespace GameLogic.Player.Board
         public MergeItem Item { get; set; }
 
         [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ICoordinate, MergeItem>> Items { get; }
+        public IEnumerable<ValueTuple<Coordinate, MergeItem>> Items { get; }
 
         public MergeBoard()
         {

@@ -16,9 +16,5 @@ namespace Metaplay.Core.Player
         [MetaMember(100, (MetaMemberFlags)0)]
         PlayerSessionDebugModeParameters parameters;
         public PlayerDebugIncidentUploadMode IncidentUploadMode { get; }
-
-        public PlayerSessionDebugMode(PlayerSessionDebugModeParameters parameters)
-        {
-        }
     }
 }

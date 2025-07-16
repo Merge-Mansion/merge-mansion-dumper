@@ -13,6 +13,7 @@ using GameLogic.Decorations;
 using Merge;
 using GameLogic.Config;
 using GameLogic.Player.Rewards;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {

@@ -27,5 +27,7 @@ namespace Code.GameLogic.GameEvents
         CoreSupportEventStartPopupAction StartPopupAction { get; }
 
         CoreSupportEventTokenTarget FallbackTokenTarget { get; }
+
+        CoreSupportEventTokenType TokenType { get; }
     }
 }

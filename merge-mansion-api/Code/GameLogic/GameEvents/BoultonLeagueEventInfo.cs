@@ -56,5 +56,12 @@ namespace Code.GameLogic.GameEvents
         public BoultonLeagueEventInfo(BoultonLeagueEventId eventId, string nameLocId, string displayName, string description, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, List<MetaRef<BoultonLeagueStageInfo>> stageRefs, EventGroupId groupId, BoultonLeagueMatchmakingAlgorithm matchmakingAlgorithm, EventCategoryInfo categoryInfo)
         {
         }
+
+        [MetaMember(11, (MetaMemberFlags)0)]
+        public bool JoinAutomatically { get; set; }
+
+        public BoultonLeagueEventInfo(BoultonLeagueEventId eventId, string nameLocId, string displayName, string description, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, List<MetaRef<BoultonLeagueStageInfo>> stageRefs, EventGroupId groupId, BoultonLeagueMatchmakingAlgorithm matchmakingAlgorithm, EventCategoryInfo categoryInfo, bool joinAutomatically)
+        {
+        }
     }
 }

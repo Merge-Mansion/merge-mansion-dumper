@@ -285,6 +285,10 @@ namespace GameLogic.Config.Map.Characters
         DebRoomEntryMapMaddie = 10000,
         DebRoomDebMapSpot1 = 10001,
         WestWingMaddie1 = 10002,
-        DebRoomMaddie2 = 10003
+        DebRoomMaddie2 = 10003,
+        PerfumeryFirstMapCharacterPosition = 10199,
+        PerfumeryEntryMapMaddie = 10200,
+        PerfumeryMaddieDistillery = 10201,
+        PerfumeryCharacter = 10202
     }
 }

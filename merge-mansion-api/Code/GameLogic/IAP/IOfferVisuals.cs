@@ -1,6 +1,6 @@
 using System;
 
-namespace GameLogic.Config
+namespace Code.GameLogic.IAP
 {
     public interface IOfferVisuals
     {
@@ -9,6 +9,10 @@ namespace GameLogic.Config
         string SaleBadgeLocalizationId { get; }
 
         string OfferPaneId { get; }
+
+        string BackgroundAnimationId { get; }
+
+        string ForegroundEffectId { get; }
 
         string BackgroundId { get; }
 
@@ -21,10 +25,5 @@ namespace GameLogic.Config
         string LeftCharacterId { get; }
 
         string RightCharacterId { get; }
-
-        string BackgroundAnimationId { get; }
-
-        string ForegroundEffectId { get; }
-    // STUB
     }
 }

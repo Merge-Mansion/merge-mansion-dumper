@@ -222,5 +222,12 @@ namespace GameLogic.Config
         public static DirectorGroupId AARTimeSkipSeen;
         public static DirectorGroupId AARCooldownRemoverSeen;
         public static DirectorGroupId AARInfiniteEnergySeen;
+        public static DirectorGroupId NewTasksForExistingOnBoard;
+        public static DirectorGroupId TaskGroupV2FTUEIntroSequence;
+        public static DirectorGroupId IntroduceTaskCards_01;
+        public static DirectorGroupId IntroduceTaskCards_02;
+        public static DirectorGroupId IntroduceTaskCards_03;
+        public static DirectorGroupId IntroduceTaskCards_04;
+        public static DirectorGroupId IntroduceTaskCards_05;
     }
 }

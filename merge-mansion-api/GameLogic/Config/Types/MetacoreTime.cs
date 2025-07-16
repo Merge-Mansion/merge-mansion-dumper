@@ -6,5 +6,8 @@ namespace GameLogic.Config.Types
     {
         public static MetacoreTime Epoch;
         public long MillisecondsSinceEpoch { get; }
+
+        public static DateTime DateTimeEpoch;
+        public static MetacoreTime Now { get; }
     }
 }

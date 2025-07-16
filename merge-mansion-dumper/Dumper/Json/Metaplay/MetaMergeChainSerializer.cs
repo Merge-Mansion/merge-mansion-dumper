@@ -327,7 +327,7 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WriteStartObject();
 
                 WriteProperty(writer, "RollType", cop.RollType.ToString(), serializer);
-                WriteProperty(writer, "ItemType", _config.Items.GetValueOrDefault(cop.ItemType).ItemType, serializer);
+                WriteProperty(writer, "ItemType", _config.Items.GetValueOrDefault(cop.ItemType)?.ItemType ?? $"{cop.ItemType:X8}", serializer);
 
                 writer.WritePropertyName("Tasks");
                 writer.WriteStartArray();

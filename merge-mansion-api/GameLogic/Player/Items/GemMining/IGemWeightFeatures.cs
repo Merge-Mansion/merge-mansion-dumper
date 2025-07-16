@@ -27,5 +27,7 @@ namespace GameLogic.Player.Items.GemMining
         GemPalette GemPalette { get; }
 
         int GemDisplayPriority { get; }
+
+        bool ShowWeightLabel { get; }
     }
 }

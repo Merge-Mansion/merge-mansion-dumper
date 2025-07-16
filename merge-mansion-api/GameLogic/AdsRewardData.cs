@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using GameLogic.Merge;
 using GameLogic.Player.Rewards;
 using Code.GameLogic.Player.Board;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic
 {
@@ -108,6 +109,10 @@ namespace GameLogic
         }
 
         public AdsRewardData(string adsProviderIds, AdvertisementPlacementId adPlacementId, string itemName, string auctionId, ShopItemId shopItemId, int itemDiamondValue, AdsRewardType adsRewardType, int itemCostValue, Currencies itemCostValueType, string advertiserId, string networkId, MergeBoardId mergeBoardId, ICoordinate itemCoordinates, AnalyticsContext analyticsContext, OfferPlacementId offerPlacementId, ICollection<MergeBoardAct> productActs, PlayerReward dailyAdReward, string requiredTaskItems, string requiredMergeChains)
+        {
+        }
+
+        public AdsRewardData(string adsProviderIds, AdvertisementPlacementId adPlacementId, string itemName, string auctionId, ShopItemId shopItemId, int itemDiamondValue, AdsRewardType adsRewardType, int itemCostValue, Currencies itemCostValueType, string advertiserId, string networkId, MergeBoardId mergeBoardId, Option<Coordinate> itemCoordinates, AnalyticsContext analyticsContext, OfferPlacementId offerPlacementId, ICollection<MergeBoardAct> productActs, PlayerReward dailyAdReward, string requiredTaskItems, string requiredMergeChains)
         {
         }
     }

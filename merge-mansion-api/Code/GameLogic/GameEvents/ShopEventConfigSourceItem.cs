@@ -7,6 +7,7 @@ using GameLogic.Config;
 using Metaplay.Core.Schedule;
 using GameLogic.ConfigPrefabs;
 using Metaplay.Core.Player;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {

@@ -98,5 +98,12 @@ namespace Code.GameLogic.GameEvents
         public GarageCleanupEventInfo(GarageCleanupEventId garageCleanupEventId, string displayName, string description, MetaActivableParams activableParams, List<GarageCleanupBoardInfo> boards, List<MetaRef<GarageCleanupPatternSetInfo>> patternSets, List<int> spawnerItems, List<int> boardCosts, List<MetaRef<GarageCleanupRewardInfo>> slotFillRewards, MergeBoardId mergeBoardId, PlayerRequirement unlockRequirement, string prefabsOverride, bool alwaysShowPatternsAndRewards, EventGroupId groupId, int priority, EventCategoryInfo categoryInfo)
         {
         }
+
+        [MetaMember(23, (MetaMemberFlags)0)]
+        public bool ForceLocationTravel { get; set; }
+
+        public GarageCleanupEventInfo(GarageCleanupEventId garageCleanupEventId, string displayName, string description, MetaActivableParams activableParams, List<GarageCleanupBoardInfo> boards, List<MetaRef<GarageCleanupPatternSetInfo>> patternSets, List<int> spawnerItems, List<int> boardCosts, List<MetaRef<GarageCleanupRewardInfo>> slotFillRewards, MergeBoardId mergeBoardId, PlayerRequirement unlockRequirement, string prefabsOverride, bool alwaysShowPatternsAndRewards, EventGroupId groupId, int priority, EventCategoryInfo categoryInfo, bool forceLocationTravel)
+        {
+        }
     }
 }

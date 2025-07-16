@@ -14,6 +14,7 @@ using GameLogic.Config;
 using GameLogic.Player.Rewards;
 using Metaplay.Core.Math;
 using Merge;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -142,6 +143,13 @@ namespace Code.GameLogic.GameEvents
         public EventCategoryInfo CategoryInfo { get; set; }
 
         public LeaderboardEventInfo(LeaderboardEventId leaderboardEventId, string nameLocId, string displayName, string description, MetaActivableParams activableParams, MetaRef<BoardInfo> boardRef, MetaRef<ItemDefinition> portalItemRef, PlayerRequirement unlockRequirement, OfferPlacementId boardShopPlacementId, List<MetaRef<EventLevelInfo>> rankingRewardLevelRefs, List<MetaRef<EventLevelInfo>> levelRefs, StoryDefinitionId enterBoardDialogue, StoryDefinitionId endDialogue, MetaDuration? auxEnergyUnitRestoreDuration, int auxEnergyAttachmentChance, EventGroupId eventGroupId, bool disableBubbleBonus, F32? bubbleBonusDivisor, List<BubbleBonusInfo> secondaryBoardBubbleBonus, int priority, LeaderboardEventMatchmakingBucketsId matchmakingBuckets, EventCategoryInfo categoryInfo)
+        {
+        }
+
+        [MetaMember(25, (MetaMemberFlags)0)]
+        public bool ForceLocationTravel { get; set; }
+
+        public LeaderboardEventInfo(LeaderboardEventId leaderboardEventId, string nameLocId, string displayName, string description, MetaActivableParams activableParams, MetaRef<BoardInfo> boardRef, MetaRef<ItemDefinition> portalItemRef, PlayerRequirement unlockRequirement, OfferPlacementId boardShopPlacementId, List<MetaRef<EventLevelInfo>> rankingRewardLevelRefs, List<MetaRef<EventLevelInfo>> levelRefs, StoryDefinitionId enterBoardDialogue, StoryDefinitionId endDialogue, MetaDuration? auxEnergyUnitRestoreDuration, int auxEnergyAttachmentChance, EventGroupId eventGroupId, bool disableBubbleBonus, F32? bubbleBonusDivisor, List<BubbleBonusInfo> secondaryBoardBubbleBonus, int priority, LeaderboardEventMatchmakingBucketsId matchmakingBuckets, EventCategoryInfo categoryInfo, bool forceLocationTravel)
         {
         }
     }

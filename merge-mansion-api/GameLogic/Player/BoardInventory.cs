@@ -60,7 +60,7 @@ namespace GameLogic.Player
         public InventoryContentChanged InventoryChanged { get; set; }
 
         [MetaSerializable]
-        public class ProducerInventorySlotState
+        public class ProducerInventorySlotState : IWritableProducerInventorySlotState
         {
             [MetaMember(1, (MetaMemberFlags)0)]
             public bool Unlocked { get; set; }

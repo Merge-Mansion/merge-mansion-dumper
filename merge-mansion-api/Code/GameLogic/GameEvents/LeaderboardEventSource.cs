@@ -52,5 +52,6 @@ namespace Code.GameLogic.GameEvents
         private LeaderboardEventMatchmakingBucketsId MatchmakingBuckets { get; set; }
         private string ContextCategory { get; set; }
         private string ContextSubCategory { get; set; }
+        private bool ForceLocationTravel { get; set; }
     }
 }

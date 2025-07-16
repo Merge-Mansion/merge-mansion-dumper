@@ -12,6 +12,7 @@ using GameLogic.Cutscenes;
 using Metaplay.Core.Math;
 using GameLogic.MergeChains;
 using Metaplay.Core.Player;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -78,5 +79,6 @@ namespace Code.GameLogic.GameEvents
         private string ContextSubCategory { get; set; }
         private string ConnectedMinigameId { get; set; }
         private string PrefabsOverride { get; set; }
+        private bool ForceLocationTravel { get; set; }
     }
 }

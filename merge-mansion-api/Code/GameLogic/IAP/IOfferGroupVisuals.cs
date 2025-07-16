@@ -1,6 +1,6 @@
 using System;
 
-namespace GameLogic.Config
+namespace Code.GameLogic.IAP
 {
     public interface IOfferGroupVisuals
     {
@@ -10,11 +10,10 @@ namespace GameLogic.Config
 
         string GroupTitleLocId { get; }
 
+        string GroupDescriptionLocId { get; }
+
         string ButtonId { get; }
 
         string ContainerId { get; }
-
-        string GroupDescriptionLocId { get; }
-    // STUB
     }
 }

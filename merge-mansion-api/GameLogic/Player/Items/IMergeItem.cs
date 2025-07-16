@@ -17,6 +17,7 @@ using GameLogic.Player.Items.Persistent;
 using GameLogic.Player.Items.Order;
 using GameLogic.Player.Items.GemMining;
 using GameLogic.MergeChains;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Items
 {
@@ -103,5 +104,31 @@ namespace GameLogic.Player.Items
         bool IsVisible { get; }
 
         bool IsPartiallyVisible { get; }
+
+        bool ShowGemWeightLabel { get; }
+
+        bool IsSink { get; }
+
+        bool IsSinkableOrder { get; }
+
+        int RemainingCharges { get; }
+
+        bool IsLootable { get; }
+
+        MetaDuration? InfiniteEnergyDuration { get; }
+
+        MetaDuration RemainingTimeContained { get; }
+
+        bool CanBeUnlocked { get; }
+
+        ValueTuple<Currencies, int> UnlockValue { get; }
+
+        bool SupportsMerge { get; }
+
+        WeightState WeightStateMaybe { get; }
+
+        ItemAttachmentsState AttachmentsStateMaybe { get; }
+
+        bool HideSinkUndiscoveredItemsInHints { get; }
     }
 }

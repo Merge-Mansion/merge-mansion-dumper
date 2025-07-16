@@ -9,6 +9,7 @@ namespace GameLogic
         GenericDialog = 1,
         CompactDialog = 2,
         SMS = 3,
-        CompactBottomDialog = 4
+        CompactBottomDialog = 4,
+        CompactAlternateDialog = 5
     }
 }

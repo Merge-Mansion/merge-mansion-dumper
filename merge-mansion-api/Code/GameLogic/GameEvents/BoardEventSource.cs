@@ -10,6 +10,7 @@ using GameLogic.ConfigPrefabs;
 using GameLogic.Story;
 using GameLogic.Decorations;
 using Metaplay.Core.Player;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -80,5 +81,6 @@ namespace Code.GameLogic.GameEvents
         private int Priority { get; set; }
         private string ContextCategory { get; set; }
         private string ContextSubCategory { get; set; }
+        private bool ForceLocationTravel { get; set; }
     }
 }

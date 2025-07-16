@@ -13,6 +13,7 @@ using GameLogic;
 using Metaplay.Core.Math;
 using Code.GameLogic.Config;
 using GameLogic.Cutscenes;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -218,5 +219,12 @@ namespace Code.GameLogic.GameEvents
 
         [IgnoreDataMember]
         public int MaxLevelNumberBonusIncluded { get; }
+
+        [MetaMember(63, (MetaMemberFlags)0)]
+        public bool ForceLocationTravel { get; set; }
+
+        public ProgressionEventInfo(ProgressionEventId progressionEventId, string nameLocId, string startPopupDescId, string endPopupNoRewardsDescId, string displayName, string description, MetaActivableParams activableParams, List<int> chancesToSpawnEventPerItemLevel, int eventItem, int premiumIapOfferMinLevel, List<MetaRef<ProgressionEventStreakRewards>> premiumIAPStreakRewards, List<MetaRef<EventLevelInfo>> freeEventLevels, bool hasZeroLevel, StoryDefinitionId introDialogue, StoryDefinitionId endDialogue, List<MetaRef<StoryElementInfo>> levelRewardClaimedStories, List<MetaRef<EventLevelInfo>> storyTriggeringLevels, PlayerRequirement unlockRequirement, F32? bubbleBonusDivisor, EventGroupId groupId, List<EventLevelId> teasedEventLevelIds, CutsceneId introCutscene, List<int> purchasePopupTriggeringLevels, int priority, MetaRef<InAppProductInfo> track1IAP, List<MetaRef<ProgressionEventPerkInfo>> track1IAPPerkRefs, MetaRef<InAppProductInfo> track2IAP, List<MetaRef<ProgressionEventPerkInfo>> track2IAPPerkRefs, MetaRef<InAppProductInfo> upgradeIAP, List<MetaRef<EventLevelInfo>> track1EventLevelRefs, List<MetaRef<EventLevelInfo>> track2EventLevelRefs, List<MetaRef<EventLevelInfo>> bonusEventLevelRefs, bool isBonusRewardSecret, string priceValueLocIdTrack1, string priceValueLocIdTrack2, EventCategoryInfo categoryInfo, bool forceLocationTravel)
+        {
+        }
     }
 }

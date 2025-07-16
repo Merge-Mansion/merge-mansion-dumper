@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using Metaplay.Core.Offers;
 using System;
 using System.Runtime.Serialization;
+using Code.GameLogic.IAP;
 using Metaplay.Core;
 
 namespace GameLogic.Config

@@ -29,6 +29,8 @@ using Code.GameLogic.GameEvents.CardCollectionSupportingEvent;
 using Metaplay.Core.Math;
 using GameLogic.Player.Leaderboard.ShortLeaderboardEvent;
 using Code.GameLogic.Player.Board;
+using Code.GameLogic.Player;
+using GameLogic.Player.Leaderboard.ClassicRacesEvent;
 
 namespace GameLogic.Player
 {
@@ -128,7 +130,7 @@ namespace GameLogic.Player
 
         RandomPCG MysteryMachineRandom { get; }
 
-        List<BoardInventory.ProducerInventorySlotState> ProducerInventoryEntries { get; }
+        List<IWritableProducerInventorySlotState> ProducerInventoryEntries { get; }
 
         DailyTasksV2Status DailyTasksV2Status { get; }
 
@@ -150,7 +152,7 @@ namespace GameLogic.Player
 
         IEnumerable<DailyScoopEventModel> ActiveDailyScoopEvents { get; }
 
-        Dictionary<string, ICoordinate> BubblesWithAds { get; }
+        Dictionary<string, Coordinate> BubblesWithAds { get; }
 
         BoultonLeagueStatus BoultonLeagueStatus { get; }
 
@@ -201,6 +203,8 @@ namespace GameLogic.Player
         F64 TotalIapSpend { get; }
 
         ShortLeaderboardEventDivisionClientState ShortLeaderboardEventDivisionClientState { get; }
+
+        ClassicRacesEventDivisionClientState ClassicRacesEventDivisionClientState { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

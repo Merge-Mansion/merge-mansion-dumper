@@ -9,6 +9,7 @@ using GameLogic.Story;
 using GameLogic.Cutscenes;
 using Metaplay.Core.Math;
 using Metaplay.Core.Player;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -71,5 +72,6 @@ namespace Code.GameLogic.GameEvents
         private string PriceValueLocIdTrack2 { get; set; }
         private string ContextCategory { get; set; }
         private string ContextSubCategory { get; set; }
+        private bool ForceLocationTravel { get; set; }
     }
 }

@@ -53,5 +53,11 @@ namespace Code.GameLogic.GameEvents
         }
 
         public EventCategoryInfo CategoryInfo { get; }
+
+        [MetaMember(9, (MetaMemberFlags)0)]
+        public bool JoinDivisionTransitionNoted { get; set; }
+
+        [MetaMember(10, (MetaMemberFlags)0)]
+        public bool Joining { get; set; }
     }
 }

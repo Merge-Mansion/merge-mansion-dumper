@@ -268,8 +268,6 @@ namespace GameLogic.Player.Items
 
         [MetaMember(45, (MetaMemberFlags)0)]
         private OverrideSpawnChanceFeatures _OverrideSpawnChanceFeatures;
-        [MetaMember(46, (MetaMemberFlags)0)]
-        public ConfigPrefabId CustomItemInfoPopupId;
         [MetaMember(48, (MetaMemberFlags)0)]
         private AudioFeatures _AudioFeatures;
         [MetaMember(47, (MetaMemberFlags)0)]
@@ -383,5 +381,8 @@ namespace GameLogic.Player.Items
 
         [IgnoreDataMember]
         public ITimeContainerFeatures TimeContainerFeatures { get; }
+
+        [MetaMember(46, (MetaMemberFlags)0)]
+        public ConfigPrefabId CustomItemInfoPopupId { get; set; }
     }
 }

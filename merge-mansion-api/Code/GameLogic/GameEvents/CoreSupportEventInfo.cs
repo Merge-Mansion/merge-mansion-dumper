@@ -84,7 +84,6 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(24, (MetaMemberFlags)0)]
         private CoreSupportEventCollectionId CollectionId { get; set; }
-
         public CoreSupportEventId ActivableId => ConfigKey;
         public string DisplayShortInfo { get; }
         public string SharedEventId { get; }
@@ -118,6 +117,13 @@ namespace Code.GameLogic.GameEvents
         public CoreSupportEventTokenType TokenType { get; set; }
 
         public CoreSupportEventInfo(CoreSupportEventId configKey, string displayName, string description, MetaActivableParams activableParams, EventGroupId groupId, int priority, CoreSupportEventType eventType, CoreSupportEventMinigameId minigameId, string assetOverride, string locOverride, PlayerRequirement unlockRequirement, PlayerRequirement previewRequirement, MetaRef<ItemDefinition> portalItemRef, CoreSupportEventTokenId tokenId, string tokenAsset, string tokenLocId, long tokensAtStart, List<MetaRef<EventLevelInfo>> levelRefs, List<MetaRef<EventLevelInfo>> recurringLevelRefs, Dictionary<EventLevelId, MetaRef<EventLevelInfo>> fallbackLevelRefs, CoreSupportEventModeFeature modeFeature, EventCategoryInfo categoryInfo, CoreSupportEventSegmentFeature<EventGroupId> segmentFeature, CoreSupportEventCollectionId collectionId, CoreSupportEventStartPopupAction startPopupAction, CoreSupportEventTokenTarget fallbackTokenTarget, CoreSupportEventTokenType tokenType)
+        {
+        }
+
+        [MetaMember(28, (MetaMemberFlags)0)]
+        public bool ForceDisableInfoPanel { get; set; }
+
+        public CoreSupportEventInfo(CoreSupportEventId configKey, string displayName, string description, MetaActivableParams activableParams, EventGroupId groupId, int priority, CoreSupportEventType eventType, CoreSupportEventMinigameId minigameId, string assetOverride, string locOverride, PlayerRequirement unlockRequirement, PlayerRequirement previewRequirement, MetaRef<ItemDefinition> portalItemRef, CoreSupportEventTokenId tokenId, string tokenAsset, string tokenLocId, long tokensAtStart, List<MetaRef<EventLevelInfo>> levelRefs, List<MetaRef<EventLevelInfo>> recurringLevelRefs, Dictionary<EventLevelId, MetaRef<EventLevelInfo>> fallbackLevelRefs, CoreSupportEventModeFeature modeFeature, EventCategoryInfo categoryInfo, CoreSupportEventSegmentFeature<EventGroupId> segmentFeature, CoreSupportEventCollectionId collectionId, CoreSupportEventStartPopupAction startPopupAction, CoreSupportEventTokenTarget fallbackTokenTarget, CoreSupportEventTokenType tokenType, bool forceDisableInfoPanel)
         {
         }
     }

@@ -9,6 +9,7 @@ using Code.GameLogic.Config;
 using GameLogic.Player.Requirements;
 using System;
 using System.Runtime.Serialization;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {

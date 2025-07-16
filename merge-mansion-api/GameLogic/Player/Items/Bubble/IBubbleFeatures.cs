@@ -1,6 +1,7 @@
 using Metaplay.Core;
 using System;
 using System.Collections.Generic;
+using GameLogic.Config.Types;
 
 namespace GameLogic.Player.Items.Bubble
 {
@@ -17,7 +18,5 @@ namespace GameLogic.Player.Items.Bubble
         ValueTuple<Currencies, int> OpenCost { get; }
 
         List<BubbleVariationId> BubbleVariants { get; }
-
-        MetaRef<ItemDefinition> ReplacementItemRef { get; }
     }
 }

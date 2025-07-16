@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using System;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Leaderboard.ShortLeaderboardEvent
 {
@@ -11,6 +12,10 @@ namespace GameLogic.Player.Leaderboard.ShortLeaderboardEvent
         }
 
         public ShortLeaderboardEventDivisionParticipantSnapshot(int participantIndex, int score, string displayName)
+        {
+        }
+
+        public ShortLeaderboardEventDivisionParticipantSnapshot(int participantIndex, int score, string displayName, EntityId playerId)
         {
         }
     }

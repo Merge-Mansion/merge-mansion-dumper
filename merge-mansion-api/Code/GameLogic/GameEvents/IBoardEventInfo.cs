@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using GameLogic.Player.Rewards;
 using System;
 using Merge;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {

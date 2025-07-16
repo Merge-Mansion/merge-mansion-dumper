@@ -15,7 +15,7 @@ namespace GameLogic.Player.Board
 
         IEnumerable<MergeItem> MergeItems { get; }
 
-        IEnumerable<ICoordinate> Coordinates { get; }
+        IEnumerable<Coordinate> Coordinates { get; }
 
         BoardBubbleState BubbleState { get; }
 

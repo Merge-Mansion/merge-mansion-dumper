@@ -4,6 +4,7 @@ using GameLogic.Player.Leaderboard.ShortLeaderboardEvent;
 using Metaplay.Core.Serialization;
 using System;
 using Metaplay.Core.Player;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Leaderboard
 {
@@ -37,6 +38,14 @@ namespace GameLogic.Player.Leaderboard
         }
 
         protected LeaderboardBotEventDivisionAvatar(string displayName, string associationId, PlayerSegmentId playerSegmentId, int segmentIdPriority, string botType)
+        {
+        }
+
+        [MetaMember(6, (MetaMemberFlags)0)]
+        [ServerOnly]
+        public EntityId PlayerId { get; set; }
+
+        protected LeaderboardBotEventDivisionAvatar(string displayName, string associationId, EntityId playerId, PlayerSegmentId playerSegmentId, int segmentIdPriority, string botType)
         {
         }
     }

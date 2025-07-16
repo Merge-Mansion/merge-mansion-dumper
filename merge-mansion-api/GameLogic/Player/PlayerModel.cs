@@ -44,13 +44,14 @@ using GameLogic.MixABooster;
 using Code.GameLogic.Player.Board;
 using GameLogic.Player.Events.AdStampCardEvent;
 using GameLogic.Player.Leaderboard.ClassicRacesEvent;
+using Code.GameLogic.Player;
 
 namespace GameLogic.Player
 {
     [MetaSerializableDerived(1)]
     [MetaReservedMembers(99, 400)]
     [MetaReservedMembers(11, 12)]
-    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285 })]
+    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285, 249 })]
     [SupportedSchemaVersions(21, 48)]
     public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IPlayer, IGenerationContext
     {
@@ -303,10 +304,6 @@ namespace GameLogic.Player
         [NoChecksum]
         public BanInfo BanInfo { get; set; }
 
-        [MetaMember(249, (MetaMemberFlags)0)]
-        [NoChecksum]
-        public Dictionary<LocationId, F64Vec2> CameraPositionPerLocation { get; set; }
-
         [MetaMember(250, (MetaMemberFlags)0)]
         public PlayerSideBoardEventsModel SideBoardEvents { get; set; }
 
@@ -337,8 +334,8 @@ namespace GameLogic.Player
         [NoChecksum]
         public bool MysteryMachineAllTasksCompletedRewardClaimed_DEPRECATED { get; set; }
 
-        [MetaMember(259, (MetaMemberFlags)0)]
-        public List<BoardInventory.ProducerInventorySlotState> ProducerInventoryEntries { get; set; }
+        [IgnoreDataMember]
+        public List<IWritableProducerInventorySlotState> ProducerInventoryEntries { get; set; }
 
         [MetaMember(260, (MetaMemberFlags)0)]
         public int MysteryMachineAllTasksCompletedRewardClaimedEventInstance { get; set; }
@@ -395,7 +392,7 @@ namespace GameLogic.Player
         public IEnumerable<MiniEventModel> ActiveMiniEvents { get; }
 
         [IgnoreDataMember]
-        public Dictionary<string, ICoordinate> BubblesWithAds { get; }
+        public Dictionary<string, Coordinate> BubblesWithAds { get; }
 
         [MetaMember(275, (MetaMemberFlags)0)]
         public RandomPCG RewardContainerRandom { get; set; }
@@ -411,7 +408,10 @@ namespace GameLogic.Player
 
         [MetaMember(279, (MetaMemberFlags)0)]
         public PlayerTemporaryCardCollectionEventsModel TemporaryCardCollectionEvents { get; set; }
-        public Dictionary<string, ICoordinate> bubbleAdsDictionary { get; set; }
+
+        [MetaMember(280, (MetaMemberFlags)0)]
+        [NoChecksum]
+        public Dictionary<string, Coordinate> bubbleAdsDictionary { get; set; }
 
         [IgnoreDataMember]
         public BoultonLeagueDivisionClientState BoultonLeagueDivisionClientState { get; }
@@ -502,10 +502,6 @@ namespace GameLogic.Player
         public int CurrentDigEventShinyProgressIndex { get; set; }
         public IEnumerable<CoreSupportEventModel> ActiveCoreSupportEvents { get; }
 
-        [MetaMember(280, (MetaMemberFlags)0)]
-        [NoChecksum]
-        public Dictionary<string, Coordinate> bubbleAdsDictionaryInternal { get; set; }
-
         [MetaMember(306, (MetaMemberFlags)0)]
         public PlayerAdStampCardEventModel AdStampCardEvents { get; set; }
 
@@ -515,5 +511,12 @@ namespace GameLogic.Player
         [IgnoreDataMember]
         public ClassicRacesEventDivisionClientState ClassicRacesEventDivisionClientState { get; }
         public IEnumerable<AdStampCardEventModel> ActiveAdStampCardEvents { get; }
+
+        [MetaMember(308, (MetaMemberFlags)0)]
+        [NoChecksum]
+        public Dictionary<LocationId, F64Vec3> CameraPositionsPerLocation { get; set; }
+
+        [IgnoreDataMember]
+        public string SessionHandshakeDeviceModel { get; set; }
     }
 }

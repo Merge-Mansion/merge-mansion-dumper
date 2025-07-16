@@ -73,6 +73,7 @@ using Metacore;
 using Code.GameLogic.ExtraSpawns;
 using GameLogic.TaskLists;
 using System.Collections.Immutable;
+using Code.GameLogic.IAP;
 
 namespace GameLogic.Config
 {
@@ -1143,5 +1144,10 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<Currencies, ExtraSpawnCurrencyValueInfo> ExtraSpawnCurrencyValues { get; set; }
         public IReadOnlyDictionary<int, CardCollectionCardId> InformantTipsByItemId { get; set; }
+
+        [GameConfigEntry("CoreSupportEventModes", true, null)]
+        [GameConfigEntryTransform(typeof(CoreSupportEventModeSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<CoreSupportEventModeId, CoreSupportEventModeInfo> CoreSupportEventModes { get; set; }
     }
 }

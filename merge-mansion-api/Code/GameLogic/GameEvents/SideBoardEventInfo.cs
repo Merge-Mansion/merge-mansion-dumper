@@ -14,6 +14,7 @@ using GameLogic.Config;
 using System.Runtime.Serialization;
 using GameLogic.Player.Rewards;
 using Merge;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {

@@ -53,5 +53,6 @@ namespace Code.GameLogic.GameEvents
         private CoreSupportEventStartPopupAction StartPopupAction { get; set; }
         private CoreSupportEventTokenTarget FallbackTokenTarget { get; set; }
         private CoreSupportEventTokenType TokenType { get; set; }
+        private bool ForceDisableInfoPanel { get; set; }
     }
 }

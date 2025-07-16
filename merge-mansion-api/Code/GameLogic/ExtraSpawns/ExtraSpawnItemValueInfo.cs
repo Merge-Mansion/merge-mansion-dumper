@@ -22,5 +22,13 @@ namespace Code.GameLogic.ExtraSpawns
         public ExtraSpawnItemValueInfo(int configKey, F32 value)
         {
         }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [NoChecksum]
+        private string ItemName { get; set; }
+
+        public ExtraSpawnItemValueInfo(string configKey, F32 value)
+        {
+        }
     }
 }

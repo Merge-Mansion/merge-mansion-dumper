@@ -69,6 +69,7 @@ using GameLogic.Story.Videos;
 using GameLogic.Story.SlideShows;
 using Metaplay.Core.Localization;
 using Code.GameLogic.Hotspots;
+using Code.GameLogic.IAP;
 
 namespace GameLogic.Config
 {
@@ -495,5 +496,7 @@ namespace GameLogic.Config
         GameConfigLibrary<CustomHotspotTableId, CustomHotspotTablesInfo> CustomTables { get; }
 
         GameConfigLibrary<CoreSupportEventMinigameId, ClassicRacesMinigameInfo> ClassicRacesMinigames { get; }
+
+        GameConfigLibrary<ClassicRacesEventStageId, ClassicRacesEventStageInfo> ClassicRacesEventStages { get; }
     }
 }

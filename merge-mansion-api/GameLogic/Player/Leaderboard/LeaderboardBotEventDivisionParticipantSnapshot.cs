@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using GameLogic.Player.Leaderboard.ShortLeaderboardEvent;
 using Metaplay.Core.Serialization;
 using System;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Leaderboard
 {
@@ -24,6 +25,13 @@ namespace GameLogic.Player.Leaderboard
         }
 
         public LeaderboardBotEventDivisionParticipantSnapshot(int participantIndex, int score, string displayName)
+        {
+        }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        public EntityId PlayerId { get; set; }
+
+        public LeaderboardBotEventDivisionParticipantSnapshot(int participantIndex, int score, string displayName, EntityId playerId)
         {
         }
     }

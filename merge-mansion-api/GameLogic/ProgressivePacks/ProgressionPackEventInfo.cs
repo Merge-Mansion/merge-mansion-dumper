@@ -11,6 +11,7 @@ using GameLogic.Config;
 using System.Runtime.Serialization;
 using Metaplay.Core.Schedule;
 using GameLogic.StatsTracking;
+using Code.GameLogic.IAP;
 
 namespace GameLogic.ProgressivePacks
 {

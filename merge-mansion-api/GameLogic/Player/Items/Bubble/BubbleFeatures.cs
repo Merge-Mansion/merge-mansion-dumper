@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using Metaplay.Core;
 using Metaplay.Core.Model;
 using System.Collections.Generic;
+using GameLogic.Config.Types;
 
 namespace GameLogic.Player.Items.Bubble
 {

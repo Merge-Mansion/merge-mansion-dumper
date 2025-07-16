@@ -7,7 +7,7 @@ using Code.GameLogic.Player.Board;
 namespace GameLogic.Player.Board
 {
     [MetaSerializable]
-    public struct Coordinate : ICoordinate
+    public struct Coordinate
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public int X { get; set; }
@@ -20,12 +20,12 @@ namespace GameLogic.Player.Board
         public bool IsInvalid { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<ICoordinate> CrossNeighbours { get; }
+        public IEnumerable<Coordinate> CrossNeighbours { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<ICoordinate> Clockwise3x3 { get; }
+        public IEnumerable<Coordinate> Clockwise3x3 { get; }
 
         [IgnoreDataMember]
-        public IEnumerable<ICoordinate> ClockwiseLarger3x3 { get; }
+        public IEnumerable<Coordinate> ClockwiseLarger3x3 { get; }
     }
 }

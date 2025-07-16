@@ -5,8 +5,7 @@ using Newtonsoft.Json;
 namespace Metaplay.Core.Config
 {
     [MetaSerializable]
-    public class GameConfigLibraryPatch<TKey, TInfo> : GameConfigEntryPatch<GameConfigLibrary<TKey, TInfo>, Dictionary<TKey, TInfo>>, IGameConfigLibraryPatch
-        where TInfo : IGameConfigData<TKey>
+    public class GameConfigLibraryPatch<TKey, TInfo> : GameConfigEntryPatch<GameConfigLibrary<TKey, TInfo>, Dictionary<TKey, TInfo>>, IGameConfigLibraryPatch where TInfo : IGameConfigData<TKey>
     {
         [JsonProperty("replacedItems")]
         private Dictionary<TKey, TInfo> _replacedItems;

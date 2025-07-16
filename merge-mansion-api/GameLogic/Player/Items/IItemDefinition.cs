@@ -29,6 +29,7 @@ using GameLogic.Player.Director.Config;
 using Metaplay.Core;
 using Metaplay.Core.Model;
 using Metaplay.Core.Serialization;
+using GameLogic.ConfigPrefabs;
 
 namespace GameLogic.Player.Items
 {
@@ -163,5 +164,7 @@ namespace GameLogic.Player.Items
         ICameraFeatures CameraFeatures { get; }
 
         IWeightFeatures WeightFeatures { get; }
+
+        ConfigPrefabId CustomItemInfoPopupId { get; }
     }
 }

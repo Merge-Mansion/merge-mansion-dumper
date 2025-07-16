@@ -3,6 +3,8 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using GameLogic.Config.Types;
 
 namespace GameLogic.Player.Items.Chest
 {

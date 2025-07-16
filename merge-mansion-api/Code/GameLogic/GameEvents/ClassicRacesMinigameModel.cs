@@ -24,6 +24,7 @@ namespace Code.GameLogic.GameEvents
         public int RacesWon { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
+        [NoChecksum]
         private ClassicRacesParticipantData[] LastSeenParticipantsData { get; set; }
 
         [MetaMember(6, (MetaMemberFlags)0)]

@@ -135,5 +135,12 @@ namespace GameLogic.Area
         public AreaInfo(AreaId configKey, LocationId locationId, string titleLocalizationId, string categoryLocalizationId, List<PlayerRequirement> teaseRequirements, List<PlayerRequirement> unlockRequirements, List<PlayerReward> rewards, string lockedDescriptionLocalizationId, string unlockedDescriptionLocalizationId, string shortDescriptionLocalizationId, List<MetaRef<HotspotDefinition>> hotspots, List<MetaRef<MapSpotInfo>> mapSpots, HotspotId unlockedBy, MergeChainId unlockInstructionMergeChain, MetaRef<AreaInfo> unlockInstructionArea, MetaRef<AreaInfo> nextAreaToUnlock, bool notifyOnStart, bool forceTravelOnNotify, bool isTaskGroupV2Enabled, List<MetaRef<TaskListInfo>> taskListRefs)
         {
         }
+
+        [MetaMember(22, (MetaMemberFlags)0)]
+        public int RowIndex { get; set; }
+
+        public AreaInfo(AreaId configKey, LocationId locationId, string titleLocalizationId, string categoryLocalizationId, List<PlayerRequirement> teaseRequirements, List<PlayerRequirement> unlockRequirements, List<PlayerReward> rewards, string lockedDescriptionLocalizationId, string unlockedDescriptionLocalizationId, string shortDescriptionLocalizationId, List<MetaRef<HotspotDefinition>> hotspots, List<MetaRef<MapSpotInfo>> mapSpots, HotspotId unlockedBy, MergeChainId unlockInstructionMergeChain, MetaRef<AreaInfo> unlockInstructionArea, MetaRef<AreaInfo> nextAreaToUnlock, bool notifyOnStart, bool forceTravelOnNotify, bool isTaskGroupV2Enabled, List<MetaRef<TaskListInfo>> taskListRefs, int rowIndex)
+        {
+        }
     }
 }

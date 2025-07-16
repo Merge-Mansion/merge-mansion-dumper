@@ -12,6 +12,7 @@ using Metaplay.Core.Math;
 using GameLogic.Decorations;
 using Merge;
 using GameLogic.Config;
+using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {

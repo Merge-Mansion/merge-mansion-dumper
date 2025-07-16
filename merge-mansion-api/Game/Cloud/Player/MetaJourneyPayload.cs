@@ -10,9 +10,5 @@ namespace Game.Cloud.Player
 
         [MetaMember(2, (MetaMemberFlags)0)]
         public string Payload { get; set; }
-
-        private MetaJourneyPayload()
-        {
-        }
     }
 }

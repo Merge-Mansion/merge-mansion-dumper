@@ -6,6 +6,7 @@ using System;
 using Metaplay.Core;
 using GameLogic.Config;
 using Metaplay.Core.Schedule;
+using Code.GameLogic.IAP;
 
 namespace GameLogic.ProgressivePacks
 {

@@ -437,5 +437,16 @@ namespace GameLogic.Player.Items
         public MergeItem(MetaRef<ItemDefinition> itemDefinitionRef, MetaTime timestamp, ItemVisibility itemVisibility, DecayState decayState, ActivationState activationState, StorageState activationStorage, SpawnState spawnState, StorageState spawnStorage, IChestState chestState, ISinkState sinkState, TimeContainerState timeContainerState, ChargesState chargesState, XpState xpState, OrderParentState orderState, PersistentState persistentState, GemState gemState)
         {
         }
+
+        [IgnoreDataMember]
+        public bool ShowGemWeightLabel { get; }
+
+        public MergeItem(IPlayer player, MetaRef<ItemDefinition> itemDefinitionRef, MetacoreTime timestamp, MergeBoardId boardId, ItemVisibility itemVisibility, bool insideBubble, bool checkNullExtra)
+        {
+        }
+
+        public MergeItem(IMergeMansionGameConfig config, MetaRef<ItemDefinition> resultingItemRef, IMergeItem sourceItem, MetacoreTime timestamp, IPlayer player)
+        {
+        }
     }
 }

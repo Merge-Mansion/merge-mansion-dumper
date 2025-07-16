@@ -5,6 +5,7 @@ using GameLogic.Config;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 using Metaplay.Core.Rewards;
+using Code.GameLogic.IAP;
 
 namespace GameLogic.Player.Rewards
 {

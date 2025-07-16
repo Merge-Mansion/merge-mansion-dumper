@@ -2,6 +2,8 @@ using GameLogic.Player.Items.Production;
 using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
+using System.Runtime.Serialization;
+using GameLogic.Config.Types;
 
 namespace GameLogic.Player.Items.Decay
 {

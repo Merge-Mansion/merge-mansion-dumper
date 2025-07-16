@@ -3,6 +3,7 @@ using Metaplay.Core.Analytics;
 using Metaplay.Core.Player;
 using System;
 using Metaplay.Core;
+using GameLogic.Config.Types;
 
 namespace Game.Logic
 {

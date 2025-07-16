@@ -3,6 +3,7 @@ using Code.GameLogic.Config;
 using Metaplay.Core.Config;
 using System;
 using System.Collections.Generic;
+using Code.GameLogic.IAP;
 using Metaplay.Core;
 
 namespace GameLogic.Config
