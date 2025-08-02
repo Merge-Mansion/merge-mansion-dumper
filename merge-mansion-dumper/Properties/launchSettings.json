@@ -6,7 +6,7 @@
     },
     "merge-mansion-dumper": {
       "commandName": "Project",
-      "commandLineArgs": "-m 1 -c manual_dump\\files\\GameConfigCache\\SharedGameConfig\\A7C29842F04D8535-2BD35EA2D2331BFB -p manual_dump\\files\\GameConfigCache\\SharedGameConfigPatches\\277922CF46E89CAE-00FB8239B4EA8F30 -l manual_dump\\cache\\Localizations\\en.mpc\\2851700EB9D96898-85147335F0CB29E3"
+      "commandLineArgs": "-m 1 -c manual_dump\\files\\GameConfigCache\\SharedGameConfig\\52544F8AF9FE5FE6-BCB1512BE77C56FF -p manual_dump\\files\\GameConfigCache\\SharedGameConfigPatches\\19C2A30DA621F6AC-09F6D224E95B5CDA -l manual_dump\\cache\\Localizations\\en.mpc\\1DE093599692F878-000F131856A3901E"
     }
   }
 }
