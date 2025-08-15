@@ -14,7 +14,7 @@ namespace GameLogic.Player.Rewards
         private string OverrideLocalizationRewardContainerId { get; set; }
         private int MinAmount { get; set; }
         private int MaxAmount { get; set; }
-        private List<RewardContainerItemType> ItemType { get; set; }
+        private List<PlayerRewardType> ItemType { get; set; }
         private List<string> Item { get; set; }
         private List<string> ItemAux0 { get; set; }
         private List<string> ItemAux1 { get; set; }
@@ -31,5 +31,12 @@ namespace GameLogic.Player.Rewards
         private bool UseIconLibrary { get; set; }
         private string SfxClose { get; set; }
         private string SfxOpen { get; set; }
+        private List<string> SegmentItemWeight { get; set; }
+        private List<int?> ShowMinAmount { get; set; }
+        private List<int?> ShowMaxAmount { get; set; }
+        private List<string> GroupItems { get; set; }
+        private List<int> GroupMinAmount { get; set; }
+        private List<int> GroupMaxAmount { get; set; }
+        private bool ShowChances { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace GameLogic.Player.Items
     {
         private static readonly MetaTime guaranteedFuture; // 0x0
         [IgnoreDataMember]
-        private MergeItem.MergeItemExtra Extra => extra ??= new MergeItemExtra();
+        public MergeItem.MergeItemExtra Extra => extra ??= new MergeItemExtra();
 
         [MetaOnMemberDeserializationFailure("GarageCleanupSpawnerFix")]
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -180,9 +180,6 @@ namespace GameLogic.Player.Items
         public ItemRewardsState RewardsState { get; }
 
         [IgnoreDataMember]
-        public IMergeChainDefinition MergeChain { get; }
-
-        [IgnoreDataMember]
         public bool ShowTutorialFingerOnDiscovery { get; }
         public int ItemId { get; }
         public string ItemType { get; }
@@ -229,7 +226,7 @@ namespace GameLogic.Player.Items
         public bool IsBoosted { get; }
 
         [IgnoreDataMember]
-        private F32 TimeBoostMultiplier { get; }
+        public F32 TimeBoostMultiplier { get; }
 
         [IgnoreDataMember]
         public bool IsAffectedByBooster { get; }
@@ -335,7 +332,7 @@ namespace GameLogic.Player.Items
         public bool IsSpawnBoosted { get; }
 
         [IgnoreDataMember]
-        private F32 TimeSpawnBoostMultiplier { get; }
+        public F32 TimeSpawnBoostMultiplier { get; }
 
         [IgnoreDataMember]
         public bool ActivatedWithNoCost { get; }
@@ -448,5 +445,7 @@ namespace GameLogic.Player.Items
         public MergeItem(IMergeMansionGameConfig config, MetaRef<ItemDefinition> resultingItemRef, IMergeItem sourceItem, MetacoreTime timestamp, IPlayer player)
         {
         }
+
+        public MergeChainId ChainId { get; }
     }
 }

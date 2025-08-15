@@ -13,6 +13,6 @@ namespace Metaplay.Core.Player
         {
         }
 
-        public override EntityDebugConfig DebugConfigForCurrentSession { get; }
+        public override PlayerDebugConfig DebugConfigForCurrentSession { get; }
     }
 }

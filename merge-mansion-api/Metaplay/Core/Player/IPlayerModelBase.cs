@@ -53,6 +53,7 @@ namespace Metaplay.Core.Player
 
         SessionToken SessionToken { get; set; }
 
+        [Obsolete("Please check whether PlayerModel.BanInfo is not-null and whether BanInfo.IsBannedAtTime(MetaTime) is true.")]
         bool IsBanned { get; set; }
 
         PlayerTimeZoneInfo TimeZoneInfo { get; set; }
@@ -124,5 +125,16 @@ namespace Metaplay.Core.Player
         PlayerLiveOpsEventsModel LiveOpsEvents { get; }
 
         PlayerSessionDebugMode SessionDebugModeOverride { get; set; }
+
+        IPlayerModelClientListenerCoreInternal ClientListenerCoreInternal { get; set; }
+
+        AuthenticationKey SessionAuthenticationKey { get; set; }
+
+        PlayerBanInfo BanInfo { get; set; }
+
+        [Obsolete("Please check whether PlayerModel.BanInfo is not-null instead.")]
+        bool IsPermaBanned { get; }
+
+        Dictionary<AuthenticationPlatform, IPlatformSpecificData> PlatformSpecificData { get; }
     }
 }

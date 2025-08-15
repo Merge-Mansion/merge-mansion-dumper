@@ -2,6 +2,8 @@ using Metaplay.Core.Config;
 using Metaplay.Core.Math;
 using Metaplay.Core.Model;
 using System;
+using System.Collections.Generic;
+using Metaplay.Core.Localization;
 
 namespace Metaplay.Core.InAppPurchase
 {
@@ -41,5 +43,21 @@ namespace Metaplay.Core.InAppPurchase
         public InAppProductInfoBase(InAppProductId productId, string name, InAppProductType type, F64 price, bool hasDynamicContent, string developmentId, string googleId, string appleId)
         {
         }
+
+        private static HashSet<int> _knownSteamPricePoints;
+        [MetaMember(108, (MetaMemberFlags)0)]
+        public int? SteamId { get; set; }
+
+        [MetaMember(110, (MetaMemberFlags)0)]
+        public SteamPaymentInterval SteamPaymentInterval { get; set; }
+
+        [MetaMember(111, (MetaMemberFlags)0)]
+        public int SteamPricePoint { get; set; }
+
+        [MetaMember(112, (MetaMemberFlags)0)]
+        public TranslationId StoreDescriptionTranslationId { get; set; }
+
+        [MetaMember(109, (MetaMemberFlags)0)]
+        public string StoreDescription { get; set; }
     }
 }

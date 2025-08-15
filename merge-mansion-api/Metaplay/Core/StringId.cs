@@ -40,7 +40,6 @@ namespace Metaplay.Core
 
         public static bool operator ==(StringId<TStringId> a, StringId<TStringId> b) => a?.Value == b?.Value;
         public static bool operator !=(StringId<TStringId> a, StringId<TStringId> b) => a?.Value != b?.Value;
-        public static int MaxLength;
         private static ConcurrentDictionary<string, TStringId> s_interned;
         protected StringId()
         {

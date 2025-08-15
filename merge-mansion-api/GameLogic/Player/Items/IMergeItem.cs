@@ -18,6 +18,7 @@ using GameLogic.Player.Items.Order;
 using GameLogic.Player.Items.GemMining;
 using GameLogic.MergeChains;
 using Metaplay.Core;
+using Metaplay.Core.Math;
 
 namespace GameLogic.Player.Items
 {
@@ -72,8 +73,6 @@ namespace GameLogic.Player.Items
         RockChunkState RockChunkState { get; }
 
         GemState GemState { get; }
-
-        IMergeChainDefinition MergeChain { get; }
 
         IItemEffectFeatures ItemActivationEffects { get; }
 
@@ -130,5 +129,13 @@ namespace GameLogic.Player.Items
         ItemAttachmentsState AttachmentsStateMaybe { get; }
 
         bool HideSinkUndiscoveredItemsInHints { get; }
+
+        MergeChainId ChainId { get; }
+
+        MergeItem.MergeItemExtra Extra { get; }
+
+        F32 TimeBoostMultiplier { get; }
+
+        F32 TimeSpawnBoostMultiplier { get; }
     }
 }

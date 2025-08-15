@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using GameLogic.Player.Rewards;
 using Metaplay.Core.Math;
+using Code.GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
-    public class DigEventBoards : IGameConfigData<DigEventBoardId>, IGameConfigData, IHasGameConfigKey<DigEventBoardId>
+    public class DigEventBoards : IGameConfigData<DigEventBoardId>, IGameConfigData, IHasGameConfigKey<DigEventBoardId>, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public DigEventBoardId BoardId { get; set; }

@@ -7,7 +7,7 @@ namespace Metaplay.Core.Player
     [MetaReservedMembers(100, 150)]
     public abstract class PlayerSessionDebugMode
     {
-        public abstract EntityDebugConfig DebugConfigForCurrentSession { get; }
+        public abstract PlayerDebugConfig DebugConfigForCurrentSession { get; }
 
         protected PlayerSessionDebugMode()
         {

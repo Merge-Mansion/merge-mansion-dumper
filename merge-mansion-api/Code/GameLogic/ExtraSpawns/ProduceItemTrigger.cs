@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using System;
+using System.Runtime.Serialization;
 
 namespace Code.GameLogic.ExtraSpawns
 {
@@ -16,5 +17,8 @@ namespace Code.GameLogic.ExtraSpawns
         public ProduceItemTrigger(int energyConsumptionMultiplier)
         {
         }
+
+        [IgnoreDataMember]
+        public ExtraSpawnTriggerType Type { get; }
     }
 }

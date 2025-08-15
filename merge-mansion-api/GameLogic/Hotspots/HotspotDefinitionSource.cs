@@ -50,7 +50,7 @@ namespace GameLogic.Hotspots
         private List<int> BonusRewardAmount { get; set; }
         private MetaDuration BonusTimerDuration { get; set; }
         private string DescriptionLocalizationId { get; set; }
-        public LocationTravelId LocationTravelId { get; set; }
+        public List<LocationTravelId> LocationTravelId { get; set; }
         public AreaId AreaInfoOverride { get; set; }
         public HotspotId ConfigKey { get; }
 

@@ -12,7 +12,8 @@ namespace GameLogic.Config.Shop.Items
         private MetaOfferId OfferId { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> RewardItem { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        private ItemDef RewardItem { get; set; }
 
         MetaOfferGroupId GameLogic.Config.Shop.Items.IOfferShopItem.OfferGroupId { get; }
 

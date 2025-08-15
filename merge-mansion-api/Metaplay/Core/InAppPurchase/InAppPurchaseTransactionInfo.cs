@@ -44,5 +44,9 @@ namespace Metaplay.Core.InAppPurchase
         private InAppPurchaseTransactionInfo(InAppPurchasePlatform platform, string transactionId, InAppProductId productId, InAppProductType productType, string platformProductId, string receipt, string signature, MetaTime purchaseTime, bool hasMissingContent, bool allowTestPurchases)
         {
         }
+
+        [MetaMember(11, (MetaMemberFlags)0)]
+        public InAppPurchaseEventPlatformState PlatformState { get; set; }
+        public string PlatformSpecificTransactionId { get; }
     }
 }

@@ -1,4 +1,5 @@
 using Metaplay.Core.Model;
+using System;
 
 namespace GameLogic.Player.Rewards
 {
@@ -15,5 +16,7 @@ namespace GameLogic.Player.Rewards
         public RewardContainer(RewardContainerId rewardContainerId)
         {
         }
+
+        public override bool ShouldShowInfoButton { get; }
     }
 }

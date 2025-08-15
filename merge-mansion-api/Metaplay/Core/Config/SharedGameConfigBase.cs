@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Metaplay.Core.Config
 {
-    public class SharedGameConfigBase : GameConfigBase, ISharedGameConfig, IGameConfig, IGameConfigDataResolver
+    public class SharedGameConfigBase : GameConfigBase, ISharedGameConfig, IGameConfig, IGameConfigDataResolver, IMetaIntegration<ISharedGameConfig>, IMetaIntegration, IRequireSingleConcreteType
     {
         private static IGameConfigLibrary<LanguageId, LanguageInfo> _defaultLanguages;
         private static IGameConfigLibrary<InAppProductId, InAppProductInfoBase> _defaultInAppProducts;

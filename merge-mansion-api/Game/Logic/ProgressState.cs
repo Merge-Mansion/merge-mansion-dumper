@@ -346,5 +346,8 @@ namespace Game.Logic
         [MetaMember(94, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         private Dictionary<TaskListId, List<HotspotId>> ActiveTaskLists { get; set; }
+
+        [IgnoreDataMember]
+        public MetaTime LatestCompletedHotspotTime { get; }
     }
 }

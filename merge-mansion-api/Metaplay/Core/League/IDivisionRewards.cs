@@ -10,6 +10,6 @@ namespace Metaplay.Core.League
     {
         bool IsClaimed { get; set; }
 
-        IEnumerable<MetaReward> Rewards { get; }
+        List<MetaPlayerRewardBase> Rewards { get; }
     }
 }

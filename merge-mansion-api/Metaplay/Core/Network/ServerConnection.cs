@@ -852,8 +852,8 @@ namespace Metaplay.Core.Network
 
             EnqueueInfo(new GotServerHello(serverHello));
 
-            if (serverHello.FullProtocolHash != MetaSerializerTypeRegistry.FullProtocolHash)
-                EnqueueInfo(new FullProtocolHashMismatchInfo(MetaSerializerTypeRegistry.FullProtocolHash, serverHello.FullProtocolHash));
+            if (serverHello.FullProtocolHashLegacy != MetaSerializerTypeRegistry.FullProtocolHash)
+                EnqueueInfo(new FullProtocolHashMismatchInfo(MetaSerializerTypeRegistry.FullProtocolHash, serverHello.FullProtocolHashLegacy));
 
             var isClientCommitValid = !string.IsNullOrEmpty(_buildVersion.CommitId) && _buildVersion.CommitId != "undefined";
             var isServerCommitValid = !string.IsNullOrEmpty(serverHello.CommitId) && serverHello.CommitId != "undefined";

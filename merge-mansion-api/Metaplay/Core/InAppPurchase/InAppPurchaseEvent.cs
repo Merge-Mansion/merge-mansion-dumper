@@ -34,9 +34,6 @@ namespace Metaplay.Core.InAppPurchase
         [MetaMember(7, (MetaMemberFlags)0)]
         public InAppPurchaseStatus Status { get; set; }
 
-        [MetaMember(16, (MetaMemberFlags)0)]
-        public string OrderId { get; set; }
-
         [MetaMember(8, (MetaMemberFlags)0)]
         public bool IsDuplicateTransaction { get; set; }
 
@@ -88,5 +85,24 @@ namespace Metaplay.Core.InAppPurchase
         protected InAppPurchaseEvent()
         {
         }
+
+        public string PlatformSpecificTransactionId { get; }
+
+        [MetaMember(16, (MetaMemberFlags)0)]
+        public string AlternativePurchaseId { get; set; }
+        public string PlatformSpecificOriginalTransactionId { get; }
+
+        [MetaMember(26, (MetaMemberFlags)0)]
+        public ServerDrivenInAppPurchaseEventState ServerDriven { get; set; }
+
+        [MetaMember(27, (MetaMemberFlags)0)]
+        public InAppPurchaseEventPlatformState PlatformState { get; set; }
+
+        [MetaMember(28, (MetaMemberFlags)0)]
+        public InAppPurchaseEventRefundState Refund { get; set; }
+
+        [MetaMember(29, (MetaMemberFlags)0)]
+        [ServerOnly]
+        public InAppPurchasePendingRefundHandling PendingRefundToHandle { get; set; }
     }
 }

@@ -1,14 +1,24 @@
 using Metaplay.Core.Model;
+using System;
 
 namespace Metaplay.Core.InAppPurchase
 {
     [MetaSerializable]
-    public enum InAppPurchasePlatform
+    public class InAppPurchasePlatform : DynamicEnum<InAppPurchasePlatform>
     {
-        Google = 0,
-        Apple = 1,
-        Development = 2,
-        _ReservedDontUse3 = 3,
-        WebshopNeon = 100
+        public static int MaxNameLength;
+        public static InAppPurchasePlatform Google;
+        public static InAppPurchasePlatform Apple;
+        public static InAppPurchasePlatform Development;
+        public static InAppPurchasePlatform _ReservedDontUse3;
+        public static InAppPurchasePlatform _ReservedDontUse4;
+        public static InAppPurchasePlatform WebshopNeon;
+
+        protected InAppPurchasePlatform(int id, string name, bool isValid, bool isReservedValueDummy) : base(id, name, isValid)
+        {
+            IsReservedValueDummy = isReservedValueDummy;
+        }
+
+        public bool IsReservedValueDummy { get; }
     }
 }

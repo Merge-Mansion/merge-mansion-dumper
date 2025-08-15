@@ -17,5 +17,8 @@ namespace GameLogic.Player.Items.Fishing
         public CameraFeatures(bool isCamera)
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        public string TakePhotoSfx { get; set; }
     }
 }

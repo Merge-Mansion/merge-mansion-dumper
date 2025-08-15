@@ -30,6 +30,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using Metaplay.Core.Serialization;
 using GameLogic.ConfigPrefabs;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items
 {
@@ -115,8 +116,6 @@ namespace GameLogic.Player.Items
 
         string OverrideLocalizationItemCategory { get; }
 
-        MergeChainDefinition MergeChain { get; }
-
         ItemRarity Rarity { get; }
 
         F64 CostInDiamonds { get; }
@@ -157,14 +156,12 @@ namespace GameLogic.Player.Items
 
         IEnumerable<IDirectorAction> OnDiscovered { get; }
 
-        bool IsMaxLevel { get; }
-
-        MetaRef<MergeChainDefinition> MergeChainRef { get; }
-
         ICameraFeatures CameraFeatures { get; }
 
         IWeightFeatures WeightFeatures { get; }
 
         ConfigPrefabId CustomItemInfoPopupId { get; }
+
+        MergeChainDef MergeChainDef { get; }
     }
 }

@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Metaplay.Core.Client;
+using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace Metaplay.Core
 {
+    [JsonConverter(typeof(DynamicEnumJsonConverter))]
+    [TypeConverter(typeof(DynamicEnumTypeConverter))]
     public class DynamicEnum<TEnum> : IDynamicEnum where TEnum : DynamicEnum<TEnum>
     {
         private static readonly Lazy<List<TEnum>> _allValues = new Lazy<List<TEnum>>(FindAllValues); // 0x0

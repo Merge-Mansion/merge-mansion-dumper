@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using GameLogic;
+using System.Runtime.Serialization;
 
 namespace Code.GameLogic.ExtraSpawns
 {
@@ -16,5 +17,8 @@ namespace Code.GameLogic.ExtraSpawns
         public CompleteTaskTrigger(HotspotId? hotspot)
         {
         }
+
+        [IgnoreDataMember]
+        public ExtraSpawnTriggerType Type { get; }
     }
 }

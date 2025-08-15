@@ -10,7 +10,7 @@ namespace Metaplay.Core.League
     {
         [MetaMember(100, (MetaMemberFlags)0)]
         public bool IsClaimed { get; set; }
-        public IEnumerable<MetaReward> Rewards { get; }
+        public List<MetaPlayerRewardBase> Rewards { get; }
 
         protected DivisionPlayerRewardsBase()
         {

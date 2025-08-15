@@ -8,10 +8,13 @@ namespace Metaplay.Core.Network
         public static ServerGateway SelectGatewayForInitialConnection(ServerEndpoint backend, int numFailedConnectionAttempts)
         {
             var gateway = backend.PrimaryGateway;
-            if (numFailedConnectionAttempts != 0 && !backend.BackupGateways.Any())
+            if (numFailedConnectionAttempts != 0 && !backend.BackupGatewaySpecs.Any())
             {
-                var index = new RandomPCG().NextInt(backend.BackupGateways.Count());
-                gateway = backend.BackupGateways.ElementAt(index);
+                var index = new RandomPCG().NextInt(backend.BackupGatewaySpecs.Count());
+                gateway = backend.BackupGatewaySpecs.ElementAt(index);
+
+                if (string.IsNullOrEmpty(gateway.ServerHost))
+                    gateway.ServerHost = backend.ServerHost;
             }
 
             if (gateway.ServerHost != "localhost")
@@ -34,7 +37,7 @@ namespace Metaplay.Core.Network
 
         private static ServerGateway SelectGatewayWithAnomalyCount(ServerEndpoint backend, int numAnomalies)
         {
-            var backups = backend.BackupGateways.ToArray();
+            var backups = backend.BackupGatewaySpecs.ToArray();
             var rand = RandomPCG.CreateNew();
 
             var maxRand = backups.Length;

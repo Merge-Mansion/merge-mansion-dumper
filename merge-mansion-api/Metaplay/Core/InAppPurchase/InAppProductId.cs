@@ -1,4 +1,5 @@
 using Metaplay.Core.Model;
+using System;
 
 namespace Metaplay.Core.InAppPurchase
 {
@@ -8,5 +9,7 @@ namespace Metaplay.Core.InAppPurchase
         public InAppProductId()
         {
         }
+
+        public static int MaxLength;
     }
 }

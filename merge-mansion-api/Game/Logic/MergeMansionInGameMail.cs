@@ -92,5 +92,8 @@ namespace Game.Logic
             {
             }
         }
+
+        [MetaMember(13, (MetaMemberFlags)0)]
+        public string HelpshiftLink { get; set; }
     }
 }

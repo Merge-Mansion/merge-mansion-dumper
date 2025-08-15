@@ -99,12 +99,14 @@ namespace Analytics
         [JsonProperty("empty_board_slots")]
         [MetaMember(23, (MetaMemberFlags)0)]
         [Description("Empty board slot counts")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> EmptyBoardSlots { get; set; }
 
         [JsonProperty("hidden_board_items")]
         [MetaMember(24, (MetaMemberFlags)0)]
         [Description("Empty board slot counts")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, int> HiddenBoardItems { get; set; }
 

@@ -1,10 +1,13 @@
 using Metaplay.Core.Model;
 using System;
+using Metaplay.Core.Forms;
+using Metaplay.Core.Config;
 
 namespace Metaplay.Core.Schedule
 {
     [MetaSerializableDerived(1)]
-    public class MetaRecurringCalendarSchedule : MetaScheduleBase
+    [MetaFormClassValidator(typeof(MetaRecurringCalendarSchedule.FormValidator))]
+    public class MetaRecurringCalendarSchedule : MetaScheduleBase, IGameConfigBuildTimeValidate
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public MetaCalendarDateTime Start { get; set; }
@@ -32,6 +35,10 @@ namespace Metaplay.Core.Schedule
         }
 
         public MetaRecurringCalendarSchedule(MetaScheduleTimeMode timeMode, MetaCalendarDateTime start, MetaCalendarPeriod duration, MetaCalendarPeriod endingSoon, MetaCalendarPeriod preview, MetaCalendarPeriod review, MetaCalendarPeriod? recurrence, int? numRepeats)
+        {
+        }
+
+        class FormValidator : MetaFormValidator<MetaRecurringCalendarSchedule>
         {
         }
     }

@@ -1,4 +1,5 @@
 using Metaplay.Core.Model;
+using Metaplay.Core.Player;
 
 namespace Metaplay.Core.Message
 {
@@ -87,6 +88,9 @@ namespace Metaplay.Core.Message
             public PlayerBanned()
             {
             }
+
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public PlayerBanInfo BanInfo { get; }
         }
 
         [MetaSerializableDerived(100)]
@@ -119,6 +123,11 @@ namespace Metaplay.Core.Message
             public LogicVersionUpdated()
             {
             }
+        }
+
+        [MetaSerializableDerived(13)]
+        public class DirectConnectionLost : SessionForceTerminateReason
+        {
         }
     }
 }

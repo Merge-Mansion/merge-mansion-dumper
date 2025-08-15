@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using System;
+using Metaplay.Core.Client;
 
 namespace Metaplay.Core.MultiplayerEntity.Messages
 {
@@ -25,5 +26,8 @@ namespace Metaplay.Core.MultiplayerEntity.Messages
             ChannelId = channelId;
             ClientData = clientData;
         }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        public EntityClientDebugConfig DebugConfig { get; set; }
     }
 }

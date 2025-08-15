@@ -74,9 +74,6 @@ namespace Metaplay.Core.Player
         [NoChecksum]
         [ExcludeFromGdprExport]
         public SessionToken SessionToken { get; set; }
-
-        [MetaMember(4, (MetaMemberFlags)0)]
-        [NoChecksum]
         public bool IsBanned { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
@@ -228,5 +225,28 @@ namespace Metaplay.Core.Player
         [MetaMember(56, (MetaMemberFlags)0)]
         [ServerOnly]
         public PlayerSessionDebugMode SessionDebugModeOverride { get; set; }
+
+        [IgnoreDataMember]
+        public IPlayerModelClientListenerCoreInternal ClientListenerCoreInternal { get; set; }
+
+        [MetaMember(59, (MetaMemberFlags)0)]
+        [Transient]
+        [NoChecksum]
+        [ExcludeFromGdprExport]
+        public AuthenticationKey SessionAuthenticationKey { get; set; }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        [NoChecksum]
+        [Obsolete]
+        internal bool LegacyIsBanned { get; set; }
+
+        [MetaMember(57, (MetaMemberFlags)0)]
+        [NoChecksum]
+        [ServerOnly]
+        public PlayerBanInfo BanInfo { get; set; }
+        public bool IsPermaBanned { get; }
+
+        [MetaMember(58, (MetaMemberFlags)0)]
+        public Dictionary<AuthenticationPlatform, IPlatformSpecificData> PlatformSpecificData { get; set; }
     }
 }

@@ -20,6 +20,8 @@ namespace Metaplay.Core
         ImmutableX = 12,
         CompanyAccount = 13,
         _ReservedDontUse2 = 14,
-        Steam = 15
+        Steam = 15,
+        WebLogin = 16,
+        _ReservedDontUse3 = 17
     }
 }

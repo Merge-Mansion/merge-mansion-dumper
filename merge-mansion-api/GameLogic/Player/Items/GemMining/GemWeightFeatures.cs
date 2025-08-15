@@ -66,5 +66,8 @@ namespace GameLogic.Player.Items.GemMining
         public GemWeightFeatures(bool hasWeight, F32 minWeight, F32 maxWeight, GemRarity gemRarity, bool isCutGem, List<GemWeightRewardData> weightRewards, F32 cutMultiplier, F32 worldRecordWeightThreshold, StoryDefinitionId worldRecordWeightDialogue, IEnumerable<PlayerReward> worldRecordRewards, GemPalette gemPalette, int gemDisplayPriority, bool showWeightLabel)
         {
         }
+
+        [MetaMember(14, (MetaMemberFlags)0)]
+        public GemWeightType GemWeightType { get; set; }
     }
 }

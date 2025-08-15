@@ -5,6 +5,7 @@ using Metaplay.Core.InAppPurchase;
 using Metaplay.Core.Model;
 using Metaplay.Core.Player;
 using Metaplay.Core.Rewards;
+using Metaplay.Core.Localization;
 
 namespace Metaplay.Core.Offers
 {
@@ -63,5 +64,11 @@ namespace Metaplay.Core.Offers
         }
 
         public virtual string CustomReferencePriceForDashboard { get; }
+
+        [MetaMember(112, (MetaMemberFlags)0)]
+        public TranslationId StoreDescriptionTranslationId { get; set; }
+
+        [MetaMember(113, (MetaMemberFlags)0)]
+        public string StoreDescription { get; set; }
     }
 }

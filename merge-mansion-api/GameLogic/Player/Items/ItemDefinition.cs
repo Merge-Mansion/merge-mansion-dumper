@@ -140,7 +140,8 @@ namespace GameLogic.Player.Items
         public List<string> Tags { get; set; }
 
         [MetaMember(26, (MetaMemberFlags)0)]
-        public MetaRef<MergeChainDefinition> MergeChainRef { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public MergeChainDef MergeChainDef { get; set; }
 
         [MetaMember(27, (MetaMemberFlags)0)]
         public List<string> ConfirmableMergeResults { get; set; }
@@ -173,11 +174,7 @@ namespace GameLogic.Player.Items
         public ILeaderboardFeatures LeaderboardFeatures => _LeaderboardFeatures;
 
         [IgnoreDataMember]
-        public MergeChainDefinition MergeChain => MergeChainRef.Ref;
-
-        [IgnoreDataMember]
         public IEnumerable<IDirectorAction> OnDiscovered => OnDiscoveredActions;
-        public bool IsMaxLevel => MergeChain.IsLastItem(ConfigKey);
 
         public ItemDefinition()
         {

@@ -7,7 +7,7 @@ using Metaplay.Core.Config;
 
 namespace Metaplay.Core.Offers
 {
-    public abstract class MetaOfferGroupSourceConfigItemBase
+    public abstract class MetaOfferGroupSourceConfigItemBase : IMetaIntegration<MetaOfferGroupSourceConfigItemBase>, IMetaIntegration
     {
         public MetaOfferGroupId GroupId { get; set; }
         public string DisplayName { get; set; }
@@ -28,7 +28,7 @@ namespace Metaplay.Core.Offers
         public bool IncludeSoldOutOffers { get; set; }
     }
 
-    public abstract class MetaOfferGroupSourceConfigItemBase<TMetaOfferGroupInfo> : MetaOfferGroupSourceConfigItemBase, IGameConfigSourceItem<TMetaOfferGroupInfo>, IMetaIntegrationConstructible<MetaOfferGroupSourceConfigItemBase<TMetaOfferGroupInfo>>, IMetaIntegration<MetaOfferGroupSourceConfigItemBase<TMetaOfferGroupInfo>>, IMetaIntegrationConstructible, IRequireSingleConcreteType
+    public abstract class MetaOfferGroupSourceConfigItemBase<TMetaOfferGroupInfo> : MetaOfferGroupSourceConfigItemBase, IGameConfigSourceItem<TMetaOfferGroupInfo>, IMetaIntegrationConstructible<MetaOfferGroupSourceConfigItemBase<TMetaOfferGroupInfo>>
     {
     }
 }

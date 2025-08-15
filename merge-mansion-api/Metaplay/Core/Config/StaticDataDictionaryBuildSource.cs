@@ -8,7 +8,7 @@ namespace Metaplay.Core.Config
     [MetaSerializableDerived(104)]
     [MetaFormHidden]
     [MetaAllowNoSerializedMembers]
-    public class StaticDataDictionaryBuildSource : GameConfigBuildSource, IGameConfigSourceFetcher
+    public class StaticDataDictionaryBuildSource : GameConfigBuildSource
     {
         private Dictionary<string, StaticSourceDataItem> _dataDict;
         public override string DisplayName { get; }

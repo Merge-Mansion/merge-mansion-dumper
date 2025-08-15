@@ -48,5 +48,12 @@ namespace Metaplay.Core.EventLog
 
         [MetaMember(107, (MetaMemberFlags)0)]
         public MetaUInt128 PreviousSegmentLastEntryUniqueId;
+        [MetaMember(108, (MetaMemberFlags)0)]
+        [ServerOnly]
+        public int OldestPossiblyExistingPersistedSegmentId;
+        [MetaMember(109, (MetaMemberFlags)0)]
+        [ServerOnly]
+        [Transient]
+        public bool HasOngoingSegmentDeletionInBackground;
     }
 }

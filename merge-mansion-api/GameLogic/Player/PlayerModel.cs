@@ -45,6 +45,8 @@ using Code.GameLogic.Player.Board;
 using GameLogic.Player.Events.AdStampCardEvent;
 using GameLogic.Player.Leaderboard.ClassicRacesEvent;
 using Code.GameLogic.Player;
+using GameLogic.Config.Types;
+using GameLogic.Utility;
 
 namespace GameLogic.Player
 {
@@ -52,8 +54,8 @@ namespace GameLogic.Player
     [MetaReservedMembers(99, 400)]
     [MetaReservedMembers(11, 12)]
     [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285, 249 })]
-    [SupportedSchemaVersions(21, 48)]
-    public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IPlayer, IGenerationContext
+    [SupportedSchemaVersions(21, 49)]
+    public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IWritablePlayer, IPlayer, IGenerationContext
     {
         public static int MaxLoginCounts;
         public static int MaxEnergySpentDays;
@@ -300,10 +302,6 @@ namespace GameLogic.Player
         public PlayerModifiersChangedEvent ModifiersChanged { get; set; }
         public PlayerModesChangedEvent ModesChanged { get; set; }
 
-        [MetaMember(248, (MetaMemberFlags)0)]
-        [NoChecksum]
-        public BanInfo BanInfo { get; set; }
-
         [MetaMember(250, (MetaMemberFlags)0)]
         public PlayerSideBoardEventsModel SideBoardEvents { get; set; }
 
@@ -518,5 +516,17 @@ namespace GameLogic.Player
 
         [IgnoreDataMember]
         public string SessionHandshakeDeviceModel { get; set; }
+
+        [IgnoreDataMember]
+        IMetacorePlayerTimeZoneInfo GameLogic.Player.IPlayer.TimeZoneInfo { get; }
+
+        [MetaMember(248, (MetaMemberFlags)0)]
+        [NoChecksum]
+        [ServerOnly]
+        [Obsolete]
+        private PlayerBanInfo LegacyBanInfo { get; set; }
+
+        [MetaMember(309, (MetaMemberFlags)0)]
+        public List<BaseRevertLogic> WaitingReverts { get; set; }
     }
 }

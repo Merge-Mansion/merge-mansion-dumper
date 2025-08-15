@@ -3,11 +3,13 @@ using Metaplay.Core.Config;
 using System;
 using System.Collections.Generic;
 using GameLogic.ConfigPrefabs;
+using Code.GameLogic.Config;
 
 namespace GameLogic.Player.Rewards
 {
     [MetaSerializable]
-    public class RewardContainerInfo : IGameConfigData<RewardContainerId>, IGameConfigData, IHasGameConfigKey<RewardContainerId>
+    [MetaBlockedMembers(new int[] { 7 })]
+    public class RewardContainerInfo : IGameConfigData<RewardContainerId>, IGameConfigData, IHasGameConfigKey<RewardContainerId>, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public RewardContainerId ConfigKey { get; set; }
@@ -26,9 +28,6 @@ namespace GameLogic.Player.Rewards
 
         [MetaMember(6, (MetaMemberFlags)0)]
         public int MaxAmount { get; set; }
-
-        [MetaMember(7, (MetaMemberFlags)0)]
-        public List<RewardContainerItem> Items { get; set; }
 
         public RewardContainerInfo()
         {
@@ -53,5 +52,11 @@ namespace GameLogic.Player.Rewards
         public RewardContainerInfo(RewardContainerId configKey, string poolTag, string skinName, string overrideLocalizationRewardContainerId, int minAmount, int maxAmount, List<RewardContainerItem> items, ConfigAssetPackId modelId, bool useIconLibrary, string sfxClose, string sfxOpen)
         {
         }
+
+        [MetaMember(12, (MetaMemberFlags)0)]
+        public List<RewardContainerItemGroup> ItemGroups { get; set; }
+
+        [MetaMember(13, (MetaMemberFlags)0)]
+        public bool ShowChances { get; set; }
     }
 }

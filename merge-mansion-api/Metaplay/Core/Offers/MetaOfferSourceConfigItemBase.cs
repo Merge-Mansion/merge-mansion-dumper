@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using Metaplay.Core.Rewards;
 using Metaplay.Core.Player;
 using Metaplay.Core.Config;
+using Metaplay.Core.Localization;
 
 namespace Metaplay.Core.Offers
 {
-    public abstract class MetaOfferSourceConfigItemBase
+    public abstract class MetaOfferSourceConfigItemBase : IMetaIntegration<MetaOfferSourceConfigItemBase>, IMetaIntegration
     {
         public MetaOfferId OfferId;
         public string DisplayName;
@@ -26,6 +27,9 @@ namespace Metaplay.Core.Offers
         protected MetaOfferSourceConfigItemBase()
         {
         }
+
+        public TranslationId StoreDescriptionTranslationId;
+        public string StoreDescription;
     }
 
     public abstract class MetaOfferSourceConfigItemBase<TMetaOfferInfo> : MetaOfferSourceConfigItemBase, IMetaIntegrationConstructible<MetaOfferSourceConfigItemBase<TMetaOfferInfo>>, IMetaIntegration<MetaOfferSourceConfigItemBase<TMetaOfferInfo>>, IMetaIntegrationConstructible, IRequireSingleConcreteType, IGameConfigSourceItem<TMetaOfferInfo>

@@ -50,6 +50,7 @@ namespace GameLogic
         ReplayShortLeaderboardEventStage = 42,
         DigEventTileReveal = 43,
         BuyMoreDigEventTapsPopup = 44,
-        MixABooster = 45
+        MixABooster = 45,
+        RewardContainerPurchase = 46
     }
 }

@@ -1,4 +1,5 @@
 using Metaplay.Core.Model;
+using System.Runtime.Serialization;
 
 namespace Code.GameLogic.ExtraSpawns
 {
@@ -8,5 +9,8 @@ namespace Code.GameLogic.ExtraSpawns
         public MergeTrigger()
         {
         }
+
+        [IgnoreDataMember]
+        public ExtraSpawnTriggerType Type { get; }
     }
 }

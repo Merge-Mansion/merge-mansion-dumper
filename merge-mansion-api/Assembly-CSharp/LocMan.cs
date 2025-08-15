@@ -234,8 +234,10 @@ public static class LocMan
         // CUSTOM: The logic was inlined, but can be done by Get(itemType, level)
         var translation = Get(itemDefinition.ItemType, itemDefinition.LevelNumber);
 
+        var mergeChain = ClientGlobal.SharedGameConfig.MergeChains.GetValueOrDefault(itemDefinition.MergeChainDef.ConfigKey);
+
         var level = string.Empty;
-        if (itemDefinition.MergeChain.Length > 1)
+        if (mergeChain.Length > 1)
             level = string.Format(Get("ItemLevel"), itemDefinition.LevelNumber);
 
         return $"{translation} {level}";

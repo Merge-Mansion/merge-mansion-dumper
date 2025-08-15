@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System;
 using Merge;
 using System.Collections.Generic;
+using GameLogic;
 
 namespace Analytics
 {
@@ -18,11 +19,6 @@ namespace Analytics
         [MetaMember(1, (MetaMemberFlags)0)]
         [Description("Item inside the bubble that was bought")]
         public string ItemInBubble { get; set; }
-
-        [JsonProperty("bubble_cost")]
-        [MetaMember(2, (MetaMemberFlags)0)]
-        [Description("How many diamonds the bubble costs")]
-        public int BubbleCostInDiamonds { get; set; }
 
         [JsonProperty("board_id")]
         [MetaMember(4, (MetaMemberFlags)0)]
@@ -42,6 +38,7 @@ namespace Analytics
         [JsonProperty("attachments")]
         [Description("Attachments to the bubble")]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
+        [MetaAllowNondeterministicCollection]
         public Dictionary<string, int> Attachment { get; set; }
 
         public AnalyticsEventBubblePurchased(string itemInBubble, int bubbleCostInDiamonds, MergeBoardId boardId, string attachment, int attachmentAmount)
@@ -65,5 +62,15 @@ namespace Analytics
         public AnalyticsEventBubblePurchased(string itemInBubble, int bubbleCostInDiamonds, MergeBoardId boardId, Dictionary<string, int> attachment, bool isActiveAds, bool purchasedWithAds)
         {
         }
+
+        [JsonProperty("bubble_cost")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("How many diamonds the bubble costs")]
+        public int BubbleCostAmount { get; set; }
+
+        [JsonProperty("bubble_currency")]
+        [MetaMember(12, (MetaMemberFlags)0)]
+        [Description("Which currency it cost to pop the bubble")]
+        public Currencies Currency { get; set; }
     }
 }

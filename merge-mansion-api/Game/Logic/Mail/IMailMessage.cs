@@ -16,7 +16,7 @@ namespace Game.Logic.Mail
 
         string BodyExcerpt { get; }
 
-        IEnumerable<PlayerReward> Rewards { get; }
+        IEnumerable<IPlayerReward> Rewards { get; }
 
         MergeMansionMailContents Contents { get; }
 

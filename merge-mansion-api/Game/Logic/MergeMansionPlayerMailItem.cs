@@ -24,7 +24,7 @@ namespace Game.Logic
         public string BodyExcerpt { get; }
 
         [JsonIgnore]
-        public IEnumerable<PlayerReward> Rewards { get; }
+        public IEnumerable<IPlayerReward> Rewards { get; }
 
         [JsonIgnore]
         MergeMansionMailContents Game.Logic.Mail.IMailMessage.Contents { get; }

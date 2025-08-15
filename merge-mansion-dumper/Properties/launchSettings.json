@@ -1,12 +1,8 @@
 {
   "profiles": {
-    "WSL": {
-      "commandName": "WSL2",
-      "distributionName": ""
-    },
     "merge-mansion-dumper": {
       "commandName": "Project",
-      "commandLineArgs": "-m 1 -c manual_dump\\files\\GameConfigCache\\SharedGameConfig\\52544F8AF9FE5FE6-BCB1512BE77C56FF -p manual_dump\\files\\GameConfigCache\\SharedGameConfigPatches\\19C2A30DA621F6AC-09F6D224E95B5CDA -l manual_dump\\cache\\Localizations\\en.mpc\\1DE093599692F878-000F131856A3901E"
+      "commandLineArgs": "-m 1 -c manual_dump\\cache\\SharedGameConfig\\FD4018FB155031FB-DB6B33C19F02FBCF -p manual_dump\\cache\\SharedGameConfigPatches\\00370E8BBF38FDE3-4436C9B1F91F1E48 -l manual_dump\\cache\\Localizations\\en.mpc\\135F04309B9AFC8E-DB7D98281C606FF6"
     }
   }
 }

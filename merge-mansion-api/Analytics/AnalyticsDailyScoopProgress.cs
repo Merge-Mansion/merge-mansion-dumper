@@ -38,11 +38,13 @@ namespace Analytics
 
         [JsonProperty("daily_challenge_objective_order")]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
+        [MetaAllowNondeterministicCollection]
         [MetaMember(21, (MetaMemberFlags)0)]
         public Dictionary<string, int> ObjectiveOrder { get; set; }
 
         [JsonProperty("daily_challenge_objective_category")]
         [MetaMember(22, (MetaMemberFlags)0)]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, string> ObjectiveCategory { get; set; }
 
@@ -53,6 +55,7 @@ namespace Analytics
 
         [JsonProperty("daily_challenge_objective_requirement")]
         [MetaMember(23, (MetaMemberFlags)0)]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> ObjectiveRequirement { get; set; }
 
@@ -63,11 +66,13 @@ namespace Analytics
 
         [JsonProperty("daily_challenge_objective_requirement_saldo")]
         [MetaMember(24, (MetaMemberFlags)0)]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> ObjectiveProgressSaldo { get; set; }
 
         [JsonProperty("daily_challenge_token_amount")]
         [MetaMember(25, (MetaMemberFlags)0)]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> EventPointReceived { get; set; }
 
@@ -106,6 +111,7 @@ namespace Analytics
 
         [JsonProperty("secondary_reward_recieved")]
         [MetaMember(26, (MetaMemberFlags)0)]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, string> SecondaryReward { get; set; }
 

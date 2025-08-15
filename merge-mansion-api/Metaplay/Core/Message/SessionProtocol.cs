@@ -113,7 +113,7 @@ namespace Metaplay.Core.Message
             }
 
             [MetaMember(3, (MetaMemberFlags)0)]
-            public EntityDebugConfig DebugConfig { get; set; }
+            public PlayerDebugConfig DebugConfig { get; set; }
 
             public InitialPlayerState(MetaSerialized<IPlayerModelBase> playerModel, int currentOperation, EntityDebugConfig debugConfig)
             {
@@ -353,15 +353,12 @@ namespace Metaplay.Core.Message
                 Deleted = 6
             }
 
-            [MetaMember(5, (MetaMemberFlags)0)]
-            public MetaTime? BanExpirationTime { get; set; }
-
-            [MetaMember(6, (MetaMemberFlags)0)]
-            public string BanReason { get; set; }
-
             public SessionStartFailure(int queryId, SessionProtocol.SessionStartFailure.ReasonCode reason, string debugOnlyErrorMessage, MetaTime? banExpirationTime, string banReason)
             {
             }
+
+            [MetaMember(5, (MetaMemberFlags)0)]
+            public SessionProtocol.SessionStartFailureData ReasonSpecificData { get; set; }
         }
 
         [MetaMessage(19, MessageDirection.ClientToServer, true)]
@@ -486,6 +483,18 @@ namespace Metaplay.Core.Message
 
             [MetaMember(3, (MetaMemberFlags)0)]
             public string OperatingSystem { get; set; }
+        }
+
+        [MetaSerializable]
+        public abstract class SessionStartFailureData
+        {
+        }
+
+        [MetaSerializableDerived(1)]
+        public class SessionStartFailedBannedInfo : SessionProtocol.SessionStartFailureData
+        {
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public PlayerBanInfo BanInfo { get; set; }
         }
     }
 }

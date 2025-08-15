@@ -266,12 +266,6 @@ namespace GameLogic.Config.Map.Characters
         OfficeFirstMapCharacterPosition = 9199,
         OfficeEntryMapMaddie = 9200,
         OfficeCharacter = 9201,
-        AreaTinCanTelescope = 9202,
-        AreaTinCanKiosk = 9203,
-        AreaTinCanPier = 9204,
-        AreaTinCanMainEntrance = 9205,
-        AreaTinCanCellarEntrance = 9206,
-        AreaTinCanBridge = 9207,
         FactoryBoulevardFirstMapCharacterPosition = 9799,
         FactoryBoulevardEntryMapMaddie = 9800,
         FactoryBoulevardMaddieFactoryDoor = 9801,
@@ -289,6 +283,19 @@ namespace GameLogic.Config.Map.Characters
         PerfumeryFirstMapCharacterPosition = 10199,
         PerfumeryEntryMapMaddie = 10200,
         PerfumeryMaddieDistillery = 10201,
-        PerfumeryCharacter = 10202
+        PerfumeryCharacter = 10202,
+        PerentsRoomFirstMapCharacterPosition = 10999,
+        PerentsRoomEntryMapMaddie = 11000,
+        ParentsRoomMaddie = 11001,
+        ParentsRoomWinston = 11002,
+        ParentsRoomMaddie2 = 11003,
+        TinCanFactoryLockedMaddie = 10407,
+        FactoryReceptionFirstMapCharacterPosition = 10599,
+        FactoryReceptionEntryMapMaddie = 10600,
+        FactoryReceptionCharacter = 10601,
+        FactoryGiftShopFirstMapCharacterPosition = 10799,
+        FactoryGiftShopEntryMapMaddie = 10800,
+        FactoryGiftShopMaddiePackingStation = 10801,
+        FactoryGiftShopCharacter = 10802
     }
 }

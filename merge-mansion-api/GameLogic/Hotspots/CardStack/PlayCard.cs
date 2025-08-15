@@ -3,6 +3,7 @@ using Metaplay.Core;
 using GameLogic.Player.Items;
 using System;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.Hotspots.CardStack
 {
@@ -10,14 +11,8 @@ namespace GameLogic.Hotspots.CardStack
     [MetaBlockedMembers(new int[] { 4, 5 })]
     public class PlayCard
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> ItemRef { get; set; }
-
         [MetaMember(2, (MetaMemberFlags)0)]
         public int Row { get; set; }
-
-        [IgnoreDataMember]
-        public ItemDefinition Item { get; }
 
         public PlayCard()
         {
@@ -33,5 +28,9 @@ namespace GameLogic.Hotspots.CardStack
         public PlayCard(int itemId, int row, int column)
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

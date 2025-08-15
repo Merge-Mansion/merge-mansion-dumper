@@ -11,11 +11,12 @@ using GameLogic.Merge;
 using GameLogic.Player.Rewards;
 using Code.GameLogic.Player.Board;
 using Metacore.MergeMansion.Common.Options;
+using Code.GameLogic.Ads;
 
 namespace GameLogic
 {
     [MetaSerializable]
-    public class AdsRewardData
+    public class AdsRewardData : IAdsRewardData
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]

@@ -18,7 +18,7 @@ namespace Metaplay.Core.Message
             public string BuildNumber { get; set; } // 0x18
 
             [MetaMember(3, (MetaMemberFlags)0)]
-            public uint FullProtocolHash { get; set; } // 0x20
+            public uint FullProtocolHashLegacy { get; set; } // 0x20
 
             [MetaMember(4, (MetaMemberFlags)0)]
             public string CommitId { get; set; } // 0x28
@@ -31,7 +31,7 @@ namespace Metaplay.Core.Message
             {
                 ServerVersion = serverVersion;
                 BuildNumber = buildNumber;
-                FullProtocolHash = fullProtocolHash;
+                FullProtocolHashLegacy = fullProtocolHash;
                 CommitId = commitId;
             }
 
@@ -145,7 +145,8 @@ namespace Metaplay.Core.Message
             public enum AbandonSource
             {
                 PrimaryConnection = 0,
-                NetworkProbe = 1
+                NetworkProbe = 1,
+                Preconnection = 2
             }
 
             private ClientAbandon()
@@ -198,6 +199,12 @@ namespace Metaplay.Core.Message
             public LoginSuccessResponse(EntityId loggedInPlayerId)
             {
             }
+
+            [MetaMember(2, (MetaMemberFlags)0)]
+            public AuthenticationPlatform AuthenticationPlatform { get; set; }
+
+            [MetaMember(3, (MetaMemberFlags)0)]
+            public bool DidBindAccount { get; set; }
         }
 
         [MetaMessage(13, (MessageDirection)2, true)]
@@ -451,6 +458,29 @@ namespace Metaplay.Core.Message
             public ClientPatchVersionTooOld(int minimumPatchVersionRequired)
             {
             }
+        }
+
+        [MetaMessage(95, (MessageDirection)2, true)]
+        public class ClientFullProtocolHashMismatch : MetaMessage
+        {
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public uint ServerProtocolHash { get; set; }
+        }
+
+        [MetaMessage(33, (MessageDirection)2, true)]
+        public class LoginFailureResponse : MetaMessage
+        {
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public Handshake.LoginFailureReason Reason { get; set; }
+        }
+
+        [MetaSerializable]
+        public enum LoginFailureReason
+        {
+            Unspecified = 0,
+            MethodNotAllowed = 1,
+            InvalidCredentials = 2,
+            TemporarilyUnavailable = 3
         }
     }
 }

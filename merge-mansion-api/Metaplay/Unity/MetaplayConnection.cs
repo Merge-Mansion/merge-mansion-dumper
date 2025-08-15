@@ -493,7 +493,7 @@ namespace Metaplay.Unity
 
                         // L952
                         var primaryUrl = MetaplaySDK.CdnAddress.PrimaryBaseUrl;
-                        var backupGateways = Endpoint.BackupGateways.ToList();
+                        var backupGateways = Endpoint.BackupGatewaySpecs.ToList();
 
                         Endpoint = new ServerEndpoint(Endpoint.ServerHost, Endpoint.ServerPort, Endpoint.EnableTls, primaryUrl, backupGateways);
 
@@ -1371,7 +1371,7 @@ namespace Metaplay.Unity
                 return new NetworkDiagnosticReport();
 
             var ports = new List<int> { Endpoint.PrimaryGateway.ServerPort };
-            ports = ports.Concat(Endpoint.BackupGateways.Select(x => x.ServerPort)).ToList();
+            ports = ports.Concat(Endpoint.BackupGatewaySpecs.Select(x => x.ServerPort)).ToList();
 
             var primaryHost4 = MetaplayHostnameUtil.GetV4V6SpecificHost(Endpoint.PrimaryGateway.ServerHost, true);
             var primaryHost6 = MetaplayHostnameUtil.GetV4V6SpecificHost(Endpoint.PrimaryGateway.ServerHost, false);
@@ -1507,7 +1507,7 @@ namespace Metaplay.Unity
             }
             else
             {
-                var configDir = Path.Combine(Application.PersistentDataPath, "GameConfigCache");
+                var configDir = Application.TemporaryCachePath;
                 var storage = new DiskBlobStorage(configDir);
                 var storageProvider = new StorageBlobProvider(storage);
 
@@ -1539,8 +1539,7 @@ namespace Metaplay.Unity
             var subAddress = MetaplaySDK.CdnAddress.GetSubdirectoryAddress("GameConfig");
             var httpProvider = new HttpBlobProvider(MetaHttpClient.DefaultInstance, subAddress, null);
 
-            var path = Path.Combine(Application.PersistentDataPath, "GameConfigCache");
-            var diskStorage = new DiskBlobStorage(path);
+            var diskStorage = new DiskBlobStorage(Application.TemporaryCachePath);
             var storageProvider = new StorageBlobProvider(diskStorage);
 
             var cacheProvider = new CachingBlobProvider(httpProvider, storageProvider);

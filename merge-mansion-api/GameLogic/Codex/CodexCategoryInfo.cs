@@ -2,6 +2,7 @@ using GameLogic.Player.Items;
 using Metaplay.Core;
 using Metaplay.Core.Config;
 using Metaplay.Core.Model;
+using GameLogic.Config;
 
 namespace GameLogic.Codex
 {
@@ -12,7 +13,8 @@ namespace GameLogic.Codex
         public CodexCategoryId ConfigKey { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> IconItem { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef IconItem { get; set; }
 
         public CodexCategoryInfo()
         {

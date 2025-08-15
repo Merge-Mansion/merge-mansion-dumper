@@ -421,7 +421,7 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
 
                 if (item.BubbleFeatures != null)
                 {
-                    var dailyTaskChain = (DailyTasksV2MergeChainInfo)_config.DailyTasksV2MergeChains.GetInfoByKey(item.MergeChainRef.KeyObject);
+                    var dailyTaskChain = (DailyTasksV2MergeChainInfo)_config.DailyTasksV2MergeChains.GetInfoByKey(item.MergeChainDef.ConfigKey);
 
                     F32 requiredMultiplier = dailyTaskChain?.RequirementMultiplier ?? new F32(0x10000);
                     int requiredItemValue = F32.RoundToInt(requiredMultiplier * item.BubbleFeatures.OpenCost.Item2);
@@ -447,9 +447,9 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
             }
             else if (type.IsAssignableTo(typeof(ItemDefinition)))
             {
-                if (name == nameof(ItemDefinition.MergeChainRef))
+                if (name == nameof(ItemDefinition.MergeChainDef))
                 {
-                    WriteProperty(writer, name, (value as IMetaRef)?.KeyObject, serializer);
+                    WriteProperty(writer, name, (value as MergeChainDef)?.ConfigKey, serializer);
                     return;
                 }
             }

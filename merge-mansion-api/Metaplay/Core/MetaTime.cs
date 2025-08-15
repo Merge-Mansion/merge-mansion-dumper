@@ -1,9 +1,11 @@
 using System;
 using System.Globalization;
 using Metaplay.Core.Model;
+using System.ComponentModel;
 
 namespace Metaplay.Core
 {
+    [TypeConverter(typeof(MetaTimeTypeConverter))]
     [MetaSerializable]
     public struct MetaTime
     {

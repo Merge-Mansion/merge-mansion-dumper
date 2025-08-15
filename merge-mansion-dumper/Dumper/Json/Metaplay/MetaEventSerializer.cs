@@ -428,16 +428,16 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
 
             if (type.IsAssignableTo(typeof(DailyTaskDefinition)))
             {
-                if (name == nameof(DailyTaskDefinition.RequiredItemType))
+                if (name == nameof(DailyTaskDefinition.RequiredItemDef))
                 {
-                    WriteProperty(writer, name, ((MetaRef<ItemDefinition>)value).KeyObject, serializer);
+                    WriteProperty(writer, name, ((ItemDef)value).ConfigKey, serializer);
 
                     return;
                 }
 
-                if (name == nameof(DailyTaskDefinition.RewardItemType))
+                if (name == nameof(DailyTaskDefinition.RewardItemDef))
                 {
-                    WriteProperty(writer, name, ((MetaRef<ItemDefinition>)value).KeyObject, serializer);
+                    WriteProperty(writer, name, ((ItemDef)value).ConfigKey, serializer);
 
                     return;
                 }

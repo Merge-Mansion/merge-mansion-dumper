@@ -7,10 +7,6 @@ namespace Metaplay.Core.Network
     [MetaSerializable]
     public class GameServerEndpointResult
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public string Hostname;
-        [MetaMember(3, (MetaMemberFlags)0)]
-        public Dictionary<int, SocketProbeResult> Gateways;
         public GameServerEndpointResult()
         {
         }
@@ -18,5 +14,12 @@ namespace Metaplay.Core.Network
         public GameServerEndpointResult(string hostname, List<int> ports)
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        public string LegacyHostname;
+        [MetaMember(3, (MetaMemberFlags)0)]
+        public Dictionary<int, SocketProbeResult> LegacyGatewaysByPort;
+        [MetaMember(4, (MetaMemberFlags)0)]
+        public Dictionary<string, SocketProbeResult> GatewaysByHost;
     }
 }

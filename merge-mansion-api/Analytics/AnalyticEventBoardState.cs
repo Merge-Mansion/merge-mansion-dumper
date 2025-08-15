@@ -20,6 +20,7 @@ namespace Analytics
         [MetaMember(15, (MetaMemberFlags)0)]
         [JsonProperty("partially_visible_board_items")]
         [Description("Partially visible Board items of all on-going boards")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, Dictionary<string, int>> PartiallyVisibleBoardItems { get; set; }
 
@@ -32,24 +33,28 @@ namespace Analytics
         [MetaMember(5, (MetaMemberFlags)0)]
         [JsonProperty("event_goals")]
         [Description("Event goals")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<EventId, List<EventTaskId>> EventGoals { get; set; }
 
         [MetaMember(6, (MetaMemberFlags)0)]
         [JsonProperty("board_items")]
         [Description("Board items of all on-going boards")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, List<AnalyticsBoardStateMetaData>> BoardItems { get; set; }
 
         [MetaMember(7, (MetaMemberFlags)0)]
         [JsonProperty("inventory_items")]
         [Description("Inventory items")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, List<AnalyticsBoardStateMetaData>> InventoryItems { get; set; }
 
         [MetaMember(16, (MetaMemberFlags)0)]
         [JsonProperty("pocket_items")]
         [Description("Pocket items")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, Dictionary<string, int>> PocketItems { get; set; }
 
@@ -62,12 +67,14 @@ namespace Analytics
         [MetaMember(12, (MetaMemberFlags)0)]
         [JsonProperty("inventory_items_extra")]
         [Description("Inventory items from extra perk")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, List<AnalyticsBoardStateMetaData>> InventoryExtraItems { get; set; }
 
         [MetaMember(13, (MetaMemberFlags)0)]
         [JsonProperty("hidden_item_count")]
         [Description("Hidden items count")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, int> HiddenItemCount { get; set; }
 
@@ -88,12 +95,14 @@ namespace Analytics
         [MetaMember(17, (MetaMemberFlags)0)]
         [JsonProperty("producer_inventory_items")]
         [Description("Producer inventory items")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, List<AnalyticsBoardStateMetaData>> ProducerInventoryItems { get; set; }
 
         [MetaMember(18, (MetaMemberFlags)0)]
         [JsonProperty("rentable_inventory_items")]
         [Description("Rentable inventory items")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<MergeBoardId, List<AnalyticsBoardStateMetaData>> RentableInventoryItems { get; set; }
 

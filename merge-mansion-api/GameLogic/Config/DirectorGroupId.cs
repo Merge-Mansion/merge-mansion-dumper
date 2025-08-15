@@ -218,7 +218,6 @@ namespace GameLogic.Config
         public static DirectorGroupId TGEv2ThirdBoardIntroSequence;
         public static DirectorGroupId TGEv2ThirdBoardBoltCutterSequence;
         public static DirectorGroupId ADEMuseumFTUE1;
-        public static DirectorGroupId TaskGroupV2FTUE01;
         public static DirectorGroupId AARTimeSkipSeen;
         public static DirectorGroupId AARCooldownRemoverSeen;
         public static DirectorGroupId AARInfiniteEnergySeen;
@@ -229,5 +228,6 @@ namespace GameLogic.Config
         public static DirectorGroupId IntroduceTaskCards_03;
         public static DirectorGroupId IntroduceTaskCards_04;
         public static DirectorGroupId IntroduceTaskCards_05;
+        public static DirectorGroupId TaskGroupV2FTUESequence;
     }
 }

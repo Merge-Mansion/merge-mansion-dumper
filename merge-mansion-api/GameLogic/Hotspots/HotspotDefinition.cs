@@ -19,6 +19,7 @@ using GameLogic.TaskLists;
 namespace GameLogic.Hotspots
 {
     [MetaSerializable]
+    [MetaBlockedMembers(new int[] { 25 })]
     public class HotspotDefinition : IGameConfigData<HotspotId>, IGameConfigData, IHasGameConfigKey<HotspotId>, IHasRequirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -163,17 +164,11 @@ namespace GameLogic.Hotspots
         [MetaMember(24, (MetaMemberFlags)0)]
         public string DescriptionLocalizationId { get; set; }
 
-        [MetaMember(25, (MetaMemberFlags)0)]
-        private MetaRef<LocationTravelInfo> LocationTravelInfo { get; set; }
-
         [IgnoreDataMember]
         public bool IsEventHotspot { get; }
 
         [IgnoreDataMember]
         public bool IsLocationTravelHotspot { get; }
-
-        [IgnoreDataMember]
-        public LocationTravelInfo LocationTravel { get; }
 
         [IgnoreDataMember]
         public string DescriptionLocId { get; }
@@ -268,5 +263,14 @@ namespace GameLogic.Hotspots
         public HotspotDefinition(HotspotId id, HotspotType type, MergeBoardId mergeBoardId, List<PlayerRequirement> requirements, IEnumerable<HotspotId> unlockingParents, List<PlayerReward> rewards, List<IDirectorAction> completionActions, List<IDirectorAction> finalizationActions, List<IDirectorAction> appearActions, MapSpotId mapSpot, TaskGroupId taskGroupId, List<PlayerRequirement> unlockRequirements, bool isIndependentTask, int appearActionMax, List<MetaRef<MapCharacterEventDefinition>> appearMapCharactersEvents, int completeActionMax, HotspotId completeFocusHotspotId, List<MetaRef<MapCharacterEventDefinition>> completeMapCharactersEvents, List<PlayerReward> bonusRewards, MetaDuration bonusTimerDuration, string completeVFXId, string descriptionLocalizationId, LocationTravelId locationTravelId, AreaId areaInfoOverride, int soloMilestoneHotspotValue, CustomHotspotTableId customHotspotTableId, MultistepGroupId multistepGroupId, int boultonLeaguePoints, bool delayDebrisAnimation, int difficulty, List<PlayerReward> difficultyRewards, int order, TaskListId taskListId, List<string> tags)
         {
         }
+
+        [MetaMember(39, (MetaMemberFlags)0)]
+        private List<MetaRef<LocationTravelInfo>> LocationTravelInfosRefs { get; set; }
+
+        [IgnoreDataMember]
+        public IEnumerable<LocationTravelInfo> LocationTravelInfos { get; }
+
+        [IgnoreDataMember]
+        public LocationTravelInfo FirstLocationTravelInfo { get; }
     }
 }

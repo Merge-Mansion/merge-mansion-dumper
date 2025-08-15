@@ -32,7 +32,7 @@ namespace Metaplay.Core
 
         public static Type[] GetGenericInterfaceTypeArguments(this Type type, Type genericInterfaceDefinition)
         {
-            return type.GetGenericInterface(genericInterfaceDefinition).GetGenericArguments();
+            return type.GetGenericInterfaces(genericInterfaceDefinition).SelectMany(i => i.GetGenericArguments()).ToArray();
         }
 
         public static Type GetGenericInterface(this Type type, Type genericInterfaceDefinition)

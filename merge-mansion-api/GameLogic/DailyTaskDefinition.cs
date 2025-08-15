@@ -5,6 +5,7 @@ using System;
 using Metaplay.Core;
 using GameLogic.Player.Items;
 using Metaplay.Core.Math;
+using GameLogic.Config;
 
 namespace GameLogic
 {
@@ -24,13 +25,15 @@ namespace GameLogic
         public int EndLevel { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> RequiredItemType { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef RequiredItemDef { get; set; }
 
         [MetaMember(6, (MetaMemberFlags)0)]
         public int RequiredItemsAmount { get; set; }
 
         [MetaMember(7, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> RewardItemType { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef RewardItemDef { get; set; }
 
         [MetaMember(8, (MetaMemberFlags)0)]
         public int RewardItemAmount { get; set; }

@@ -56,7 +56,9 @@ namespace Metaplay.Core.Player
             Valid = 0,
             Invalid = 1,
             Duplicate = 2,
-            MissingContent = 3
+            MissingContent = 3,
+            UserDeclined = 4,
+            Refunded = 5
         }
     }
 }

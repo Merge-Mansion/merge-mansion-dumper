@@ -15,9 +15,6 @@ namespace GameLogic.Config.Shop.Items
         [MetaMember(6, (MetaMemberFlags)0)]
         private ShopItemId ShopItemId { get; set; }
 
-        [MetaMember(2, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> ItemRef { get; set; }
-
         [MetaMember(3, (MetaMemberFlags)0)]
         private MergeBoardId BoardId { get; set; }
 
@@ -26,7 +23,6 @@ namespace GameLogic.Config.Shop.Items
 
         [MetaMember(5, (MetaMemberFlags)0)]
         private IPurchaseLimiter PurchaseLimiter { get; set; }
-        public ItemDefinition Item { get; }
 
         private BoardShopItem()
         {
@@ -37,5 +33,9 @@ namespace GameLogic.Config.Shop.Items
         }
 
         public bool IsPurchasedWithAds { get; set; }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

@@ -31,6 +31,7 @@ using GameLogic.Player.Leaderboard.ShortLeaderboardEvent;
 using Code.GameLogic.Player.Board;
 using Code.GameLogic.Player;
 using GameLogic.Player.Leaderboard.ClassicRacesEvent;
+using GameLogic.Config.Types;
 
 namespace GameLogic.Player
 {
@@ -205,6 +206,8 @@ namespace GameLogic.Player
         ShortLeaderboardEventDivisionClientState ShortLeaderboardEventDivisionClientState { get; }
 
         ClassicRacesEventDivisionClientState ClassicRacesEventDivisionClientState { get; }
+
+        IMetacorePlayerTimeZoneInfo TimeZoneInfo { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

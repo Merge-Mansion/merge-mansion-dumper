@@ -49,7 +49,6 @@ namespace Metaplay.Core.Debugging
 
             [MetaMember(5, (MetaMemberFlags)0)]
             public NetworkDiagnosticReport NetworkReportObsolete { get; set; }
-            public string StackTrace { get; }
 
             public SessionStartFailed(PlayerIncidentReport.SharedIncidentInfo sharedIncidentInfo, string errorType, string networkError, string reasonOverride, ServerEndpoint endpoint, string networkReachability, NetworkDiagnosticReport networkReport, string tlsPeerDescription)
             {
@@ -126,6 +125,12 @@ namespace Metaplay.Core.Debugging
 
             public TerminalNetworkError(PlayerIncidentReport.SharedIncidentInfo sharedIncidentInfo, string errorType, string networkError, string reasonOverride, ServerEndpoint endpoint, string networkReachability, NetworkDiagnosticReport networkReport, string tlsPeerDescription)
             {
+            }
+
+            [MetaSerializableDerived(1)]
+            public class ExtraDashboardInfo : IncidentDashboardInfo.ExtraIncidentDashboardInfo
+            {
+                public ServerEndpoint Endpoint { get; set; }
             }
         }
 
@@ -237,7 +242,6 @@ namespace Metaplay.Core.Debugging
             public string Exception { get; set; }
             public override string Type { get; }
             public override string SubType { get; }
-            public string StackTrace { get; }
 
             private CompanyIdLoginError()
             {

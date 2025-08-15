@@ -33,6 +33,7 @@ namespace Analytics
         [JsonProperty("sink_status_multi")]
         [MetaMember(4, (MetaMemberFlags)0)]
         [Description("Sink status for FactoryType=Multi")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, ItemSinkProgressStatus> SinkStatusMulti { get; set; }
 

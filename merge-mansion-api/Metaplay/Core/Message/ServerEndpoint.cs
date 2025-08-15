@@ -21,10 +21,9 @@ namespace Metaplay.Core.Message
         public string CdnBaseUrl { get; set; } // 0x20
 
         [MetaMember(5, (MetaMemberFlags)0)]
-        private List<ServerGateway> BackupGatewaySpecs { get; set; } // 0x28
+        public List<ServerGateway> BackupGatewaySpecs { get; set; } // 0x28
         public bool IsOfflineMode => string.IsNullOrEmpty(ServerHost);
         public ServerGateway PrimaryGateway => new ServerGateway(ServerHost, ServerPort, EnableTls);
-        public IEnumerable<ServerGateway> BackupGateways => BackupGatewaySpecs.Select(x => new ServerGateway(string.IsNullOrEmpty(x.ServerHost) ? ServerHost : x.ServerHost, ServerPort, EnableTls));
 
         public ServerEndpoint()
         {
@@ -67,5 +66,7 @@ namespace Metaplay.Core.Message
         }
 
         private static int DefaultServerPort;
+        [MetaMember(6, (MetaMemberFlags)0)]
+        public string PublicWebApiUrl { get; set; }
     }
 }

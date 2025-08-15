@@ -46,16 +46,19 @@ namespace Analytics
         public int HeatLevel { get; set; }
 
         [JsonProperty("items_spawned")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [MetaMember(7, (MetaMemberFlags)0)]
         public Dictionary<string, int> ItemsSpawned { get; set; }
 
         [JsonProperty("diamonds_spent_on_special_items")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [MetaMember(8, (MetaMemberFlags)0)]
         public Dictionary<string, int> DiamondsSpentOnSpecialItems { get; set; }
 
         [JsonProperty("battery_spent_on_special_items")]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         [MetaMember(9, (MetaMemberFlags)0)]
         public Dictionary<string, int> BatterySpentOnSpecialItems { get; set; }

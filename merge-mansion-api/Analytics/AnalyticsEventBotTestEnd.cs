@@ -24,6 +24,7 @@ namespace Analytics
         public int TargetLvl;
         [JsonProperty("board_items")]
         [MetaMember(11, (MetaMemberFlags)0)]
+        [MetaAllowNondeterministicCollection]
         [BigQueryAnalyticsFormat((BigQueryAnalyticsFormatMode)0)]
         public Dictionary<string, int> BoardItems;
         public sealed override AnalyticsEventType EventType { get; }

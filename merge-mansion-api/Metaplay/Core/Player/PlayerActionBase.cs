@@ -4,12 +4,11 @@ using System;
 namespace Metaplay.Core.Player
 {
     [MetaSerializable]
-    [MetaImplicitMembersRange(100, 110)]
+    [MetaImplicitMembersRange(101, 110)]
+    [MetaBlockedMembers(new int[] { 100 })]
     [ModelActionExecuteFlags((ModelActionExecuteFlags)1)]
     public abstract class PlayerActionBase : ModelAction<IPlayerModelBase>
     {
-        public int Id { get; set; } // 0x10
-
         protected PlayerActionBase()
         {
         }

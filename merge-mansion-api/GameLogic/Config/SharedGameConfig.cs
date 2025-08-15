@@ -1149,5 +1149,9 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(CoreSupportEventModeSource))]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<CoreSupportEventModeId, CoreSupportEventModeInfo> CoreSupportEventModes { get; set; }
+
+        public GameConfigLibrary<OfferPlacementId, List<MetaOfferGroupInfoBase>> MetaOfferGroupsPerPlacementInMostImportantFirstOrder { get; }
+
+        public IReadOnlyDictionary<ExtraSpawnTriggerType, HashSet<CoreSupportEventTokenId>> ExtraSpawnTriggerCoreSupportEventTokens { get; set; }
     }
 }

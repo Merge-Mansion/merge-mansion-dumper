@@ -1,4 +1,5 @@
 using Metaplay.Core.Model;
+using Metaplay.Core.Authentication;
 
 namespace Metaplay.Core.Player
 {
@@ -28,5 +29,8 @@ namespace Metaplay.Core.Player
             {
             }
         }
+
+        [MetaMember(101, (MetaMemberFlags)0)]
+        public IAuthenticationPlatformUserInfo User { get; set; }
     }
 }
