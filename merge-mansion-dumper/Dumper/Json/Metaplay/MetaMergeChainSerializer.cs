@@ -391,7 +391,147 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WriteEndObject();
             }
             else if (producer is ControlledRandomOrderProducer crod)
-                ;
+            {
+                writer.WriteStartObject();
+
+                writer.WritePropertyName("ControlledRandom");
+                writer.WriteStartObject();
+
+                WriteProperty(writer, "RollType", crod.RollType.ToString(), serializer);
+                WriteProperty(writer, "ItemType", _config.Items.GetValueOrDefault(crod.ItemType)?.ItemType ?? $"{crod.ItemType:X8}", serializer);
+
+                writer.WritePropertyName("Tasks");
+                writer.WriteStartArray();
+
+                double weightSum = crod.GenerationOdds.Sum(x => x.Item2);
+                foreach ((OrderRequirementsId, int) odds in crod.GenerationOdds)
+                {
+                    if (!_config.OrderRequirements.TryGetValue(odds.Item1, out var orderRequirements))
+                        continue;
+
+                    writer.WriteStartObject();
+
+                    var weight = _dropAsPercent ?
+                        odds.Item2 / weightSum * 100 :
+                        odds.Item2;
+                    WriteProperty(writer, "Odds", weight, serializer);
+
+                    writer.WritePropertyName("Required");
+                    writer.WriteStartArray();
+
+                    foreach (var item in orderRequirements.SinkItemsAndAmounts)
+                    {
+                        writer.WriteStartObject();
+
+                        if (!_config.Items.TryGetValue(item.Key, out var itemDefinition))
+                            continue;
+
+                        WriteProperty(writer, "Item", itemDefinition.ItemType, serializer);
+                        WriteProperty(writer, "Amount", item.Value, serializer);
+
+                        writer.WriteEndObject();
+                    }
+
+                    writer.WriteEndArray();
+
+                    writer.WritePropertyName("Rewards");
+                    writer.WriteStartArray();
+
+                    foreach (var item in orderRequirements.ActivationRewardsAndAmounts)
+                    {
+                        writer.WriteStartObject();
+
+                        if (!_config.Items.TryGetValue(item.Key, out var itemDefinition))
+                            continue;
+
+                        WriteProperty(writer, "Item", itemDefinition.ItemType, serializer);
+                        WriteProperty(writer, "Amount", item.Value, serializer);
+
+                        writer.WriteEndObject();
+                    }
+
+                    writer.WriteEndArray();
+
+                    writer.WriteEndObject();
+                }
+
+                writer.WriteEndArray();
+
+                writer.WriteEndObject();
+
+                writer.WriteEndObject();
+            }
+            else if (producer is ControlledPredefinedSequenceOrderProducer cpsop)
+            {
+                writer.WriteStartObject();
+
+                writer.WritePropertyName("ControlledPredefinedSequence");
+                writer.WriteStartObject();
+
+                WriteProperty(writer, "RollType", cpsop.RollType.ToString(), serializer);
+                WriteProperty(writer, "ItemType", _config.Items.GetValueOrDefault(cpsop.ItemType)?.ItemType ?? $"{cpsop.ItemType:X8}", serializer);
+
+                writer.WritePropertyName("Tasks");
+                writer.WriteStartArray();
+
+                double weightSum = cpsop.GenerationOdds.Sum(x => x.Item2);
+                foreach ((OrderRequirementsId, int) odds in cpsop.GenerationOdds)
+                {
+                    if (!_config.OrderRequirements.TryGetValue(odds.Item1, out var orderRequirements))
+                        continue;
+
+                    writer.WriteStartObject();
+
+                    var weight = _dropAsPercent ?
+                        odds.Item2 / weightSum * 100 :
+                        odds.Item2;
+                    WriteProperty(writer, "Odds", weight, serializer);
+
+                    writer.WritePropertyName("Required");
+                    writer.WriteStartArray();
+
+                    foreach (var item in orderRequirements.SinkItemsAndAmounts)
+                    {
+                        writer.WriteStartObject();
+
+                        if (!_config.Items.TryGetValue(item.Key, out var itemDefinition))
+                            continue;
+
+                        WriteProperty(writer, "Item", itemDefinition.ItemType, serializer);
+                        WriteProperty(writer, "Amount", item.Value, serializer);
+
+                        writer.WriteEndObject();
+                    }
+
+                    writer.WriteEndArray();
+
+                    writer.WritePropertyName("Rewards");
+                    writer.WriteStartArray();
+
+                    foreach (var item in orderRequirements.ActivationRewardsAndAmounts)
+                    {
+                        writer.WriteStartObject();
+
+                        if (!_config.Items.TryGetValue(item.Key, out var itemDefinition))
+                            continue;
+
+                        WriteProperty(writer, "Item", itemDefinition.ItemType, serializer);
+                        WriteProperty(writer, "Amount", item.Value, serializer);
+
+                        writer.WriteEndObject();
+                    }
+
+                    writer.WriteEndArray();
+
+                    writer.WriteEndObject();
+                }
+
+                writer.WriteEndArray();
+
+                writer.WriteEndObject();
+
+                writer.WriteEndObject();
+            }
             else
             {
                 writer.WriteNull();
