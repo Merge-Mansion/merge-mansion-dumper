@@ -75,5 +75,6 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(12, (MetaMemberFlags)0)]
         private MysteryMachineLeaderboardConfigId CachedLeaderboardConfigId { get; set; }
+        public int SelectedPortalItem { get; }
     }
 }

@@ -47,14 +47,16 @@ using GameLogic.Player.Leaderboard.ClassicRacesEvent;
 using Code.GameLogic.Player;
 using GameLogic.Config.Types;
 using GameLogic.Utility;
+using Code.GameLogic.Config;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player
 {
     [MetaSerializableDerived(1)]
     [MetaReservedMembers(99, 400)]
     [MetaReservedMembers(11, 12)]
-    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285, 249 })]
-    [SupportedSchemaVersions(21, 49)]
+    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285, 249, 216 })]
+    [SupportedSchemaVersions(21, 50)]
     public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IWritablePlayer, IPlayer, IGenerationContext
     {
         public static int MaxLoginCounts;
@@ -176,10 +178,6 @@ namespace GameLogic.Player
         [NoChecksum]
         public List<MetaTime> SessionsInTheLast240HoursStartAt { get; set; }
 
-        [MetaMember(216, (MetaMemberFlags)0)]
-        [ServerOnly]
-        public SupercellIdBindingState SupercellIdBindingState { get; set; }
-
         [MetaMember(217, (MetaMemberFlags)0)]
         [Transient]
         public string AnalyticsApiKey { get; set; }
@@ -233,8 +231,6 @@ namespace GameLogic.Player
         [MetaMember(234, (MetaMemberFlags)0)]
         public MetaDuration DebugTimeOffsetValue { get; set; }
         public override MetaDuration DebugTimeOffset { get; }
-        public bool HasPendingSupercellIdBinding { get; }
-        public bool IsBoundToSCID { get; }
 
         [IgnoreDataMember]
         public IEnumerable<IBoard> Boards { get; }
@@ -528,5 +524,20 @@ namespace GameLogic.Player
 
         [MetaMember(309, (MetaMemberFlags)0)]
         public List<BaseRevertLogic> WaitingReverts { get; set; }
+
+        [IgnoreDataMember]
+        private ILastNSegmentsCache LastNSegmentsCache { get; set; }
+
+        [IgnoreDataMember]
+        ILastNSegmentsCache GameLogic.Player.IPlayer.LastNSegmentsCache { get; }
+
+        [MetaMember(311, (MetaMemberFlags)0)]
+        public TasksTabStyle? OverrideTasksTabStyle { get; set; }
+
+        [IgnoreDataMember]
+        public Option<TasksTabStyle> OverrideTasksTabStyleOption { get; }
+
+        [MetaMember(312, (MetaMemberFlags)0)]
+        public MetaTime? ScidWarningLastShownTime { get; set; }
     }
 }

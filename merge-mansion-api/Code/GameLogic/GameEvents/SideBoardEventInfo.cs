@@ -41,9 +41,6 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(6, (MetaMemberFlags)0)]
         public MetaRef<BoardInfo> BoardRef { get; set; }
 
-        [MetaMember(7, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> PortalItemRef { get; set; }
-
         [MetaMember(8, (MetaMemberFlags)0)]
         public List<MetaRef<EventLevelInfo>> LevelRefs { get; set; }
 
@@ -77,21 +74,6 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(18, (MetaMemberFlags)0)]
         public int LimitResourceItem { get; set; }
 
-        [MetaMember(19, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ResourceItemRef { get; set; }
-
-        [MetaMember(20, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ResourceItemSpawnerRef { get; set; }
-
-        [MetaMember(21, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> EmptySinkResourceItemRef { get; set; }
-
-        [MetaMember(22, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> ItemRefsDisplayingResourceItemCountOnBoard { get; set; }
-
-        [MetaMember(23, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> ItemRefsDisplayingResourceItemCountOnItemInfoArea { get; set; }
-
         [MetaMember(24, (MetaMemberFlags)0)]
         public string IsResourceItemAtMaxItemInfoAreaLocId { get; set; }
 
@@ -106,9 +88,6 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(28, (MetaMemberFlags)0)]
         public MetaDuration? ShowTimeInCalendarPopupAfterFinish { get; set; }
-
-        [MetaMember(29, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ResourceItemCollectableRef { get; set; }
         public bool HasCustomCurrency { get; }
         public SideBoardEventId ConfigKey => SideBoardEventId;
         public SideBoardEventId ActivableId { get; }
@@ -116,12 +95,6 @@ namespace Code.GameLogic.GameEvents
 
         [IgnoreDataMember]
         public BoardInfo Board { get; }
-
-        [IgnoreDataMember]
-        public ItemDefinition PortalItem { get; }
-
-        [IgnoreDataMember]
-        public ItemDefinition ResourceItemCollectable { get; }
 
         [IgnoreDataMember]
         public IEnumerable<EventLevelInfo> Levels { get; }
@@ -178,5 +151,33 @@ namespace Code.GameLogic.GameEvents
         public SideBoardEventInfo(SideBoardEventId sideBoardEventId, string nameLocId, string displayName, string description, MetaActivableParams activableParams, MetaRef<BoardInfo> boardRef, MetaRef<ItemDefinition> portalItemRef, List<MetaRef<EventLevelInfo>> levelRefs, Dictionary<EventLevelId, MetaRef<EventLevelInfo>> fallbackLevelRefs, StoryDefinitionId enterBoardDialogue, PlayerRequirement unlockRequirement, OfferPlacementId boardShopPlacementId, DecorationId activeDecoration, List<int> progressionPopupHeaderImageLevels, string initTask, List<MetaRef<EventTaskInfo>> eventTasks, ExtendableEventParams extendableEventParams, int limitResourceItem, MetaRef<ItemDefinition> resourceItemRef, MetaRef<ItemDefinition> resourceItemCollectableRef, MetaRef<ItemDefinition> resourceItemSpawnerRef, MetaRef<ItemDefinition> emptySinkResourceItemRef, List<MetaRef<ItemDefinition>> itemRefsDisplayingResourceItemCountOnBoard, List<MetaRef<ItemDefinition>> itemRefsDisplayingResourceItemCountOnItemInfoArea, string isResourceItemAtMaxItemInfoAreaLocId, string isResourceItemAtMaxItemInfoAreaPortalLocId, List<EventTaskLocEntry> endPopupOptions, MetaRef<EventCurrencyInfo> eventCurrencyInfo, MetaDuration? showTimeInCalendarPopupAfterFinish, EventGroupId groupId, int priority, EventCategoryInfo categoryInfo)
         {
         }
+
+        [MetaMember(7, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef PortalItemDef { get; set; }
+
+        [MetaMember(19, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ResourceItemDef { get; set; }
+
+        [MetaMember(20, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ResourceItemSpawnerDef { get; set; }
+
+        [MetaMember(21, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef EmptySinkResourceItemDef { get; set; }
+
+        [MetaMember(22, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRefList")]
+        public List<ItemDef> ItemDefsDisplayingResourceItemCountOnBoard { get; set; }
+
+        [MetaMember(23, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRefList")]
+        public List<ItemDef> ItemDefsDisplayingResourceItemCountOnItemInfoArea { get; set; }
+
+        [MetaMember(29, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ResourceItemCollectableDef { get; set; }
     }
 }

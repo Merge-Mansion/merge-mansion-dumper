@@ -7,6 +7,7 @@ using Metaplay.Core;
 using GameLogic.Player.Items;
 using System.Collections.Generic;
 using GameLogic.Player.Rewards;
+using GameLogic.Config;
 
 namespace GameLogic.EventCharacters
 {
@@ -35,7 +36,8 @@ namespace GameLogic.EventCharacters
         public StoryDefinitionId DialogueOnUnlock { get; set; }
 
         [MetaMember(8, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemToForcePurchaseOnUnlockRef { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemToForcePurchaseOnUnlockRef { get; set; }
 
         [MetaMember(9, (MetaMemberFlags)0)]
         public List<PlayerReward> RewardsOnUnlock { get; set; }

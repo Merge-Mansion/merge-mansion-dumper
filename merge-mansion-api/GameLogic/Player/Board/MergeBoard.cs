@@ -118,6 +118,15 @@ namespace GameLogic.Player.Board
 
         [IgnoreDataMember]
         public int BoardSize { get; }
+
+        [MetaMember(16, (MetaMemberFlags)0)]
+        public MetaDuration PendingOnFire { get; set; }
+
+        [MetaMember(17, (MetaMemberFlags)0)]
+        public MetaTime OnFireStartTime { get; set; }
+
+        [MetaMember(18, (MetaMemberFlags)0)]
+        public MetaTime OnFireEndTime { get; set; }
     // Process merge for items
     //public void ProcessMerge(Coordinate fromPosition, Coordinate toPosition, MetaTime timeForMergeOrMove,
     //    IPlayer player, IBubbleSpawner bubbleSpawner, IProgressionEventItemSpawner progressionEventItemSpawner,

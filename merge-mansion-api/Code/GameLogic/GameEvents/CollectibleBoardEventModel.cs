@@ -139,5 +139,8 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(24, (MetaMemberFlags)0)]
         private byte BoolFields3 { get; set; }
+
+        [IgnoreDataMember]
+        public int SelectedPortalItem { get; }
     }
 }

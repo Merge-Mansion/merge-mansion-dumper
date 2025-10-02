@@ -3,6 +3,7 @@ using Metaplay.Core.Config;
 using System.Collections.Generic;
 using Metaplay.Core;
 using GameLogic.Player.Items;
+using GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents
 {

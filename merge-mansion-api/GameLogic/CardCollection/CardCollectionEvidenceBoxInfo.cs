@@ -8,6 +8,7 @@ using GameLogic.Player.Rewards;
 using GameLogic.ConfigPrefabs;
 using GameLogic.Player.Items;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.CardCollection
 {
@@ -48,9 +49,6 @@ namespace GameLogic.CardCollection
         [MetaMember(11, (MetaMemberFlags)0)]
         public ConfigAssetPackId AssetPackId { get; set; }
 
-        [MetaMember(12, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> EvidenceBoxItemRef { get; set; }
-
         [IgnoreDataMember]
         public int AvailableDailyPurchaseCount { get; }
 
@@ -64,5 +62,9 @@ namespace GameLogic.CardCollection
 
         [IgnoreDataMember]
         public List<PlayerReward> RewardsForConfigValidation { get; }
+
+        [MetaMember(12, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

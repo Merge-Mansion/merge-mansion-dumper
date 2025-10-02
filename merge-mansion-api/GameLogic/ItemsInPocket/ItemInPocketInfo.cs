@@ -5,6 +5,7 @@ using GameLogic.Player.Items;
 using System;
 using System.Collections.Generic;
 using GameLogic.Player.Director.Config;
+using GameLogic.Config;
 
 namespace GameLogic.ItemsInPocket
 {
@@ -13,9 +14,6 @@ namespace GameLogic.ItemsInPocket
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public ItemInPocketId ConfigKey { get; set; }
-
-        [MetaMember(2, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemRef { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public bool IsNecessaryValidCoordinateToRunFromPocket { get; set; }
@@ -36,5 +34,9 @@ namespace GameLogic.ItemsInPocket
         public ItemInPocketInfo(ItemInPocketId itemInPocketId, MetaRef<ItemDefinition> itemRef, bool isNecessaryValidCoordinateToRunFromPocket, bool canMoveToBoard, int priorityInPocket, List<IDirectorAction> actionsToRunFromPocket)
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

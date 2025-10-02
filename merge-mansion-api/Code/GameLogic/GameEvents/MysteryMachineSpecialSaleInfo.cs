@@ -4,6 +4,7 @@ using Metaplay.Core;
 using GameLogic.Player.Items;
 using GameLogic;
 using System;
+using GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -12,9 +13,6 @@ namespace Code.GameLogic.GameEvents
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public MysteryMachineSpecialSaleId ConfigKey { get; set; }
-
-        [MetaMember(2, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemRef { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public Currencies CostCurrency { get; set; }
@@ -38,5 +36,9 @@ namespace Code.GameLogic.GameEvents
         public MysteryMachineSpecialSaleInfo(MysteryMachineSpecialSaleId configKey, MetaRef<ItemDefinition> itemRef, Currencies costCurrency, int initialCostAmount, int freeItemWeight, MysteryMachineSaleFeatureId machineFeature, int maxPurchaseCount)
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

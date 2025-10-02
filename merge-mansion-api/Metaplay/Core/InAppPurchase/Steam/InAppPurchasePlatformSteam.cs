@@ -8,7 +8,6 @@ namespace Metaplay.Core.InAppPurchase.Steam
     {
         public static int TagId;
         public static InAppPurchasePlatform Steam;
-
         protected InAppPurchasePlatformSteam(int id, string name, bool isValid, bool isReservedValueDummy) : base(id, name, isValid, isReservedValueDummy)
         {
         }

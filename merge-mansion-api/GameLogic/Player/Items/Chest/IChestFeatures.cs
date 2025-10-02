@@ -2,6 +2,8 @@ using System;
 using Metaplay.Core;
 using GameLogic.Player.Items.Production;
 using GameLogic.Config.Types;
+using Metacore.MergeMansion.Common.Options;
+using GameLogic.Fallbacks;
 
 namespace GameLogic.Player.Items.Chest
 {
@@ -16,5 +18,7 @@ namespace GameLogic.Player.Items.Chest
         IItemProducer LootProducer { get; }
 
         string HintLocId { get; }
+
+        Option<FallbackPlayerRewardId> FallbackChestIdOption { get; }
     }
 }

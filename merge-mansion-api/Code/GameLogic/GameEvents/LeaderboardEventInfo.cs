@@ -41,9 +41,6 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(6, (MetaMemberFlags)0)]
         public MetaRef<BoardInfo> BoardRef { get; set; }
 
-        [MetaMember(7, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> PortalItemRef { get; set; }
-
         [MetaMember(8, (MetaMemberFlags)0)]
         public PlayerRequirement UnlockRequirement { get; set; }
 
@@ -67,9 +64,6 @@ namespace Code.GameLogic.GameEvents
 
         [IgnoreDataMember]
         public BoardInfo Board { get; }
-
-        [IgnoreDataMember]
-        public ItemDefinition PortalItem { get; }
 
         [IgnoreDataMember]
         public IEnumerable<EventLevelInfo> Levels { get; }
@@ -152,5 +146,9 @@ namespace Code.GameLogic.GameEvents
         public LeaderboardEventInfo(LeaderboardEventId leaderboardEventId, string nameLocId, string displayName, string description, MetaActivableParams activableParams, MetaRef<BoardInfo> boardRef, MetaRef<ItemDefinition> portalItemRef, PlayerRequirement unlockRequirement, OfferPlacementId boardShopPlacementId, List<MetaRef<EventLevelInfo>> rankingRewardLevelRefs, List<MetaRef<EventLevelInfo>> levelRefs, StoryDefinitionId enterBoardDialogue, StoryDefinitionId endDialogue, MetaDuration? auxEnergyUnitRestoreDuration, int auxEnergyAttachmentChance, EventGroupId eventGroupId, bool disableBubbleBonus, F32? bubbleBonusDivisor, List<BubbleBonusInfo> secondaryBoardBubbleBonus, int priority, LeaderboardEventMatchmakingBucketsId matchmakingBuckets, EventCategoryInfo categoryInfo, bool forceLocationTravel)
         {
         }
+
+        [MetaMember(7, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef PortalItemDef { get; set; }
     }
 }

@@ -64,5 +64,7 @@ namespace Code.GameLogic.GameEvents
             [MetaMember(2, (MetaMemberFlags)0)]
             public PlayerShortLeaderboardEventStageState State;
         }
+
+        public int SelectedPortalItem { get; }
     }
 }

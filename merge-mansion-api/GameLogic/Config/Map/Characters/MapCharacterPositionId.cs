@@ -296,6 +296,7 @@ namespace GameLogic.Config.Map.Characters
         FactoryGiftShopFirstMapCharacterPosition = 10799,
         FactoryGiftShopEntryMapMaddie = 10800,
         FactoryGiftShopMaddiePackingStation = 10801,
-        FactoryGiftShopCharacter = 10802
+        FactoryGiftShopCharacter = 10802,
+        AreaPetHomeMapBoo = 5809
     }
 }

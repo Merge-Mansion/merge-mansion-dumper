@@ -70,6 +70,7 @@ using GameLogic.Story.SlideShows;
 using Metaplay.Core.Localization;
 using Code.GameLogic.Hotspots;
 using Code.GameLogic.IAP;
+using Code.GameLogic.Config;
 
 namespace GameLogic.Config
 {
@@ -502,6 +503,12 @@ namespace GameLogic.Config
 
         GameConfigLibrary<CoreSupportEventModeId, CoreSupportEventModeInfo> CoreSupportEventModes { get; }
 
-        IReadOnlyDictionary<ExtraSpawnTriggerType, HashSet<CoreSupportEventTokenId>> ExtraSpawnTriggerCoreSupportEventTokens { get; }
+        GameConfigLibrary<ExtraSpawnTriggerType, HashSet<CoreSupportEventTokenId>> ExtraSpawnTriggerCoreSupportEventTokens { get; }
+
+        IReadOnlyList<InAppProductId> ProgressionEventIAPs { get; }
+
+        ILastNSegmentsConfig LastNSegmentsConfig { get; }
+
+        AutoMergeSettings AutoMergeSettings { get; }
     }
 }

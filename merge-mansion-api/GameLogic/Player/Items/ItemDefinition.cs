@@ -381,5 +381,11 @@ namespace GameLogic.Player.Items
 
         [MetaMember(46, (MetaMemberFlags)0)]
         public ConfigPrefabId CustomItemInfoPopupId { get; set; }
+
+        [MetaMember(65, (MetaMemberFlags)0)]
+        private OnFireFeatures _OnFireFeatures { get; set; }
+
+        [IgnoreDataMember]
+        public IOnFireFeatures OnFireFeatures { get; }
     }
 }

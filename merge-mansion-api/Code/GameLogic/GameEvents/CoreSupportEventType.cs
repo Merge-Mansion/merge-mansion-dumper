@@ -9,6 +9,7 @@ namespace Code.GameLogic.GameEvents
     {
         None = 0,
         DigEvent = 1,
-        ClassicRaces = 2
+        ClassicRaces = 2,
+        AutoMerge = 3
     }
 }

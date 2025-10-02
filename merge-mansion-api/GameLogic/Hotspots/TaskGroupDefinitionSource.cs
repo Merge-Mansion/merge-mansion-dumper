@@ -18,5 +18,7 @@ namespace GameLogic.Hotspots
         public TaskGroupDefinitionSource()
         {
         }
+
+        private List<string> CompleteAction { get; set; }
     }
 }

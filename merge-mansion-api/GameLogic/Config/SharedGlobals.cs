@@ -176,5 +176,32 @@ namespace GameLogic.Config
 
         [MetaMember(72, (MetaMemberFlags)0)]
         public bool DisableExperienceItemDrops { get; set; }
+
+        [MetaMember(73, (MetaMemberFlags)0)]
+        public bool CacheLastNSegments { get; set; }
+
+        [MetaMember(74, (MetaMemberFlags)0)]
+        public FTUEStartGroups FTUEStartGroup { get; set; }
+
+        [MetaMember(75, (MetaMemberFlags)0)]
+        private TasksTabStyle TasksTabStyle { get; set; }
+
+        [MetaMember(76, (MetaMemberFlags)0)]
+        public bool TabletScalingEnabled { get; set; }
+
+        [MetaMember(77, (MetaMemberFlags)0)]
+        public bool TutorializedAreaUnlock { get; set; }
+
+        [MetaMember(78, (MetaMemberFlags)0)]
+        public MetaDuration SCIDWarningCooldown { get; set; }
+
+        [MetaMember(79, (MetaMemberFlags)0)]
+        public string SCIDWarningEndTime { get; set; }
+
+        [MetaMember(80, (MetaMemberFlags)0)]
+        public List<MetaDuration> SCIDWarningEndCooldowns { get; set; }
+
+        [MetaMember(81, (MetaMemberFlags)0)]
+        public bool UseUITracking { get; set; }
     }
 }

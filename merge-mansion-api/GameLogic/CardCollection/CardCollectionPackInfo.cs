@@ -5,6 +5,7 @@ using GameLogic.ConfigPrefabs;
 using Metaplay.Core;
 using GameLogic.Player.Items;
 using GameLogic.Player.Rewards;
+using GameLogic.Config;
 
 namespace GameLogic.CardCollection
 {
@@ -20,9 +21,6 @@ namespace GameLogic.CardCollection
         [MetaMember(3, (MetaMemberFlags)0)]
         public ConfigAssetPackId AssetPackId { get; set; }
 
-        [MetaMember(4, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> CardPackItemRef { get; set; }
-
         [MetaMember(5, (MetaMemberFlags)0)]
         public string NameLocId { get; set; }
 
@@ -36,5 +34,9 @@ namespace GameLogic.CardCollection
         public CardCollectionPackInfo(CardCollectionPackId cardCollectionPackId, int packStars, ConfigAssetPackId configAssetPackId, MetaRef<ItemDefinition> cardPackItemRef, string nameLocId, PlayerReward pocketConversionReward)
         {
         }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

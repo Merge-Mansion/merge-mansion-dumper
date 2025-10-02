@@ -5,10 +5,11 @@ namespace Metacore.MergeMansion.Common.Options
 {
     public readonly struct Option<TValue>
     {
-        public static readonly Option<TValue> None;
         private readonly TValue _value;
-        private static readonly bool IsValueType;
         [PublicAPI]
         public bool HasValue { get; }
+
+        public static readonly Option<TValue> NONE;
+        private static readonly bool IS_VALUE_TYPE;
     }
 }

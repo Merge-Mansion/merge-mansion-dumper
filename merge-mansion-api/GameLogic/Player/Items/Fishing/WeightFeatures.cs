@@ -61,5 +61,8 @@ namespace GameLogic.Player.Items.Fishing
         public WeightFeatures(bool hasWeight, F32 minWeight, F32 maxWeight, int framesItem, F32 worldRecordWeightThreshold, StoryDefinitionId worldRecordWeightDialogue, IEnumerable<PlayerReward> worldRecordRewards, Dictionary<WeightCategory, SplashType> splashTypesByWeightCategory, FishRarity fishRarity, List<WeightStarRewardData> starRewards, LuckyType luckyType)
         {
         }
+
+        [MetaMember(12, (MetaMemberFlags)0)]
+        public SubjectType SubjectType { get; set; }
     }
 }

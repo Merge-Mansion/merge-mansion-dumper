@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using GameLogic.CardCollection;
 using GameLogic.Fallbacks;
 using System;
+using System.Runtime.Serialization;
 
 namespace GameLogic.Player.Rewards
 {
@@ -23,5 +24,8 @@ namespace GameLogic.Player.Rewards
         }
 
         public override bool ShouldShowInfoButton { get; }
+
+        [IgnoreDataMember]
+        public int Amount { get; }
     }
 }

@@ -54,5 +54,6 @@ namespace Code.GameLogic.GameEvents
         private CoreSupportEventTokenTarget FallbackTokenTarget { get; set; }
         private CoreSupportEventTokenType TokenType { get; set; }
         private bool ForceDisableInfoPanel { get; set; }
+        private MetaDuration? Lifetime { get; set; }
     }
 }

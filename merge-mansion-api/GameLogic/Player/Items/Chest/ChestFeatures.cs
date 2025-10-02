@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using GameLogic.Config.Types;
+using GameLogic.Fallbacks;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player.Items.Chest
 {
@@ -43,5 +45,9 @@ namespace GameLogic.Player.Items.Chest
         public ChestFeatures(MetaDuration openDuration, int howManyToRoll, IItemProducer lootProducer, string hintLocId)
         {
         }
+
+        [MetaMember(6, (MetaMemberFlags)0)]
+        private FallbackPlayerRewardId FallbackChest { get; set; }
+        public Option<FallbackPlayerRewardId> FallbackChestIdOption { get; }
     }
 }

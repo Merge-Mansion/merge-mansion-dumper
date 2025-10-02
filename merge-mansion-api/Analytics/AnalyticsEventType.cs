@@ -175,6 +175,8 @@ namespace Analytics
         SupercellShowOverlay = 164,
         AppsflyerResume = 165,
         AppsflyerStop = 166,
-        PlayerOrphaned = 167
+        PlayerOrphaned = 167,
+        ViewEvent = 168,
+        ButtonEvent = 169
     }
 }

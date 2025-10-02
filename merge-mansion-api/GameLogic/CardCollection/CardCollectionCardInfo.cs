@@ -5,6 +5,7 @@ using System;
 using Metaplay.Core;
 using GameLogic.Player.Items;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.CardCollection
 {
@@ -26,9 +27,6 @@ namespace GameLogic.CardCollection
         [MetaMember(5, (MetaMemberFlags)0)]
         public bool IsSpecial { get; set; }
 
-        [MetaMember(6, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> CardItemRef { get; set; }
-
         [IgnoreDataMember]
         public bool IsWildCard { get; }
 
@@ -39,5 +37,9 @@ namespace GameLogic.CardCollection
         public CardCollectionCardInfo(CardCollectionCardId cardCollectionCardId, ConfigAssetPackId configAssetPackId, CardStars stars, string nameLocId, bool isSpecial, MetaRef<ItemDefinition> cardItemRef)
         {
         }
+
+        [MetaMember(6, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

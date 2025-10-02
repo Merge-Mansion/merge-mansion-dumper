@@ -1152,6 +1152,12 @@ namespace GameLogic.Config
 
         public GameConfigLibrary<OfferPlacementId, List<MetaOfferGroupInfoBase>> MetaOfferGroupsPerPlacementInMostImportantFirstOrder { get; }
 
-        public IReadOnlyDictionary<ExtraSpawnTriggerType, HashSet<CoreSupportEventTokenId>> ExtraSpawnTriggerCoreSupportEventTokens { get; set; }
+        public GameConfigLibrary<ExtraSpawnTriggerType, HashSet<CoreSupportEventTokenId>> ExtraSpawnTriggerCoreSupportEventTokens { get; set; }
+        public IReadOnlyList<InAppProductId> ProgressionEventIAPs { get; set; }
+        public ILastNSegmentsConfig LastNSegmentsConfig { get; set; }
+
+        [GameConfigEntry("AutoMergeSettings", true, null)]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
+        public AutoMergeSettings AutoMergeSettings { get; set; }
     }
 }

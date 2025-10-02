@@ -6,6 +6,7 @@ using GameLogic.Player.Items;
 using GameLogic.MergeChains;
 using System;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace Code.GameLogic.DynamicEvents
 {
@@ -14,12 +15,6 @@ namespace Code.GameLogic.DynamicEvents
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public DynamicEventItemId ConfigKey { get; set; }
-
-        [MetaMember(2, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemRef { get; set; }
-
-        [MetaMember(3, (MetaMemberFlags)0)]
-        public MetaRef<MergeChainDefinition> MergeChainRef { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
         public int LevelNumber { get; set; }
@@ -36,9 +31,6 @@ namespace Code.GameLogic.DynamicEvents
         [MetaMember(8, (MetaMemberFlags)0)]
         public int RewardPoints { get; set; }
 
-        [IgnoreDataMember]
-        public ItemDefinition Item { get; }
-
         public DynamicEventItemInfo()
         {
         }
@@ -46,5 +38,13 @@ namespace Code.GameLogic.DynamicEvents
         public DynamicEventItemInfo(DynamicEventItemId configKey, string itemRef, MergeChainId mergeChain, int levelNumber, int totalToLvl1, int rewardpoints, int[] defaultValues, int[] difficultyValues)
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ItemDef { get; set; }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixMergeChainRef")]
+        public MergeChainDef MergeChainDef { get; set; }
     }
 }

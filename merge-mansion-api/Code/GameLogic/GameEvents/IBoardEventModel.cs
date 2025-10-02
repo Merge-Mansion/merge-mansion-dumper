@@ -28,5 +28,7 @@ namespace Code.GameLogic.GameEvents
         IBoardEventInfo BoardEventInfo { get; }
 
         bool PortalItemGiven { get; }
+
+        int SelectedPortalItem { get; }
     }
 }

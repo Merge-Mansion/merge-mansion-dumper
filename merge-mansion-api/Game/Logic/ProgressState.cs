@@ -349,5 +349,9 @@ namespace Game.Logic
 
         [IgnoreDataMember]
         public MetaTime LatestCompletedHotspotTime { get; }
+
+        [MetaMember(95, (MetaMemberFlags)0)]
+        [ExcludeFromGdprExport]
+        private HashSet<AreaId> _notedUnlockableAreas { get; set; }
     }
 }

@@ -35,6 +35,7 @@ namespace GameLogic.Player.Rewards
         BoultonLeaguePoints = 26,
         RewardContainer = 27,
         ItemForCollectibleBoardEvent = 28,
-        Empty = 29
+        Empty = 29,
+        OnFire = 30
     }
 }

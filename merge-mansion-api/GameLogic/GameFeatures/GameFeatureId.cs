@@ -53,6 +53,9 @@ namespace GameLogic.GameFeatures
         DailyTasksMenuV2 = 39,
         Haptics = 40,
         Segmentor = 41,
-        ConnectivityCheckEnabled = 42
+        ConnectivityCheckEnabled = 42,
+        SCIDWarningPopup = 43,
+        UseUITracking = 44,
+        OnFire = 45
     }
 }

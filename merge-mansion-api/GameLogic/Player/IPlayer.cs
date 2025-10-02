@@ -32,6 +32,8 @@ using Code.GameLogic.Player.Board;
 using Code.GameLogic.Player;
 using GameLogic.Player.Leaderboard.ClassicRacesEvent;
 using GameLogic.Config.Types;
+using Metacore.MergeMansion.Common.Options;
+using Code.GameLogic.Config;
 
 namespace GameLogic.Player
 {
@@ -208,6 +210,10 @@ namespace GameLogic.Player
         ClassicRacesEventDivisionClientState ClassicRacesEventDivisionClientState { get; }
 
         IMetacorePlayerTimeZoneInfo TimeZoneInfo { get; }
+
+        ILastNSegmentsCache LastNSegmentsCache { get; }
+
+        Option<TasksTabStyle> OverrideTasksTabStyleOption { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

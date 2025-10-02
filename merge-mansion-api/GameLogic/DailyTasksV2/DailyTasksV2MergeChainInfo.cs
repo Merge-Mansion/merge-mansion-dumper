@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using GameLogic.Area;
 using Metaplay.Core;
 using GameLogic.Player.Items;
+using GameLogic.Config;
 
 namespace GameLogic.DailyTasksV2
 {

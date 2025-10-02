@@ -364,6 +364,20 @@ namespace Metaplay.Core.Message
             public int ClientTosVersion;
             [MetaMember(9, (MetaMemberFlags)0)]
             public MetaDuration GameTimeOffset;
+            [MetaMember(101, (MetaMemberFlags)0)]
+            public Handshake.ServerOptions.SupercellIdOAuthSettings SupercellIdOAuth;
+            [MetaSerializable]
+            public class SupercellIdOAuthSettings
+            {
+                [MetaMember(1, (MetaMemberFlags)0)]
+                public bool Enabled { get; set; }
+
+                [MetaMember(2, (MetaMemberFlags)0)]
+                public string BaseUri { get; set; }
+
+                [MetaMember(3, (MetaMemberFlags)0)]
+                public string ClientId { get; set; }
+            }
         }
 
         [MetaSerializable]

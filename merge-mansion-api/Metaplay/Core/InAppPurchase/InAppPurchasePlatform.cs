@@ -13,7 +13,6 @@ namespace Metaplay.Core.InAppPurchase
         public static InAppPurchasePlatform _ReservedDontUse3;
         public static InAppPurchasePlatform _ReservedDontUse4;
         public static InAppPurchasePlatform WebshopNeon;
-
         protected InAppPurchasePlatform(int id, string name, bool isValid, bool isReservedValueDummy) : base(id, name, isValid)
         {
             IsReservedValueDummy = isReservedValueDummy;

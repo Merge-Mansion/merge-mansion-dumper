@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using GameLogic.Player.Rewards;
 using Metaplay.Core;
 using GameLogic.Player.Items;
+using GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -17,7 +18,8 @@ namespace Code.GameLogic.GameEvents
         public List<PlayerReward> Rewards { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> VisualItem { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef VisualItem { get; set; }
 
         public GarageCleanupRewardInfo()
         {

@@ -117,6 +117,8 @@ namespace GameLogic.Decorations
         SP_PigPet2025_TA1 = 108,
         SP_PigPet2025_TA2 = 109,
         SP_GoatPet2025_TA1 = 110,
-        SP_GoatPet2025_TA2 = 111
+        SP_GoatPet2025_TA2 = 111,
+        SP_GhostDog2025_TA1 = 112,
+        SP_GhostDog2025_TA2 = 113
     }
 }

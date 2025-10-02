@@ -163,5 +163,7 @@ namespace GameLogic.Player.Items
         ConfigPrefabId CustomItemInfoPopupId { get; }
 
         MergeChainDef MergeChainDef { get; }
+
+        IOnFireFeatures OnFireFeatures { get; }
     }
 }

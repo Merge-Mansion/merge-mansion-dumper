@@ -106,5 +106,7 @@ namespace Code.GameLogic.GameEvents
         public SideBoardEventModel(SideBoardEventInfo info)
         {
         }
+
+        public int SelectedPortalItem { get; }
     }
 }

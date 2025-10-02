@@ -5,6 +5,7 @@ using Metaplay.Core.Math;
 using System.Collections.Generic;
 using Metaplay.Core;
 using GameLogic.Player.Items;
+using GameLogic.Config;
 
 namespace GameLogic.DailyTasksV2
 {

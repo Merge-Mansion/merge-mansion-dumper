@@ -137,5 +137,9 @@ namespace GameLogic.Player.Items
         F32 TimeBoostMultiplier { get; }
 
         F32 TimeSpawnBoostMultiplier { get; }
+
+        MetacoreTime? NextSpawnStorageTimestamp { get; }
+
+        MetaDuration? RemainingDuration { get; }
     }
 }

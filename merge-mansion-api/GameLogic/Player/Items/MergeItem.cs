@@ -212,7 +212,7 @@ namespace GameLogic.Player.Items
         public bool SpawnStorageFull { get; }
 
         [IgnoreDataMember]
-        public MetaTime? NextSpawnStorageTimestamp { get; }
+        public MetacoreTime? NextSpawnStorageTimestamp { get; }
         public bool IsChest { get; }
 
         [IgnoreDataMember]

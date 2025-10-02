@@ -30,5 +30,7 @@ namespace GameLogic.Player.Items.Fishing
         List<WeightStarRewardData> StarRewards { get; }
 
         LuckyType LuckyType { get; }
+
+        SubjectType SubjectType { get; }
     }
 }

@@ -8,6 +8,7 @@ using Metaplay.Core;
 using GameLogic.Player.Items;
 using System.Collections.Generic;
 using Metacore.MergeMansion.Common.Options;
+using GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -48,9 +49,6 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(12, (MetaMemberFlags)0)]
         public PlayerRequirement PreviewRequirement { get; set; }
-
-        [MetaMember(13, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> PortalItemRef { get; set; }
 
         [MetaMember(14, (MetaMemberFlags)0)]
         public CoreSupportEventTokenId TokenId { get; set; }
@@ -93,9 +91,7 @@ namespace Code.GameLogic.GameEvents
         public Option<CoreSupportEventMinigameId> MinigameIdOption { get; }
         public string AssetId { get; }
         public string LocIdPrefix { get; }
-        public Option<ItemDefinition> PortalItemOption { get; }
         public Option<CoreSupportEventCollectionId> CollectionIdOption { get; }
-        public string NameLocId { get; }
         public Option<CoreSupportEventModeFeature> ModeFeatureOption { get; }
         public Option<CoreSupportEventSegmentFeature<EventGroupId>> SegmentFeatureOption { get; }
 
@@ -126,5 +122,12 @@ namespace Code.GameLogic.GameEvents
         public CoreSupportEventInfo(CoreSupportEventId configKey, string displayName, string description, MetaActivableParams activableParams, EventGroupId groupId, int priority, CoreSupportEventType eventType, CoreSupportEventMinigameId minigameId, string assetOverride, string locOverride, PlayerRequirement unlockRequirement, PlayerRequirement previewRequirement, MetaRef<ItemDefinition> portalItemRef, CoreSupportEventTokenId tokenId, string tokenAsset, string tokenLocId, long tokensAtStart, List<MetaRef<EventLevelInfo>> levelRefs, List<MetaRef<EventLevelInfo>> recurringLevelRefs, Dictionary<EventLevelId, MetaRef<EventLevelInfo>> fallbackLevelRefs, CoreSupportEventModeFeature modeFeature, EventCategoryInfo categoryInfo, CoreSupportEventSegmentFeature<EventGroupId> segmentFeature, CoreSupportEventCollectionId collectionId, CoreSupportEventStartPopupAction startPopupAction, CoreSupportEventTokenTarget fallbackTokenTarget, CoreSupportEventTokenType tokenType, bool forceDisableInfoPanel)
         {
         }
+
+        [MetaMember(13, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        private ItemDef PortalItemDef { get; set; }
+        public Option<CoreSupportEventTokenId> TokenIdOption { get; }
+
+        public string NameLocId => throw new NotImplementedException();
     }
 }

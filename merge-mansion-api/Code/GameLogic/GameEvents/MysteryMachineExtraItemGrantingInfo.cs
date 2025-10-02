@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Metaplay.Core;
 using GameLogic.Player.Items;
 using System;
+using GameLogic.Config;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -17,9 +18,6 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(2, (MetaMemberFlags)0)]
         public MergeChainId ChainId { get; set; }
 
-        [MetaMember(3, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> ItemRefs { get; set; }
-
         [MetaMember(4, (MetaMemberFlags)0)]
         public List<int> ExtraItemAmounts { get; set; }
 
@@ -30,5 +28,9 @@ namespace Code.GameLogic.GameEvents
         public MysteryMachineExtraItemGrantingInfo(MysteryMachineExtraItemGrantingId configKey, MergeChainId chainId, List<MetaRef<ItemDefinition>> itemRefs, List<int> extraItemAmounts)
         {
         }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRefs")]
+        public List<ItemDef> ItemDefs { get; set; }
     }
 }

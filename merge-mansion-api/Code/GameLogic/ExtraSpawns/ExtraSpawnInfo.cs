@@ -10,10 +10,12 @@ using Metaplay.Core;
 using GameLogic.Player.Items;
 using Metacore.MergeMansion.Common.Options;
 using GameLogic.Player.Requirements;
+using GameLogic.Config;
 
 namespace Code.GameLogic.ExtraSpawns
 {
     [MetaSerializable]
+    [MetaBlockedMembers(new int[] { 13 })]
     public class ExtraSpawnInfo : IGameConfigData<string>, IGameConfigData, IHasGameConfigKey<string>
     {
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -52,8 +54,8 @@ namespace Code.GameLogic.ExtraSpawns
         [MetaMember(12, (MetaMemberFlags)0)]
         private List<ValueTuple<CoreSupportEventTokenId, ExtraSpawnAmountRange, IExtraSpawnFormula>> SpawnTokens { get; set; }
 
-        [MetaMember(13, (MetaMemberFlags)0)]
-        private List<ValueTuple<MetaRef<ItemDefinition>, long>> SpawnItems { get; set; }
+        [MetaMember(18, (MetaMemberFlags)0)]
+        private List<ValueTuple<ItemDef, long>> SpawnItems { get; set; }
 
         [MetaMember(14, (MetaMemberFlags)0)]
         public int VisualPriority { get; set; }

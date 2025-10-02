@@ -4,6 +4,7 @@ using Code.GameLogic.Config;
 using Metaplay.Core;
 using GameLogic.MergeChains;
 using Metaplay.Core.Math;
+using GameLogic.Config;
 
 namespace Code.GameLogic.DynamicEvents
 {
@@ -12,12 +13,6 @@ namespace Code.GameLogic.DynamicEvents
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public DynamicEventHelperId ConfigKey { get; set; }
-
-        [MetaMember(2, (MetaMemberFlags)0)]
-        public MetaRef<MergeChainDefinition> MergeChainRef { get; set; }
-
-        [MetaMember(3, (MetaMemberFlags)0)]
-        public MetaRef<MergeChainDefinition> MergeChainBRef { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
         public F32 AmountLvl1 { get; set; }
@@ -29,5 +24,13 @@ namespace Code.GameLogic.DynamicEvents
         public DynamicEventHelperInfo(DynamicEventHelperId configKey, MergeChainId mergeChain, MergeChainId mergeChainB, F32 amountLvl1)
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public MergeChainDef MergeChainDef { get; set; }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public MergeChainDef MergeChainBDef { get; set; }
     }
 }

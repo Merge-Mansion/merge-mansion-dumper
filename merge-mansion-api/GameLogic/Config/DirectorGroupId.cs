@@ -164,6 +164,7 @@ namespace GameLogic.Config
         public static DirectorGroupId UnlimitedEnergy;
         public static DirectorGroupId CurrencyBank;
         public static DirectorGroupId PlayerNamePopup;
+        [Obsolete("SCID Incentivized flow was removed")]
         public static DirectorGroupId SCIDPopup;
         public static IDictionary<int, string> legacyDcGroupIdMapping;
         public DirectorGroupId()
@@ -229,5 +230,9 @@ namespace GameLogic.Config
         public static DirectorGroupId IntroduceTaskCards_04;
         public static DirectorGroupId IntroduceTaskCards_05;
         public static DirectorGroupId TaskGroupV2FTUESequence;
+        public static DirectorGroupId SCIDWarningPopup;
+        public static DirectorGroupId AAROnFireSeen;
+        public static DirectorGroupId FirstAreaUnlock;
+        public static DirectorGroupId AutoMergeFTUE;
     }
 }

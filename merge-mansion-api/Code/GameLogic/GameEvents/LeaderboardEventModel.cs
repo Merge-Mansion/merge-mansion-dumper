@@ -87,5 +87,8 @@ namespace Code.GameLogic.GameEvents
 
         [IgnoreDataMember]
         IBoardEventInfo Code.GameLogic.GameEvents.IBoardEventModel.BoardEventInfo { get; }
+
+        [IgnoreDataMember]
+        public int SelectedPortalItem { get; }
     }
 }

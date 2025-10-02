@@ -44,7 +44,8 @@ namespace Code.GameLogic.GameEvents
         public MetaRef<BoardInfo> BoardRef { get; set; }
 
         [MetaMember(8, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> PortalItemRef { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef PortalItemRef { get; set; }
 
         [MetaMember(9, (MetaMemberFlags)0)]
         public PlayerRequirement UnlockRequirement { get; set; }

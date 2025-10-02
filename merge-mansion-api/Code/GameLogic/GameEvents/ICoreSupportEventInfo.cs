@@ -16,10 +16,6 @@ namespace Code.GameLogic.GameEvents
 
         string LocIdPrefix { get; }
 
-        Option<ItemDefinition> PortalItemOption { get; }
-
-        CoreSupportEventTokenId TokenId { get; }
-
         Option<CoreSupportEventCollectionId> CollectionIdOption { get; }
 
         string NameLocId { get; }
@@ -29,5 +25,7 @@ namespace Code.GameLogic.GameEvents
         CoreSupportEventTokenTarget FallbackTokenTarget { get; }
 
         CoreSupportEventTokenType TokenType { get; }
+
+        Option<CoreSupportEventTokenId> TokenIdOption { get; }
     }
 }

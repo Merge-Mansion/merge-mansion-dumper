@@ -113,5 +113,15 @@ namespace Analytics
         }
 
         public override IEnumerable<string> KeywordsForEventInstance { get; }
+
+        [JsonProperty("auto_merge_mode_active")]
+        [MetaMember(19, (MetaMemberFlags)0)]
+        [Description("Is Auto Merge Enabled")]
+        public bool IsAutoMergeEnabled { get; set; }
+
+        [JsonProperty("is_on_fire_producer_booster_active")]
+        [MetaMember(20, (MetaMemberFlags)0)]
+        [Description("Is On Fire Producer Booster active")]
+        public bool IsOnFireActive { get; set; }
     }
 }
