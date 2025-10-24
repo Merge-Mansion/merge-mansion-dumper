@@ -28,8 +28,10 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
         private readonly Type[] _supportedTypes =
         {
                 typeof(MergeChainDefinition),
+                typeof(MergeChainDef),
                 typeof(CodexCategoryInfo),
                 typeof(ItemDefinition),
+                typeof(ItemDef),
                 typeof(MergeCollection),
                 typeof(IItemProducer),
                 typeof(IOrderProducer),
@@ -50,10 +52,14 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
         {
             if (value is MergeChainDefinition chainDef)
                 SerializeMergeChain(writer, chainDef, serializer);
+            if (value is MergeChainDef chainDef1)
+                SerializeMergeChain(writer, chainDef1, serializer);
             if (value is CodexCategoryInfo codex)
                 SerializeCodexCategory(writer, codex, serializer);
             else if (value is ItemDefinition item)
                 SerializeItem(writer, item, serializer);
+            else if (value is ItemDef item1)
+                SerializeItem(writer, item1, serializer);
             else if (value is MergeCollection mergeCollection)
                 SerializeMergeCollection(writer, mergeCollection, serializer);
             else if (value is IItemProducer producer)
@@ -77,6 +83,17 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
             WriteObject(writer, chainDef.GetType(), chainDef, serializer);
         }
 
+        private void SerializeMergeChain(JsonWriter writer, MergeChainDef chainDef, JsonSerializer serializer)
+        {
+            if (chainDef.ConfigKey.Value == null)
+            {
+                WriteEmptyObject(writer);
+                return;
+            }
+
+            WriteObject(writer, typeof(MergeChainDefinition), _config.MergeChains.GetValueOrDefault(chainDef.ConfigKey), serializer);
+        }
+
         private void SerializeCodexCategory(JsonWriter writer, CodexCategoryInfo codex, JsonSerializer serializer)
         {
             if (codex.ConfigKey.Value == null)
@@ -97,6 +114,17 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
             }
 
             WriteObject(writer, item.GetType(), item, serializer);
+        }
+
+        private void SerializeItem(JsonWriter writer, ItemDef item, JsonSerializer serializer)
+        {
+            if (item.ConfigKey == 0)
+            {
+                WriteEmptyObject(writer);
+                return;
+            }
+
+            WriteObject(writer, typeof(ItemDefinition), _config.Items.GetValueOrDefault(item.ConfigKey), serializer);
         }
 
         private void SerializeMergeCollection(JsonWriter writer, MergeCollection mergeCollection, JsonSerializer serializer)
