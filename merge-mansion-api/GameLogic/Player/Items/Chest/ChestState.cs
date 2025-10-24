@@ -39,9 +39,9 @@ namespace GameLogic.Player.Items.Chest
         public ChestContext ChestContext { get; set; }
 
         [IgnoreDataMember]
-        public MetacoreTime OpenStartTime { get; }
+        public MetaTime OpenStartTime { get; }
 
         [IgnoreDataMember]
-        public MetacoreTime EstimatedEndTime { get; }
+        public MetaTime EstimatedEndTime { get; }
     }
 }

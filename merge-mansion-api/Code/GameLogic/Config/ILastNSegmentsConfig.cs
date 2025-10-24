@@ -5,12 +5,12 @@ namespace Code.GameLogic.Config
 {
     public interface ILastNSegmentsConfig
     {
-        IReadOnlyList<int> ModeLastNTransactionsSegments { get; }
+        List<int> ModeLastNTransactionsSegments { get; }
 
-        IReadOnlyList<int> MedianTransactionLastNDaysSegments { get; }
+        List<int> MedianTransactionLastNDaysSegments { get; }
 
-        IReadOnlyList<int> AverageNumberOfTransactionsInNDaysSegments { get; }
+        List<int> AverageNumberOfTransactionsInNDaysSegments { get; }
 
-        IReadOnlyList<int> AverageTransactionValueInNDaysSegments { get; }
+        List<int> AverageTransactionValueInNDaysSegments { get; }
     }
 }

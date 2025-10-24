@@ -98,6 +98,9 @@ namespace GameLogic
         ItemSoldReEngagement = 89,
         DigEventConsolidation = 90,
         Merge = 91,
-        ClassicRacesEventStageWon = 92
+        ClassicRacesEventStageWon = 92,
+        ProgressionTrack = 93,
+        RollTheDiceLevelCompleted = 94,
+        RollTheDiceDuplicateRefund = 95
     }
 }

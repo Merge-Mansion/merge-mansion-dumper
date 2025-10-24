@@ -21,7 +21,7 @@ namespace GameLogic.MixABooster
 
         [MetaMember(4, (MetaMemberFlags)0)]
         public byte BoolFields { get; set; }
-        public IReadOnlyDictionary<MixABoosterIngredientId, int> AvailableIngredients { get; }
+        public Dictionary<MixABoosterIngredientId, int> AvailableIngredients { get; }
         public bool RequiresPlayerAttention { get; }
         public bool StartNoted { get; set; }
         public bool FtueNoted { get; set; }

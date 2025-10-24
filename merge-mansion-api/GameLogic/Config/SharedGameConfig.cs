@@ -74,6 +74,7 @@ using Code.GameLogic.ExtraSpawns;
 using GameLogic.TaskLists;
 using System.Collections.Immutable;
 using Code.GameLogic.IAP;
+using Code.GameLogic.ProgressionTracks;
 
 namespace GameLogic.Config
 {
@@ -1159,5 +1160,40 @@ namespace GameLogic.Config
         [GameConfigEntry("AutoMergeSettings", true, null)]
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> Member" }, new string[] { }, false)]
         public AutoMergeSettings AutoMergeSettings { get; set; }
+
+        Dictionary<ProgressionTrackId, ProgressionTrackInfo> GameLogic.Config.IMergeMansionGameConfig.ProgressionTracks { get; }
+
+        IRollTheDiceConfig GameLogic.Config.IMergeMansionGameConfig.RollTheDiceConfig { get; }
+
+        [GameConfigEntry("ProgressionTracks", true, null)]
+        [GameConfigEntryTransform(typeof(ProgressionTrackSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<ProgressionTrackId, ProgressionTrackInfo> ProgressionTracks { get; set; }
+
+        [GameConfigEntry("RollTheDiceMinigames", true, null)]
+        [GameConfigEntryTransform(typeof(RollTheDiceMinigameSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<CoreSupportEventMinigameId, RollTheDiceMinigameInfo> RollTheDiceMinigames { get; set; }
+
+        [GameConfigEntry("RollTheDiceLevel", true, null)]
+        [GameConfigEntryTransform(typeof(RollTheDiceLevelSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<RollTheDiceLevelId, RollTheDiceLevelInfo> RollTheDiceLevels { get; set; }
+
+        [GameConfigEntry("RollTheDiceTask", true, null)]
+        [GameConfigEntryTransform(typeof(RollTheDiceTaskSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<RollTheDiceTaskId, RollTheDiceTaskInfo> RollTheDiceTasks { get; set; }
+
+        [GameConfigEntry("RollTheDiceGameDice", true, null)]
+        [GameConfigEntryTransform(typeof(RollTheDiceGameDiceSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<RollTheDiceGameDiceId, RollTheDiceGameDice> RollTheDiceGameDices { get; set; }
+
+        [GameConfigEntry("RollTheDiceMultipliers", true, null)]
+        [GameConfigEntryTransform(typeof(RollTheDiceMultiplierSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<RollTheDiceMultiplierId, RollTheDiceMultiplierInfo> RollTheDiceMultipliers { get; set; }
+        public IRollTheDiceConfig RollTheDiceConfig { get; set; }
     }
 }

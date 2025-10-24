@@ -159,7 +159,7 @@ namespace GameLogic.Player.Items
         public ISinkState SinkState { get; }
 
         [IgnoreDataMember]
-        public TimeContainerState TimeContainerState { get; }
+        public ITimeContainerState TimeContainerState { get; }
 
         [IgnoreDataMember]
         public ChargesState ChargesState { get; }
@@ -212,7 +212,7 @@ namespace GameLogic.Player.Items
         public bool SpawnStorageFull { get; }
 
         [IgnoreDataMember]
-        public MetacoreTime? NextSpawnStorageTimestamp { get; }
+        public MetaTime? NextSpawnStorageTimestamp { get; }
         public bool IsChest { get; }
 
         [IgnoreDataMember]
@@ -340,7 +340,7 @@ namespace GameLogic.Player.Items
         public bool HideSinkUndiscoveredItemsInHints { get; }
 
         [IgnoreDataMember]
-        public MetacoreTime CreatedAt { get; }
+        public MetaTime CreatedAt { get; }
 
         private static string HotspotTagKey;
         public MergeItem(IPlayer player, ItemDefinition itemDefinition, MetaTime timestamp, MergeBoardId boardId, ItemVisibility itemVisibility, bool insideBubble)

@@ -10,17 +10,15 @@ namespace Metaplay.Core.LiveOpsEvent
         [MetaMember(1, (MetaMemberFlags)0)]
         public LiveOpsEventTemplateId TemplateId { get; set; }
 
+        public LiveOpsEventContent ContentBase { get; }
+        public string DefaultDisplayName { get; }
+        public string DefaultDescription { get; }
+
         [MetaMember(2, (MetaMemberFlags)0)]
         public TContentClass Content { get; set; }
 
         [IgnoreDataMember]
         public LiveOpsEventTemplateId ConfigKey => TemplateId;
-
-        public LiveOpsEventContent ContentBase => throw new System.NotImplementedException();
-
-        public string DefaultDisplayName => throw new System.NotImplementedException();
-
-        public string DefaultDescription => throw new System.NotImplementedException();
 
         public LiveOpsEventTemplateConfigData()
         {

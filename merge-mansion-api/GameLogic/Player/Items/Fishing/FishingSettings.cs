@@ -11,10 +11,10 @@ namespace GameLogic.Player.Items.Fishing
     public class FishingSettings : GameConfigKeyValue<FishingSettings>, IValidatable, IFishingSettings
     {
         [IgnoreDataMember]
-        public IReadOnlyDictionary<int, int> SmallFishWaterDropletCounts { get; set; }
+        public Dictionary<int, int> SmallFishWaterDropletCounts { get; set; }
 
         [IgnoreDataMember]
-        public IReadOnlyDictionary<int, int> NonFishWaterDropletCounts { get; set; }
+        public Dictionary<int, int> NonFishWaterDropletCounts { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public int[] FishWeightCategoryOdds { get; set; }

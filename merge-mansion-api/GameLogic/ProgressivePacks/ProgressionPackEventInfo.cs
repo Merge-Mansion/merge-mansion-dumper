@@ -60,8 +60,6 @@ namespace GameLogic.ProgressivePacks
 
         [MetaMember(14, (MetaMemberFlags)0)]
         public string PlacementId { get; set; }
-
-        [IgnoreDataMember]
         public ProgressionPackEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
 

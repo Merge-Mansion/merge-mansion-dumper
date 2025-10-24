@@ -4,6 +4,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
 using System.Linq;
+using GameLogic.Config;
 
 namespace GameLogic.MergeChains
 {
@@ -11,11 +12,12 @@ namespace GameLogic.MergeChains
     public class ListMergeChainElement : IMergeChainElement
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> Items { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRefList")]
+        public List<ItemDef> Items { get; set; }
 
         public int IndexOf(int itemId)
         {
-            return Items.FindIndex(item => (int)item.KeyObject == itemId);
+            return Items.FindIndex(item => item.ConfigKey == itemId);
         }
 
         public bool Contains(int itemId)
@@ -25,12 +27,12 @@ namespace GameLogic.MergeChains
 
         public ItemDefinition First()
         {
-            return Items.FirstOrDefault()?.Ref;
+            return ClientGlobal.SharedGameConfig.Items.GetValueOrDefault(Items.FirstOrDefault()?.ConfigKey ?? 0);
         }
 
         public ItemDefinition ElementAtOrDefault(int index)
         {
-            return Items.ElementAtOrDefault(index)?.Ref;
+            return ClientGlobal.SharedGameConfig.Items.GetValueOrDefault(Items.ElementAtOrDefault(index)?.ConfigKey ?? 0);
         }
 
         private ListMergeChainElement()
@@ -46,5 +48,6 @@ namespace GameLogic.MergeChains
         }
 
         public int Count { get; }
+        public IEnumerable<ItemDef> AllItemDefs { get; }
     }
 }

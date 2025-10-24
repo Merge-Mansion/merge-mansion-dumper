@@ -37,7 +37,6 @@ namespace Code.GameLogic.GameEvents
         public ILevelEventInfo LevelEventInfo { get; }
         public ICoreSupportEventInfo CoreSupportEventInfo { get; }
         public Option<ICoreSupportEventMinigameModel> MinigameModelOption { get; }
-
         public CoreSupportEventId ConfigKey => ActivableId;
 
         private CoreSupportEventModel()

@@ -23,5 +23,7 @@ namespace GameLogic.Player.Rewards
 
         [IgnoreDataMember]
         public override bool ShouldShowInfoButton { get; }
+
+        private static string BOOSTER_NAME;
     }
 }

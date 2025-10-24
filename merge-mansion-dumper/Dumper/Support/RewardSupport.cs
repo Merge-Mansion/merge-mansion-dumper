@@ -22,7 +22,7 @@ namespace merge_mansion_dumper.Dumper.Support
             switch (reward)
             {
                 case RewardItem item:
-                    return new RewardModel { Type = RewardType.Item, Value = item.ItemRef.Ref.ConfigKey.ToString(), Amount = item.Amount };
+                    return new RewardModel { Type = RewardType.Item, Value = item.ItemDef.ConfigKey.ToString(), Amount = item.Amount };
 
                 case RewardExperience exp:
                     return new RewardModel { Type = RewardType.Experience, Amount = exp.Amount };

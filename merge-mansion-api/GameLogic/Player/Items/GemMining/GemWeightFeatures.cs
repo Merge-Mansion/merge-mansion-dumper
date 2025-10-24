@@ -28,7 +28,7 @@ namespace GameLogic.Player.Items.GemMining
         public bool IsCutGem { get; set; }
 
         [IgnoreDataMember]
-        public IReadOnlyList<GemWeightRewardData> WeightRewards { get; set; }
+        public List<GemWeightRewardData> WeightRewards { get; set; }
 
         [MetaMember(7, (MetaMemberFlags)0)]
         public F32 CutMultiplier { get; set; }
@@ -40,7 +40,7 @@ namespace GameLogic.Player.Items.GemMining
         public StoryDefinitionId WorldRecordWeightDialogue { get; set; }
 
         [IgnoreDataMember]
-        public IReadOnlyList<PlayerReward> WorldRecordRewards { get; set; }
+        public List<PlayerReward> WorldRecordRewards { get; set; }
 
         [MetaMember(11, (MetaMemberFlags)0)]
         public GemPalette GemPalette { get; set; }

@@ -1,16 +1,21 @@
 using Metaplay.Core;
 using Metaplay.Core.Model;
+using System;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player.Items.Activation
 {
     [MetaSerializable]
     public interface IActivationCycle
     {
-        int GetActivationAmountInCycle();
-        int GetItemAmountInActivation();
-        int HowManyAreGeneratedToStorage();
         MetaDuration GetActivationDelay();
-        MetaDuration GetCycleDelay();
         int InitialCycles();
+        int HowManyCycles { get; }
+
+        IActivationCycleData DailyActivationCyclesData { get; }
+
+        Option<IActivationCycleData> InitialActivationCyclesDataOption { get; }
+
+        Option<IActivationReEngagementSettings> ReEngagementSettingsOption { get; }
     }
 }

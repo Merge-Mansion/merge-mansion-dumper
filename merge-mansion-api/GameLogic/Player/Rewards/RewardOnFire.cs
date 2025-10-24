@@ -15,5 +15,7 @@ namespace GameLogic.Player.Rewards
         private FallbackPlayerRewardId FallbackRewardId { get; set; }
         public int Amount { get; }
         public override bool ShouldShowInfoButton { get; }
+
+        private static string BOOSTER_NAME;
     }
 }

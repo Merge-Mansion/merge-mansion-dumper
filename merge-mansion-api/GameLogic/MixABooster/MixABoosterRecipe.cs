@@ -23,7 +23,7 @@ namespace GameLogic.MixABooster
         public bool IsSecret { get; set; }
 
         [IgnoreDataMember]
-        public IReadOnlyDictionary<MixABoosterIngredientId, int> IngredientIds { get; }
+        public Dictionary<MixABoosterIngredientId, int> IngredientIds { get; }
         public IEnumerable<MixABoosterIngredientId> FlattenedIngredients { get; }
 
         public MixABoosterRecipe()

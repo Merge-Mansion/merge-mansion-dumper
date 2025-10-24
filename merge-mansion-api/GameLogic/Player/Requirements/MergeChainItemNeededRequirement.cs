@@ -11,7 +11,7 @@ namespace GameLogic.Player.Requirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         [MetaOnMemberDeserializationFailure("FixMergeChainRef")]
-        public MetaRef<MergeChainDefinition> MergeChainDef { get; set; }
+        public MergeChainDef MergeChainDef { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
         public int? MinLevel { get; set; }

@@ -92,6 +92,7 @@ namespace Code.GameLogic.GameEvents
         public string AssetId { get; }
         public string LocIdPrefix { get; }
         public Option<CoreSupportEventCollectionId> CollectionIdOption { get; }
+        public string NameLocId { get; }
         public Option<CoreSupportEventModeFeature> ModeFeatureOption { get; }
         public Option<CoreSupportEventSegmentFeature<EventGroupId>> SegmentFeatureOption { get; }
 
@@ -127,7 +128,5 @@ namespace Code.GameLogic.GameEvents
         [MetaOnMemberDeserializationFailure("FixRef")]
         private ItemDef PortalItemDef { get; set; }
         public Option<CoreSupportEventTokenId> TokenIdOption { get; }
-
-        public string NameLocId => throw new NotImplementedException();
     }
 }

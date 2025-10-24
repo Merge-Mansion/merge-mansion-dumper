@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using Metaplay.Core.Activables;
 using System;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 namespace GameLogic.MiniEvents
 {
@@ -27,5 +28,10 @@ namespace GameLogic.MiniEvents
         public MiniEventModel(MiniEventInfo info)
         {
         }
+
+        [MetaMember(3, (MetaMemberFlags)0)]
+        private List<MiniEventTypeId> _activeEventTypeIds;
+        [MetaMember(4, (MetaMemberFlags)0)]
+        private MiniEventId _activeEventId;
     }
 }

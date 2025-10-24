@@ -177,6 +177,10 @@ namespace Analytics
         AppsflyerStop = 166,
         PlayerOrphaned = 167,
         ViewEvent = 168,
-        ButtonEvent = 169
+        ButtonEvent = 169,
+        ProgressionTrackProgress = 170,
+        AppStartPerformance = 171,
+        RollTheDiceRoll = 172,
+        SessionStartConfigStatus = 173
     }
 }

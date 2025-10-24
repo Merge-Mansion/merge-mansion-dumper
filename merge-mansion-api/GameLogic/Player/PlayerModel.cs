@@ -56,7 +56,7 @@ namespace GameLogic.Player
     [MetaReservedMembers(99, 400)]
     [MetaReservedMembers(11, 12)]
     [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285, 249, 216 })]
-    [SupportedSchemaVersions(21, 50)]
+    [SupportedSchemaVersions(21, 51)]
     public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IWritablePlayer, IPlayer, IGenerationContext
     {
         public static int MaxLoginCounts;
@@ -247,7 +247,7 @@ namespace GameLogic.Player
         public IEnumerable<IPlayerModifier> ActiveModifiers { get; }
 
         [IgnoreDataMember]
-        public IReadOnlyList<ScriptedEvent> ScriptedEvents { get; }
+        public List<ScriptedEvent> ScriptedEvents { get; }
 
         public PlayerModel()
         {
@@ -539,5 +539,12 @@ namespace GameLogic.Player
 
         [MetaMember(312, (MetaMemberFlags)0)]
         public MetaTime? ScidWarningLastShownTime { get; set; }
+
+        private static string GET_MERGE_BOARDS_ASSERT_MESSAGE;
+        [MetaMember(313, (MetaMemberFlags)0)]
+        public RandomPCG RollTheDiceRandom { get; set; }
+        public IRollTheDiceMinigameData RollTheDiceMinigameData { get; set; }
+
+        IRollTheDiceMinigameData GameLogic.Player.IPlayer.RollTheDiceMinigameData { get; }
     }
 }

@@ -486,8 +486,8 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                     writer.WritePropertyName(name);
                     writer.WriteStartArray();
 
-                    foreach (var item in (IList<MetaRef<ItemDefinition>>)value)
-                        WriteValue(writer, item.Ref.ItemType, serializer);
+                    foreach (var item in (IList<ItemDef>)value)
+                        WriteValue(writer, _config.Items.GetValueOrDefault(item.ConfigKey).ItemType, serializer);
 
                     writer.WriteEndArray();
 

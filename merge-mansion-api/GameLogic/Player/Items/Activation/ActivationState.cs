@@ -2,6 +2,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
 using System.Runtime.Serialization;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player.Items.Activation
 {
@@ -66,5 +67,23 @@ namespace GameLogic.Player.Items.Activation
 
         [IgnoreDataMember]
         public bool IsOnDecayDelay { get; }
+
+        [MetaMember(12, (MetaMemberFlags)0)]
+        public int DailyCycleIndex { get; set; }
+
+        [MetaMember(13, (MetaMemberFlags)0)]
+        private long LastCycleStartDaySinceEpoch { get; set; }
+
+        [MetaMember(14, (MetaMemberFlags)0)]
+        private MetaTime? NextReEngagementTime { get; set; }
+
+        [MetaMember(15, (MetaMemberFlags)0)]
+        public int AccumulatedReEngagementTicks { get; set; }
+
+        [MetaMember(16, (MetaMemberFlags)0)]
+        public bool ReEngagementCycleActive { get; set; }
+
+        [IgnoreDataMember]
+        public Option<MetaTime> GetNextReEngagementTime { get; }
     }
 }

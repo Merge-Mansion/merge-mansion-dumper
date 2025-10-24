@@ -2,6 +2,8 @@ using GameLogic.Player.Items;
 using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
+using GameLogic.Config;
+using System.Collections.Generic;
 
 namespace GameLogic.MergeChains
 {
@@ -9,7 +11,8 @@ namespace GameLogic.MergeChains
     public class SingleMergeChainElement : IMergeChainElement
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> Item { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRef")]
+        public ItemDef Item { get; set; }
 
         private SingleMergeChainElement()
         {
@@ -30,21 +33,22 @@ namespace GameLogic.MergeChains
 
         public bool Contains(int itemId)
         {
-            return (int)Item.KeyObject == itemId;
+            return Item.ConfigKey == itemId;
         }
 
         public ItemDefinition First()
         {
-            return Item.Ref;
+            return ClientGlobal.SharedGameConfig.Items.GetValueOrDefault(Item.ConfigKey);
         }
 
         public ItemDefinition ElementAtOrDefault(int index)
         {
             if (index != 0)
                 return null;
-            return Item.Ref;
+            return ClientGlobal.SharedGameConfig.Items.GetValueOrDefault(Item.ConfigKey);
         }
 
         public int Count { get; }
+        public IEnumerable<ItemDef> AllItemDefs { get; }
     }
 }

@@ -39,8 +39,6 @@ namespace Code.GameLogic.GameEvents.DailyScoop
 
         [MetaMember(8, (MetaMemberFlags)0)]
         public List<PlayerSegmentId> WeekSegments { get; set; }
-
-        [IgnoreDataMember]
         public DailyScoopEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
         public MetaRecurringCalendarSchedule Schedule { get; }

@@ -7,14 +7,14 @@ namespace Code.GameLogic.Player
 {
     public interface ILastNSegmentsCache
     {
-        IReadOnlyDictionary<int, F64> ModesByLastNTransactions { get; }
+        Dictionary<int, F64> ModesByLastNTransactions { get; }
 
-        IReadOnlyDictionary<int, F64> MedianTransactionsByLastNDays { get; }
+        Dictionary<int, F64> MedianTransactionsByLastNDays { get; }
 
-        IReadOnlyDictionary<int, int> AverageNumberOfTransactionsByLastNDays { get; }
+        Dictionary<int, int> AverageNumberOfTransactionsByLastNDays { get; }
 
-        IReadOnlyDictionary<int, F64> AverageTransactionValueByLastNDays { get; }
+        Dictionary<int, F64> AverageTransactionValueByLastNDays { get; }
 
-        Option<F64> HighestTransactionPriceLast30DaysOption { get; }
+        F64? HighestTransactionPriceLast30Days { get; }
     }
 }

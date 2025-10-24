@@ -122,7 +122,6 @@ namespace GameLogic.MergeChains
 
         [MetaMember(10, (MetaMemberFlags)0)]
         public string OverrideMergeChainSfx { get; set; }
-        public IEnumerable<ItemDefinition> DefaultItems => PrimaryChain.Select(x => x.First());
 
         [IgnoreDataMember]
         CodexDiscoveryRewardInfo GameLogic.MergeChains.IMergeChainDefinition.DiscoveryReward { get; }

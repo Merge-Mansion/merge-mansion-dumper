@@ -14,7 +14,8 @@ namespace Code.GameLogic.GameEvents
         public GarageCleanupBoardRowId ConfigKey { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> Items { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRefList")]
+        public List<ItemDef> Items { get; set; }
 
         public GarageCleanupBoardRowInfo()
         {

@@ -2,7 +2,7 @@
   "profiles": {
     "merge-mansion-dumper": {
       "commandName": "Project",
-      "commandLineArgs": "-m 1 -c manual_dump\\cache\\SharedGameConfig\\4939BA1D56BBCC36-126BA8CE25FF3535 -p manual_dump\\cache\\SharedGameConfigPatches\\888DAE729A5899C2-D1F91CB0306B3744 -l manual_dump\\cache\\Localizations\\en.mpc\\135F04309B9AFC8E-DB7D98281C606FF6"
+      "commandLineArgs": "-m 1 -c manual_dump\\cache\\SharedGameConfig\\E1EC18550C9F0C54-37CDB3733F444486 -p manual_dump\\cache\\SharedGameConfigPatches\\79CFF0979F41DFDF-5A449ADCFE661538 -l manual_dump\\cache\\Localizations\\en.mpc\\AAF912E1A0EC7E62-8A8E159C88FD50D3"
     }
   }
 }

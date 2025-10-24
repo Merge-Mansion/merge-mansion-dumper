@@ -71,6 +71,7 @@ using Metaplay.Core.Localization;
 using Code.GameLogic.Hotspots;
 using Code.GameLogic.IAP;
 using Code.GameLogic.Config;
+using Code.GameLogic.ProgressionTracks;
 
 namespace GameLogic.Config
 {
@@ -511,5 +512,9 @@ namespace GameLogic.Config
         ILastNSegmentsConfig LastNSegmentsConfig { get; }
 
         AutoMergeSettings AutoMergeSettings { get; }
+
+        Dictionary<ProgressionTrackId, ProgressionTrackInfo> ProgressionTracks { get; }
+
+        IRollTheDiceConfig RollTheDiceConfig { get; }
     }
 }

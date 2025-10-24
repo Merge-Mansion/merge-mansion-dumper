@@ -34,7 +34,8 @@ namespace GameLogic.DailyTasksV2
         public bool OnlyPossibleRequirementsHighPriority { get; set; }
 
         [MetaMember(8, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> RequireOnlyIfHaveProducer { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRefList")]
+        public List<ItemDef> RequireOnlyIfHaveProducer { get; set; }
 
         public DailyTasksV2ItemBoultonLeagueInfo()
         {

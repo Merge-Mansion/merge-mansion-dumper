@@ -172,7 +172,7 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WritePropertyName("MergeChainItemNeeded");
                 writer.WriteStartObject();
 
-                WriteProperty(writer, "MergeChainRef", mciReq.MergeChainDef.KeyObject, serializer);
+                WriteProperty(writer, "MergeChainRef", mciReq.MergeChainDef.ConfigKey, serializer);
                 if (mciReq.MinLevel.HasValue)
                     WriteProperty(writer, "MinLevel", mciReq.MinLevel, serializer);
                 if (mciReq.MaxLevel.HasValue)

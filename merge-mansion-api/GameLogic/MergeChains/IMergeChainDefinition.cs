@@ -28,8 +28,6 @@ namespace GameLogic.MergeChains
 
         int FallbackLength { get; }
 
-        IEnumerable<ItemDefinition> DefaultItems { get; }
-
         MetaRef<CodexCategoryInfo> CodexCategory { get; }
 
         CodexDiscoveryRewardInfo DiscoveryReward { get; }

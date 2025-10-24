@@ -19,6 +19,7 @@ using GameLogic.Player.Requirements;
 using Code.GameLogic.DynamicEvents;
 using GameLogic.Hotspots.CardStack;
 using GameLogic.TaskLists;
+using Code.GameLogic.ProgressionTracks;
 
 namespace Game.Logic
 {
@@ -353,5 +354,8 @@ namespace Game.Logic
         [MetaMember(95, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         private HashSet<AreaId> _notedUnlockableAreas { get; set; }
+
+        [MetaMember(96, (MetaMemberFlags)0)]
+        public Dictionary<ProgressionTrackId, ProgressionTrack> ProgressionTracks { get; set; }
     }
 }

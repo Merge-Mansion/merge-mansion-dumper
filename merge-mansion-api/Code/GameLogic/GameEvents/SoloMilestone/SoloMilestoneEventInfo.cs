@@ -39,8 +39,6 @@ namespace Code.GameLogic.GameEvents.SoloMilestone
 
         [MetaMember(9, (MetaMemberFlags)0)]
         public string Theme { get; set; }
-
-        [IgnoreDataMember]
         public SoloMilestoneEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
 

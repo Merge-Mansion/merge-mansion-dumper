@@ -53,7 +53,8 @@ namespace GameLogic.DailyTasksV2
         }
 
         [MetaMember(11, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> RequireOnlyIfHaveProducer { get; set; }
+        [MetaOnMemberDeserializationFailure("FixRefList")]
+        public List<ItemDef> RequireOnlyIfHaveProducer { get; set; }
 
         public DailyTasksV2MergeChainInfo(MergeChainId configKey, int? minLevel, int? maxLevel, bool canBeRequirement, bool canBeReward, F32 requirementMultiplier, F32 rewardMultiplier, bool rewardOnlyIfInHotspotRequirement, bool onlyPossibleRequirementsHighPriority, List<AreaId> rewardOnlyIfHasAtLeastOneVisibleHotspotInAreas, List<MetaRef<ItemDefinition>> requireOnlyIfHaveProducer)
         {

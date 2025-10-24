@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using Metaplay.Core.Config;
 using System;
 using Metaplay.Core.Forms;
+using System.Runtime.Serialization;
 
 namespace GameLogic.Config
 {
@@ -27,5 +28,8 @@ namespace GameLogic.Config
 
         [MetaMember(7, (MetaMemberFlags)0)]
         public bool SetAsActive { get; set; }
+
+        [IgnoreDataMember]
+        public BuildOptimizationParameters OptimizationParameters { get; set; }
     }
 }

@@ -214,6 +214,12 @@ namespace GameLogic.Player
         ILastNSegmentsCache LastNSegmentsCache { get; }
 
         Option<TasksTabStyle> OverrideTasksTabStyleOption { get; }
+
+        public static int MaxMergeBoards;
+        public static int MaxInventories;
+        RandomPCG RollTheDiceRandom { get; }
+
+        IRollTheDiceMinigameData RollTheDiceMinigameData { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

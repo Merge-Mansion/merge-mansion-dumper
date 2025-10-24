@@ -17,5 +17,8 @@ namespace GameLogic.MiniEvents
         public MiniEventOverrides(ValueTuple<MiniEventId, T> initialElement)
         {
         }
+
+        public int Count { get; }
+        public bool IsEmpty { get; }
     }
 }

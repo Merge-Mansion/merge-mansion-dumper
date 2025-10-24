@@ -10,6 +10,7 @@ namespace Code.GameLogic.GameEvents
         None = 0,
         DigEvent = 1,
         ClassicRaces = 2,
-        AutoMerge = 3
+        AutoMerge = 3,
+        RollTheDice = 4
     }
 }

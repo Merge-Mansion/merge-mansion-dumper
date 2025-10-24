@@ -3,6 +3,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System.Runtime.Serialization;
 using Metaplay.Core.Forms;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Rewards
 {
@@ -10,12 +11,6 @@ namespace GameLogic.Player.Rewards
     [MetaSerializableDerived(20)]
     public class RewardLevelUpMergeChain : PlayerReward
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<MergeChainDefinition> MergeChainRef { get; set; }
-
-        [IgnoreDataMember]
-        public MergeChainDefinition MergeChain { get; }
-
         public RewardLevelUpMergeChain()
         {
         }
@@ -23,5 +18,9 @@ namespace GameLogic.Player.Rewards
         public RewardLevelUpMergeChain(MergeChainId mergeChainId)
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixMergeChainRef")]
+        private MergeChainDef MergeChainDef { get; set; }
     }
 }

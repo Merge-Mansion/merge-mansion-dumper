@@ -292,11 +292,16 @@ namespace GameLogic.Config.Map.Characters
         TinCanFactoryLockedMaddie = 10407,
         FactoryReceptionFirstMapCharacterPosition = 10599,
         FactoryReceptionEntryMapMaddie = 10600,
-        FactoryReceptionCharacter = 10601,
         FactoryGiftShopFirstMapCharacterPosition = 10799,
         FactoryGiftShopEntryMapMaddie = 10800,
         FactoryGiftShopMaddiePackingStation = 10801,
         FactoryGiftShopCharacter = 10802,
-        AreaPetHomeMapBoo = 5809
+        AreaPetHomeMapBoo = 5809,
+        FactoryReceptionCharacterEntrance = 10601,
+        FactoryReceptionCharacterExhibitionPiece = 10602,
+        FactoryReceptionCharacterBoulevard = 10603,
+        GrandmaRoomFirstMapCharacterPosition = 11199,
+        GrandmaRoomEntryMapMaddie = 11200,
+        GrandmaRoomCharacter = 11201
     }
 }

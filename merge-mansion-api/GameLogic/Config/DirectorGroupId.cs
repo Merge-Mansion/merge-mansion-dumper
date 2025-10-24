@@ -234,5 +234,7 @@ namespace GameLogic.Config
         public static DirectorGroupId AAROnFireSeen;
         public static DirectorGroupId FirstAreaUnlock;
         public static DirectorGroupId AutoMergeFTUE;
+        public static DirectorGroupId TutorialPouch;
+        public static DirectorGroupId RollTheDiceFTUE;
     }
 }

@@ -4,6 +4,7 @@ using Metaplay.Core.Model;
 using System.ComponentModel;
 using Merge;
 using System;
+using Metaplay.Core.Math;
 
 namespace Analytics
 {
@@ -25,5 +26,10 @@ namespace Analytics
         public AnalyticEventBoardImpression(MergeBoardId boardId)
         {
         }
+
+        [JsonProperty("load_duration")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Load duration")]
+        public F64 LoadDuration;
     }
 }

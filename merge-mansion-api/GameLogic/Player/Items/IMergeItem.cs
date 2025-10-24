@@ -28,7 +28,7 @@ namespace GameLogic.Player.Items
 
         ItemVisibility Visibility { get; }
 
-        MetacoreTime CreatedAt { get; }
+        MetaTime CreatedAt { get; }
 
         DecayState DecayState { get; }
 
@@ -50,7 +50,7 @@ namespace GameLogic.Player.Items
 
         ISinkState SinkState { get; }
 
-        TimeContainerState TimeContainerState { get; }
+        ITimeContainerState TimeContainerState { get; }
 
         ChargesState ChargesState { get; }
 
@@ -138,7 +138,7 @@ namespace GameLogic.Player.Items
 
         F32 TimeSpawnBoostMultiplier { get; }
 
-        MetacoreTime? NextSpawnStorageTimestamp { get; }
+        MetaTime? NextSpawnStorageTimestamp { get; }
 
         MetaDuration? RemainingDuration { get; }
     }

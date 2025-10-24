@@ -51,6 +51,7 @@ namespace GameLogic
         DigEventTileReveal = 43,
         BuyMoreDigEventTapsPopup = 44,
         MixABooster = 45,
-        RewardContainerPurchase = 46
+        RewardContainerPurchase = 46,
+        RollTheDiceRollDone = 47
     }
 }

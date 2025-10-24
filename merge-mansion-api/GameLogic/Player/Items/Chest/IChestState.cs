@@ -1,5 +1,6 @@
 using System;
 using GameLogic.Config.Types;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Items.Chest
 {
@@ -9,8 +10,8 @@ namespace GameLogic.Player.Items.Chest
 
         ChestContext ChestContext { get; }
 
-        MetacoreTime OpenStartTime { get; }
+        MetaTime OpenStartTime { get; }
 
-        MetacoreTime EstimatedEndTime { get; }
+        MetaTime EstimatedEndTime { get; }
     }
 }

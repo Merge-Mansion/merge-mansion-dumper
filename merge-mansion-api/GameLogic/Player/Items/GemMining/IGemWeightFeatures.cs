@@ -14,7 +14,7 @@ namespace GameLogic.Player.Items.GemMining
 
         bool IsCutGem { get; }
 
-        IReadOnlyList<GemWeightRewardData> WeightRewards { get; }
+        List<GemWeightRewardData> WeightRewards { get; }
 
         F32 CutMultiplier { get; }
 
@@ -22,7 +22,7 @@ namespace GameLogic.Player.Items.GemMining
 
         StoryDefinitionId WorldRecordWeightDialogue { get; }
 
-        IReadOnlyList<PlayerReward> WorldRecordRewards { get; }
+        List<PlayerReward> WorldRecordRewards { get; }
 
         GemPalette GemPalette { get; }
 
