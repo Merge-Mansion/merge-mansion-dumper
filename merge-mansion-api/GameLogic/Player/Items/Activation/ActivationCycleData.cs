@@ -11,16 +11,16 @@ namespace GameLogic.Player.Items.Activation
     public class ActivationCycleData : IActivationCycleData
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        private List<MetaDuration> DelaysBetweenCycles { get; set; }
+        public List<MetaDuration> DelaysBetweenCycles { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        private List<F64> TimerSkipMultiplier { get; set; }
+        public List<F64> TimerSkipMultiplier { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
-        private List<int> ActivationAmountInCycle { get; set; }
+        public List<int> ActivationAmountInCycle { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
-        private List<int> HowManyAreGeneratedInCycle { get; set; }
+        public List<int> HowManyAreGeneratedInCycle { get; set; }
 
         [IgnoreDataMember]
         public int CycleCount { get; }

@@ -13,10 +13,7 @@ using GameLogic.Player.Items.Persistent;
 using GameLogic.DailyTasksV2;
 using GameLogic.Player.Items.Order;
 using Metaplay.Core.Math;
-using Metaplay.Unity;
-using System.Security.Cryptography;
 using GameLogic.Player.Items.Sink;
-using System.Collections.Generic;
 
 namespace merge_mansion_dumper.Dumper.Json.Metaplay
 {
@@ -25,19 +22,20 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
         private readonly ILogger _output;
         private readonly bool _dropAsPercent;
         private readonly SharedGameConfig _config;
+
         private readonly Type[] _supportedTypes =
         {
-                typeof(MergeChainDefinition),
-                typeof(MergeChainDef),
-                typeof(CodexCategoryInfo),
-                typeof(ItemDefinition),
-                typeof(ItemDef),
-                typeof(MergeCollection),
-                typeof(IItemProducer),
-                typeof(IOrderProducer),
-                typeof(PersistentFeatures),
-                typeof(ISinkStateFactory)
-            };
+            typeof(MergeChainDefinition),
+            typeof(MergeChainDef),
+            typeof(CodexCategoryInfo),
+            typeof(ItemDefinition),
+            typeof(ItemDef),
+            typeof(MergeCollection),
+            typeof(IItemProducer),
+            typeof(IOrderProducer),
+            typeof(PersistentFeatures),
+            typeof(ISinkStateFactory)
+        };
 
         public MetaMergeChainSerializer(SharedGameConfig config, bool dropAsPercent, ILogger output)
         {

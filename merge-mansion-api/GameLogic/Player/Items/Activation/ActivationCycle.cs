@@ -45,10 +45,10 @@ namespace GameLogic.Player.Items.Activation
         public IActivationCycleData DailyActivationCyclesData { get; set; }
 
         [MetaMember(8, (MetaMemberFlags)0)]
-        private IActivationCycleData InitialActivationCyclesData { get; set; }
+        public IActivationCycleData InitialActivationCyclesData { get; set; }
 
         [MetaMember(9, (MetaMemberFlags)0)]
-        private IActivationReEngagementSettings ReEngagementSettings { get; set; }
+        public IActivationReEngagementSettings ReEngagementSettings { get; set; }
 
         [IgnoreDataMember]
         public Option<IActivationCycleData> InitialActivationCyclesDataOption { get; }
