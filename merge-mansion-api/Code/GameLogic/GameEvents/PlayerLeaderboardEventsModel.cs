@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using Metaplay.Core.Activables;
+using Metaplay.Core;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -10,5 +11,8 @@ namespace Code.GameLogic.GameEvents
         public PlayerLeaderboardEventsModel()
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        private MetaTime _nextEventStartTime;
     }
 }

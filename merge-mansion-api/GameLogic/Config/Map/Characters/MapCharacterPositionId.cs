@@ -302,6 +302,7 @@ namespace GameLogic.Config.Map.Characters
         FactoryReceptionCharacterBoulevard = 10603,
         GrandmaRoomFirstMapCharacterPosition = 11199,
         GrandmaRoomEntryMapMaddie = 11200,
-        GrandmaRoomCharacter = 11201
+        GrandmaRoomCharacter = 11201,
+        AreaPetHomeMapKleptoBandit = 5810
     }
 }

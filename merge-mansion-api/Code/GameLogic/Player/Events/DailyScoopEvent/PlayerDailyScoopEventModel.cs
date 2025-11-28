@@ -1,6 +1,7 @@
 using Metaplay.Core.Activables;
 using Metaplay.Core.Model;
 using Code.GameLogic.GameEvents.DailyScoop;
+using Metaplay.Core;
 
 namespace Code.GameLogic.Player.Events.DailyScoopEvent
 {
@@ -11,5 +12,8 @@ namespace Code.GameLogic.Player.Events.DailyScoopEvent
         public PlayerDailyScoopEventModel()
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        private MetaTime _nextEventStartTime;
     }
 }

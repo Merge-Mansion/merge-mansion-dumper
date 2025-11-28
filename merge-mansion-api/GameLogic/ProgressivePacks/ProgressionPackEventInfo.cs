@@ -12,12 +12,13 @@ using System.Runtime.Serialization;
 using Metaplay.Core.Schedule;
 using GameLogic.StatsTracking;
 using Code.GameLogic.IAP;
+using Metaplay.Core.Offers;
 
 namespace GameLogic.ProgressivePacks
 {
     [MetaSerializable]
     [MetaActivableConfigData("ProgressionPackEvent", false, true)]
-    public class ProgressionPackEventInfo : ICoreSupportingEventInfo<ProgressionPackEventId>, IMetaActivableConfigData<ProgressionPackEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<ProgressionPackEventId>, IHasGameConfigKey<ProgressionPackEventId>, IMetaActivableInfo<ProgressionPackEventId>, ICoreSupportingEventInfo, IEventSharedInfo, IValidatable
+    public class ProgressionPackEventInfo : ICoreSupportingEventInfo<ProgressionPackEventId>, IMetaActivableConfigData<ProgressionPackEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<ProgressionPackEventId>, IHasGameConfigKey<ProgressionPackEventId>, IMetaActivableInfo<ProgressionPackEventId>, IHasRequirements, ICoreSupportingEventInfo, IEventSharedInfo, IValidatable, IOfferPlacementSupporting
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public ProgressionPackEventId ConfigKey { get; set; }
@@ -86,5 +87,8 @@ namespace GameLogic.ProgressivePacks
         public string CoreSupportingEventConfigKey { get; }
         public string CoreSupportingEventDisplayName { get; }
         public CoreSupportingEventType CoreSupportingEventType { get; }
+        public OfferPlacementId OfferPlacementId { get; }
+
+        IEnumerable<PlayerRequirement> GameLogic.Player.Requirements.IHasRequirements.Requirements { get; }
     }
 }

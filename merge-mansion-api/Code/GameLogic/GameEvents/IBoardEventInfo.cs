@@ -13,7 +13,7 @@ using Code.GameLogic.IAP;
 
 namespace Code.GameLogic.GameEvents
 {
-    public interface IBoardEventInfo
+    public interface IBoardEventInfo : IHasRequirements
     {
         PlayerRequirement UnlockRequirement { get; }
 

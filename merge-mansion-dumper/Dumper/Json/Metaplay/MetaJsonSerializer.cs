@@ -9,6 +9,7 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using GameLogic;
 using GameLogic.Player.Items;
 using Metaplay.Core.Activables;
@@ -158,9 +159,9 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
             else if (requirement is CostRequirement cReq)
                 WriteProperty(writer, "RequiredCost", cReq.RequiredCost, serializer);
             else if (requirement is ItemNeededRequirement inReq)
-                WriteProperty(writer, "ItemNeeded", inReq.ItemRef.Ref.ItemType, serializer);
+                WriteProperty(writer, "ItemNeeded", inReq.ItemDef.GetDef(_config).ItemType, serializer);
             else if (requirement is ItemNeededAndConsumeRequirement inacReq)
-                WriteProperty(writer, "ItemNeededAndConsumed", inacReq.ItemRefs.FirstOrDefault()?.Ref.ItemType ?? string.Empty, serializer);
+                WriteProperty(writer, "ItemNeededAndConsumed", inacReq.ItemDefs.FirstOrDefault()?.GetDef(_config).ItemType ?? string.Empty, serializer);
             else if (requirement is CardStackRequirement csr)
                 WriteProperty(writer, "CardStack", csr.CardStack, serializer);
             else if (requirement is CompleteIllustrationRequirement cir)
@@ -202,7 +203,7 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WritePropertyName("ItemSeen");
                 writer.WriteStartObject();
 
-                WriteProperty(writer, "ItemRef", psiReq.ItemRef.Ref.ItemType, serializer);
+                WriteProperty(writer, "ItemRef", psiReq.ItemDef.GetDef(_config).ItemType, serializer);
                 WriteProperty(writer, "Requirement", psiReq.Requirement, serializer);
 
                 writer.WriteEndObject();
@@ -344,13 +345,13 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
         {
             if (type.IsAssignableTo(typeof(PlayerReward)))
             {
-                if (name == "ItemRef")
+                if (name is nameof(RewardItem.ItemDef) or nameof(RewardItemForCollectibleBoardEvent.ItemDef))
                 {
-                    WriteProperty(writer, name, (value as MetaRef<ItemDefinition>)?.Ref.ItemType, serializer);
+                    WriteProperty(writer, name, (value as ItemDef)?.GetDef(_config).ItemType, serializer);
                     return;
                 }
 
-                if (name == "EventInfoRef")
+                if (name is nameof(RewardCollectibleBoardEventProgress.EventInfoRef) or nameof(RewardSideBoardEventProgress.EventInfoRef))
                 {
                     WriteProperty(writer, name, (value as IMetaRef)?.KeyObject, serializer);
                     return;

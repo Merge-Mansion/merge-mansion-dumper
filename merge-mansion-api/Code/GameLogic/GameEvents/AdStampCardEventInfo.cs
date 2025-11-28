@@ -14,7 +14,7 @@ namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
     [MetaActivableConfigData("AdStampCardEvent", false, true)]
-    public class AdStampCardEventInfo : ICoreSupportingEventInfo<AdStampCardEventId>, IMetaActivableConfigData<AdStampCardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<AdStampCardEventId>, IHasGameConfigKey<AdStampCardEventId>, IMetaActivableInfo<AdStampCardEventId>, ICoreSupportingEventInfo, IEventSharedInfo
+    public class AdStampCardEventInfo : ICoreSupportingEventInfo<AdStampCardEventId>, IMetaActivableConfigData<AdStampCardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<AdStampCardEventId>, IHasGameConfigKey<AdStampCardEventId>, IMetaActivableInfo<AdStampCardEventId>, IHasRequirements, ICoreSupportingEventInfo, IEventSharedInfo, IOfferPlacementSupporting
     {
         [MetaMember(5, (MetaMemberFlags)0)]
         public List<PlayerReward> DailyRewards;
@@ -76,5 +76,9 @@ namespace Code.GameLogic.GameEvents
         public AdStampCardEventInfo(AdStampCardEventId configKey, string displayName, string description, List<int> requiredAdWatchedPerDay, List<int> unlockPeriods, List<PlayerReward> dailyRewards, List<PlayerReward> finalRewards, MetaActivableParams activableParams, EventGroupId groupId, int priority, PlayerRequirement unlockRequirement, StoryDefinitionId storyDefinition, int freeInitialStamps, OfferPlacementId offerPlacementId, EventCategoryInfo categoryInfo)
         {
         }
+
+        public OfferPlacementId OfferPlacementId { get; }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

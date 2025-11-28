@@ -13,8 +13,6 @@ namespace GameLogic.Player.Items.Sink
         private int InputCount;
         [MetaMember(3, (MetaMemberFlags)0)]
         private string RewardTagName;
-        public IEnumerable<ValueTuple<ItemDefinition, int>> SinkProducts { get; }
-
         private TagSinkStateFactory()
         {
         }

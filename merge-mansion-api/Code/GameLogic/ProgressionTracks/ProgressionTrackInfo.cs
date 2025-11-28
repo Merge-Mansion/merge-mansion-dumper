@@ -31,7 +31,6 @@ namespace Code.GameLogic.ProgressionTracks
 
         [MetaMember(7, (MetaMemberFlags)0)]
         public List<string> Args { get; set; }
-
         public ProgressionTrackId ConfigKey => TrackId;
         public IStringId LevelEventId { get; }
     }

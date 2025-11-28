@@ -6,6 +6,7 @@ using Metaplay.Core.Model;
 using Merge;
 using System;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.Hotspots.Actions
 {
@@ -16,7 +17,8 @@ namespace GameLogic.Hotspots.Actions
         private MergeBoardId MergeBoardId { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> ReplacementItem { get; set; }
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        private ItemDef ReplacementItem { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         private string Tag { get; set; }

@@ -153,7 +153,7 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
             {
                 writer.WriteStartObject();
 
-                WriteProperty(writer, "Constant", cp.Products[0].Ref.ItemType, serializer);
+                WriteProperty(writer, "Constant", cp.Products[0].GetDef(ClientGlobal.SharedGameConfig).ItemType, serializer);
 
                 writer.WriteEndObject();
             }
@@ -184,12 +184,12 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WritePropertyName("Odds");
                 writer.WriteStartObject();
 
-                double weightSum = crp.Odds.Sum(x => x.Item2);
-                foreach (var odd in crp.Odds.GroupBy(x => x.Item1.ItemType))
+                double weightSum = crp.GenerationOdds.Sum(x => x.Weight);
+                foreach (var odd in crp.GenerationOdds.GroupBy(x => x.Type.GetDef(ClientGlobal.SharedGameConfig).ItemType))
                 {
                     var weight = _dropAsPercent ?
-                        odd.Sum(x => x.Item2) / weightSum * 100 :
-                        odd.Sum(x => x.Item2);
+                        odd.Sum(x => x.Weight) / weightSum * 100 :
+                        odd.Sum(x => x.Weight);
 
                     WriteProperty(writer, odd.Key, weight, serializer);
                 }
@@ -210,12 +210,12 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WritePropertyName("Odds");
                 writer.WriteStartObject();
 
-                double weightSum = rp.Odds.Sum(x => x.Item2);
-                foreach (var odd in rp.Odds.GroupBy(x => x.Item1.ItemType))
+                double weightSum = rp.OddsList.Sum(x => x.Weight);
+                foreach (var odd in rp.OddsList.GroupBy(x => x.Type.GetDef(ClientGlobal.SharedGameConfig).ItemType))
                 {
                     var weight = _dropAsPercent ?
-                        odd.Sum(x => x.Item2) / weightSum * 100 :
-                        odd.Sum(x => x.Item2);
+                        odd.Sum(x => x.Weight) / weightSum * 100 :
+                        odd.Sum(x => x.Weight);
 
                     WriteProperty(writer, odd.Key, weight, serializer);
                 }
@@ -236,12 +236,12 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WritePropertyName("Odds");
                 writer.WriteStartObject();
 
-                double weightSum = psp.Odds.Sum(x => x.Item2);
-                foreach (var odd in psp.Odds.GroupBy(x => x.Item1.ItemType))
+                double weightSum = psp.OddsList.Sum(x => x.Weight);
+                foreach (var odd in psp.OddsList.GroupBy(x => x.Type.GetDef(ClientGlobal.SharedGameConfig).ItemType))
                 {
                     var weight = _dropAsPercent ?
-                        odd.Sum(x => x.Item2) / weightSum * 100 :
-                        odd.Sum(x => x.Item2);
+                        odd.Sum(x => x.Weight) / weightSum * 100 :
+                        odd.Sum(x => x.Weight);
 
                     WriteProperty(writer, odd.Key, weight, serializer);
                 }
@@ -263,11 +263,11 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WriteStartObject();
 
                 double weightSum = crsp.TotalWeight;
-                foreach (var odd in crsp.Odds.GroupBy(x => x.Item1.ItemType))
+                foreach (var odd in crsp.OddsList.GroupBy(x => x.Type.GetDef(ClientGlobal.SharedGameConfig).ItemType))
                 {
                     var weight = _dropAsPercent ?
-                        odd.Sum(x => x.Item2) / weightSum * 100 :
-                        odd.Sum(x => x.Item2);
+                        odd.Sum(x => x.Weight) / weightSum * 100 :
+                        odd.Sum(x => x.Weight);
 
                     WriteProperty(writer, odd.Key, weight, serializer);
                 }
@@ -291,12 +291,12 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WritePropertyName("Odds");
                 writer.WriteStartObject();
 
-                double weightSum = cmsp.Odds.Sum(x => x.Item2);
-                foreach (var odd in cmsp.Odds.GroupBy(x => x.Item1.ItemType))
+                double weightSum = cmsp.OddsList.Sum(x => x.Weight);
+                foreach (var odd in cmsp.OddsList.GroupBy(x => x.Type.GetDef(ClientGlobal.SharedGameConfig).ItemType))
                 {
                     var weight = _dropAsPercent ?
-                        odd.Sum(x => x.Item2) / weightSum * 100 :
-                        odd.Sum(x => x.Item2);
+                        odd.Sum(x => x.Weight) / weightSum * 100 :
+                        odd.Sum(x => x.Weight);
 
                     WriteProperty(writer, odd.Key, weight, serializer);
                 }
@@ -320,12 +320,12 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
                 writer.WritePropertyName("Odds");
                 writer.WriteStartObject();
 
-                double weightSum = cpsp.Odds.Sum(x => x.Item2);
-                foreach (var odd in cpsp.Odds.GroupBy(x => x.Item1.ItemType))
+                double weightSum = cpsp.OddsList.Sum(x => x.Weight);
+                foreach (var odd in cpsp.OddsList.GroupBy(x => x.Type.GetDef(ClientGlobal.SharedGameConfig).ItemType))
                 {
                     var weight = _dropAsPercent ?
-                        odd.Sum(x => x.Item2) / weightSum * 100 :
-                        odd.Sum(x => x.Item2);
+                        odd.Sum(x => x.Weight) / weightSum * 100 :
+                        odd.Sum(x => x.Weight);
 
                     WriteProperty(writer, odd.Key, weight, serializer);
                 }
@@ -607,7 +607,7 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
             {
                 if (name == nameof(CodexCategoryInfo.IconItem))
                 {
-                    WriteProperty(writer, name, (value as MetaRef<ItemDefinition>)?.Ref.ItemType ?? string.Empty, serializer);
+                    WriteProperty(writer, name, (value as ItemDef)?.GetDef(_config).ItemType ?? string.Empty, serializer);
                     return;
                 }
             }
@@ -623,15 +623,15 @@ namespace merge_mansion_dumper.Dumper.Json.Metaplay
             {
                 if (name == nameof(PersistentFeatures.ResetToItem))
                 {
-                    WriteProperty(writer, name, (value as MetaRef<ItemDefinition>)?.Ref.ItemType ?? string.Empty, serializer);
+                    WriteProperty(writer, name, (value as ItemDef)?.GetDef(_config).ItemType ?? string.Empty, serializer);
                     return;
                 }
             }
             else if (type.IsAssignableTo(typeof(MultiTargetSinkStateFactory)))
             {
-                if (name == nameof(MultiTargetSinkStateFactory.Reward))
+                if (name == nameof(MultiTargetSinkStateFactory.RewardDef))
                 {
-                    WriteProperty(writer, name, (value as MetaRef<ItemDefinition>)?.Ref.ItemType ?? string.Empty, serializer);
+                    WriteProperty(writer, name, (value as ItemDef)?.GetDef(_config).ItemType ?? string.Empty, serializer);
                     return;
                 }
             }

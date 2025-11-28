@@ -26,7 +26,7 @@ namespace Code.GameLogic.GameEvents
     [MetaSerializable]
     [MetaActivableConfigData("CollectibleBoardEvent", false, true)]
     [MetaBlockedMembers(new int[] { 6, 7, 13, 24, 27 })]
-    public class CollectibleBoardEventInfo : IMetaActivableConfigData<CollectibleBoardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<CollectibleBoardEventId>, IHasGameConfigKey<CollectibleBoardEventId>, IMetaActivableInfo<CollectibleBoardEventId>, ILevelBoardEventInfo, ILevelEventInfo, IBoardEventInfo, IBubbleBonusEvent, IEventSharedInfo
+    public class CollectibleBoardEventInfo : IMetaActivableConfigData<CollectibleBoardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<CollectibleBoardEventId>, IHasGameConfigKey<CollectibleBoardEventId>, IMetaActivableInfo<CollectibleBoardEventId>, ILevelBoardEventInfo, ILevelEventInfo, IBoardEventInfo, IHasRequirements, IBubbleBonusEvent, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public CollectibleBoardEventId CollectibleBoardEventId { get; set; }
@@ -233,5 +233,7 @@ namespace Code.GameLogic.GameEvents
         [MetaOnMemberDeserializationFailure("FixRefList")]
         public List<ItemDef> PortalItemDefs { get; set; }
         public Option<List<ItemDef>> PortalItemRefsOption { get; }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

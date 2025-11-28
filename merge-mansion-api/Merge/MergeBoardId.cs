@@ -22,5 +22,6 @@ namespace Merge
 
         public static MergeBoardId SBE_Jailbreak;
         public static MergeBoardId GemMine;
+        public static MergeBoardId MADDIE_MEETS_MANSION_3;
     }
 }

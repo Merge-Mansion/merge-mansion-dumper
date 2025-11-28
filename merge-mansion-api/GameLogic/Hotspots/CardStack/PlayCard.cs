@@ -30,7 +30,7 @@ namespace GameLogic.Hotspots.CardStack
         }
 
         [MetaMember(1, (MetaMemberFlags)0)]
-        [MetaOnMemberDeserializationFailure("FixRef")]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
         public ItemDef ItemDef { get; set; }
     }
 }

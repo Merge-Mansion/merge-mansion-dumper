@@ -6,15 +6,15 @@ namespace Code.GameLogic.Player
 {
     public interface IWritableLastNSegmentsCache
     {
-        Dictionary<int, F64> ModesByLastNTransactions { get; }
+        IDictionary<int, F64> ModesByLastNTransactions { get; }
 
         int? LastNDaysDay { get; set; }
 
-        Dictionary<int, F64> MedianTransactionsByLastNDays { get; }
+        IDictionary<int, F64> MedianTransactionsByLastNDays { get; }
 
-        Dictionary<int, int> AverageNumberOfTransactionsByLastNDays { get; }
+        IDictionary<int, int> AverageNumberOfTransactionsByLastNDays { get; }
 
-        Dictionary<int, F64> AverageTransactionValueByLastNDays { get; }
+        IDictionary<int, F64> AverageTransactionValueByLastNDays { get; }
 
         F64? HighestTransactionPriceLast30Days { get; set; }
     }

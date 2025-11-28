@@ -5,18 +5,16 @@ using Code.GameLogic.Config;
 using Metaplay.Core;
 using GameLogic.Player.Items;
 using Metaplay.Core.Math;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Modes
 {
     [MetaSerializable]
     public class EnergyModeProgressionEventItemInfo : IGameConfigData<int>, IGameConfigData, IHasGameConfigKey<int>, IValidatable
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemRef { get; set; }
-
         [MetaMember(2, (MetaMemberFlags)0)]
         public F32 SpawnChance { get; set; }
-        public int ConfigKey => (int)ItemRef.KeyObject;
+        public int ConfigKey => ItemDef.ConfigKey;
 
         public EnergyModeProgressionEventItemInfo()
         {
@@ -25,5 +23,9 @@ namespace GameLogic.Player.Modes
         public EnergyModeProgressionEventItemInfo(MetaRef<ItemDefinition> itemRef, F32 spawnChance)
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

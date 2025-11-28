@@ -14,6 +14,7 @@ namespace GameLogic.Player
         MysteryMachineCoins = 5,
         SoloMilestoneProgress = 6,
         Quaternary = 7,
-        DigEventTaps = 8
+        DigEventTaps = 8,
+        WildItems = 9
     }
 }

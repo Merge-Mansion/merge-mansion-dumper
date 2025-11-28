@@ -26,7 +26,6 @@ namespace GameLogic.Player.Items.Order
 
         [IgnoreDataMember]
         public int ItemsPerActivation { get; }
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds { get; }
 
         protected OrderState()
         {
@@ -36,7 +35,7 @@ namespace GameLogic.Player.Items.Order
         {
         }
 
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             throw new NotImplementedException();
         }

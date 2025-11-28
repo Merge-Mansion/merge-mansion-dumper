@@ -4,6 +4,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Requirements
 {
@@ -12,10 +13,6 @@ namespace GameLogic.Player.Requirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         private List<int> ItemTypes { get; set; }
-
-        [MetaMember(2, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> ItemRefs { get; set; }
-        public ItemDefinition Item { get; }
 
         public ItemNeededAndConsumeRequirement()
         {
@@ -32,7 +29,9 @@ namespace GameLogic.Player.Requirements
         [IgnoreDataMember]
         public IReadOnlyCollection<int> Items { get; }
 
-        [IgnoreDataMember]
-        public IEnumerable<ItemDefinition> ItemDefinitions { get; }
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
+        public List<ItemDef> ItemDefs { get; set; }
+        public ItemDef ItemDef { get; }
     }
 }

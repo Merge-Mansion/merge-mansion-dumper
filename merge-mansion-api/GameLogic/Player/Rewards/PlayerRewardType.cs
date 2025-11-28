@@ -36,6 +36,7 @@ namespace GameLogic.Player.Rewards
         RewardContainer = 27,
         ItemForCollectibleBoardEvent = 28,
         Empty = 29,
-        OnFire = 30
+        OnFire = 30,
+        StartingValues = 31
     }
 }

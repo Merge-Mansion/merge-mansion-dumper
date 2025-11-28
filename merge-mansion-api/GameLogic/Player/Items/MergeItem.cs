@@ -25,20 +25,17 @@ using GameLogic.Player.Items.Order;
 using GameLogic.Config;
 using GameLogic.Player.Items.GemMining;
 using GameLogic.Config.Types;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player.Items
 {
     [MetaSerializableDerived(2)]
     [MetaBlockedMembers(new int[] { 2 })]
-    public class MergeItem : IBoardItem, IMergeItem
+    public class MergeItem : IMergeItem, IBoardItem
     {
         private static readonly MetaTime guaranteedFuture; // 0x0
         [IgnoreDataMember]
         public MergeItem.MergeItemExtra Extra => extra ??= new MergeItemExtra();
-
-        [MetaOnMemberDeserializationFailure("GarageCleanupSpawnerFix")]
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> DefinitionRef { get; set; }
 
         [IgnoreDataMember]
         public DecayState DecayState => Extra.DecayState;
@@ -48,10 +45,6 @@ namespace GameLogic.Player.Items
 
         [IgnoreDataMember]
         public StorageState ActivationStorageState => Extra.ActivationStorageState;
-
-        [Obsolete("Use IMergeItem.Definition instead")]
-        [IgnoreDataMember]
-        public ItemDefinition Definition => DefinitionRef.Ref;
 
         public void ResetStates(MetaTime timestamp)
         {
@@ -63,7 +56,7 @@ namespace GameLogic.Player.Items
 
         public bool IsActivationStorageFull()
         {
-            return Extra.ActivationStorageState.IsFull(Definition.ActivationFeatures.StorageMax);
+            return Extra.ActivationStorageState.IsFull(DefinitionDef.GetDef(ClientGlobal.SharedGameConfig).ActivationFeatures.StorageMax);
         }
 
         public int GetCurrentAmountInActivationStorage()
@@ -142,9 +135,8 @@ namespace GameLogic.Player.Items
         [IgnoreDataMember]
         public StorageState SpawnStorageState { get; }
 
-        [Obsolete("Use IMergeItem.ChestState instead")]
         [IgnoreDataMember]
-        public ChestState ChestState { get; }
+        public IChestState ChestState { get; }
 
         [IgnoreDataMember]
         public BoosterState BoosterState { get; }
@@ -178,75 +170,26 @@ namespace GameLogic.Player.Items
 
         [IgnoreDataMember]
         public ItemRewardsState RewardsState { get; }
-
-        [IgnoreDataMember]
-        public bool ShowTutorialFingerOnDiscovery { get; }
         public int ItemId { get; }
-        public string ItemType { get; }
-
-        [IgnoreDataMember]
-        public bool Movable { get; }
 
         [IgnoreDataMember]
         public ItemVisibility Visibility { get; }
 
         [IgnoreDataMember]
-        public bool SupportsMerge { get; }
-
-        [IgnoreDataMember]
-        public MetaDuration? Lifetime { get; }
-
-        [IgnoreDataMember]
         public MetaDuration? RemainingDuration { get; }
 
         [IgnoreDataMember]
-        public bool SupportsActivation { get; }
-
-        [IgnoreDataMember]
-        public bool SupportsSpawning { get; }
-
-        [IgnoreDataMember]
-        public IPlacement SpawnPlacement { get; }
-
-        [IgnoreDataMember]
-        public bool SpawnStorageFull { get; }
-
-        [IgnoreDataMember]
         public MetaTime? NextSpawnStorageTimestamp { get; }
-        public bool IsChest { get; }
 
         [IgnoreDataMember]
         public bool IsLootable { get; }
-        public MetaDuration? InfiniteEnergyDuration { get; }
-
-        [IgnoreDataMember]
-        public bool IsBooster { get; }
 
         [IgnoreDataMember]
         public bool IsBoosted { get; }
 
         [IgnoreDataMember]
         public F32 TimeBoostMultiplier { get; }
-
-        [IgnoreDataMember]
-        public bool IsAffectedByBooster { get; }
-        public bool IsSink { get; }
-
-        [IgnoreDataMember]
-        public bool IsConsumable { get; }
-
-        [IgnoreDataMember]
-        public int ConsumableCap { get; }
         public bool IsInsideBubble { get; }
-
-        [IgnoreDataMember]
-        public BubbleState BubbleStateMaybe { get; }
-
-        [IgnoreDataMember]
-        public ValueTuple<Currencies, int> UnlockValue { get; }
-
-        [IgnoreDataMember]
-        public bool CanBeUnlocked { get; }
 
         [IgnoreDataMember]
         public bool IsVisible { get; }
@@ -258,16 +201,10 @@ namespace GameLogic.Player.Items
         public bool IsHiddenInABox { get; }
 
         [IgnoreDataMember]
-        public bool VisibilityAllowsMerge { get; }
-
-        [IgnoreDataMember]
         public bool ActivationPaused { get; set; }
 
         [IgnoreDataMember]
         public MetaDuration RemainingTimeContained { get; }
-
-        [IgnoreDataMember]
-        public int RemainingCharges { get; }
 
         [IgnoreDataMember]
         public bool IsFullyConsumed { get; }
@@ -303,14 +240,6 @@ namespace GameLogic.Player.Items
 
         [IgnoreDataMember]
         public WeightState WeightStateMaybe { get; }
-
-        [IgnoreDataMember]
-        public bool CanSpawn { get; }
-
-        [IgnoreDataMember]
-        public bool SupportsFishingRodTap { get; }
-
-        [IgnoreDataMember]
         public bool HasFishingRodState { get; }
 
         [IgnoreDataMember]
@@ -320,24 +249,11 @@ namespace GameLogic.Player.Items
         {
         }
 
-        public int ItemLevel { get; }
-
-        [IgnoreDataMember]
-        private bool CanNotBeSpedUp { get; }
-
-        [IgnoreDataMember]
-        public bool UseCalendarBasedCycle { get; }
-
         [IgnoreDataMember]
         public bool IsSpawnBoosted { get; }
 
         [IgnoreDataMember]
         public F32 TimeSpawnBoostMultiplier { get; }
-
-        [IgnoreDataMember]
-        public bool ActivatedWithNoCost { get; }
-        public bool HideSinkProgressBar { get; }
-        public bool HideSinkUndiscoveredItemsInHints { get; }
 
         [IgnoreDataMember]
         public MetaTime CreatedAt { get; }
@@ -349,16 +265,6 @@ namespace GameLogic.Player.Items
 
         [IgnoreDataMember]
         public OrderParentState OrderState { get; }
-
-        [IgnoreDataMember]
-        public bool IsDecayableOrder { get; }
-
-        [IgnoreDataMember]
-        public bool IsActivableOrder { get; }
-
-        [IgnoreDataMember]
-        public bool IsSpawnableOrder { get; }
-        public bool IsSinkableOrder { get; }
 
         public MergeItem(SharedGameConfig config, ItemDefinition resultingItem, MergeItem sourceItem, MetaTime timestamp, IPlayer player)
         {
@@ -374,12 +280,6 @@ namespace GameLogic.Player.Items
         [IgnoreDataMember]
         public GemState GemState { get; }
 
-        [IgnoreDataMember]
-        public bool SupportsRockChunkTap { get; }
-
-        [IgnoreDataMember]
-        public bool HasGemWeight { get; }
-
         public MergeItem(IPlayer player, ItemDefinition itemDefinition, MetaTime timestamp, MergeBoardId boardId, ItemVisibility itemVisibility, bool insideBubble, bool checkNullExtra)
         {
         }
@@ -387,33 +287,6 @@ namespace GameLogic.Player.Items
         public MergeItem(ItemDefinition itemDefinition, MetaTime timestamp, ItemVisibility itemVisibility, DecayState decayState, ActivationState activationState, StorageState activationStorage, SpawnState spawnState, StorageState spawnStorage, ChestState chestState, ISinkState sinkState, TimeContainerState timeContainerState, ChargesState chargesState, XpState xpState, OrderParentState orderState, PersistentState persistentState, GemState gemState)
         {
         }
-
-        [IgnoreDataMember]
-        public bool DecayOnActivation { get; }
-
-        [IgnoreDataMember]
-        public bool HasPrisonBadgeState { get; }
-
-        [IgnoreDataMember]
-        public bool IsPostBox { get; }
-
-        [IgnoreDataMember]
-        public bool IsMinigameActivation { get; }
-
-        [IgnoreDataMember]
-        public bool IsEscapeTool { get; }
-
-        [IgnoreDataMember]
-        public IItemEffectFeatures ItemActivationEffects { get; }
-
-        [IgnoreDataMember]
-        public bool HasActivationVfx { get; }
-
-        [IgnoreDataMember]
-        public bool ActivationMiniGame { get; }
-
-        [IgnoreDataMember]
-        public bool LargeItem2x2 { get; }
 
         public MergeItem(IMergeMansionGameConfig config, ItemDefinition resultingItem, MergeItem sourceItem, MetaTime timestamp, IPlayer player)
         {
@@ -435,9 +308,6 @@ namespace GameLogic.Player.Items
         {
         }
 
-        [IgnoreDataMember]
-        public bool ShowGemWeightLabel { get; }
-
         public MergeItem(IPlayer player, MetaRef<ItemDefinition> itemDefinitionRef, MetacoreTime timestamp, MergeBoardId boardId, ItemVisibility itemVisibility, bool insideBubble, bool checkNullExtra)
         {
         }
@@ -446,6 +316,11 @@ namespace GameLogic.Player.Items
         {
         }
 
-        public MergeChainId ChainId { get; }
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef DefinitionDef { get; set; }
+
+        [IgnoreDataMember]
+        Option<MetaTime> GameLogic.Player.Items.IMergeItem.NextSpawnStorageTimestampOption { get; }
     }
 }

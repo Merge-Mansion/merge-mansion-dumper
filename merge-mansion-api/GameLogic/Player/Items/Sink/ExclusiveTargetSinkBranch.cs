@@ -1,6 +1,7 @@
 using Metaplay.Core.Model;
 using System;
 using Metaplay.Core;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Sink
 {
@@ -9,9 +10,6 @@ namespace GameLogic.Player.Items.Sink
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public int ItemId { get; set; }
-
-        [MetaMember(2, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> RewardItem { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public int Target { get; set; }
@@ -23,5 +21,9 @@ namespace GameLogic.Player.Items.Sink
         public ExclusiveTargetSinkBranch(int itemId, int target, int rewardItemId)
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef RewardItemDef { get; set; }
     }
 }

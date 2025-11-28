@@ -23,6 +23,7 @@ namespace GameLogic.Player.Items.Chest
         [MetaMember(3, (MetaMemberFlags)0)]
         private MetaDuration relativeTimeSpendOnOpen;
         [MetaMember(4, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
         private List<MetaRef<ItemDefinition>> remainingLoot;
         [MetaMember(5, (MetaMemberFlags)0)]
         private bool hasBeenFilled;

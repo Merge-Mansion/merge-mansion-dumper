@@ -10,6 +10,7 @@ namespace GameLogic
         CompactDialog = 2,
         SMS = 3,
         CompactBottomDialog = 4,
-        CompactAlternateDialog = 5
+        CompactAlternateDialog = 5,
+        MaddieMeetsMansionDialog = 6
     }
 }

@@ -12,18 +12,15 @@ namespace GameLogic.Player.Items.Production
     public class RandomProducer : IItemSpawner, IItemProducer
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        private List<ItemOdds> OddsList { get; set; }
-
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => OddsList.Select(x => (x.Item, x.Weight));
+        public List<ItemOdds> OddsList { get; set; }
         public int SpawnQuantity => 1;
 
         public F64 TimeSkipPriceGems(IGenerationContext context)
         {
-            return F64.FromDouble(OddsList.Average(odds => odds.Type.Ref.TimeSkipPriceGems.Double));
+            return F64.FromDouble(OddsList.Average(odds => odds.Type.GetDef(ClientGlobal.SharedGameConfig).TimeSkipPriceGems.Double));
         }
 
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             // STUB
             yield break;

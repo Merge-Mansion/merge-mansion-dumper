@@ -28,6 +28,7 @@ namespace GameLogic
         QuaternaryEnergy = 15,
         CardCollectionStars = 16,
         DigEventTaps = 17,
-        ProgressionEventPoints = 18
+        ProgressionEventPoints = 18,
+        WildItems = 19
     }
 }

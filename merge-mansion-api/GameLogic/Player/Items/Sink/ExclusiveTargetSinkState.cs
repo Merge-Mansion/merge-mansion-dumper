@@ -10,6 +10,7 @@ namespace GameLogic.Player.Items.Sink
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         private Dictionary<int, int> progress;
+        [MetaOnMemberDeserializationFailure("FixItemRefMetaDict")]
         [MetaMember(2, (MetaMemberFlags)0)]
         private Dictionary<int, MetaRef<ItemDefinition>> rewardItems;
         [MetaMember(3, (MetaMemberFlags)0)]

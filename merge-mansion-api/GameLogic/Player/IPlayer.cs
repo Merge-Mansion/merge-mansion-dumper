@@ -220,6 +220,16 @@ namespace GameLogic.Player
         RandomPCG RollTheDiceRandom { get; }
 
         IRollTheDiceMinigameData RollTheDiceMinigameData { get; }
+
+        SegmentorState Segmentor { get; }
+
+        bool IsProductionEnvironment { get; }
+
+        bool IsDeveloper { get; }
+
+        ICustomMergeBoardsState CustomMergeBoardsState { get; }
+
+        LocationId StartLocation { get; }
     // Slot: 50
     //void AddScriptedEvent(IScriptedEventCondition condition, ISerializedAction action);
     }

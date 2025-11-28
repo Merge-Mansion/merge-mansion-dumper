@@ -25,8 +25,6 @@ namespace Code.GameLogic.GameEvents
         public bool EndNoted;
         [MetaMember(12, (MetaMemberFlags)0)]
         public bool EndDialogueTriggered;
-        [MetaMember(9, (MetaMemberFlags)0)]
-        public bool RewardMailTriggered;
         [MetaMember(11, (MetaMemberFlags)0)]
         public HashSet<StoryDefinitionId> TriggeredLevelRewardClaimedStories;
         [MetaMember(13, (MetaMemberFlags)0)]
@@ -89,5 +87,7 @@ namespace Code.GameLogic.GameEvents
         private int LastLevelNoted { get; set; }
 
         private static int InvalidProgressValue;
+        [MetaMember(9, (MetaMemberFlags)0)]
+        public bool OnReviewEndedActionsTriggered;
     }
 }

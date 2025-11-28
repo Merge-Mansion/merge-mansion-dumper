@@ -7,5 +7,12 @@ namespace GameLogic.Config
     [MetaSerializableDerived(3)]
     public class MergeChainDef : ConfigDefinition<MergeChainId, MergeChainDefinition>
     {
+        public override MergeChainDefinition? GetDef(IMergeMansionGameConfig config)
+        {
+            if (!config.MergeChains.TryGetValue(ConfigKey, out MergeChainDefinition chain))
+                return null;
+
+            return chain;
+        }
     }
 }

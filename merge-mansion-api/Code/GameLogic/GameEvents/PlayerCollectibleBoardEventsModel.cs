@@ -1,6 +1,7 @@
 using Metaplay.Core.Model;
 using Metaplay.Core.Activables;
 using System.Collections.Generic;
+using Metaplay.Core;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -13,5 +14,8 @@ namespace Code.GameLogic.GameEvents
         public PlayerCollectibleBoardEventsModel()
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        private MetaTime _nextEventStartTime;
     }
 }

@@ -236,5 +236,6 @@ namespace GameLogic.Config
         public static DirectorGroupId AutoMergeFTUE;
         public static DirectorGroupId TutorialPouch;
         public static DirectorGroupId RollTheDiceFTUE;
+        public static DirectorGroupId WildItemFTUE;
     }
 }

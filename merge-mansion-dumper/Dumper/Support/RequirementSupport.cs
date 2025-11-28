@@ -50,7 +50,7 @@ namespace merge_mansion_dumper.Dumper.Support
                 case PlayerSeenItemRequirement psir:
                     return new List<KeyValuePair<RequirementType, RequireModel>>
                     {
-                        new(RequirementType.ItemSeen, new RequireModel { Value = psir.ItemRef.Ref.ConfigKey.ToString() })
+                        new(RequirementType.ItemSeen, new RequireModel { Value = psir.ItemDef.ConfigKey.ToString() })
                     };
 
                 case HotspotCompletedRequirement hcr:

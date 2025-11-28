@@ -101,6 +101,8 @@ namespace GameLogic
         ClassicRacesEventStageWon = 92,
         ProgressionTrack = 93,
         RollTheDiceLevelCompleted = 94,
-        RollTheDiceDuplicateRefund = 95
+        RollTheDiceDuplicateRefund = 95,
+        MailItemMissing = 96,
+        WildItem = 97
     }
 }

@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using System;
 using System.Collections.Generic;
 using Metaplay.Core;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Sink
 {
@@ -14,8 +15,6 @@ namespace GameLogic.Player.Items.Sink
         private int target;
         [MetaMember(3, (MetaMemberFlags)0)]
         private Dictionary<int, int> takeInScores;
-        [MetaMember(4, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> rewardItem;
         public SingleTargetSinkState()
         {
         }
@@ -23,5 +22,9 @@ namespace GameLogic.Player.Items.Sink
         public SingleTargetSinkState(Dictionary<int, int> takeIn, int scoreTarget, ItemDefinition reward)
         {
         }
+
+        [MetaMember(4, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        private ItemDef rewardItemDef;
     }
 }

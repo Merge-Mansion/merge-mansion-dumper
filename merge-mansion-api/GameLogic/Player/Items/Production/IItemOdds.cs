@@ -6,8 +6,6 @@ namespace GameLogic.Player.Items.Production
     {
         int Weight { get; }
 
-        ItemDefinition Item { get; }
-
         int ConfigKey { get; }
     }
 }

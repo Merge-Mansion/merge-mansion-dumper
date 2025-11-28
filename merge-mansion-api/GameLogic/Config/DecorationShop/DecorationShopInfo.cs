@@ -12,7 +12,7 @@ namespace GameLogic.Config.DecorationShop
 {
     [MetaSerializable]
     [MetaActivableConfigData("DecorationShop", false, true)]
-    public class DecorationShopInfo : IMetaActivableConfigData<DecorationShopId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<DecorationShopId>, IHasGameConfigKey<DecorationShopId>, IMetaActivableInfo<DecorationShopId>, IEventSharedInfo, IValidatable
+    public class DecorationShopInfo : IMetaActivableConfigData<DecorationShopId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<DecorationShopId>, IHasGameConfigKey<DecorationShopId>, IMetaActivableInfo<DecorationShopId>, IEventSharedInfo, IValidatable, IHasRequirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public DecorationShopId ConfigKey { get; set; }
@@ -62,5 +62,7 @@ namespace GameLogic.Config.DecorationShop
         public DecorationShopInfo(DecorationShopId configKey, string displayName, string description, string nameLocId, List<MetaRef<DecorationShopSetInfo>> setRefs, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, int priority, EventCategoryInfo categoryInfo)
         {
         }
+
+        IEnumerable<PlayerRequirement> GameLogic.Player.Requirements.IHasRequirements.Requirements { get; }
     }
 }

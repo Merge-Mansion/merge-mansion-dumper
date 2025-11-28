@@ -2,15 +2,13 @@ using Metaplay.Core.Model;
 using Metaplay.Core;
 using System;
 using Code.GameLogic.GameEvents;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Collectable
 {
     [MetaSerializableDerived(10)]
     public class AddSpawnAmountAction : ICollectAction
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> SpawnerItemDefinition { get; set; }
-
         [MetaMember(2, (MetaMemberFlags)0)]
         public int CyclesToAdd { get; set; }
 
@@ -27,5 +25,9 @@ namespace GameLogic.Player.Items.Collectable
         public AddSpawnAmountAction(MetaRef<ItemDefinition> spawnerItemDefinition, int cyclesToAdd, SideBoardEventId sideBoardEventIdToCheckMaxResourceItem, int visualFlyToItemId)
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef SpawnerItemDef { get; set; }
     }
 }

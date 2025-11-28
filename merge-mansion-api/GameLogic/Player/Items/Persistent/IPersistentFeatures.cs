@@ -1,5 +1,6 @@
 using System;
 using Metaplay.Core;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Persistent
 {
@@ -13,6 +14,6 @@ namespace GameLogic.Player.Items.Persistent
 
         int ItemStates { get; }
 
-        MetaRef<ItemDefinition> ResetToItem { get; }
+        ItemDef ResetToItem { get; }
     }
 }

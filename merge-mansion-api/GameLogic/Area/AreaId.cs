@@ -10,5 +10,7 @@ namespace GameLogic.Area
         public AreaId()
         {
         }
+
+        public static AreaId MADDIE_MEETS_MANSION;
     }
 }

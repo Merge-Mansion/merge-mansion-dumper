@@ -11,7 +11,7 @@ namespace GameLogic.MiniEvents
 {
     [MetaSerializable]
     [MetaActivableConfigData("MiniEvent", false, true)]
-    public class MiniEventInfo : IMetaActivableConfigData<MiniEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MiniEventId>, IHasGameConfigKey<MiniEventId>, IMetaActivableInfo<MiniEventId>, IValidatable, IEventSharedInfo
+    public class MiniEventInfo : IMetaActivableConfigData<MiniEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MiniEventId>, IHasGameConfigKey<MiniEventId>, IMetaActivableInfo<MiniEventId>, IValidatable, IEventSharedInfo, IHasRequirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public MiniEventId MiniEventId { get; set; }
@@ -74,5 +74,7 @@ namespace GameLogic.MiniEvents
         public MiniEventInfo(MiniEventId id, string nameLocId, string descLocId, string displayName, string description, MetaActivableParams activableParams, Dictionary<MiniEventTypeId, MiniEventValues<string>> newValuesLookup, PlayerRequirement unlockRequirement, MiniEventUIId uiSchemeId, bool showStartPopup, bool showMainHubBadge, int priority, EventCategoryInfo categoryInfo)
         {
         }
+
+        IEnumerable<PlayerRequirement> GameLogic.Player.Requirements.IHasRequirements.Requirements { get; }
     }
 }

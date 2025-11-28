@@ -4,15 +4,13 @@ using GameLogic.Player.Items;
 using System;
 using System.Collections.Generic;
 using Analytics;
+using GameLogic.Config;
 
 namespace GameLogic.StatsTracking
 {
     [MetaSerializableDerived(6)]
     public class StatsObjectiveClaimFromShop : StatsObjective
     {
-        [MetaMember(100, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> TargetItem { get; set; }
-
         [MetaMember(101, (MetaMemberFlags)0)]
         public sealed override long SnapshotAmount { get; set; }
 
@@ -59,5 +57,9 @@ namespace GameLogic.StatsTracking
         public StatsObjectiveClaimFromShop(IStringId objectiveId, long snapshotAmount, List<int> objectiveRequirements, TaskType typeTask)
         {
         }
+
+        [MetaMember(100, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        private ItemDef TargetItemDef { get; set; }
     }
 }

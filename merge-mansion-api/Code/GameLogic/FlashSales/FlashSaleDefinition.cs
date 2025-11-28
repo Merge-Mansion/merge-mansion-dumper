@@ -32,7 +32,7 @@ namespace Code.GameLogic.FlashSales
         private List<PlayerRequirement> PlayerRequirements { get; set; }
 
         [IgnoreDataMember]
-        public List<PlayerRequirement> Requirements { get; }
+        public IEnumerable<PlayerRequirement> Requirements { get; }
 
         public FlashSaleDefinition()
         {

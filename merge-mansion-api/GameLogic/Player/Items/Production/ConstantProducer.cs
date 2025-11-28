@@ -7,6 +7,7 @@ using Metaplay.Core;
 using Metaplay.Core.Math;
 using Metaplay.Core.Model;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Production
 {
@@ -14,22 +15,20 @@ namespace GameLogic.Player.Items.Production
     public class ConstantProducer : IItemSpawner, IItemProducer
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> Products { get; set; } // 0x10
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
+        public List<ItemDef> Products { get; set; } // 0x10
 
         [MetaMember(2, (MetaMemberFlags)0)]
         public List<int> Quantities { get; set; } // 0x18
-
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => Products.Select(x => (x.Ref, 1));
         public int SpawnQuantity => Quantities.Sum();
 
         public F64 TimeSkipPriceGems(IGenerationContext context)
         {
-            var totalPrice = Products.Aggregate(F64.Zero, (res, item) => res + item.Ref.TimeSkipPriceGems);
+            var totalPrice = Products.Aggregate(F64.Zero, (res, item) => res + item.GetDef(ClientGlobal.SharedGameConfig).TimeSkipPriceGems);
             return totalPrice / Math.Max(Products.Count, 1);
         }
 
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             foreach (var product in Products.CycleWithIndex())
             {
@@ -37,7 +36,7 @@ namespace GameLogic.Player.Items.Production
                 var itemQuantity = Math.Min(quantity, localQuantity);
                 quantity -= itemQuantity;
                 for (var i = 0; i < itemQuantity; i++)
-                    yield return product.Item1.Deref();
+                    yield return product.Item1.GetDef(ClientGlobal.SharedGameConfig);
                 if (quantity < 1)
                     yield break;
             }

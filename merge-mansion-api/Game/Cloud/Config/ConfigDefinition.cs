@@ -1,3 +1,4 @@
+using GameLogic.Config;
 using Metaplay.Core.Model;
 
 namespace Game.Cloud.Config
@@ -15,5 +16,7 @@ namespace Game.Cloud.Config
         public ConfigDefinition(TKeyObject key)
         {
         }
+
+        public abstract TValueObject? GetDef(IMergeMansionGameConfig config);
     }
 }

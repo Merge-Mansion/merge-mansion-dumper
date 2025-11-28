@@ -4,6 +4,7 @@ using Code.GameLogic.GameEvents.SoloMilestone;
 using System.Runtime.Serialization;
 using System;
 using Code.GameLogic.GameEvents;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Events
 {
@@ -18,5 +19,8 @@ namespace GameLogic.Player.Events
         public PlayerSoloMilestoneEventModel()
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        private MetaTime _nextEventStartTime;
     }
 }

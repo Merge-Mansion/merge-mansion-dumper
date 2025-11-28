@@ -181,6 +181,7 @@ namespace Analytics
         ProgressionTrackProgress = 170,
         AppStartPerformance = 171,
         RollTheDiceRoll = 172,
-        SessionStartConfigStatus = 173
+        SessionStartConfigStatus = 173,
+        InAppPurchaseRefunded = 174
     }
 }

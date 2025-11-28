@@ -10,7 +10,6 @@ namespace GameLogic.Player.Items.Production
     [MetaAllowNoSerializedMembers]
     public class GarageCleanupEventProducer : IItemSpawner, IItemProducer
     {
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => Array.Empty<(ItemDefinition, int)>();
         public int SpawnQuantity => 1;
 
         public F64 TimeSkipPriceGems(IGenerationContext context)
@@ -19,7 +18,7 @@ namespace GameLogic.Player.Items.Production
             return F64.FromInt(0);
         }
 
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             // STUB
             throw new NotImplementedException();

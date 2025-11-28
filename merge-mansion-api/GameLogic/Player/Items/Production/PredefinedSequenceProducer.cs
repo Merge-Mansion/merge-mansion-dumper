@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using GameLogic.Random;
 using Metaplay.Core.Math;
 using System.Linq;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Production
 {
@@ -13,19 +14,17 @@ namespace GameLogic.Player.Items.Production
     public class PredefinedSequenceProducer : IItemSpawner, IItemProducer
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        private List<ItemOdds> OddsList { get; set; }
+        public List<ItemOdds> OddsList { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
         private ulong TotalCount { get; set; }
 
         [MetaMember(3, (MetaMemberFlags)0)]
-        private List<MetaRef<ItemDefinition>> UniqueItems { get; set; }
-
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => OddsList.Select(x => (x.Item, x.Weight));
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
+        private List<ItemDef> UniqueItems { get; set; }
         public int SpawnQuantity => 1;
 
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             /*	private int <>1__state; // 0x10
 	            private ItemDefinition <>2__current; // 0x18
@@ -47,7 +46,7 @@ namespace GameLogic.Player.Items.Production
 
         public F64 TimeSkipPriceGems(IGenerationContext context)
         {
-            return OddsList.Average(x => x.Type.Ref.TimeSkipPriceGems);
+            return OddsList.Average(x => x.Type.GetDef(ClientGlobal.SharedGameConfig).TimeSkipPriceGems);
         }
 
         private PredefinedSequenceProducer()

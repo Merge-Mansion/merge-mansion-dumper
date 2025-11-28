@@ -9,7 +9,6 @@ namespace GameLogic.Player.Items.Sink
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public List<ExclusiveTargetSinkBranch> Branches { get; set; }
-        public IEnumerable<ValueTuple<ItemDefinition, int>> SinkProducts { get; }
 
         private ExclusiveTargetSinkStateFactory()
         {

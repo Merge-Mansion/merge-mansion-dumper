@@ -13,7 +13,7 @@ namespace GameLogic.MixABooster
 {
     [MetaSerializable]
     [MetaActivableConfigData("MixABoosterEvent", false, true)]
-    public class MixABoosterEventInfo : ICoreSupportingEventInfo<MixABoosterEventId>, IMetaActivableConfigData<MixABoosterEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MixABoosterEventId>, IHasGameConfigKey<MixABoosterEventId>, IMetaActivableInfo<MixABoosterEventId>, ICoreSupportingEventInfo, IEventSharedInfo, IValidatable
+    public class MixABoosterEventInfo : ICoreSupportingEventInfo<MixABoosterEventId>, IMetaActivableConfigData<MixABoosterEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MixABoosterEventId>, IHasGameConfigKey<MixABoosterEventId>, IMetaActivableInfo<MixABoosterEventId>, IHasRequirements, ICoreSupportingEventInfo, IEventSharedInfo, IValidatable, IOfferPlacementSupporting
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public MixABoosterEventId ConfigKey { get; set; }
@@ -28,7 +28,7 @@ namespace GameLogic.MixABooster
         public string Description { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
-        private PlayerRequirement UnlockRequirement { get; set; }
+        public PlayerRequirement UnlockRequirement { get; set; }
 
         [MetaMember(6, (MetaMemberFlags)0)]
         public OfferPlacementId PlacementId { get; set; }
@@ -62,5 +62,9 @@ namespace GameLogic.MixABooster
         public MixABoosterEventInfo(MixABoosterEventId configKey, MetaActivableParams activableParams, string displayName, string description, PlayerRequirement unlockRequirement, OfferPlacementId placementId, List<MetaRef<MixABoosterRecipe>> recipeRefs, Dictionary<MixABoosterIngredientId, int> initialIngredients, EventCategoryInfo categoryInfo)
         {
         }
+
+        public OfferPlacementId OfferPlacementId { get; }
+
+        IEnumerable<PlayerRequirement> GameLogic.Player.Requirements.IHasRequirements.Requirements { get; }
     }
 }

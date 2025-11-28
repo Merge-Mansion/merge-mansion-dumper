@@ -11,7 +11,7 @@ namespace GameLogic.Player.Rewards
     public class RewardCollectibleBoardEventProgress : PlayerReward
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        private MetaRef<CollectibleBoardEventInfo> EventInfoRef { get; set; }
+        public MetaRef<CollectibleBoardEventInfo> EventInfoRef { get; set; }
 
         [MetaFormFieldCustomValidator(typeof(RewardAmountValidator<int>))]
         [MetaMember(2, (MetaMemberFlags)0)]

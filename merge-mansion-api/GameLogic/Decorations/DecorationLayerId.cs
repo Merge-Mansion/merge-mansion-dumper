@@ -119,6 +119,17 @@ namespace GameLogic.Decorations
         SP_GoatPet2025_TA1 = 110,
         SP_GoatPet2025_TA2 = 111,
         SP_GhostDog2025_TA1 = 112,
-        SP_GhostDog2025_TA2 = 113
+        SP_GhostDog2025_TA2 = 113,
+        LDE_HolidayOddities2025_TA0 = 114,
+        LDE_HolidayOddities2025_TA1 = 115,
+        LDE_HolidayOddities2025_TA2 = 116,
+        LDE_HolidayOddities2025_TA3 = 117,
+        LDE_HolidayOddities2025_TA4 = 118,
+        LDE_HolidayOddities2025_TB1 = 119,
+        LDE_HolidayOddities2025_TB2 = 120,
+        LDE_HolidayOddities2025_TC1 = 121,
+        LDE_HolidayOddities2025_TC2 = 122,
+        SP_FerretPet2025_TA1 = 123,
+        SP_FerretPet2025_TA2 = 124
     }
 }

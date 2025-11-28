@@ -18,9 +18,9 @@ using Code.GameLogic.IAP;
 namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
-    [MetaBlockedMembers(new int[] { 10, 11 })]
+    [MetaBlockedMembers(new int[] { 10, 11, 17 })]
     [MetaActivableConfigData("MysteryMachineEvent", false, true)]
-    public class MysteryMachineEventInfo : IMetaActivableConfigData<MysteryMachineEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MysteryMachineEventId>, IHasGameConfigKey<MysteryMachineEventId>, IMetaActivableInfo<MysteryMachineEventId>, IBoardEventInfo, IEventSharedInfo
+    public class MysteryMachineEventInfo : IMetaActivableConfigData<MysteryMachineEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MysteryMachineEventId>, IHasGameConfigKey<MysteryMachineEventId>, IMetaActivableInfo<MysteryMachineEventId>, IBoardEventInfo, IHasRequirements, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public MysteryMachineEventId ConfigKey { get; set; }
@@ -98,8 +98,6 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(16, (MetaMemberFlags)0)]
         public MetaRef<MysteryMachineScreenInfo> ScreenRef { get; set; }
-
-        [MetaMember(17, (MetaMemberFlags)0)]
         public EventGroupId GroupId { get; set; }
 
         [MetaMember(18, (MetaMemberFlags)0)]
@@ -116,5 +114,7 @@ namespace Code.GameLogic.GameEvents
         public MysteryMachineEventInfo(MysteryMachineEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, MysteryMachineId mysteryMachineId, MetaRef<BoardInfo> boardRef, MetaRef<ItemDefinition> portalItemRef, PlayerRequirement unlockRequirement, OfferPlacementId boardShopPlacementId, StoryDefinitionId enterBoardDialogue, StoryDefinitionId startMachineDialogue, MetaRef<MysteryMachineLeaderboardConfigInfo> leaderboardConfigRef, MetaRef<MysteryMachineScreenInfo> screenRef, int priority, EventCategoryInfo categoryInfo)
         {
         }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

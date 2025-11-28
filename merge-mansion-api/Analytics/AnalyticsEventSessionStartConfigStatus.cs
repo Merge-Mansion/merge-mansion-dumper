@@ -16,5 +16,10 @@ namespace Analytics
         [Description("Current status of the config in sessions flow")]
         public string Status { get; set; }
         public override string EventDescription { get; }
+
+        [JsonProperty("app_launch_id")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Session's latest app launch identifier")]
+        public uint AppLaunchId { get; set; }
     }
 }

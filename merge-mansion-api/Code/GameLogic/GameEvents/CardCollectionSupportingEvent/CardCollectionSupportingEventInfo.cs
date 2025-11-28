@@ -11,7 +11,7 @@ namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
 {
     [MetaSerializable]
     [MetaActivableConfigData("CardCollectionSupportingEvent", false, true)]
-    public class CardCollectionSupportingEventInfo : IMetaActivableConfigData<CardCollectionSupportingEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<CardCollectionSupportingEventId>, IHasGameConfigKey<CardCollectionSupportingEventId>, IMetaActivableInfo<CardCollectionSupportingEventId>, IEventSharedInfo, IValidatable
+    public class CardCollectionSupportingEventInfo : IMetaActivableConfigData<CardCollectionSupportingEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<CardCollectionSupportingEventId>, IHasGameConfigKey<CardCollectionSupportingEventId>, IMetaActivableInfo<CardCollectionSupportingEventId>, IEventSharedInfo, IValidatable, IHasRequirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public CardCollectionSupportingEventId ConfigKey { get; set; }
@@ -66,5 +66,6 @@ namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
         public CardCollectionSupportingEventInfo(CardCollectionSupportingEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, PlayerRequirement unlockRequirement, EventGroupId groupId, int priority, bool upgradeUnclaimedPacks, bool showEndPopup, List<string> eventWhiteList, EventCategoryInfo categoryInfo)
         {
         }
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

@@ -1,80 +1,82 @@
-using System;
-using System.Reflection;
+using Code.GameLogic.Area;
+using Code.GameLogic.Config;
+using Code.GameLogic.DynamicEvents;
+using Code.GameLogic.ExtraSpawns;
+using Code.GameLogic.FlashSales;
 using Code.GameLogic.GameEvents;
+using Code.GameLogic.GameEvents.CardCollectionSupportingEvent;
+using Code.GameLogic.GameEvents.DailyScoop;
+using Code.GameLogic.GameEvents.SoloMilestone;
+using Code.GameLogic.Hotspots;
+using Code.GameLogic.IAP;
+using Code.GameLogic.Player.Requirements;
+using Code.GameLogic.ProgressionTracks;
+using Code.GameLogic.Social;
+using Game.Cloud.Webshop;
+using GameLogic.Addressables;
+using GameLogic.Advertisement;
 using GameLogic.Area;
+using GameLogic.Audio;
+using GameLogic.Banks;
+using GameLogic.CardCollection;
 using GameLogic.Codex;
+using GameLogic.Config.DecorationShop;
+using GameLogic.Config.EnergyModeEvent;
 using GameLogic.Config.Map.Characters;
+using GameLogic.Config.Shop;
+using GameLogic.Cutscenes;
+using GameLogic.DailyTasks;
+using GameLogic.DailyTasksV2;
 using GameLogic.Decorations;
+using GameLogic.Dialogue;
+using GameLogic.EventCharacters;
+using GameLogic.Fallbacks;
+using GameLogic.GameFeatures;
 using GameLogic.Hotspots;
+using GameLogic.Hotspots.CardStack;
+using GameLogic.Inventory;
+using GameLogic.ItemsInPocket;
 using GameLogic.MergeChains;
+using GameLogic.MiniEvents;
+using GameLogic.MixABooster;
+using GameLogic.Player;
 using GameLogic.Player.Items;
 using GameLogic.Player.Items.Bubble;
-using GameLogic.Player.Items.Merging;
-using GameLogic.Story;
-using Metaplay.Core.Config;
-using TimedMergeBoards;
-using Metaplay.Core;
-using GameLogic.Social;
-using GameLogic.GameFeatures;
-using Player;
-using GameLogic.Config.Shop;
-using Code.GameLogic.FlashSales;
-using GameLogic.DailyTasks;
-using GameLogic.Story.Videos;
-using GameLogic.Story.SlideShows;
-using GameLogic.Banks;
-using GameLogic.SocialMedia;
-using GameLogic.Addressables;
-using GameLogic.Player.ScheduledActions;
-using GameLogic.Dialogue;
-using Code.GameLogic.Social;
-using GameLogic.Cutscenes;
-using GameLogic.TieredOffers;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Metaplay.Core.Offers;
-using Merge;
-using Code.GameLogic.Config;
 using GameLogic.Player.Items.Fishing;
-using GameLogic.Seasonality;
-using GameLogic.Inventory;
-using Metaplay.Core.Math;
-using GameLogic.Audio;
-using GameLogic.Player.Rewards;
-using GameLogic.Config.DecorationShop;
-using Code.GameLogic.DynamicEvents;
-using GameLogic.Player.Modes;
-using Metaplay.Core.Player;
-using Metaplay.Core.Localization;
-using Metaplay.Core.InAppPurchase;
-using GameLogic.EventCharacters;
-using GameLogic.Player.Items.OverrideSpawnChance;
-using GameLogic.Hotspots.CardStack;
-using Game.Cloud.Webshop;
-using GameLogic.Advertisement;
-using Metaplay;
-using GameLogic.DailyTasksV2;
-using GameLogic.Config.EnergyModeEvent;
-using GameLogic.MiniEvents;
-using Code.GameLogic.GameEvents.SoloMilestone;
-using Code.GameLogic.GameEvents.DailyScoop;
-using GameLogic.Player.Items.Sink;
-using GameLogic.Player.Items.Order;
 using GameLogic.Player.Items.GemMining;
-using GameLogic.ItemsInPocket;
-using GameLogic.CardCollection;
-using GameLogic.Fallbacks;
-using GameLogic.Player;
-using Code.GameLogic.Hotspots;
+using GameLogic.Player.Items.Merging;
+using GameLogic.Player.Items.Order;
+using GameLogic.Player.Items.OverrideSpawnChance;
+using GameLogic.Player.Items.Sink;
+using GameLogic.Player.Modes;
+using GameLogic.Player.Rewards;
+using GameLogic.Player.ScheduledActions;
 using GameLogic.ProgressivePacks;
-using Code.GameLogic.GameEvents.CardCollectionSupportingEvent;
-using GameLogic.MixABooster;
-using Metacore;
-using Code.GameLogic.ExtraSpawns;
+using GameLogic.Seasonality;
+using GameLogic.Social;
+using GameLogic.SocialMedia;
+using GameLogic.Story;
+using GameLogic.Story.SlideShows;
+using GameLogic.Story.Videos;
 using GameLogic.TaskLists;
+using GameLogic.TieredOffers;
+using Merge;
+using Metacore;
+using Metaplay;
+using Metaplay.Core;
+using Metaplay.Core.Config;
+using Metaplay.Core.InAppPurchase;
+using Metaplay.Core.Localization;
+using Metaplay.Core.Math;
+using Metaplay.Core.Offers;
+using Metaplay.Core.Player;
+using Player;
+using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
-using Code.GameLogic.IAP;
-using Code.GameLogic.ProgressionTracks;
+using System.Diagnostics;
+using System.Reflection;
+using TimedMergeBoards;
 
 namespace GameLogic.Config
 {
@@ -187,11 +189,6 @@ namespace GameLogic.Config
         [GameConfigEntryTransform(typeof(EventOfferSetSource))]
         [GameConfigSyntaxAdapter(new string[] { "EventOfferSetId -> EventOfferSetId #key" }, new string[] { }, false)]
         public GameConfigLibrary<EventOfferSetId, EventOfferSetInfo> EventOfferSets { get; set; }
-
-        [GameConfigEntry("TieredOffers", true, null)]
-        [GameConfigEntryTransform(typeof(TieredOfferSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        public GameConfigLibrary<TieredOfferId, TieredOffer> TieredOffers { get; set; }
 
         [GameConfigEntry("DailyTasks", true, null)]
         [GameConfigEntryTransform(typeof(DailyTaskSource))]
@@ -1146,11 +1143,6 @@ namespace GameLogic.Config
         public GameConfigLibrary<Currencies, ExtraSpawnCurrencyValueInfo> ExtraSpawnCurrencyValues { get; set; }
         public IReadOnlyDictionary<int, CardCollectionCardId> InformantTipsByItemId { get; set; }
 
-        [GameConfigEntry("CoreSupportEventModes", true, null)]
-        [GameConfigEntryTransform(typeof(CoreSupportEventModeSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        public GameConfigLibrary<CoreSupportEventModeId, CoreSupportEventModeInfo> CoreSupportEventModes { get; set; }
-
         public GameConfigLibrary<OfferPlacementId, List<MetaOfferGroupInfoBase>> MetaOfferGroupsPerPlacementInMostImportantFirstOrder { get; }
 
         public GameConfigLibrary<ExtraSpawnTriggerType, HashSet<CoreSupportEventTokenId>> ExtraSpawnTriggerCoreSupportEventTokens { get; set; }
@@ -1195,5 +1187,20 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
         public GameConfigLibrary<RollTheDiceMultiplierId, RollTheDiceMultiplierInfo> RollTheDiceMultipliers { get; set; }
         public IRollTheDiceConfig RollTheDiceConfig { get; set; }
+
+        Dictionary<RequirementId, RequirementInfo> GameLogic.Config.IMergeMansionGameConfig.Requirements { get; }
+
+        Dictionary<LocationId, LocationInfo> GameLogic.Config.IMergeMansionGameConfig.Locations { get; }
+
+        [GameConfigEntry("Requirements", true, null)]
+        [GameConfigEntryTransform(typeof(RequirementSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        public GameConfigLibrary<RequirementId, RequirementInfo> Requirements { get; set; }
+
+        [GameConfigEntry("Locations", true, null)]
+        [GameConfigEntryTransform(typeof(LocationSource))]
+        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        private GameConfigLibrary<LocationId, LocationInfo> Locations { get; set; }
+        public Dictionary<MergeBoardId, List<HotspotId>> OpenMergeBoardHotspotsByMergeBoard { get; set; }
     }
 }

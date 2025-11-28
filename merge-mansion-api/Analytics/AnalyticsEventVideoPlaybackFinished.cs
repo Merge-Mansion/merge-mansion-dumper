@@ -24,5 +24,10 @@ namespace Analytics
         public AnalyticsEventVideoPlaybackFinished(string key)
         {
         }
+
+        [JsonProperty("reason")]
+        [MetaMember(2, (MetaMemberFlags)0)]
+        [Description("Reason for video playback finished")]
+        public string Reason { get; set; }
     }
 }

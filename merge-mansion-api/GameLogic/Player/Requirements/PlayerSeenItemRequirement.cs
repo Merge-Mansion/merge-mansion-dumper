@@ -3,19 +3,15 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System.Collections.Generic;
 using System;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Requirements
 {
     [MetaSerializableDerived(7)]
     public class PlayerSeenItemRequirement : PlayerRequirement
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemRef { get; set; }
-
         [MetaMember(2, (MetaMemberFlags)0)]
         public int Requirement { get; set; }
-        public ItemDefinition Item { get; }
-        public IEnumerable<ItemDefinition> Items { get; }
 
         public PlayerSeenItemRequirement()
         {
@@ -24,5 +20,9 @@ namespace GameLogic.Player.Requirements
         public PlayerSeenItemRequirement(int itemRef)
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

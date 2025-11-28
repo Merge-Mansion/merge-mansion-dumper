@@ -25,6 +25,7 @@ namespace GameLogic
         Proposal = 17,
         Hesitant = 18,
         Ready = 19,
-        Texting = 20
+        Texting = 20,
+        Scared = 21
     }
 }

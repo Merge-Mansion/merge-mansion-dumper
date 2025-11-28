@@ -19,13 +19,12 @@ using GameLogic.Player.Items.GemMining;
 using GameLogic.MergeChains;
 using Metaplay.Core;
 using Metaplay.Core.Math;
+using Metacore.MergeMansion.Common.Options;
 
 namespace GameLogic.Player.Items
 {
     public interface IMergeItem : IBoardItem
     {
-        ItemDefinition Definition { get; }
-
         ItemVisibility Visibility { get; }
 
         MetaTime CreatedAt { get; }
@@ -40,7 +39,7 @@ namespace GameLogic.Player.Items
 
         StorageState SpawnStorageState { get; }
 
-        ChestState ChestState { get; }
+        IChestState ChestState { get; }
 
         BoosterState BoosterState { get; }
 
@@ -74,63 +73,19 @@ namespace GameLogic.Player.Items
 
         GemState GemState { get; }
 
-        IItemEffectFeatures ItemActivationEffects { get; }
-
-        bool ShowTutorialFingerOnDiscovery { get; }
-
-        bool UseCalendarBasedCycle { get; }
-
-        bool HasActivationVfx { get; }
-
-        bool ActivationMiniGame { get; }
-
-        bool LargeItem2x2 { get; }
-
-        int ItemLevel { get; }
-
-        bool IsChest { get; }
-
-        bool SupportsSpawning { get; }
-
-        bool SupportsActivation { get; }
-
-        bool CanSpawn { get; }
-
         bool IsInsideBubble { get; }
-
-        bool IsActivableOrder { get; }
 
         bool IsVisible { get; }
 
         bool IsPartiallyVisible { get; }
 
-        bool ShowGemWeightLabel { get; }
-
-        bool IsSink { get; }
-
-        bool IsSinkableOrder { get; }
-
-        int RemainingCharges { get; }
-
         bool IsLootable { get; }
 
-        MetaDuration? InfiniteEnergyDuration { get; }
-
         MetaDuration RemainingTimeContained { get; }
-
-        bool CanBeUnlocked { get; }
-
-        ValueTuple<Currencies, int> UnlockValue { get; }
-
-        bool SupportsMerge { get; }
 
         WeightState WeightStateMaybe { get; }
 
         ItemAttachmentsState AttachmentsStateMaybe { get; }
-
-        bool HideSinkUndiscoveredItemsInHints { get; }
-
-        MergeChainId ChainId { get; }
 
         MergeItem.MergeItemExtra Extra { get; }
 
@@ -138,8 +93,10 @@ namespace GameLogic.Player.Items
 
         F32 TimeSpawnBoostMultiplier { get; }
 
-        MetaTime? NextSpawnStorageTimestamp { get; }
-
         MetaDuration? RemainingDuration { get; }
+
+        Option<MetaTime> NextSpawnStorageTimestampOption { get; }
+
+        bool ActivationPaused { get; }
     }
 }

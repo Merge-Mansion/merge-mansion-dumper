@@ -18,7 +18,7 @@ namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
     [MetaActivableConfigData("ShortLeaderboardEvent", false, true)]
-    public class ShortLeaderboardEventInfo : IMetaActivableConfigData<ShortLeaderboardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<ShortLeaderboardEventId>, IHasGameConfigKey<ShortLeaderboardEventId>, IMetaActivableInfo<ShortLeaderboardEventId>, IBoardEventInfo, IEventSharedInfo, IBubbleBonusEvent, IValidatable
+    public class ShortLeaderboardEventInfo : IMetaActivableConfigData<ShortLeaderboardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<ShortLeaderboardEventId>, IHasGameConfigKey<ShortLeaderboardEventId>, IMetaActivableInfo<ShortLeaderboardEventId>, IBoardEventInfo, IHasRequirements, IEventSharedInfo, IBubbleBonusEvent, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public ShortLeaderboardEventId ConfigKey { get; set; }
@@ -91,5 +91,7 @@ namespace Code.GameLogic.GameEvents
         public ShortLeaderboardEventInfo(ShortLeaderboardEventId configKey, string displayName, string description, MetaActivableParams activableParams, EventGroupId groupId, int priority, string nameLocalizationId, List<MetaRef<ShortLeaderboardEventStageInfo>> stageRefs, PlayerRequirement unlockRequirement, MetaRef<RewardUpgradableInfo> finalRewardRef, StoryDefinitionId introDialogue, StoryDefinitionId endDialogue, bool disableBubbleBonus, F32? bubbleBonusDivisor, List<BubbleBonusInfo> secondaryBoardBubbleBonus, PlayerRequirement previewRequirement, EventCategoryInfo categoryInfo)
         {
         }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

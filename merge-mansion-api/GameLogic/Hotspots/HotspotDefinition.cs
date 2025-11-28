@@ -15,12 +15,13 @@ using GameLogic.Hotspots.CardStack;
 using Code.GameLogic.Hotspots;
 using Game.Cloud.Config;
 using GameLogic.TaskLists;
+using Code.GameLogic.Config;
 
 namespace GameLogic.Hotspots
 {
     [MetaSerializable]
     [MetaBlockedMembers(new int[] { 25 })]
-    public class HotspotDefinition : IGameConfigData<HotspotId>, IGameConfigData, IHasGameConfigKey<HotspotId>, IHasRequirements
+    public class HotspotDefinition : IGameConfigData<HotspotId>, IGameConfigData, IHasGameConfigKey<HotspotId>, IHasRequirements, IValidatable
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public HotspotId Id { get; set; }
@@ -57,7 +58,7 @@ namespace GameLogic.Hotspots
         public bool IsAreaUnlockHotspot { get; }
 
         [IgnoreDataMember]
-        public List<PlayerRequirement> Requirements { get; }
+        public IEnumerable<PlayerRequirement> Requirements { get; }
 
         public HotspotDefinition()
         {

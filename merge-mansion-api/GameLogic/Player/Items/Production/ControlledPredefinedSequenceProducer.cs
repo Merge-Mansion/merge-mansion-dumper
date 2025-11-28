@@ -21,12 +21,9 @@ namespace GameLogic.Player.Items.Production
         private int TotalCount { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
-        private List<ItemOdds> OddsList { get; set; }
+        public List<ItemOdds> OddsList { get; set; }
 
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => OddsList.Select(x => (x.Item, x.Weight));
-
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             throw new NotImplementedException();
         }

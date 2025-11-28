@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Metaplay.Core.Player;
 using GameLogic.Player.Requirements;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Bubble
 {
@@ -23,8 +24,9 @@ namespace GameLogic.Player.Items.Bubble
         [MetaMember(4, (MetaMemberFlags)0)]
         public int OpenCost { get; set; }
 
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
         [MetaMember(5, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ReplacementItem { get; set; }
+        public ItemDef ReplacementItem { get; set; }
 
         [MetaMember(6, (MetaMemberFlags)0)]
         public int SpawnOdds { get; set; }

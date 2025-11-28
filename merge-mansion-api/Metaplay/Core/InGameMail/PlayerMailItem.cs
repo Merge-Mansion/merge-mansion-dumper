@@ -33,5 +33,8 @@ namespace Metaplay.Core.InGameMail
         protected PlayerMailItem(MetaInGameMail contents, MetaTime sentAt)
         {
         }
+
+        [MetaMember(190, (MetaMemberFlags)0)]
+        public MetaTime RemoveAt { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using Metaplay.Core.Math;
 using Metaplay.Core.Model;
 using GameLogic.Player.Items.Activation;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Production
 {
@@ -17,16 +18,14 @@ namespace GameLogic.Player.Items.Production
         public string Marker { get; set; } // 0x10
 
         [MetaMember(2, (MetaMemberFlags)0)]
-        private List<MetaRef<ItemDefinition>> Items { get; set; } // 0x18
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
+        private List<ItemDef> Items { get; set; } // 0x18
 
         [MetaMember(3, (MetaMemberFlags)0)]
         public IItemSpawner BaseProducer { get; set; } // 0x20
         public int SpawnQuantity => BaseProducer.SpawnQuantity;
 
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => BaseProducer.Odds;
-
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             if (Items == null)
                 throw new ArgumentNullException(nameof(Items));
@@ -43,7 +42,7 @@ namespace GameLogic.Player.Items.Production
             return Enumerable.Range(markerIndex, localQuantity).Select(x =>
             {
                 context.SpawnState.IncreaseIndexOf(Marker);
-                return Items[x].Deref();
+                return Items[x].GetDef(ClientGlobal.SharedGameConfig);
             }).Concat(BaseProducer.Produce(context, remainingQuantity));
         }
 

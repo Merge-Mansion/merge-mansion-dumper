@@ -2,6 +2,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Production
 {
@@ -9,7 +10,8 @@ namespace GameLogic.Player.Items.Production
     public class ItemOdds : IItemOdds
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> Type { get; set; } // 0x10
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef Type { get; set; } // 0x10
 
         [MetaMember(2, (MetaMemberFlags)0)]
         public int Weight { get; set; } // 0x18
@@ -23,10 +25,7 @@ namespace GameLogic.Player.Items.Production
         }
 
         [IgnoreDataMember]
-        public ItemDefinition Item => Type.Ref;
-
-        [IgnoreDataMember]
-        public int ConfigKey => Item.ConfigKey;
+        public int ConfigKey => Type.GetDef(ClientGlobal.SharedGameConfig).ConfigKey;
 
         public ItemOdds(ItemDefinition itemDefinition, int weight)
         {

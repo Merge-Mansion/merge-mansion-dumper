@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using System;
 using System.Collections.Generic;
 using Metaplay.Core;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Chest
 {
@@ -19,10 +20,12 @@ namespace GameLogic.Player.Items.Chest
         public string SpawnId { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> ForcedLoot { get; set; }
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
+        public List<ItemDef> ForcedLoot { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
-        public List<MetaRef<ItemDefinition>> StaticLoot { get; set; }
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
+        public List<ItemDef> StaticLoot { get; set; }
 
         private LootRoller()
         {
@@ -50,7 +53,8 @@ namespace GameLogic.Player.Items.Chest
             public int End { get; set; }
 
             [MetaMember(3, (MetaMemberFlags)0)]
-            public MetaRef<ItemDefinition> Loot { get; set; }
+            [MetaOnMemberDeserializationFailure("FixItemRef")]
+            public ItemDef Loot { get; set; }
 
             public LootSequence()
             {

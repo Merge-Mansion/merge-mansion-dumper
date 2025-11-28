@@ -14,7 +14,7 @@ namespace GameLogic.Config.EnergyModeEvent
     [MetaSerializable]
     [MetaBlockedMembers(new int[] { 4 })]
     [MetaActivableConfigData("EnergyModeEvent", false, true)]
-    public class EnergyModeEventInfo : IMetaActivableConfigData<EnergyModeEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EnergyModeEventId>, IHasGameConfigKey<EnergyModeEventId>, IMetaActivableInfo<EnergyModeEventId>, IEventSharedInfo, IValidatable
+    public class EnergyModeEventInfo : IMetaActivableConfigData<EnergyModeEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EnergyModeEventId>, IHasGameConfigKey<EnergyModeEventId>, IMetaActivableInfo<EnergyModeEventId>, IEventSharedInfo, IValidatable, IHasRequirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public EnergyModeEventId ConfigKey { get; set; }
@@ -82,5 +82,7 @@ namespace GameLogic.Config.EnergyModeEvent
         public EnergyModeEventInfo(EnergyModeEventId configKey, string displayName, string description, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, string nameLocId, EventCategoryInfo categoryInfo, EnergyModeEnableType energyModeEnableType, List<MetaRef<EnergyModeInfo>> energyModeRefs, string prefabsOverride, EventGroupId groupId, int priority, string startPopupDescLocId, string endPopupDescLocId, string taskDescLocId, string infoPopupDescLocId)
         {
         }
+
+        IEnumerable<PlayerRequirement> GameLogic.Player.Requirements.IHasRequirements.Requirements { get; }
     }
 }

@@ -6,7 +6,7 @@ using GameLogic.Player.Items;
 namespace GameLogic.Config
 {
     [MetaSerializableDerived(2)]
-    public class ItemDef : ConfigDefinition<int, ItemDefinition>
+    public class ItemDef : ConfigDefinition<int, IItemDefinition>
     {
         private ItemDef()
         {
@@ -14,6 +14,11 @@ namespace GameLogic.Config
 
         public ItemDef(int key)
         {
+        }
+
+        public override IItemDefinition? GetDef(IMergeMansionGameConfig config)
+        {
+            return !config.Items.TryGetValue(ConfigKey, out ItemDefinition item) ? null : item;
         }
     }
 }

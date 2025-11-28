@@ -9,6 +9,7 @@ using Metaplay.Core.Config;
 using Metaplay.Core.Model;
 using Code.GameLogic.Config;
 using Code.GameLogic.GameEvents;
+using GameLogic.Config;
 
 namespace TimedMergeBoards
 {
@@ -27,13 +28,10 @@ namespace TimedMergeBoards
         [MetaMember(4, (MetaMemberFlags)0)]
         private List<PlayerRequirement> PlayerRequirements { get; set; }
 
-        [MetaMember(5, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> FinalItemId { get; set; }
-
         [MetaMember(6, (MetaMemberFlags)0)]
         public List<PlayerRequirement> CompletesRequirements { get; set; }
         public MergeBoardId ConfigKey => Id;
-        public List<PlayerRequirement> Requirements { get; }
+        public IEnumerable<PlayerRequirement> Requirements { get; }
         public IEnumerable<IPlayerRequirement> CompleteRequirements { get; }
 
         [MetaMember(7, (MetaMemberFlags)0)]
@@ -46,5 +44,9 @@ namespace TimedMergeBoards
         public TimedMergeBoard(MergeBoardId id, MergeBoardGeneratorId generatorId, MetaDuration duration, MetaRef<ItemDefinition> finalItemId, List<PlayerRequirement> playerRequirements, List<PlayerRequirement> completesRequirements, List<MetaRef<EventLevelInfo>> levelInfos)
         {
         }
+
+        [MetaMember(5, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef FinalItemDef { get; set; }
     }
 }

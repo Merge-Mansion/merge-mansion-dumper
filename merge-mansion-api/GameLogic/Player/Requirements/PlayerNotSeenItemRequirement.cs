@@ -2,16 +2,13 @@ using Metaplay.Core.Model;
 using Metaplay.Core;
 using GameLogic.Player.Items;
 using System;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Requirements
 {
     [MetaSerializableDerived(49)]
     public class PlayerNotSeenItemRequirement : PlayerRequirement
     {
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemRef { get; set; }
-        public ItemDefinition Item { get; }
-
         public PlayerNotSeenItemRequirement()
         {
         }
@@ -19,5 +16,9 @@ namespace GameLogic.Player.Requirements
         public PlayerNotSeenItemRequirement(int itemRef)
         {
         }
+
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

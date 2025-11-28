@@ -1,6 +1,7 @@
 using Metaplay.Core.Model;
 using System;
 using Metaplay.Core;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Persistent
 {
@@ -21,7 +22,8 @@ namespace GameLogic.Player.Items.Persistent
         public int ItemStates { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ResetToItem { get; set; }
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ResetToItem { get; set; }
 
         public PersistentFeatures()
         {

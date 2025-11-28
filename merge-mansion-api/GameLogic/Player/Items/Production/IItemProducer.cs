@@ -8,9 +8,7 @@ namespace GameLogic.Player.Items.Production
     [MetaSerializable]
     public interface IItemProducer
     {
-        IEnumerable<ValueTuple<ItemDefinition, int>> Odds { get; }
-
         // Slot 1
-        IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity);
+        IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity);
     }
 }

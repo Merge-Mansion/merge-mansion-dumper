@@ -9,6 +9,8 @@ using Metaplay.Core.Model;
 using Merge;
 using System;
 using GameLogic.Player;
+using Code.GameLogic.Config;
+using Metaplay.Core.Math;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -90,5 +92,17 @@ namespace Code.GameLogic.GameEvents
         public BoardInfo(MergeBoardId boardId, string displayName, string description, List<ValueTuple<int, ItemVisibility>> boardLayout, ICost itemSellCost, ConfigPrefabId boardPrefabId, MetaRef<BubblesSetup> bubblesSetup, string boardToggleSfxOverride, string boardMusicOverride, string disableAutospawns, string disableSelling, string energyType, string cobwebClearPoints, int width, int height, int maxEnergyConsumptionMultiplier)
         {
         }
+
+        [MetaMember(18, (MetaMemberFlags)0)]
+        public MergeBoardDisplay Display { get; set; }
+
+        [MetaMember(19, (MetaMemberFlags)0)]
+        public MergeBoardUIStyle UIStyle { get; set; }
+
+        [MetaMember(20, (MetaMemberFlags)0)]
+        public F32 Scale { get; set; }
+
+        [MetaMember(21, (MetaMemberFlags)0)]
+        public int Offset { get; set; }
     }
 }

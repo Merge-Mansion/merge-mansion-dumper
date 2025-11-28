@@ -11,7 +11,7 @@ namespace GameLogic.Player.Rewards
     public class RewardSideBoardEventProgress : PlayerReward
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        private MetaRef<SideBoardEventInfo> EventInfoRef { get; set; }
+        public MetaRef<SideBoardEventInfo> EventInfoRef { get; set; }
 
         [MetaFormFieldCustomValidator(typeof(RewardAmountValidator<int>))]
         [MetaMember(2, (MetaMemberFlags)0)]

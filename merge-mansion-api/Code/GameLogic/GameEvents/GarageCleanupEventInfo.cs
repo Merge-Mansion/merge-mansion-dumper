@@ -14,7 +14,7 @@ namespace Code.GameLogic.GameEvents
     [MetaSerializable]
     [MetaBlockedMembers(new int[] { 10, 11, 12, 13, 15, 16 })]
     [MetaActivableConfigData("GarageCleanupEvent", false, true)]
-    public class GarageCleanupEventInfo : IMetaActivableConfigData<GarageCleanupEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<GarageCleanupEventId>, IHasGameConfigKey<GarageCleanupEventId>, IMetaActivableInfo<GarageCleanupEventId>, IValidatable, IEventSharedInfo
+    public class GarageCleanupEventInfo : IMetaActivableConfigData<GarageCleanupEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<GarageCleanupEventId>, IHasGameConfigKey<GarageCleanupEventId>, IMetaActivableInfo<GarageCleanupEventId>, IValidatable, IEventSharedInfo, IHasRequirements
     {
         public static GarageCleanupEventInfo.BoardSizeInfo BoardSize;
         [MetaMember(1, (MetaMemberFlags)0)]
@@ -105,5 +105,7 @@ namespace Code.GameLogic.GameEvents
         public GarageCleanupEventInfo(GarageCleanupEventId garageCleanupEventId, string displayName, string description, MetaActivableParams activableParams, List<GarageCleanupBoardInfo> boards, List<MetaRef<GarageCleanupPatternSetInfo>> patternSets, List<int> spawnerItems, List<int> boardCosts, List<MetaRef<GarageCleanupRewardInfo>> slotFillRewards, MergeBoardId mergeBoardId, PlayerRequirement unlockRequirement, string prefabsOverride, bool alwaysShowPatternsAndRewards, EventGroupId groupId, int priority, EventCategoryInfo categoryInfo, bool forceLocationTravel)
         {
         }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

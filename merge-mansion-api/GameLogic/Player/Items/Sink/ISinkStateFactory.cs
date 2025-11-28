@@ -8,7 +8,5 @@ namespace GameLogic.Player.Items.Sink
     [MetaSerializable]
     public interface ISinkStateFactory
     {
-        [IgnoreDataMember]
-        IEnumerable<ValueTuple<ItemDefinition, int>> SinkProducts { get; }
     }
 }

@@ -9,7 +9,5 @@ namespace GameLogic.Player.Items
     public interface IBoardItem
     {
         int ItemId { get; }
-
-        string ItemType { get; }
     }
 }

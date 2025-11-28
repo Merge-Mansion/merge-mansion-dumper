@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using GameLogic.Area;
+using GameLogic.Config;
 
 namespace Game.Cloud.Config
 {
@@ -12,6 +13,14 @@ namespace Game.Cloud.Config
 
         private AreaInfoDef()
         {
+        }
+
+        public override AreaInfo? GetDef(IMergeMansionGameConfig config)
+        {
+            if (!config.Areas.TryGetValue(ConfigKey, out AreaInfo area))
+                return null;
+
+            return area;
         }
     }
 }

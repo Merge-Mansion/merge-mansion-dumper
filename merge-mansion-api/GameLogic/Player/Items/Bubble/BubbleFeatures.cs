@@ -4,6 +4,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System.Collections.Generic;
 using GameLogic.Config.Types;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Bubble
 {
@@ -22,7 +23,8 @@ namespace GameLogic.Player.Items.Bubble
         public int OpenQuantity { get; set; }
 
         [MetaMember(4, (MetaMemberFlags)0)]
-        private MetaRef<ItemDefinition> ReplacementItem { get; set; }
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        private ItemDef ReplacementItem { get; set; }
 
         [MetaMember(5, (MetaMemberFlags)0)]
         public int SpawnOdds { get; set; }
@@ -34,7 +36,7 @@ namespace GameLogic.Player.Items.Bubble
         {
         }
 
-        public BubbleFeatures(MetaDuration bubbleDuration, Currencies openCurrency, int openQuantity, MetaRef<ItemDefinition> replacementItem, int spawnOdds)
+        public BubbleFeatures(MetaDuration bubbleDuration, Currencies openCurrency, int openQuantity, ItemDef replacementItem, int spawnOdds)
         {
             BubbleDuration = bubbleDuration;
             OpenCurrency = openCurrency;
@@ -47,11 +49,11 @@ namespace GameLogic.Player.Items.Bubble
         [MetaMember(6, (MetaMemberFlags)0)]
         public List<BubbleVariationId> BubbleVariants { get; set; }
 
-        [IgnoreDataMember]
-        public MetaRef<ItemDefinition> ReplacementItemRef { get; }
-
-        public BubbleFeatures(MetaDuration bubbleDuration, Currencies openCurrency, int openQuantity, MetaRef<ItemDefinition> replacementItem, int spawnOdds, List<BubbleVariationId> bubbleVariants)
+        public BubbleFeatures(MetaDuration bubbleDuration, Currencies openCurrency, int openQuantity, ItemDef replacementItem, int spawnOdds, List<BubbleVariationId> bubbleVariants)
         {
         }
+
+        [IgnoreDataMember]
+        public ItemDef ReplacementItemDef { get; }
     }
 }

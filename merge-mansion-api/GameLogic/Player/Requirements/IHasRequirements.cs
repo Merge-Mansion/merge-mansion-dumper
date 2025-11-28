@@ -4,7 +4,7 @@ namespace GameLogic.Player.Requirements
 {
     public interface IHasRequirements
     {
-        List<PlayerRequirement> Requirements { get; }
+        IEnumerable<PlayerRequirement> Requirements { get; }
     // STUB
     }
 }

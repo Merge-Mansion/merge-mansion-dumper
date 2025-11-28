@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using GameLogic.Player.Items;
 using GameLogic.DailyTasksV2;
 using Code.GameLogic.GameEvents;
+using GameLogic.Config;
 
 namespace GameLogic.Player.DailyTasksV2
 {
@@ -61,7 +62,8 @@ namespace GameLogic.Player.DailyTasksV2
 
         [MetaMember(13, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
-        public List<MetaRef<ItemDefinition>> LastGeneratedTaskRewardItemsHistory { get; set; }
+        [MetaOnMemberDeserializationFailure("FixItemListRef")]
+        public List<ItemDef> LastGeneratedTaskRewardItemsHistory { get; set; }
 
         public DailyTasksV2Status()
         {

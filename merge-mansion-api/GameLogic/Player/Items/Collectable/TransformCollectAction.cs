@@ -2,6 +2,7 @@ using Metaplay.Core;
 using Metaplay.Core.Model;
 using System;
 using System.Runtime.Serialization;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Items.Collectable
 {
@@ -9,7 +10,8 @@ namespace GameLogic.Player.Items.Collectable
     public class TransformCollectAction : ITransformCollectAction, ICollectAction
     {
         [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> TransformsInto { get; set; }
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef TransformsInto { get; set; }
 
         private TransformCollectAction()
         {

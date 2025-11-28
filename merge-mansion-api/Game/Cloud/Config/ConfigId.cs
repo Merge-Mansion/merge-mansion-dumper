@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using System;
+using GameLogic.Config;
 
 namespace Game.Cloud.Config
 {
@@ -16,6 +17,11 @@ namespace Game.Cloud.Config
 
         public ConfigId(TKeyObject key, Type concreteType)
         {
+        }
+
+        public override TValueObject GetDef(IMergeMansionGameConfig config)
+        {
+            throw new NotImplementedException();
         }
     }
 }

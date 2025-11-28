@@ -15,6 +15,8 @@ namespace GameLogic
         MansionInterior = 5,
         Beach = 6,
         TinCanFactory = 7,
-        WestWing = 8
+        WestWing = 8,
+        MaddieMeetsMansion = 9,
+        NotInitialized = 10
     }
 }

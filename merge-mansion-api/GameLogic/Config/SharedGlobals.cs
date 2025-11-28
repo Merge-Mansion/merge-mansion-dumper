@@ -203,5 +203,11 @@ namespace GameLogic.Config
 
         [MetaMember(81, (MetaMemberFlags)0)]
         public bool UseUITracking { get; set; }
+
+        [MetaMember(82, (MetaMemberFlags)0)]
+        public bool FallbackToHelpshift { get; set; }
+
+        [MetaMember(83, (MetaMemberFlags)0)]
+        public LocationId InitialLocation { get; set; }
     }
 }

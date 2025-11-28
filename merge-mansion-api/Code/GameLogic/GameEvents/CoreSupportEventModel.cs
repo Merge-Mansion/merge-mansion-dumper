@@ -46,5 +46,8 @@ namespace Code.GameLogic.GameEvents
         public CoreSupportEventModel(CoreSupportEventInfo info)
         {
         }
+
+        public bool IsPlayable { get; set; }
+        public bool ShownEarlyEndPopup { get; set; }
     }
 }

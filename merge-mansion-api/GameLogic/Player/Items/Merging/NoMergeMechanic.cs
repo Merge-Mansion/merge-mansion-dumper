@@ -20,9 +20,6 @@ namespace GameLogic.Player.Items.Merging
             throw new InvalidOperationException("Attempt to merge item that has no merge mechanics.");
         }
 
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<IItemDefinition, F32>> PossibleMergeResults { get; }
-
         public NoMergeMechanic()
         {
         }

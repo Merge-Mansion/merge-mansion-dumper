@@ -10,15 +10,13 @@ namespace GameLogic.Player.Items.Production
     [MetaSerializableDerived(19)]
     public class InstantDecayProducer : IItemSpawner, IItemProducer
     {
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds { get; }
         public int SpawnQuantity { get; }
 
         public InstantDecayProducer()
         {
         }
 
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
             throw new NotImplementedException();
         }

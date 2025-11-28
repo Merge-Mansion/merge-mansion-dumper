@@ -7,16 +7,13 @@ using Code.GameLogic.GameEvents;
 using System.Runtime.Serialization;
 using Metacore.MergeMansion.Common.Options;
 using System.Collections.Generic;
+using GameLogic.Config;
 
 namespace GameLogic.Player.Rewards
 {
     [MetaSerializableDerived(42)]
     public class RewardItemForCollectibleBoardEvent : PlayerReward
     {
-        [ValidateItemDefinitionMetaRef]
-        [MetaMember(1, (MetaMemberFlags)0)]
-        public MetaRef<ItemDefinition> ItemRef { get; set; }
-
         [MetaMember(2, (MetaMemberFlags)0)]
         public int Amount { get; set; }
 
@@ -33,12 +30,6 @@ namespace GameLogic.Player.Rewards
 
         [MetaMember(7, (MetaMemberFlags)0)]
         private string OverridePoolTag { get; set; }
-
-        [IgnoreDataMember]
-        public ItemDefinition Item { get; }
-
-        [IgnoreDataMember]
-        public string PoolTag { get; }
 
         [IgnoreDataMember]
         public override bool ShouldShowInfoButton { get; }
@@ -74,5 +65,10 @@ namespace GameLogic.Player.Rewards
         public RewardItemForCollectibleBoardEvent(List<CollectibleBoardEventId> eventIds, MetaRef<ItemDefinition> itemRef, int amount, bool fromSupport, CurrencySource currencySource, OverrideItemFeatures overrideItemFeatures, bool forceOnTopOfPocket, string overridePoolTag)
         {
         }
+
+        [ValidateItemDefMetaMember]
+        [MetaMember(1, (MetaMemberFlags)0)]
+        [MetaOnMemberDeserializationFailure("FixItemRef")]
+        public ItemDef ItemDef { get; set; }
     }
 }

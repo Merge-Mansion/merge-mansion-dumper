@@ -1,5 +1,6 @@
 using Metaplay.Core.Model;
 using GameLogic;
+using GameLogic.Config;
 using GameLogic.Hotspots;
 
 namespace Game.Cloud.Config
@@ -13,6 +14,14 @@ namespace Game.Cloud.Config
 
         private HotspotDef()
         {
+        }
+
+        public override HotspotDefinition? GetDef(IMergeMansionGameConfig config)
+        {
+            if (!config.HotspotDefinitions.TryGetValue(ConfigKey, out HotspotDefinition hotspot))
+                return null;
+
+            return hotspot;
         }
     }
 }

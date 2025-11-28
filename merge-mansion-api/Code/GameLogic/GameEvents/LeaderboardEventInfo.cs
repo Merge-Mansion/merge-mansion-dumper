@@ -21,7 +21,7 @@ namespace Code.GameLogic.GameEvents
     [MetaSerializable]
     [MetaActivableConfigData("LeaderboardEvent", false, true)]
     [MetaBlockedMembers(new int[] { 10, 16 })]
-    public class LeaderboardEventInfo : IMetaActivableConfigData<LeaderboardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<LeaderboardEventId>, IHasGameConfigKey<LeaderboardEventId>, IMetaActivableInfo<LeaderboardEventId>, IBoardEventInfo, IBubbleBonusEvent, IEventSharedInfo
+    public class LeaderboardEventInfo : IMetaActivableConfigData<LeaderboardEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<LeaderboardEventId>, IHasGameConfigKey<LeaderboardEventId>, IMetaActivableInfo<LeaderboardEventId>, IBoardEventInfo, IHasRequirements, IBubbleBonusEvent, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public LeaderboardEventId LeaderboardEventId { get; set; }
@@ -150,5 +150,7 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(7, (MetaMemberFlags)0)]
         [MetaOnMemberDeserializationFailure("FixRef")]
         public ItemDef PortalItemDef { get; set; }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

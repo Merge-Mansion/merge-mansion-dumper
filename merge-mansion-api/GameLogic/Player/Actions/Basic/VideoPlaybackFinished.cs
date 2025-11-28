@@ -17,5 +17,16 @@ namespace GameLogic.Player.Actions.Basic
         public VideoPlaybackFinished(MetaRef<Video> video)
         {
         }
+
+        [MetaMember(2, (MetaMemberFlags)0)]
+        private VideoPlaybackFinished.ReasonType Reason { get; set; }
+
+        [MetaSerializable]
+        public enum ReasonType
+        {
+            Completed = 0,
+            Skipped = 1,
+            Error = 2
+        }
     }
 }

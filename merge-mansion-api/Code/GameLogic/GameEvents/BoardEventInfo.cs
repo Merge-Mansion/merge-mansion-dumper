@@ -27,7 +27,7 @@ namespace Code.GameLogic.GameEvents
     [MetaSerializable]
     [MetaBlockedMembers(new int[] { 10, 11, 13, 14, 16, 33, 34, 45 })]
     [MetaActivableConfigData("BoardEvent", false, true)]
-    public class BoardEventInfo : IMetaActivableConfigData<EventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EventId>, IHasGameConfigKey<EventId>, IMetaActivableInfo<EventId>, IValidatable, IBoardEventInfo, IEventSharedInfo
+    public class BoardEventInfo : IMetaActivableConfigData<EventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<EventId>, IHasGameConfigKey<EventId>, IMetaActivableInfo<EventId>, IValidatable, IBoardEventInfo, IHasRequirements, IEventSharedInfo
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public EventId EventId { get; set; }
@@ -221,5 +221,7 @@ namespace Code.GameLogic.GameEvents
         public BoardEventInfo(EventId eventId, string displayName, string description, MetaActivableParams activableParams, MetaRef<EventCurrencyInfo> eventCurrencyInfo, MetaRef<BoardInfo> boardInfo, MetaRef<EventTaskInfo> eventInitTask, List<MetaRef<EventTaskInfo>> eventTasks, MetaRef<EventLevels> eventLevels, int? portalItem, string nameLocId, OfferPlacementId offerPlacementId, ExtendableEventParams extendableEventParams, MetaDuration extensionPurchaseSafetyMargin, MetaRef<InAppProductInfo> extensionInAppProduct, ConfigPrefabId infoPopupId, ConfigPrefabId taskProgressionId, ConfigPrefabId taskGoalItemId, StoryDefinitionId startEventDialogue, MetaRef<ShopEventInfo> hintedShopEvents, ConfigPrefabId startPopupId, ConfigPrefabId teasePopupId, ConfigPrefabId introPopupId, ConfigPrefabId extendPopupId, ConfigPrefabId endPopupId, ConfigPrefabId hudButtonId, ConfigPrefabId rewardInfoPopupId, bool visualiseEventPoints, ConfigPrefabId taskItemCheckmarkId, List<IDirectorAction> startActions, List<IDirectorAction> endActions, string boardTransitionSfxOverride, PlayerRequirement previewRequirement, PlayerRequirement unlockRequirement, DecorationId activeDecoration, bool givePortalItemWithoutTask, IEnumerable<PlayerReward> extensionRewards, string prefabsId, EventGroupId groupId, bool hasDynamicTasks, int priority, EventCategoryInfo categoryInfo, bool forceLocationTravel)
         {
         }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

@@ -15,15 +15,13 @@ namespace GameLogic.Player.Items.Merging
 
         public override bool CanMerge(MergeItem sourceItem, MergeItem targetItem)
         {
-            return sourceItem.Definition.ConfigKey == targetItem.Definition.ConfigKey;
+            return sourceItem.DefinitionDef.ConfigKey == targetItem.DefinitionDef.ConfigKey;
         }
 
         protected override ItemDefinition GetMergeProduct(IPlayer player, MergeItem sourceItem, MergeItem targetItem)
         {
             return ResultProducer.Produce(player);
         }
-
-        public override IEnumerable<ValueTuple<IItemDefinition, F32>> PossibleMergeResults { get; }
 
         private SameItemsMergeMechanic()
         {

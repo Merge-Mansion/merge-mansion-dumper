@@ -11,21 +11,24 @@ namespace Code.GameLogic.Player
     public class LastNSegmentsCache : ILastNSegmentsCache, IWritableLastNSegmentsCache
     {
         [IgnoreDataMember]
-        public Dictionary<int, F64> ModesByLastNTransactions { get; set; }
+        public IDictionary<int, F64> ModesByLastNTransactions { get; set; }
 
         [MetaMember(2, (MetaMemberFlags)0)]
         public int? LastNDaysDay { get; set; }
 
         [IgnoreDataMember]
-        public Dictionary<int, F64> MedianTransactionsByLastNDays { get; set; }
+        public IDictionary<int, F64> MedianTransactionsByLastNDays { get; set; }
 
         [IgnoreDataMember]
-        public Dictionary<int, int> AverageNumberOfTransactionsByLastNDays { get; set; }
+        public IDictionary<int, int> AverageNumberOfTransactionsByLastNDays { get; set; }
 
         [IgnoreDataMember]
-        public Dictionary<int, F64> AverageTransactionValueByLastNDays { get; set; }
+        public IDictionary<int, F64> AverageTransactionValueByLastNDays { get; set; }
 
         [MetaMember(6, (MetaMemberFlags)0)]
         public F64? HighestTransactionPriceLast30Days { get; set; }
+
+        [IgnoreDataMember]
+        public Option<F64> HighestTransactionPriceLast30DaysOption { get; }
     }
 }

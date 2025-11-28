@@ -10,7 +10,7 @@ namespace Code.GameLogic.GameEvents
 {
     [MetaSerializable]
     [MetaActivableConfigData("BoultonLeagueEvent", false, true)]
-    public class BoultonLeagueEventInfo : IMetaActivableConfigData<BoultonLeagueEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<BoultonLeagueEventId>, IHasGameConfigKey<BoultonLeagueEventId>, IMetaActivableInfo<BoultonLeagueEventId>
+    public class BoultonLeagueEventInfo : IMetaActivableConfigData<BoultonLeagueEventId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<BoultonLeagueEventId>, IHasGameConfigKey<BoultonLeagueEventId>, IMetaActivableInfo<BoultonLeagueEventId>, IHasRequirements
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public BoultonLeagueEventId EventId { get; set; }
@@ -63,5 +63,7 @@ namespace Code.GameLogic.GameEvents
         public BoultonLeagueEventInfo(BoultonLeagueEventId eventId, string nameLocId, string displayName, string description, MetaActivableParams activableParams, PlayerRequirement unlockRequirement, List<MetaRef<BoultonLeagueStageInfo>> stageRefs, EventGroupId groupId, BoultonLeagueMatchmakingAlgorithm matchmakingAlgorithm, EventCategoryInfo categoryInfo, bool joinAutomatically)
         {
         }
+
+        public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

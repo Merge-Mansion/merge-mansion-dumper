@@ -9,6 +9,7 @@ namespace Game.Logic
     {
         None = 0,
         ShowHardTaskTooltip = 1,
-        TaskGroupV2FTUECompleted = 2
+        TaskGroupV2FTUECompleted = 2,
+        WildItemFTUE = 3
     }
 }

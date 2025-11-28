@@ -40,7 +40,6 @@ namespace GameLogic.Player.Items.Merging
         [MetaMember(7, (MetaMemberFlags)0)]
         public StorageActionType StorageAction { get; set; }
         public IEnumerable<MergeReward> MergeRewards { get; }
-        public IEnumerable<ValueTuple<IItemDefinition, F32>> PossibleMergeResults { get; }
 
         private XpAccumulationMergeMechanic()
         {

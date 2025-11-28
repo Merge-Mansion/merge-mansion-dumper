@@ -12,8 +12,6 @@ namespace GameLogic.Player.Items.Production
     [MetaAllowNoSerializedMembers]
     public class EmptyProducer : IItemSpawner, IItemProducer
     {
-        [IgnoreDataMember]
-        public IEnumerable<ValueTuple<ItemDefinition, int>> Odds => Array.Empty<(ItemDefinition, int)>();
         public int SpawnQuantity => 0;
 
         public F64 TimeSkipPriceGems(IGenerationContext context)
@@ -21,9 +19,9 @@ namespace GameLogic.Player.Items.Production
             return new F64(0);
         }
 
-        public IEnumerable<ItemDefinition> Produce(IGenerationContext context, int quantity)
+        public IEnumerable<IItemDefinition> Produce(IGenerationContext context, int quantity)
         {
-            return Enumerable.Empty<ItemDefinition>();
+            return Enumerable.Empty<IItemDefinition>();
         }
 
         public EmptyProducer()

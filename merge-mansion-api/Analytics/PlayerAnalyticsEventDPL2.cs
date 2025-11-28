@@ -27,5 +27,8 @@ namespace Analytics
         [MetaOnMemberDeserializationFailure("CreateAnalyticsEventDeserializationSubstitute")]
         [MetaMember(6, (MetaMemberFlags)0)]
         public AnalyticsEventBase Payload;
+        [JsonProperty("collected_at")]
+        [MetaMember(7, (MetaMemberFlags)0)]
+        public MetaTime CollectedAt;
     }
 }
