@@ -9,7 +9,7 @@ namespace GameLogic.Player.Leaderboard.ShortLeaderboardEvent
 {
     [MetaSerializableDerived(5)]
     [SupportedSchemaVersions(1, 1)]
-    public class ShortLeaderboardEventDivisionModel : LeaderboardBotEventDivisionModel<ShortLeaderboardEventDivisionModel, ShortLeaderboardEventParticipantState, ShortLeaderboardEventDivisionAvatar>, IMetacorePlayerDivisionModel<ShortLeaderboardEventDivisionModel, ShortLeaderboardEventParticipantState>, IPlayerDivisionModel<ShortLeaderboardEventDivisionModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IDivisionModel<ShortLeaderboardEventDivisionModel>, IMultiplayerModel<ShortLeaderboardEventDivisionModel>, IModel<ShortLeaderboardEventDivisionModel>
+    public class ShortLeaderboardEventDivisionModel : LeaderboardBotEventDivisionModel<ShortLeaderboardEventDivisionModel, ShortLeaderboardEventParticipantState, ShortLeaderboardEventDivisionAvatar>, IMetacorePlayerDivisionModel<ShortLeaderboardEventDivisionModel, ShortLeaderboardEventParticipantState>, IPlayerDivisionModel<ShortLeaderboardEventDivisionModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IDivisionModel<ShortLeaderboardEventDivisionModel>, IMultiplayerModel<ShortLeaderboardEventDivisionModel>, IModel<ShortLeaderboardEventDivisionModel>
     {
         public ShortLeaderboardEventDivisionModel()
         {

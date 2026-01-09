@@ -41,6 +41,7 @@ namespace Code.GameLogic.GameEvents.DailyScoop
         public List<PlayerSegmentId> WeekSegments { get; set; }
         public DailyScoopEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public MetaRecurringCalendarSchedule Schedule { get; }
 
         public DailyScoopEventInfo()
@@ -72,7 +73,6 @@ namespace Code.GameLogic.GameEvents.DailyScoop
         public CoreSupportingEventType CoreSupportingEventType { get; }
         public string CoreSupportingEventDisplayName { get; }
         public string CoreSupportingEventConfigKey { get; }
-
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

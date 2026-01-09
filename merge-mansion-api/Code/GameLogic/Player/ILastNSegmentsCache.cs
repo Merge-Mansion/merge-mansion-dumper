@@ -7,8 +7,6 @@ namespace Code.GameLogic.Player
 {
     public interface ILastNSegmentsCache
     {
-        IDictionary<int, F64> ModesByLastNTransactions { get; }
-
         IDictionary<int, F64> MedianTransactionsByLastNDays { get; }
 
         IDictionary<int, int> AverageNumberOfTransactionsByLastNDays { get; }

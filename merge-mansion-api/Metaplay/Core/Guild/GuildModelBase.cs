@@ -10,7 +10,7 @@ namespace Metaplay.Core.Guild
 {
     [MetaBlockedMembers(new int[] { 11 })]
     [MetaReservedMembers(1, 100)]
-    public abstract class GuildModelBase<TGuildModel, TGuildMember> : IGuildModel<TGuildModel>, IGuildModelBase, IMultiplayerModel<IGuildModelBase>, IModel<IGuildModelBase>, IModel, ISchemaMigratable, IMultiplayerModel
+    public abstract class GuildModelBase<TGuildModel, TGuildMember> : IGuildModel<TGuildModel>, IGuildModelBase, IMultiplayerModel<IGuildModelBase>, IModel<IGuildModelBase>, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMultiplayerModel
     {
         [IgnoreDataMember]
         public int LogicVersion { get; set; }

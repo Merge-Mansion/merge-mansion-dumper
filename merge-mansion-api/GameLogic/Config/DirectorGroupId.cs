@@ -185,7 +185,6 @@ namespace GameLogic.Config
         [Obsolete("EnergyModeFTUE is now triggered by EnergyModeEventStartPopup")]
         public static DirectorGroupId EnergyModeFTUE;
         public static DirectorGroupId CooldownRemoverFTUE;
-        public static DirectorGroupId SBE_Jailbreak_TasksTutorial;
         public static DirectorGroupId CardStackStep01;
         public static DirectorGroupId CardStackStep02;
         public static DirectorGroupId CardStackStep03;
@@ -211,13 +210,6 @@ namespace GameLogic.Config
         public static DirectorGroupId LocationTravelFTUE01;
         public static DirectorGroupId LocationTravelFTUE02;
         public static DirectorGroupId LocationTravelFTUE03;
-        public static DirectorGroupId TGEv2FirstBoardIntroSequence;
-        public static DirectorGroupId TGEv2FirstBoardHowToPlaySequence;
-        public static DirectorGroupId TGEv2SecondBoardIntroSequence;
-        public static DirectorGroupId TGEv2SecondBoardFirstLetterSequence;
-        public static DirectorGroupId TGEv2SecondBoardLastLetterSequence;
-        public static DirectorGroupId TGEv2ThirdBoardIntroSequence;
-        public static DirectorGroupId TGEv2ThirdBoardBoltCutterSequence;
         public static DirectorGroupId ADEMuseumFTUE1;
         public static DirectorGroupId AARTimeSkipSeen;
         public static DirectorGroupId AARCooldownRemoverSeen;

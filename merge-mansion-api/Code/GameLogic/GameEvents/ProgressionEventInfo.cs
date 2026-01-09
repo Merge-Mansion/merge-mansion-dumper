@@ -75,6 +75,7 @@ namespace Code.GameLogic.GameEvents
         private List<MetaRef<EventLevelInfo>> StoryTriggeringLevelRefs { get; set; }
         public ProgressionEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         [IgnoreDataMember]
         public IEnumerable<StoryElementInfo> LevelRewardClaimedStories { get; }

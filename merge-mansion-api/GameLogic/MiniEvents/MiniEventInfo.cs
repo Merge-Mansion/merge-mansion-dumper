@@ -46,6 +46,7 @@ namespace GameLogic.MiniEvents
         [MetaMember(11, (MetaMemberFlags)0)]
         public bool ShowMainHubBadge { get; set; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public MiniEventId ConfigKey => MiniEventId;
         public MiniEventId ActivableId { get; }
 

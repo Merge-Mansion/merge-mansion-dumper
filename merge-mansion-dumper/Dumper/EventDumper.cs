@@ -14,7 +14,7 @@ namespace merge_mansion_dumper.Dumper
         {
             var events = new Dictionary<string, object>
             {
-                ["Boards"] = config.BoardEvents.EnumerateAll().Select(x => x.Value).ToArray(),
+                //["Boards"] = config.BoardEvents.EnumerateAll().Select(x => x.Value).ToArray(),
                 ["CollectibleBoards"] = config.CollectibleBoardEvents.EnumerateAll().Select(x => x.Value).ToArray(),
                 ["Progressions"] = config.ProgressionEvents.EnumerateAll().Select(x => x.Value).ToArray(),
                 ["Leaderboards"] = config.LeaderboardEvents.EnumerateAll().Select(x => x.Value).ToArray(),

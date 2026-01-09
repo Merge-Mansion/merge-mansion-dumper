@@ -90,6 +90,7 @@ namespace Code.GameLogic.GameEvents
         public List<PlayerReward> ExtensionRewards { get; set; }
         public CollectibleBoardEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         [IgnoreDataMember]
         public DecorationInfo ActiveDecoration { get; }
@@ -214,7 +215,6 @@ namespace Code.GameLogic.GameEvents
         {
         }
 
-        private static int LetterPerPrisoner;
         [MetaMember(43, (MetaMemberFlags)0)]
         public string PrefabsOverride { get; set; }
 
@@ -233,7 +233,6 @@ namespace Code.GameLogic.GameEvents
         [MetaOnMemberDeserializationFailure("FixRefList")]
         public List<ItemDef> PortalItemDefs { get; set; }
         public Option<List<ItemDef>> PortalItemRefsOption { get; }
-
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

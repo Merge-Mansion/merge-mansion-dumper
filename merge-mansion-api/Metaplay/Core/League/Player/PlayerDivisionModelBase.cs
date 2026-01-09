@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Metaplay.Core.League.Player
 {
     [MetaReservedMembers(400, 500)]
-    public abstract class PlayerDivisionModelBase<TModel, TParticipantState, TDivisionScore, TDivisionPlayerAvatar> : DivisionModelBase<TModel, TParticipantState, TDivisionScore>, IPlayerDivisionModel<TModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IDivisionModel<TModel>, IMultiplayerModel<TModel>, IModel<TModel>
+    public abstract class PlayerDivisionModelBase<TModel, TParticipantState, TDivisionScore, TDivisionPlayerAvatar> : DivisionModelBase<TModel, TParticipantState, TDivisionScore>, IPlayerDivisionModel<TModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IDivisionModel<TModel>, IMultiplayerModel<TModel>, IModel<TModel>
     {
         [IgnoreDataMember]
         private IPlayerDivisionModelServerListenerCore _BackingField_ServerListenerCore;

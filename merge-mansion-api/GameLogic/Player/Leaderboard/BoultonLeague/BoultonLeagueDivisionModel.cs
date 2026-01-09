@@ -4,12 +4,13 @@ using Metaplay.Core.League;
 using Metaplay.Core.MultiplayerEntity;
 using System;
 using System.Collections.Generic;
+using Metaplay.Core;
 
 namespace GameLogic.Player.Leaderboard.BoultonLeague
 {
     [MetaSerializableDerived(4)]
     [SupportedSchemaVersions(1, 1)]
-    public class BoultonLeagueDivisionModel : PlayerDivisionModelBase<BoultonLeagueDivisionModel, BoultonLeagueDivisionParticipantState, PlayerDivisionScore, BoultonLeagueDivisionAvatar>, IMetacorePlayerDivisionModel<BoultonLeagueDivisionModel, BoultonLeagueDivisionParticipantState>, IPlayerDivisionModel<BoultonLeagueDivisionModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IDivisionModel<BoultonLeagueDivisionModel>, IMultiplayerModel<BoultonLeagueDivisionModel>, IModel<BoultonLeagueDivisionModel>
+    public class BoultonLeagueDivisionModel : PlayerDivisionModelBase<BoultonLeagueDivisionModel, BoultonLeagueDivisionParticipantState, PlayerDivisionScore, BoultonLeagueDivisionAvatar>, IMetacorePlayerDivisionModel<BoultonLeagueDivisionModel, BoultonLeagueDivisionParticipantState>, IPlayerDivisionModel<BoultonLeagueDivisionModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IDivisionModel<BoultonLeagueDivisionModel>, IMultiplayerModel<BoultonLeagueDivisionModel>, IModel<BoultonLeagueDivisionModel>
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         public string EventId { get; set; }

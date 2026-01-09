@@ -50,6 +50,7 @@ namespace Code.GameLogic.GameEvents
         public List<PlayerReward> PrestigeRewards { get; set; }
         public TemporaryCardCollectionEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         public TemporaryCardCollectionEventInfo()
         {

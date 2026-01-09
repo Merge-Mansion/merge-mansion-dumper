@@ -8,7 +8,7 @@ using Metaplay.Core;
 
 namespace GameLogic.Player.Leaderboard
 {
-    public interface IMetacorePlayerDivisionModel<TDivisionModel, TParticipantState> : IPlayerDivisionModel<TDivisionModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IDivisionModel<TDivisionModel>, IMultiplayerModel<TDivisionModel>, IModel<TDivisionModel>
+    public interface IMetacorePlayerDivisionModel<TDivisionModel, TParticipantState> : IPlayerDivisionModel<TDivisionModel>, IPlayerDivisionModel, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IDivisionModel<TDivisionModel>, IMultiplayerModel<TDivisionModel>, IModel<TDivisionModel>
     {
         Dictionary<int, TParticipantState> Participants { get; set; }
 

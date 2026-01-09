@@ -7,7 +7,7 @@ namespace Metaplay.Core.Web3
 {
     [MetaSerializable]
     [MetaReservedMembers(100, 200)]
-    public abstract class MetaNft : ISchemaMigratable
+    public abstract class MetaNft : ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration
     {
         [MetaMember(100, (MetaMemberFlags)0)]
         [MetaFormNotEditable]

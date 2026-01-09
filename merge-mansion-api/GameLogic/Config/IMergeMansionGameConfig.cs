@@ -117,7 +117,7 @@ namespace GameLogic.Config
 
         GameConfigLibrary<MergeBoardId, BoardInfo> Boards { get; }
 
-        GameConfigLibrary<EventId, BoardEventInfo> BoardEvents { get; }
+        //GameConfigLibrary<EventId, BoardEventInfo> BoardEvents { get; }
 
         GameConfigLibrary<EventId, ShopEventInfo> ShopEvents { get; }
 
@@ -485,7 +485,7 @@ namespace GameLogic.Config
 
         GameConfigLibrary<string, TagRewardsInfo> TagRewards { get; }
 
-        GameConfigLibrary<TheGreatEscapeMinigameId, TheGreatEscapeMinigameInfo> TheGreatEscapeMinigames { get; }
+        //GameConfigLibrary<TheGreatEscapeMinigameId, TheGreatEscapeMinigameInfo> TheGreatEscapeMinigames { get; }
 
         GameConfigLibrary<string, MMPlaylist> Playlists { get; }
 

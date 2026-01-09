@@ -72,6 +72,7 @@ namespace Code.GameLogic.GameEvents
         public bool HasCustomCurrency { get; }
         public EventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public bool HasHudButton { get; }
 
         [IgnoreDataMember]

@@ -19,7 +19,6 @@ namespace Game.Cloud.Config
         {
             if (!config.Areas.TryGetValue(ConfigKey, out AreaInfo area))
                 return null;
-
             return area;
         }
     }

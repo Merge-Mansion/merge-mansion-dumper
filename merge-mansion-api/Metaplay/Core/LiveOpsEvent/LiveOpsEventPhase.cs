@@ -12,13 +12,13 @@ namespace Metaplay.Core.LiveOpsEvent
         public static LiveOpsEventPhase EndingSoon;
         public static LiveOpsEventPhase Review;
         private static LiveOpsEventPhase[] s_fullPhaseSequence;
-        public LiveOpsEventPhase(int id, string name) : base(id, name, true)
+        public LiveOpsEventPhase(int id, string name) : base(id, name)
         {
         }
 
         public static LiveOpsEventPhase Concluded;
         private int _indexInPhaseSequence;
-        public LiveOpsEventPhase(int id, string name, int indexInPhaseSequence) : base(id, name, true)
+        public LiveOpsEventPhase(int id, string name, int indexInPhaseSequence) : base(id, name)
         {
         }
     }

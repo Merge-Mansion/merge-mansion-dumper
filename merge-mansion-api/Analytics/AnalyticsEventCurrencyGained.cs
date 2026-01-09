@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace Analytics
 {
-    [AnalyticsEvent(116, "Currency gained", 1, null, false, true, false)]
+    [AnalyticsEvent(116, "Currency gained", 1, null, true, true, false)]
     [MetaBlockedMembers(new int[] { 3, 6, 8 })]
     public class AnalyticsEventCurrencyGained : AnalyticsServersideEventBase
     {
@@ -124,5 +124,10 @@ namespace Analytics
         }
 
         public override IEnumerable<string> KeywordsForEventInstance { get; }
+
+        [JsonProperty("saldo_wild_items")]
+        [MetaMember(22, (MetaMemberFlags)0)]
+        [Description("Current balance of Wild items")]
+        public long SaldoWildItems { get; set; }
     }
 }

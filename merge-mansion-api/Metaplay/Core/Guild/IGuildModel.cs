@@ -3,7 +3,7 @@ using Metaplay.Core.Model;
 
 namespace Metaplay.Core.Guild
 {
-    public interface IGuildModel<TGuildModel> : IGuildModelBase, IMultiplayerModel<IGuildModelBase>, IModel<IGuildModelBase>, IModel, ISchemaMigratable, IMultiplayerModel
+    public interface IGuildModel<TGuildModel> : IGuildModelBase, IMultiplayerModel<IGuildModelBase>, IModel<IGuildModelBase>, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMultiplayerModel
     {
     }
 }

@@ -63,6 +63,7 @@ namespace GameLogic.ProgressivePacks
         public string PlacementId { get; set; }
         public ProgressionPackEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         [IgnoreDataMember]
         public MetaRecurringCalendarSchedule Schedule { get; }

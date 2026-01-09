@@ -61,6 +61,7 @@ namespace Code.GameLogic.GameEvents
         public StoryDefinitionId EndDialogue { get; set; }
         public LeaderboardEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         [IgnoreDataMember]
         public BoardInfo Board { get; }
@@ -150,7 +151,6 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(7, (MetaMemberFlags)0)]
         [MetaOnMemberDeserializationFailure("FixRef")]
         public ItemDef PortalItemDef { get; set; }
-
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

@@ -72,7 +72,6 @@ namespace Metaplay.Core.Debugging
 
         [MetaMember(106, (MetaMemberFlags)0)]
         public IncidentGameConfigInfo GameConfigInfo { get; set; }
-        public DateTime UploadedAt { get; set; }
         public abstract string Type { get; }
         public abstract string SubType { get; }
 
@@ -223,7 +222,6 @@ namespace Metaplay.Core.Debugging
 
         [MetaMember(107, (MetaMemberFlags)0)]
         public IncidentApplicationInfo ApplicationInfo { get; set; }
-        public DateTime DeletionDateTime { get; set; }
 
         public PlayerIncidentReport(string incidentId, MetaTime occurredAt, List<ClientLogEntry> logEntries, UnitySystemInfo systemInfo, UnityPlatformInfo platformInfo, IncidentGameConfigInfo gameConfigInfo, IncidentApplicationInfo applicationInfo)
         {
@@ -327,6 +325,25 @@ namespace Metaplay.Core.Debugging
             public PlayerActorCrashed(string id, MetaTime occurredAt, List<ClientLogEntry> logEntries, UnitySystemInfo systemInfo, UnityPlatformInfo platformInfo, IncidentGameConfigInfo gameConfigInfo, IncidentApplicationInfo applicationInfo, string exceptionType, string exceptionMessage, string stackTrace)
             {
             }
+        }
+
+        [MetaSerializableDerived(8)]
+        public class NetworkMessageTooLargeError : PlayerIncidentReport
+        {
+            public override string Type { get; }
+
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public string ExceptionName { get; set; }
+
+            [MetaMember(2, (MetaMemberFlags)0)]
+            public string ExceptionMessage { get; set; }
+
+            [MetaMember(3, (MetaMemberFlags)0)]
+            public string StackTrace { get; set; }
+
+            [MetaMember(4, (MetaMemberFlags)0)]
+            public string MessageType { get; set; }
+            public override string SubType { get; }
         }
     }
 }

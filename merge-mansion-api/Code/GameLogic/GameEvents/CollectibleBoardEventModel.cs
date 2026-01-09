@@ -12,7 +12,7 @@ using Metaplay.Core.Offers;
 namespace Code.GameLogic.GameEvents
 {
     [MetaSerializableDerived(8)]
-    [MetaBlockedMembers(new int[] { 17 })]
+    [MetaBlockedMembers(new int[] { 17, 18, 19, 20, 22, 23 })]
     public class CollectibleBoardEventModel : ExtendableEventState<CollectibleBoardEventId, CollectibleBoardEventInfo>, ILevelBoardEventModel, ILevelEventModel, IBoardEventModel, IPointsEvent, IGroupIdGetter
     {
         public static int InitialLevel;
@@ -118,24 +118,8 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(16, (MetaMemberFlags)0)]
         public int GivenPlayerPortalItem { get; set; }
 
-        [MetaMember(18, (MetaMemberFlags)0)]
-        protected HashSet<int> BadgeActiveItems { get; set; }
-
-        [MetaMember(19, (MetaMemberFlags)0)]
-        private Dictionary<TheGreatEscapeMinigameId, int> TheGreatEscapeMinigameProgress { get; set; }
-
-        [MetaMember(20, (MetaMemberFlags)0)]
-        private List<int> GrandmaCellVisualProgress { get; set; }
-
         [MetaMember(21, (MetaMemberFlags)0)]
         public int SelectedPortalVariation { get; set; }
-
-        [MetaMember(22, (MetaMemberFlags)0)]
-        protected HashSet<TheGreatEscapeMinigameId> TheGreatEscapeMinigamesCompleted { get; set; }
-        public bool PrisonBadgeFound { get; set; }
-
-        [MetaMember(23, (MetaMemberFlags)0)]
-        public int GrandmaCellVisualTapProgress { get; set; }
 
         [MetaMember(24, (MetaMemberFlags)0)]
         private byte BoolFields3 { get; set; }

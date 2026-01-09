@@ -6,7 +6,7 @@ using System;
 namespace Metaplay.Core.League
 {
     [LeaguesEnabledCondition]
-    public interface IDivisionModel : IMultiplayerModel, IModel, ISchemaMigratable
+    public interface IDivisionModel : IMultiplayerModel, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration
     {
         AnalyticsEventHandler<IDivisionModel, DivisionEventBase> AnalyticsEventHandler { get; set; }
 
@@ -31,7 +31,7 @@ namespace Metaplay.Core.League
         int DesiredParticipantCount { get; set; }
     }
 
-    public interface IDivisionModel<TDivisionModel> : IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMultiplayerModel<TDivisionModel>, IModel<TDivisionModel>
+    public interface IDivisionModel<TDivisionModel> : IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMultiplayerModel<TDivisionModel>, IModel<TDivisionModel>
     {
     }
 }

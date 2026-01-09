@@ -2,6 +2,7 @@ using Metaplay.Core.Model;
 using Metaplay.Core.Activables;
 using System.Collections.Generic;
 using Metaplay.Core;
+using Metaplay.Core.Offers;
 
 namespace Code.GameLogic.GameEvents
 {
@@ -17,5 +18,7 @@ namespace Code.GameLogic.GameEvents
 
         [MetaMember(2, (MetaMemberFlags)0)]
         private MetaTime _nextEventStartTime;
+        private static CollectibleBoardEventId GREAT_ESCAPE_EVENT_ID;
+        private static OfferPlacementId[] GREAT_ESCAPE_OFFER_IDS;
     }
 }

@@ -41,6 +41,7 @@ namespace Code.GameLogic.GameEvents
         public BoultonLeagueEventId ActivableId { get; }
         public BoultonLeagueEventId ConfigKey => EventId;
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         public BoultonLeagueEventInfo()
         {

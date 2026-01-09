@@ -84,6 +84,7 @@ namespace Code.GameLogic.GameEvents
         private CoreSupportEventCollectionId CollectionId { get; set; }
         public CoreSupportEventId ActivableId => ConfigKey;
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public string SharedEventId { get; }
         public EventGroupId GroupId { get; }
         public IStringId LevelEventId { get; }
@@ -128,7 +129,6 @@ namespace Code.GameLogic.GameEvents
         [MetaOnMemberDeserializationFailure("FixRef")]
         private ItemDef PortalItemDef { get; set; }
         public Option<CoreSupportEventTokenId> TokenIdOption { get; }
-
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

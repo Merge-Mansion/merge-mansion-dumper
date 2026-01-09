@@ -11,7 +11,6 @@ namespace GameLogic.Config
         {
             if (!config.MergeChains.TryGetValue(ConfigKey, out MergeChainDefinition chain))
                 return null;
-
             return chain;
         }
     }

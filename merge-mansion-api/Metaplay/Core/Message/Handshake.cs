@@ -35,12 +35,12 @@ namespace Metaplay.Core.Message
                 CommitId = commitId;
             }
 
-            [MetaMember(5, (MetaMemberFlags)0)]
-            public string ProjectName { get; set; }
-
             public ServerHello(string serverVersion, string buildNumber, uint fullProtocolHash, string commitId, string projectName)
             {
             }
+
+            [MetaMember(5, (MetaMemberFlags)0)]
+            public string ProjectId { get; set; }
         }
 
         [MetaMessage(5, (MessageDirection)1, true)]
@@ -495,6 +495,13 @@ namespace Metaplay.Core.Message
             MethodNotAllowed = 1,
             InvalidCredentials = 2,
             TemporarilyUnavailable = 3
+        }
+
+        [MetaMessage(112, (MessageDirection)2, true)]
+        public class CommitIdMismatch : MetaMessage
+        {
+            [MetaMember(1, (MetaMemberFlags)0)]
+            public string ServerCommitId { get; set; }
         }
     }
 }

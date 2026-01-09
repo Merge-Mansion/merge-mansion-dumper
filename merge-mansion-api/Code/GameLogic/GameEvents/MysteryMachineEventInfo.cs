@@ -60,6 +60,7 @@ namespace Code.GameLogic.GameEvents
         public StoryDefinitionId StartMachineDialogue { get; set; }
         public MysteryMachineEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         [IgnoreDataMember]
         public IStringId BoardEventId { get; }

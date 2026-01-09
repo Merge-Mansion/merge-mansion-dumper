@@ -21,7 +21,7 @@ namespace Metaplay.Core.Player
     [MetaReservedMembers(7, 10)]
     [MetaReservedMembers(12, 99)]
     [MetaReservedMembers(10000, 20000)]
-    public abstract class PlayerModelBase<TPlayerModel, TPlayerStatistics, TPlayerMetaOfferGroups, TPlayerGuildState> : IPlayerModel<TPlayerModel>, IPlayerModelBase, IModel<IPlayerModelBase>, IModel, ISchemaMigratable, IMetaIntegrationConstructible<IPlayerModelBase>, IMetaIntegration<IPlayerModelBase>, IMetaIntegration, IMetaIntegrationConstructible, IRequireSingleConcreteType
+    public abstract class PlayerModelBase<TPlayerModel, TPlayerStatistics, TPlayerMetaOfferGroups, TPlayerGuildState> : IPlayerModel<TPlayerModel>, IPlayerModelBase, IModel<IPlayerModelBase>, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMetaIntegrationConstructible<IPlayerModelBase>, IMetaIntegration<IPlayerModelBase>, IMetaIntegrationConstructible, IRequireSingleConcreteType
     {
         private static int CurrentBaseFixupVersion;
         [MetaMember(49, (MetaMemberFlags)0)]
@@ -96,10 +96,6 @@ namespace Metaplay.Core.Player
         [MetaMember(33, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         public PlayerPushNotifications PushNotifications { get; set; }
-
-        [MetaMember(16, (MetaMemberFlags)0)]
-        [NoChecksum]
-        public List<InAppPurchaseEvent> InAppPurchaseHistory { get; set; }
 
         [MetaMember(50, (MetaMemberFlags)0)]
         [ServerOnly]
@@ -248,5 +244,13 @@ namespace Metaplay.Core.Player
 
         [MetaMember(58, (MetaMemberFlags)0)]
         public Dictionary<AuthenticationPlatform, IPlatformSpecificData> PlatformSpecificData { get; set; }
+
+        [MetaMember(16, (MetaMemberFlags)0)]
+        [ServerOnly]
+        public List<InAppPurchaseEvent> FullInAppPurchaseHistory { get; set; }
+
+        [MetaMember(60, (MetaMemberFlags)0)]
+        [Transient]
+        public InAppPurchaseHistory InAppPurchaseHistorySummary { get; set; }
     }
 }

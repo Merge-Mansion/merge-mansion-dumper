@@ -41,6 +41,7 @@ namespace Code.GameLogic.GameEvents.SoloMilestone
         public string Theme { get; set; }
         public SoloMilestoneEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         public SoloMilestoneEventInfo()
         {
@@ -71,7 +72,6 @@ namespace Code.GameLogic.GameEvents.SoloMilestone
         public string CoreSupportingEventDisplayName { get; }
         public string CoreSupportingEventConfigKey { get; }
         public CoreSupportingEventType CoreSupportingEventType { get; }
-
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

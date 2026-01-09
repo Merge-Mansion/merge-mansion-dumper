@@ -85,13 +85,6 @@ namespace Metaplay.Core.Config
         {
         }
 
-        private GameConfigRuntimeStorageMode _storageMode;
-        private GameConfigLibraryDeduplicationStorage<TKey, TInfo> _deduplicationStorage;
-        private GameConfigDeduplicationOwnership _deduplicationOwnership;
-        private ConfigPatchIdSet _activePatches;
-        private HashSet<TKey> _patchAppendedKeys;
-        private Dictionary<TKey, TInfo> _exclusivelyOwnedItems;
-        private Dictionary<TKey, TInfo> _soloStorageItems;
         private Dictionary<TKey, TKey> _aliasToRealKey;
         private GameConfigLibrary(GameConfigRuntimeStorageMode storageMode, Dictionary<TKey, TInfo> soloStorageItems, GameConfigLibraryDeduplicationStorage<TKey, TInfo> deduplicationStorage, GameConfigDeduplicationOwnership deduplicationOwnership, HashSet<ExperimentVariantPair> activePatches, IGameConfigDataRegistry registry)
         {
@@ -100,8 +93,6 @@ namespace Metaplay.Core.Config
         private GameConfigLibrary(GameConfigRuntimeStorageMode storageMode, Dictionary<TKey, TInfo> soloStorageItems, GameConfigLibraryDeduplicationStorage<TKey, TInfo> deduplicationStorage, GameConfigDeduplicationOwnership deduplicationOwnership, HashSet<ExperimentVariantPair> activePatches)
         {
         }
-
-        public int SpecializationSpecificDuplicationAmount { get; }
 
         public struct KeysEnumerable<TKey, TInfo>
         {

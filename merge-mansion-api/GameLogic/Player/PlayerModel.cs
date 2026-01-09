@@ -55,8 +55,8 @@ namespace GameLogic.Player
     [MetaSerializableDerived(1)]
     [MetaReservedMembers(99, 400)]
     [MetaReservedMembers(11, 12)]
-    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285, 249, 216, 299 })]
-    [SupportedSchemaVersions(21, 53)]
+    [MetaBlockedMembers(new int[] { 6, 108, 110, 112, 114, 116, 117, 200, 205, 208, 220, 224, 239, 241, 251, 233, 274, 285, 249, 216, 299, 309 })]
+    [SupportedSchemaVersions(21, 55)]
     public class PlayerModel : PlayerModelBase<PlayerModel, PlayerStatisticsCore, PlayerMergeMansionOffersGroupModel, PlayerGuildStateCore>, IWritablePlayer, IPlayer, IGenerationContext
     {
         public static int MaxLoginCounts;
@@ -519,9 +519,6 @@ namespace GameLogic.Player
         [Obsolete]
         private PlayerBanInfo LegacyBanInfo { get; set; }
 
-        [MetaMember(309, (MetaMemberFlags)0)]
-        public List<BaseRevertLogic> WaitingReverts { get; set; }
-
         [IgnoreDataMember]
         private ILastNSegmentsCache LastNSegmentsCache { get; set; }
 
@@ -550,5 +547,7 @@ namespace GameLogic.Player
 
         ICustomMergeBoardsState GameLogic.Player.IPlayer.CustomMergeBoardsState { get; }
         public IEnumerable<MixABoosterEventModel> ActiveMixABoosterEvents { get; }
+
+        private bool _modelEventsRegistered;
     }
 }

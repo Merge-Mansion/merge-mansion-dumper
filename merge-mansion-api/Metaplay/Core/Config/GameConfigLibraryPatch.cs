@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace Metaplay.Core.Config
 {
     [MetaSerializable]
-    public class GameConfigLibraryPatch<TKey, TInfo> : GameConfigEntryPatch<GameConfigLibrary<TKey, TInfo>, Dictionary<TKey, TInfo>>, IGameConfigLibraryPatch where TInfo : IGameConfigData<TKey>
+    public class GameConfigLibraryPatch<TKey, TInfo> : GameConfigEntryPatch<GameConfigLibrary<TKey, TInfo>>, IGameConfigLibraryPatch where TInfo : IGameConfigData<TKey>
     {
         [JsonProperty("replacedItems")]
         private Dictionary<TKey, TInfo> _replacedItems;
@@ -29,7 +29,12 @@ namespace Metaplay.Core.Config
         {
         }
 
-        internal override void PatchContentDangerouslyInPlace(Dictionary<TKey, TInfo> entryContent)
+        internal override void PatchContentDangerouslyInPlace(object entryContent)
+        {
+            PatchContentDangerouslyInPlace(entryContent as Dictionary<TKey, TInfo>);
+        }
+
+        internal void PatchContentDangerouslyInPlace(Dictionary<TKey, TInfo> entryContent)
         {
             foreach (var replacedItem in _replacedItemsForSerialization)
             {

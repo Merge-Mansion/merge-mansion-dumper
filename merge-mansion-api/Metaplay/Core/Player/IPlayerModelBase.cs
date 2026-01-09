@@ -15,7 +15,7 @@ using Metaplay.Core.LiveOpsEvent;
 
 namespace Metaplay.Core.Player
 {
-    public interface IPlayerModelBase : IModel<IPlayerModelBase>, IModel, ISchemaMigratable, IMetaIntegrationConstructible<IPlayerModelBase>, IMetaIntegration<IPlayerModelBase>, IMetaIntegration, IMetaIntegrationConstructible, IRequireSingleConcreteType
+    public interface IPlayerModelBase : IModel<IPlayerModelBase>, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMetaIntegrationConstructible<IPlayerModelBase>, IMetaIntegration<IPlayerModelBase>, IMetaIntegrationConstructible, IRequireSingleConcreteType
     {
         ISharedGameConfig GameConfig { get; set; }
 
@@ -65,8 +65,6 @@ namespace Metaplay.Core.Player
         List<string> FirebaseMessagingTokensLegacy { get; }
 
         PlayerPushNotifications PushNotifications { get; }
-
-        List<InAppPurchaseEvent> InAppPurchaseHistory { get; }
 
         int NumDuplicateInAppPurchases { get; set; }
 
@@ -136,5 +134,9 @@ namespace Metaplay.Core.Player
         bool IsPermaBanned { get; }
 
         Dictionary<AuthenticationPlatform, IPlatformSpecificData> PlatformSpecificData { get; }
+
+        List<InAppPurchaseEvent> FullInAppPurchaseHistory { get; }
+
+        InAppPurchaseHistory InAppPurchaseHistorySummary { get; set; }
     }
 }

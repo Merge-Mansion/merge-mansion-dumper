@@ -76,15 +76,7 @@ namespace GameLogic.Player.Items
 
         IMiniEventFeatures MiniEventFeatures { get; }
 
-        IPrisonBadgeFeatures PrisonBadgeFeatures { get; }
-
         ISinkableFeatures SinkableFeatures { get; }
-
-        IPostBoxFeatures PostBoxFeatures { get; }
-
-        IEscapeToolFeatures EscapeToolFeatures { get; }
-
-        IMinigameActivationFeatures MinigameActivationFeatures { get; }
 
         string ItemType { get; }
 
@@ -135,8 +127,6 @@ namespace GameLogic.Player.Items
         IOverrideSpawnChanceFeatures OverrideSpawnChanceFeatures { get; }
 
         IAudioFeatures AudioFeatures { get; }
-
-        IPrisonLetterFeatures PrisonLetterFeatures { get; }
 
         IItemEffectFeatures ItemEffectFeatures { get; }
 

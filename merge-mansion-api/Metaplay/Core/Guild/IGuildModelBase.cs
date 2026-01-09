@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Metaplay.Core.Guild
 {
-    public interface IGuildModelBase : IMultiplayerModel<IGuildModelBase>, IModel<IGuildModelBase>, IModel, ISchemaMigratable, IMultiplayerModel
+    public interface IGuildModelBase : IMultiplayerModel<IGuildModelBase>, IModel<IGuildModelBase>, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMultiplayerModel
     {
         AnalyticsEventHandler<IGuildModelBase, GuildEventBase> AnalyticsEventHandler { get; set; }
 

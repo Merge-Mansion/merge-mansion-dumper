@@ -58,6 +58,7 @@ namespace Code.GameLogic.GameEvents
         public GarageCleanupEventId ActivableId { get; }
         public GarageCleanupEventId ConfigKey => GarageCleanupEventId;
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         [IgnoreDataMember]
         public bool HasSpawnerItems { get; }

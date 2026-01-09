@@ -6,6 +6,6 @@ namespace Code.GameLogic.Player.Board
 {
     public interface IWritableCustomMergeBoardsState
     {
-        Dictionary<MergeBoardId, MergeBoard> MergeBoards { get; }
+        SortedDictionary<MergeBoardId, MergeBoard> MergeBoards { get; }
     }
 }

@@ -92,6 +92,7 @@ namespace Code.GameLogic.GameEvents
         public SideBoardEventId ConfigKey => SideBoardEventId;
         public SideBoardEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         [IgnoreDataMember]
         public BoardInfo Board { get; }
@@ -179,7 +180,6 @@ namespace Code.GameLogic.GameEvents
         [MetaMember(29, (MetaMemberFlags)0)]
         [MetaOnMemberDeserializationFailure("FixItemRef")]
         public ItemDef ResourceItemCollectableDef { get; set; }
-
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

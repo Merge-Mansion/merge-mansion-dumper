@@ -12,7 +12,7 @@ namespace Metaplay.Core.InAppPurchase
         public static InAppPurchaseRefundReason StoreChargedBack;
         public static InAppPurchaseRefundReason StoreSuspectedFraud;
         public static InAppPurchaseRefundReason StoreFriendlyFraud;
-        protected InAppPurchaseRefundReason(int id, string name, bool isValid) : base(id, name, isValid)
+        protected InAppPurchaseRefundReason(int id, string name) : base(id, name)
         {
         }
     }

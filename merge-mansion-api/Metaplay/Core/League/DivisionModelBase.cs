@@ -9,7 +9,7 @@ namespace Metaplay.Core.League
 {
     [LeaguesEnabledCondition]
     [MetaReservedMembers(300, 400)]
-    public abstract class DivisionModelBase<TModel, TParticipantState, TDivisionScore> : MultiplayerModelBase<TModel>, IDivisionModel<TModel>, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMultiplayerModel<TModel>, IModel<TModel>
+    public abstract class DivisionModelBase<TModel, TParticipantState, TDivisionScore> : MultiplayerModelBase<TModel>, IDivisionModel<TModel>, IDivisionModel, IMultiplayerModel, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMultiplayerModel<TModel>, IModel<TModel>
     {
         public IDivisionModelServerListenerCore ServerListenerCore { get; }
         public IDivisionModelClientListenerCore ClientListenerCore { get; }

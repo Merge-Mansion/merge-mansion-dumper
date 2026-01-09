@@ -20,7 +20,6 @@ namespace Game.Cloud.Config
         {
             if (!config.HotspotDefinitions.TryGetValue(ConfigKey, out HotspotDefinition hotspot))
                 return null;
-
             return hotspot;
         }
     }

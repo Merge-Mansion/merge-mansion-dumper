@@ -9,7 +9,7 @@ using GameLogic;
 
 namespace Analytics
 {
-    [AnalyticsEvent(115, "Currency sink", 1, null, false, true, false)]
+    [AnalyticsEvent(115, "Currency sink", 1, null, true, true, false)]
     [MetaBlockedMembers(new int[] { 2, 10 })]
     public class AnalyticsEventCurrencySink : AnalyticsServersideEventBase
     {
@@ -123,5 +123,15 @@ namespace Analytics
         [MetaMember(20, (MetaMemberFlags)0)]
         [Description("Is On Fire Producer Booster active")]
         public bool IsOnFireActive { get; set; }
+
+        [JsonProperty("saldo_wild_items")]
+        [MetaMember(21, (MetaMemberFlags)0)]
+        [Description("Current balance of Wild items")]
+        public long SaldoWildItems { get; set; }
+
+        [JsonProperty("goal_id")]
+        [MetaMember(22, (MetaMemberFlags)0)]
+        [Description("Task Id where player used Wild Item on to get an Item")]
+        public string GoalId { get; set; }
     }
 }

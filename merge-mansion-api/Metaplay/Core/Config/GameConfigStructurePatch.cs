@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Metaplay.Core.Config
 {
     [MetaSerializable]
-    public class GameConfigStructurePatch<TStructure> : GameConfigEntryPatch<TStructure, TStructure>, IGameConfigStructurePatch
+    public class GameConfigStructurePatch<TStructure> : GameConfigEntryPatch<TStructure>, IGameConfigStructurePatch
     {
         [MetaMember(1, (MetaMemberFlags)0)]
         private TStructure _replacementValues;
@@ -23,14 +23,13 @@ namespace Metaplay.Core.Config
         {
         }
 
-        internal override void PatchContentDangerouslyInPlace(TStructure structure)
-        {
-            return;
-            throw new NotImplementedException();
-        }
-
         public GameConfigStructurePatch(Dictionary<int, object> replacedMembersByTagId)
         {
+        }
+
+        internal override void PatchContentDangerouslyInPlace(object entryContent)
+        {
+            return;
         }
     }
 }

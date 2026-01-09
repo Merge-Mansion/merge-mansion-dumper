@@ -14,5 +14,7 @@ namespace Metaplay.Core.Activables
         string Description { get; }
 
         string DisplayShortInfo { get; }
+
+        MetaActivableTimelineSettings Timeline { get; }
     }
 }

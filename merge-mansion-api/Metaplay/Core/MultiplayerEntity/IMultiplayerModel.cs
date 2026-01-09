@@ -4,7 +4,7 @@ using System;
 
 namespace Metaplay.Core.MultiplayerEntity
 {
-    public interface IMultiplayerModel : IModel, ISchemaMigratable
+    public interface IMultiplayerModel : IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration
     {
         LogChannel Log { get; set; }
 
@@ -24,7 +24,7 @@ namespace Metaplay.Core.MultiplayerEntity
     // STUB
     }
 
-    public interface IMultiplayerModel<TModel> : IModel<TModel>, IModel, ISchemaMigratable, IMultiplayerModel
+    public interface IMultiplayerModel<TModel> : IModel<TModel>, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMultiplayerModel
     {
     }
 }

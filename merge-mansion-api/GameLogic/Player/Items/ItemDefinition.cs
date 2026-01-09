@@ -37,6 +37,7 @@ using GameLogic.Player.Items.TheGreatEscape;
 namespace GameLogic.Player.Items
 {
     [MetaSerializableDerived(1)]
+    [MetaBlockedMembers(new int[] { 59, 60, 61, 62, 63 })]
     public class ItemDefinition : IGameConfigData<int>, IGameConfigData, IHasGameConfigKey<int>, IValidatable, IItemDefinition
     {
         [MetaMember(12, (MetaMemberFlags)0)]
@@ -336,31 +337,6 @@ namespace GameLogic.Player.Items
         public ItemDefinition(int configKey, string itemType, string poolTag, string skinName, int levelNumber, bool movable, F64 costInDiamonds, F64 anchorPriceGems, F64 anchorPriceCoins, F64 timeSkipPriceGems, F64 unlockOnBoardPriceGems, int experienceValue, MergeFeatures mergeFeatures, ActivationFeatures activationFeatures, SpawnFeatures spawnFeatures, DecayFeatures decayFeatures, ChestFeatures chestFeatures, CollectableFeatures collectableFeatures, BoosterFeatures boosterFeatures, BubbleFeatures bubbleFeatures, SinkFeatures sinkFeatures, ConsumableFeatures consumableFeatures, PortalFeatures portalFeatures, ChargesFeatures chargesFeatures, TimeContainerFeatures timeContainer, LeaderboardFeatures leaderboardFeatures, FishingRodFeatures fishingRodFeatures, WeightFeatures weightFeatures, CameraFeatures cameraFeatures, SinkableFeatures sinkableFeatures, FramesFeatures framesFeatures, PersistentFeatures persistentFeatures, OverrideSpawnChanceFeatures overrideSpawnChanceFeatures, GemWeightFeatures gemWeightFeatures, RockChunkFeatures rockChunkFeatures, AudioFeatures audioFeatures, OrderFeatures orderFeatures, List<string> tags, List<string> confirmableMergeResults, List<IDirectorAction> onDiscoveredActions, bool showTutorialFingerOnDiscovery, List<string> analyticsMetadata, List<int> combineInfoWithItem, ItemRarity rarity, bool unsellable, IEnumerable<PlayerReward> rewards, IEnumerable<PlayerRequirement> unlockRequirements, List<string> spawnEffects, ConfigPrefabId customItemInfoPopupId, bool showCustomItemInfoPopupOnDiscovery, string overrideLocalizationItemKey, MiniEventFeatures miniEventFeatures, string fullOverrideLocalizationItemKey, string overrideLocalizationItemCategory, string sinkTag, int sinkPoints, List<string> overrideProductionSource)
         {
         }
-
-        [MetaMember(59, (MetaMemberFlags)0)]
-        private PrisonBadgeFeatures _PrisonBadgeFeatures;
-        [MetaMember(60, (MetaMemberFlags)0)]
-        private EscapeToolFeatures _EscapeToolFeatures;
-        [MetaMember(61, (MetaMemberFlags)0)]
-        private MinigameActivationFeatures _MinigameActivationFeatures;
-        [MetaMember(62, (MetaMemberFlags)0)]
-        private PostBoxFeatures _PostBoxFeatures;
-        [MetaMember(63, (MetaMemberFlags)0)]
-        private PrisonLetterFeatures _PrisonLetterFeatures;
-        [IgnoreDataMember]
-        public IPrisonBadgeFeatures PrisonBadgeFeatures { get; }
-
-        [IgnoreDataMember]
-        public IEscapeToolFeatures EscapeToolFeatures { get; }
-
-        [IgnoreDataMember]
-        public IMinigameActivationFeatures MinigameActivationFeatures { get; }
-
-        [IgnoreDataMember]
-        public IPostBoxFeatures PostBoxFeatures { get; }
-
-        [IgnoreDataMember]
-        public IPrisonLetterFeatures PrisonLetterFeatures { get; }
 
         public ItemDefinition(int configKey, string itemType, string poolTag, string skinName, int levelNumber, bool movable, F64 costInDiamonds, F64 anchorPriceGems, F64 anchorPriceCoins, F64 timeSkipPriceGems, F64 unlockOnBoardPriceGems, int experienceValue, MergeFeatures mergeFeatures, ActivationFeatures activationFeatures, SpawnFeatures spawnFeatures, DecayFeatures decayFeatures, ChestFeatures chestFeatures, CollectableFeatures collectableFeatures, BoosterFeatures boosterFeatures, BubbleFeatures bubbleFeatures, SinkFeatures sinkFeatures, ConsumableFeatures consumableFeatures, PortalFeatures portalFeatures, ChargesFeatures chargesFeatures, TimeContainerFeatures timeContainer, LeaderboardFeatures leaderboardFeatures, FishingRodFeatures fishingRodFeatures, WeightFeatures weightFeatures, CameraFeatures cameraFeatures, SinkableFeatures sinkableFeatures, FramesFeatures framesFeatures, PersistentFeatures persistentFeatures, OverrideSpawnChanceFeatures overrideSpawnChanceFeatures, GemWeightFeatures gemWeightFeatures, RockChunkFeatures rockChunkFeatures, AudioFeatures audioFeatures, OrderFeatures orderFeatures, List<string> tags, List<string> confirmableMergeResults, List<IDirectorAction> onDiscoveredActions, bool showTutorialFingerOnDiscovery, List<string> analyticsMetadata, List<int> combineInfoWithItem, ItemRarity rarity, bool unsellable, IEnumerable<PlayerReward> rewards, IEnumerable<PlayerRequirement> unlockRequirements, List<string> spawnEffects, ConfigPrefabId customItemInfoPopupId, bool showCustomItemInfoPopupOnDiscovery, string overrideLocalizationItemKey, MiniEventFeatures miniEventFeatures, string fullOverrideLocalizationItemKey, string overrideLocalizationItemCategory, string sinkTag, int sinkPoints, List<string> overrideProductionSource, PrisonBadgeFeatures prisonBadgeFeatures, EscapeToolFeatures escapeToolFeatures, MinigameActivationFeatures minigameActivationFeatures, PostBoxFeatures postBoxFeatures, PrisonLetterFeatures prisonLetterFeatures)
         {

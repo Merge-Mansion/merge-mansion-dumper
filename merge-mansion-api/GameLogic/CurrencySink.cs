@@ -52,6 +52,7 @@ namespace GameLogic
         BuyMoreDigEventTapsPopup = 44,
         MixABooster = 45,
         RewardContainerPurchase = 46,
-        RollTheDiceRollDone = 47
+        RollTheDiceRollDone = 47,
+        WildItemConsume = 48
     }
 }

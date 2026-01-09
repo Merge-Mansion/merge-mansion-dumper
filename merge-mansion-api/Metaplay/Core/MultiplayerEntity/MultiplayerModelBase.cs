@@ -6,7 +6,7 @@ using Metaplay.Core.Config;
 namespace Metaplay.Core.MultiplayerEntity
 {
     [MetaReservedMembers(200, 300)]
-    public abstract class MultiplayerModelBase<TModel> : IMultiplayerModel<TModel>, IModel<TModel>, IModel, ISchemaMigratable, IMultiplayerModel
+    public abstract class MultiplayerModelBase<TModel> : IMultiplayerModel<TModel>, IModel<TModel>, IModel, ISchemaMigratable, IMetaIntegration<ISchemaMigratable>, IMetaIntegration, IMultiplayerModel
     {
         [IgnoreDataMember]
         public int LogicVersion { get; set; }

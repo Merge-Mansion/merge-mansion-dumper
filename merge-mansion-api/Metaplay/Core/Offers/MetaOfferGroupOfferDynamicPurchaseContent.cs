@@ -2,9 +2,11 @@ using Metaplay.Core.Model;
 using Metaplay.Core.InAppPurchase;
 using System.Collections.Generic;
 using Metaplay.Core.Rewards;
+using Metaplay.Core.Player;
 
 namespace Metaplay.Core.Offers
 {
+    [IgnoreDefValidation]
     [MetaSerializableDerived(100)]
     public class MetaOfferGroupOfferDynamicPurchaseContent : DynamicPurchaseContent
     {

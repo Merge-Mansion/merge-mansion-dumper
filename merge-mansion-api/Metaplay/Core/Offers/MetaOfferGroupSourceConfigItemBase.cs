@@ -26,6 +26,7 @@ namespace Metaplay.Core.Offers
         }
 
         public bool IncludeSoldOutOffers { get; set; }
+        public MetaActivableTimelineSettings Timeline { get; set; }
     }
 
     public abstract class MetaOfferGroupSourceConfigItemBase<TMetaOfferGroupInfo> : MetaOfferGroupSourceConfigItemBase, IGameConfigSourceItem<TMetaOfferGroupInfo>, IMetaIntegrationConstructible<MetaOfferGroupSourceConfigItemBase<TMetaOfferGroupInfo>>

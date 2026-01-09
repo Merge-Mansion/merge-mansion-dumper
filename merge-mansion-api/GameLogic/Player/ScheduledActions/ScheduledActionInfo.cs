@@ -26,6 +26,7 @@ namespace GameLogic.Player.ScheduledActions
         [MetaMember(5, (MetaMemberFlags)0)]
         public MetaActivableParams ActivableParams { get; set; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         public ScheduledActionInfo(ScheduledActionId configKey, string displayName, string description, MetaActivableParams activableParams, IScheduledAction scheduledAction)
         {

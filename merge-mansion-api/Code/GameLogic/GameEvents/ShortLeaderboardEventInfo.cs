@@ -69,6 +69,7 @@ namespace Code.GameLogic.GameEvents
         public PlayerRequirement PreviewRequirement { get; set; }
         public ShortLeaderboardEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public IStringId BoardEventId { get; }
         public DecorationInfo ActiveDecoration { get; }
         public MergeBoardId MergeBoardId { get; }

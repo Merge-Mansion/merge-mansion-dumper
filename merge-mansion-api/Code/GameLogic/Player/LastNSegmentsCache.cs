@@ -8,11 +8,9 @@ using Metacore.MergeMansion.Common.Options;
 namespace Code.GameLogic.Player
 {
     [MetaSerializable]
+    [MetaBlockedMembers(new int[] { 1 })]
     public class LastNSegmentsCache : ILastNSegmentsCache, IWritableLastNSegmentsCache
     {
-        [IgnoreDataMember]
-        public IDictionary<int, F64> ModesByLastNTransactions { get; set; }
-
         [MetaMember(2, (MetaMemberFlags)0)]
         public int? LastNDaysDay { get; set; }
 

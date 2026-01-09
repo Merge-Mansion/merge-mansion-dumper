@@ -129,5 +129,10 @@ namespace Metaplay.Core.Message
         public class DirectConnectionLost : SessionForceTerminateReason
         {
         }
+
+        [MetaSerializableDerived(14)]
+        public class ServerNodeLost : SessionForceTerminateReason
+        {
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace Code.GameLogic.GameEvents
         public EventOfferId ConfigKey => EventOfferId;
         public EventOfferId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         public EventOfferInfo()
         {

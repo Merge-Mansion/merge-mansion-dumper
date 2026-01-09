@@ -40,6 +40,7 @@ namespace GameLogic.MixABooster
         public Dictionary<MixABoosterIngredientId, int> InitialIngredients { get; set; }
         public MixABoosterEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public IEnumerable<MixABoosterRecipe> Recipes { get; }
         public string CoreSupportingEventDisplayName { get; }
         public string CoreSupportingEventConfigKey { get; }

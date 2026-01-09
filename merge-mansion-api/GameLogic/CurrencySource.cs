@@ -103,6 +103,7 @@ namespace GameLogic
         RollTheDiceLevelCompleted = 94,
         RollTheDiceDuplicateRefund = 95,
         MailItemMissing = 96,
-        WildItem = 97
+        WildItem = 97,
+        FTUEReset = 98
     }
 }

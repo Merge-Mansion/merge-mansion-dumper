@@ -8,7 +8,5 @@ namespace Metaplay.Core.Config
         Type ItemType { get; }
 
         int Count { get; }
-
-        int SpecializationSpecificDuplicationAmount { get; }
     }
 }

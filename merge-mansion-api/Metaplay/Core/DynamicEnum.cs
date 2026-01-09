@@ -9,7 +9,7 @@ namespace Metaplay.Core
 {
     [JsonConverter(typeof(DynamicEnumJsonConverter))]
     [TypeConverter(typeof(DynamicEnumTypeConverter))]
-    public class DynamicEnum<TEnum> : IDynamicEnum where TEnum : DynamicEnum<TEnum>
+    public abstract class DynamicEnum<TEnum> : IDynamicEnum where TEnum : DynamicEnum<TEnum>
     {
         private static readonly Lazy<List<TEnum>> _allValues = new Lazy<List<TEnum>>(FindAllValues); // 0x0
         private static readonly Lazy<Dictionary<string, TEnum>> _nameToValue = new Lazy<Dictionary<string, TEnum>>(() => FindAllValues().ToDictionary(x => x.Name, y => y)); // 0x8
@@ -17,13 +17,11 @@ namespace Metaplay.Core
         public static List<TEnum> AllValues => _allValues.Value;
         public int Id { get; set; } // 0x10
         public string Name { get; set; } // 0x18
-        public bool IsValid { get; set; } // 0x20
 
-        protected DynamicEnum(int id, string name, bool isValid)
+        protected DynamicEnum(int id, string name)
         {
             Id = id;
             Name = name;
-            IsValid = isValid;
         }
 
         public static TEnum FromName(string name)
@@ -66,8 +64,8 @@ namespace Metaplay.Core
             return this == enumObj;
         }
 
-        public static bool operator ==(DynamicEnum<TEnum> a, DynamicEnum<TEnum> b) => a.Id == b.Id && a.Name == b.Name && a.IsValid == b.IsValid;
-        public static bool operator !=(DynamicEnum<TEnum> a, DynamicEnum<TEnum> b) => a.Id != b.Id || a.Name != b.Name || a.IsValid != b.IsValid;
+        public static bool operator ==(DynamicEnum<TEnum> a, DynamicEnum<TEnum> b) => a.Id == b.Id && a.Name == b.Name;
+        public static bool operator !=(DynamicEnum<TEnum> a, DynamicEnum<TEnum> b) => a.Id != b.Id || a.Name != b.Name;
         private static List<TEnum> FindAllValues()
         {
             // HINT: I'm way too lazy to figure out this logic. Either use enums or don't. DynamicEnums are a crime in C# and should be an unforgivable sin

@@ -10,5 +10,7 @@ namespace GameLogic.Player.ScheduledActions
         public PlayerScheduledActions()
         {
         }
+
+        private static ScheduledActionId[] GREAT_ESCAPE_SCHEDULED_ACTION_IDS;
     }
 }

@@ -63,6 +63,7 @@ namespace Code.GameLogic.GameEvents
         [IgnoreDataMember]
         public AdStampCardEventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public MetaRecurringCalendarSchedule Schedule { get; }
         public string SharedEventId { get; }
         public string CoreSupportingEventConfigKey { get; }
@@ -78,7 +79,6 @@ namespace Code.GameLogic.GameEvents
         }
 
         public OfferPlacementId OfferPlacementId { get; }
-
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

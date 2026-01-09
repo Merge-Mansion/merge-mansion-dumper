@@ -36,6 +36,7 @@ namespace GameLogic.Config.DecorationShop
         public PlayerRequirement UnlockRequirement { get; set; }
         public DecorationShopId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         public DecorationShopInfo()
         {

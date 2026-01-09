@@ -8,7 +8,7 @@ namespace Metaplay.Core.Offers
 {
     [MetaSerializable]
     [MetaReservedMembers(100, 200)]
-    public abstract class MetaOfferGroupInfoBase : IMetaActivableConfigData<MetaOfferGroupId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MetaOfferGroupId>, IHasGameConfigKey<MetaOfferGroupId>, IMetaActivableInfo<MetaOfferGroupId>, IGameConfigPostLoad
+    public abstract class MetaOfferGroupInfoBase : IMetaActivableConfigData<MetaOfferGroupId>, IMetaActivableConfigData, IGameConfigData, IMetaActivableInfo, IGameConfigData<MetaOfferGroupId>, IHasGameConfigKey<MetaOfferGroupId>, IMetaActivableInfo<MetaOfferGroupId>
     {
         [MetaMember(100, (MetaMemberFlags)0)]
         public MetaOfferGroupId GroupId { get; set; }
@@ -55,5 +55,9 @@ namespace Metaplay.Core.Offers
         protected MetaOfferGroupInfoBase(MetaOfferGroupId groupId, string displayName, string description, OfferPlacementId placement, int priority, List<MetaRef<MetaOfferInfoBase>> offers, MetaActivableParams activableParams, int? maxOffersActive, bool includeSoldOutOffers)
         {
         }
+
+        [MetaMember(109, (MetaMemberFlags)0)]
+        [ServerOnly]
+        public MetaActivableTimelineSettings Timeline { get; set; }
     }
 }

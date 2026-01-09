@@ -25,4 +25,9 @@ namespace Metaplay.Core.Config
 
         internal abstract void PatchContentDangerouslyInPlace(TEntryContent entryContent);
     }
+
+    [MetaSerializable]
+    public abstract class GameConfigEntryPatch<TEntry> : GameConfigEntryPatch
+    {
+    }
 }

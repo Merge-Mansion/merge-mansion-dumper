@@ -95,6 +95,7 @@ namespace GameLogic.Banks
         public CurrencyBankId ActivableId { get; }
         public CurrencyBankId ConfigKey => CurrencyBankId;
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
 
         public CurrencyBankInfo()
         {

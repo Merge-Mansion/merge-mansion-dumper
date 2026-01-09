@@ -24,7 +24,7 @@ using Code.GameLogic.ProgressionTracks;
 namespace Game.Logic
 {
     [MetaSerializable]
-    [MetaBlockedMembers(new int[] { 1, 10, 11, 15, 16, 20, 21, 23, 28, 35, 36, 37, 38, 39, 41, 44, 62, 88 })]
+    [MetaBlockedMembers(new int[] { 1, 10, 11, 15, 16, 20, 21, 23, 28, 35, 36, 37, 38, 39, 41, 44, 62, 87, 88, 89, 90, 91, 92 })]
     public class ProgressState
     {
         public Action OnUndoSellItemCleared;
@@ -320,25 +320,6 @@ namespace Game.Logic
         [MetaMember(86, (MetaMemberFlags)0)]
         [ExcludeFromGdprExport]
         private Dictionary<HotspotId, List<ValueTuple<int, int>>> visibleStackMiniGamePositions { get; set; }
-
-        [MetaMember(87, (MetaMemberFlags)0)]
-        [ExcludeFromGdprExport]
-        private HashSet<int> badgesInCells { get; set; }
-
-        [MetaMember(89, (MetaMemberFlags)0)]
-        [ExcludeFromGdprExport]
-        public HashSet<int> LetterRewardsClaimed { get; set; }
-
-        [MetaMember(90, (MetaMemberFlags)0)]
-        [ExcludeFromGdprExport]
-        public Dictionary<int, HashSet<int>> BadgeLetterProgress { get; set; }
-
-        [MetaMember(91, (MetaMemberFlags)0)]
-        [ExcludeFromGdprExport]
-        public HashSet<int> BadgeRewardsClaimed { get; set; }
-
-        [MetaMember(92, (MetaMemberFlags)0)]
-        public HashSet<int> PrisonerLettersFound { get; set; }
 
         [MetaMember(93, (MetaMemberFlags)0)]
         public PlayerReward LatestDailyAdReward { get; set; }

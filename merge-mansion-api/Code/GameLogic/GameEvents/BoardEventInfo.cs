@@ -144,6 +144,7 @@ namespace Code.GameLogic.GameEvents
         public List<PlayerReward> ExtensionRewards { get; set; }
         public EventId ActivableId { get; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public bool HasCustomCurrency { get; }
         public bool HasCustomBoard { get; }
         public bool HasInfoPopup { get; }

@@ -46,6 +46,7 @@ namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
         [MetaMember(11, (MetaMemberFlags)0)]
         private List<string> EventWhiteList { get; set; }
         public string DisplayShortInfo { get; }
+        public MetaActivableTimelineSettings Timeline { get; }
         public CardCollectionSupportingEventId ActivableId { get; }
         public string SharedEventId { get; }
 
@@ -66,6 +67,7 @@ namespace Code.GameLogic.GameEvents.CardCollectionSupportingEvent
         public CardCollectionSupportingEventInfo(CardCollectionSupportingEventId configKey, string displayName, string description, MetaActivableParams activableParams, string nameLocId, PlayerRequirement unlockRequirement, EventGroupId groupId, int priority, bool upgradeUnclaimedPacks, bool showEndPopup, List<string> eventWhiteList, EventCategoryInfo categoryInfo)
         {
         }
+
         public IEnumerable<PlayerRequirement> Requirements { get; }
     }
 }

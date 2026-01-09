@@ -122,11 +122,11 @@ namespace GameLogic.Config
         [GameConfigSyntaxAdapter(new string[] { "BoardId -> BoardId #key" }, new string[] { }, false)]
         public GameConfigLibrary<MergeBoardId, BoardInfo> Boards { get; set; }
 
-        [GameConfigEntry("BoardEvents", true, null)]
-        [GameConfigEntryTransform(typeof(BoardEventSource))]
-        [GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
-        [GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
-        public GameConfigLibrary<EventId, BoardEventInfo> BoardEvents { get; set; }
+        //[GameConfigEntry("BoardEvents", true, null)]
+        //[GameConfigEntryTransform(typeof(BoardEventSource))]
+        //[GameConfigSyntaxAdapter(new string[] { "EventId -> EventId #key" }, new string[] { }, false)]
+        //[GameConfigSyntaxAdapter(new string[] { "#StartDate -> Schedule.Start.Date", "#StartTime -> Schedule.Start.Time" }, new string[] { "# -> Schedule." }, false)]
+        //public GameConfigLibrary<EventId, BoardEventInfo> BoardEvents { get; set; }
 
         [GameConfigEntry("ShopEvents", true, null)]
         [GameConfigEntryTransform(typeof(ShopEventConfigSourceItem))]
@@ -983,10 +983,10 @@ namespace GameLogic.Config
         public IReadOnlyDictionary<int, CardCollectionPackId> CardPacksByItemId { get; set; }
         public IReadOnlyList<ConfigLookupValue<TemporaryCardCollectionEventInfo>> OrderedTemporaryCardCollectionEventInfos { get; set; }
 
-        [GameConfigEntry("TheGreatEscapeMinigames", true, null)]
-        [GameConfigEntryTransform(typeof(TheGreatEscapeMinigameInfoSource))]
-        [GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
-        public GameConfigLibrary<TheGreatEscapeMinigameId, TheGreatEscapeMinigameInfo> TheGreatEscapeMinigames { get; set; }
+        //[GameConfigEntry("TheGreatEscapeMinigames", true, null)]
+        //[GameConfigEntryTransform(typeof(TheGreatEscapeMinigameInfoSource))]
+        //[GameConfigSyntaxAdapter(new string[] { "ConfigKey -> ConfigKey #key" }, new string[] { }, false)]
+        //public GameConfigLibrary<TheGreatEscapeMinigameId, TheGreatEscapeMinigameInfo> TheGreatEscapeMinigames { get; set; }
         public IReadOnlyList<ConfigLookupValue<ItemDefinition>> PrisonBadgeItems { get; set; }
         public IReadOnlyList<ConfigLookupValue<ItemDefinition>> PrisonerLetterItems { get; set; }
         public IReadOnlyDictionary<MergeBoardId, List<CollectibleBoardEventId>> TheGreatEscapeEventBoards { get; set; }
